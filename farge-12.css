@@ -1,0 +1,225 @@
+/* Farge 12 · To-tone */
+:root {
+  /* Two-tone: maroon and cream, with their shades and tints, alternating
+     section by section down the page: cream hero, maroon steps, cream Min
+     side, maroon-deep finds, cream FAQ, maroon join. Orange appears once,
+     on the "Vi selger." prislapp. No mauve anywhere.
+     Helpers used below (not page roles):
+       --kraft   a cream shade, the colour of a paper price tag
+       --umber   the 44% maroon-to-cream blend, a mid tone for the skip ring
+     Contrast: maroon on cream 11.6, on cream-soft 8.9, on paper 13.9,
+     on kraft 7.2; maroon-deep on cream 15.3; cream on maroon 11.6,
+     on maroon-deep 15.3; cream-soft on maroon 8.9; #7A3A2E on cream 7.3,
+     on cream-soft 5.6, on paper 8.4; maroon-deep on orange 5.3. */
+  --kraft: #D8B79C;
+  --umber: #9F7668;
+
+  /* Page: cream ground, maroon text */
+  --page-bg: var(--cream);
+  --page-text: var(--maroon);
+  --page-muted: #7A3A2E;
+  --page-line: rgba(86, 26, 18, 0.22);
+  --page-surface: var(--cream);
+  --page-card: var(--paper);
+  /* Only the skip link still reads --page-focus (every cream section points
+     its own focus role at maroon below). When focused it sits across the
+     maroon announcement bar and the cream header, so its ring is the
+     maroon/cream mid tone: 3.4:1 on maroon and 3.4:1 on cream. */
+  --page-focus: var(--umber);
+  --focus-on-dark: var(--cream);
+  --focus-on-light: var(--maroon-deep);
+
+  /* Controls: maroon pills with cream text, paper fields with maroon rims */
+  --cta-bg: var(--maroon);
+  --cta-text: var(--cream);
+  --btn-bg: var(--maroon);
+  --btn-text: var(--cream);
+  --field-bg: var(--paper);
+  --field-text: var(--maroon);
+  --field-border: var(--maroon);
+  --field-placeholder: #7A3A2E;
+  --field-invalid: var(--maroon-deep);       /* thickens the maroon rim; 15.3:1 on the cream card */
+
+  /* Tag shapes */
+  --tag-shadow: var(--maroon);
+  --tag-stroke: var(--maroon);
+
+  /* Announcement bar: maroon, cream pill */
+  --announce-bg: var(--maroon);
+  --announce-text: var(--cream);
+  --announce-accent: var(--cream);           /* bold + underline carry the link */
+  --announce-focus: var(--focus-on-dark);
+  --pill-bg: var(--cream);
+  --pill-text: var(--maroon);
+
+  /* Header: cream */
+  --header-bg: var(--page-bg);
+  --header-text: var(--page-text);
+  --header-line: var(--page-line);
+  --header-focus: var(--page-text);
+  --logo-bg: var(--maroon);
+  --logo-fg: var(--cream);
+
+  /* Hero: cream; the prislapp is the page's only orange */
+  --hero-bg: var(--page-bg);
+  --hero-text: var(--page-text);
+  --hero-muted: var(--page-muted);
+  --hero-focus: var(--page-text);
+  --hero-tick-bg: var(--maroon);
+  --hero-tick-fg: var(--cream);
+  --highlight-bg: var(--orange);
+  --highlight-text: var(--maroon-deep);      /* 5.3:1 */
+  --highlight-shadow: var(--maroon);
+  --highlight-string: var(--maroon);
+
+  /* Brand board: a checkerboard. A cream block would vanish into the cream
+     hero, so the light diagonal is cream-soft (top right) and kraft
+     (bottom left); the dark diagonal is maroon (top left) and maroon-deep
+     (bottom right). The cream ring around the badge separates it from the
+     maroon block it overlaps. */
+  --board-1-bg: var(--maroon);
+  --board-1-fg: var(--cream);
+  --board-1-link: var(--cream);
+  --board-1-focus: var(--focus-on-dark);
+  --board-2-bg: var(--cream-soft);
+  --board-2-fg: var(--maroon-deep);
+  --board-2-word: var(--maroon);
+  --board-3-bg: var(--kraft);
+  --board-3-fg: var(--maroon-deep);          /* 9.5:1, covers the small vertical label */
+  --board-4-bg: var(--maroon-deep);
+  --board-4-fg: var(--cream);
+  --board-badge-bg: var(--maroon);
+  --board-badge-fg: var(--cream);
+  --board-ring: var(--hero-bg);
+
+  /* Shortcut band: cream-soft strip, cream cards, maroon arrows */
+  --band-bg: var(--cream-soft);
+  --band-card-bg: var(--cream);
+  --band-text: var(--maroon);
+  --band-muted: #7A3A2E;
+  --band-line: rgba(86, 26, 18, 0.28);
+  --band-arrow-bg: var(--maroon);
+  --band-arrow-fg: var(--cream);
+  --band-focus: var(--maroon);               /* 8.9:1 on cream-soft */
+
+  /* Steps: maroon; light tag faces on maroon-deep shadows, maroon numbers */
+  --steps-bg: var(--maroon);
+  --steps-text: var(--cream);                /* 11.6:1 */
+  --steps-muted: var(--cream-soft);          /* 8.9:1 */
+  --step-badge-1: var(--cream-soft);
+  --step-badge-2: var(--paper);
+  --step-badge-3: var(--kraft);
+  --step-badge-shadow: var(--maroon-deep);
+  --step-badge-stroke: var(--maroon-deep);
+  --step-num: var(--maroon);
+  --steps-note-bg: var(--cream);
+  --steps-note-text: var(--maroon);
+
+  /* Min side: cream; maroon pill and ticks */
+  --minside-bg: var(--cream);
+  --minside-text: var(--maroon);
+  --minside-muted: #7A3A2E;                  /* 7.3:1 */
+  --minside-accent: #7A3A2E;
+  --minside-focus: var(--maroon);
+  --minside-tick-bg: var(--maroon);
+  --minside-tick-fg: var(--cream);
+  --minside-cta-bg: var(--cta-bg);
+  --minside-cta-text: var(--cta-text);
+
+  /* Mock window: paper window on a maroon-deep block shadow */
+  --mock-bg: var(--paper);
+  --mock-text: var(--maroon);
+  --mock-line: var(--mock-text);
+  --mock-rule: rgba(86, 26, 18, 0.35);
+  --mock-shadow: var(--maroon-deep);
+  --mock-logo-bg: var(--maroon);
+  --mock-logo-fg: var(--cream);
+  --mock-flag-bg: var(--maroon);
+  --mock-flag-text: var(--cream);
+  --mock-stat-bg: var(--cream-soft);
+  --mock-sold-bg: var(--maroon);
+  --mock-sold-text: var(--cream);
+  --mock-btn-bg: var(--maroon);
+  --mock-btn-text: var(--cream);
+  --toast-bg: var(--maroon-deep);
+  --toast-text: var(--cream);
+  --toast-tick-bg: var(--cream);
+  --toast-tick-fg: var(--maroon-deep);
+
+  /* SOLGT prislapp: a kraft tag, maroon-deep print, maroon stamp */
+  --plapp-bg: var(--kraft);
+  --plapp-text: var(--maroon-deep);
+  --plapp-shadow: var(--maroon-deep);
+  --plapp-rule: rgba(46, 13, 8, 0.4);
+  --plapp-barcode: var(--plapp-text);
+  --plapp-stamp: var(--maroon);              /* 7.2:1 on kraft */
+
+  /* Finds: maroon-deep section, paper-coloured price tags */
+  --finds-bg: var(--maroon-deep);
+  --finds-text: var(--cream);
+  --finds-heading: var(--cream);
+  --finds-eyebrow: var(--cream-soft);
+  --finds-focus: var(--cream);
+  --chip-shadow: var(--maroon);
+  --chip-a-bg: var(--cream);
+  --chip-a-fg: var(--maroon);
+  --chip-b-bg: var(--kraft);
+  --chip-b-fg: var(--maroon-deep);
+  --chip-c-bg: var(--cream-soft);
+  --chip-c-fg: var(--maroon);
+
+  /* FAQ: cream, maroon rules, maroon plus discs */
+  --faq-bg: var(--page-surface);
+  --faq-text: var(--page-text);
+  --faq-muted: var(--page-muted);
+  --faq-rule: var(--faq-text);
+  --faq-focus: var(--page-text);
+  --faq-plus-bg: var(--maroon);
+  --faq-plus-fg: var(--cream);
+
+  /* Join: maroon section */
+  --join-bg: var(--maroon);
+  --join-text: var(--cream);
+  --join-heading: var(--cream);
+  --join-focus: var(--focus-on-dark);
+  --join-tick-bg: var(--cream);
+  --join-tick-fg: var(--maroon);
+
+  /* Form card: cream tag on a maroon-deep shadow, paper fields */
+  --form-string: var(--cream);
+  --form-card-shadow: var(--maroon-deep);
+  --form-card-bg: var(--cream);
+  --form-card-text: var(--maroon);
+  --form-card-muted: #7A3A2E;
+  --form-card-focus: var(--maroon);
+  --option-line: var(--maroon);
+  --option-on-bg: var(--maroon);
+  --option-on-text: var(--cream);
+  --option-on-dot: var(--cream);
+  --error-badge-bg: var(--maroon);
+  --error-badge-text: var(--cream);
+  --status-bg: var(--cream-soft);
+  --status-line: var(--umber);               /* calm rim for sending/ok, 3.4:1 on the card */
+  --status-error-line: var(--maroon-deep);   /* the error box gets the heavy dark rim */
+  --reserve-bg: var(--cream-soft);
+  --reserve-text: var(--maroon);
+
+  /* Trio: cream strip between the maroon join and the maroon-deep footer */
+  --trio-bg: var(--page-bg);
+  --trio-text: var(--page-text);
+  --trio-muted: var(--page-muted);
+  --trio-icon-1: var(--cream-soft);
+  --trio-icon-2: var(--paper);
+  --trio-icon-3: var(--kraft);
+  --trio-icon-shadow: var(--tag-shadow);
+  --trio-icon-stroke: var(--tag-stroke);
+
+  /* Footer: maroon-deep */
+  --foot-bg: var(--maroon-deep);
+  --foot-text: var(--cream);
+  --foot-muted: var(--cream-soft);
+  --foot-link: var(--cream);
+  --foot-focus: var(--focus-on-dark);
+  --foot-logo-bg: transparent;
+  --foot-logo-fg: var(--cream-soft);
+}
