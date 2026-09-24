@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Loppely fargeprøver</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
   * { box-sizing: border-box; }
   body { margin: 0; height: 100vh; height: 100dvh; display: flex; flex-direction: column; background: #2b0c07; color: #FDEBD5; font: 13px/1.3 system-ui, sans-serif; }
@@ -18,9 +19,14 @@
   .nr { opacity: .7; font-variant-numeric: tabular-nums; }
   main { flex: 1; min-height: 0; display: flex; }
   iframe { border: 0; background: #fff; width: 100%; height: 100%; }
+  .valgt { display: none; }
   @media (max-width: 700px) {
-    nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-    nav::-webkit-scrollbar { display: none; }
+    nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px; padding: 6px; }
+    nav button { flex-direction: column; justify-content: center; gap: 3px; padding: 6px 2px; border-radius: 14px; }
+    nav button .navn { display: none; }
+    .dots i { width: 10px; height: 10px; }
+    .dots i:first-child { width: 12px; height: 12px; }
+    .valgt { display: block; grid-column: 1 / -1; margin: 1px 0 0; text-align: center; font-weight: 600; letter-spacing: .02em; }
   }
 </style>
 <nav aria-label="Fargeversjoner"></nav>
@@ -53,11 +59,19 @@
     const nr = document.createElement('span');
     nr.className = 'nr';
     nr.textContent = v.n;
-    b.append(dots, nr, ' ' + v.navn);
+    const navn = document.createElement('span');
+    navn.className = 'navn';
+    navn.textContent = v.navn;
+    b.append(dots, nr, navn);
+    b.setAttribute('aria-label', v.n + ' ' + v.navn);
     b.onclick = () => pick(v.n);
     nav.appendChild(b);
     return b;
   });
+  const valgt = document.createElement('p');
+  valgt.className = 'valgt';
+  valgt.setAttribute('aria-live', 'polite');
+  nav.appendChild(valgt);
   const css = {};
   let html = null;
   const fromHash = +location.hash.slice(1);
@@ -83,8 +97,8 @@
     current = n;
     history.replaceState(null, '', '#' + n);
     tabs.forEach(b => b.setAttribute('aria-pressed', +b.dataset.n === n));
-    const active = tabs[n - 1];
-    if (active && active.scrollIntoView) active.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    const v = VERSJONER.find(x => x.n === n);
+    valgt.textContent = v ? v.n + ' · ' + v.navn : '';
     render();
   }
   addEventListener('keydown', e => {

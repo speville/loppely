@@ -1,7 +1,7 @@
 /* Farge 6 · Krem og mauve */
 :root {
-  /* Quiet cream ground where mauve carries the sections: a mauve bar, band
-     and Min side, a pale-mauve finds strip, and maroon only for the join
+  /* Quiet cream ground where mauve carries the sections: a mauve band and
+     Min side, a pale-mauve finds strip, and maroon for the bar, the join
      and the footer. Orange appears only on the "Meld interesse" buttons and
      the Snart pill; everything that was orange elsewhere (ticks, arrows,
      plus discs, chip dots, error badges, shadows, the SOLGT stamp) moves to
@@ -19,8 +19,10 @@
   --page-surface: var(--cream);
   --page-card: var(--paper);
   /* Only the skip link still reads this role. When focused it straddles the
-     mauve announce bar and the cream header: maroon-deep is 5.3:1 / 16:1. */
-  --page-focus: var(--maroon-deep);
+     maroon announce bar, the cream header and the maroon header logo, so
+     its ring is a mauve shade (13% maroon into mauve) halfway between:
+     3.4:1 on maroon and 3.4:1 on cream. */
+  --page-focus: #AA6E88;
   --focus-on-dark: #DABDCC;                  /* mauve 50% tint, 7.8:1 on maroon */
   --focus-on-light: var(--maroon-deep);
 
@@ -39,11 +41,11 @@
   --tag-shadow: var(--maroon);
   --tag-stroke: var(--maroon);
 
-  /* Announcement bar: mauve, maroon-deep text, orange Snart pill */
-  --announce-bg: var(--mauve);
-  --announce-text: var(--maroon-deep);       /* 5.3:1 */
-  --announce-accent: var(--maroon-deep);     /* link: bold + underline carry it */
-  --announce-focus: var(--focus-on-light);
+  /* Announcement bar: maroon, cream text, mauve-tint link, orange Snart pill */
+  --announce-bg: var(--maroon);
+  --announce-text: var(--cream);             /* 11.6:1 */
+  --announce-accent: #DABDCC;                /* 7.8:1 */
+  --announce-focus: var(--focus-on-dark);
   --pill-bg: var(--orange);
   --pill-text: var(--maroon-deep);
 

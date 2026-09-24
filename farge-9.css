@@ -16,9 +16,10 @@
   --page-surface: var(--cream);
   --page-card: var(--paper);
   /* The root focus slot also reaches the skip link, whose ring lands on the
-     cream announcement bar and runs down into the mauve header:
-     maroon-deep is 15.3:1 on cream and 5.3:1 on mauve. */
-  --page-focus: var(--maroon-deep);
+     maroon-deep announcement bar and runs down into the mauve header and
+     over the maroon header logo: paper is 17.6:1 on maroon-deep, 3.3:1 on
+     mauve and 13.3:1 on maroon. */
+  --page-focus: var(--paper);
   --focus-on-dark: #DABDCC;                  /* 7.8:1 on maroon, 10.3:1 on maroon-deep */
   --focus-on-light: var(--maroon-deep);
 
@@ -37,11 +38,11 @@
   --tag-shadow: var(--maroon);
   --tag-stroke: var(--maroon);
 
-  /* Announcement bar: cream, maroon text, mauve pill */
-  --announce-bg: var(--cream);
-  --announce-text: var(--maroon);            /* 11.6:1 */
-  --announce-accent: var(--maroon-deep);
-  --announce-focus: var(--focus-on-light);
+  /* Announcement bar: maroon-deep like the footer, cream text, mauve pill */
+  --announce-bg: var(--maroon-deep);
+  --announce-text: var(--cream);             /* 15.3:1 */
+  --announce-accent: #DABDCC;                /* 10.3:1 */
+  --announce-focus: var(--focus-on-dark);
   --pill-bg: var(--mauve);
   --pill-text: var(--maroon-deep);
 

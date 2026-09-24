@@ -2,15 +2,16 @@
 :root {
   /* Two-tone: maroon and cream, with their shades and tints, alternating
      section by section down the page: cream hero, maroon steps, cream Min
-     side, maroon-deep finds, cream FAQ, maroon join. Orange appears once,
-     on the "Vi selger." prislapp. No mauve anywhere.
+     side, maroon-deep finds, cream FAQ, maroon join. No orange and no
+     mauve anywhere: even the "Vi selger." prislapp is a kraft paper tag.
      Helpers used below (not page roles):
        --kraft   a cream shade, the colour of a paper price tag
        --umber   the 44% maroon-to-cream blend, a mid tone for the skip ring
      Contrast: maroon on cream 11.6, on cream-soft 8.9, on paper 13.9,
      on kraft 7.2; maroon-deep on cream 15.3; cream on maroon 11.6,
      on maroon-deep 15.3; cream-soft on maroon 8.9; #7A3A2E on cream 7.3,
-     on cream-soft 5.6, on paper 8.4; maroon-deep on orange 5.3. */
+     on cream-soft 5.6, on paper 8.4; maroon-deep on kraft 9.5; umber on
+     cream 3.4, on maroon 3.4, against maroon-deep 4.5. */
   --kraft: #D8B79C;
   --umber: #9F7668;
 
@@ -60,15 +61,15 @@
   --logo-bg: var(--maroon);
   --logo-fg: var(--cream);
 
-  /* Hero: cream; the prislapp is the page's only orange */
+  /* Hero: cream; the prislapp is a kraft tag on a maroon shadow */
   --hero-bg: var(--page-bg);
   --hero-text: var(--page-text);
   --hero-muted: var(--page-muted);
   --hero-focus: var(--page-text);
   --hero-tick-bg: var(--maroon);
   --hero-tick-fg: var(--cream);
-  --highlight-bg: var(--orange);
-  --highlight-text: var(--maroon-deep);      /* 5.3:1 */
+  --highlight-bg: var(--kraft);
+  --highlight-text: var(--maroon-deep);      /* 9.5:1 */
   --highlight-shadow: var(--maroon);
   --highlight-string: var(--maroon);
 
@@ -191,7 +192,7 @@
   --form-card-bg: var(--cream);
   --form-card-text: var(--maroon);
   --form-card-muted: #7A3A2E;
-  --form-card-focus: var(--maroon);
+  --form-card-focus: var(--umber);           /* 3.4:1 on the card, 4.5:1 against the maroon-deep invalid halo (a maroon ring was 1.3:1 there) */
   --option-line: var(--maroon);
   --option-on-bg: var(--maroon);
   --option-on-text: var(--cream);

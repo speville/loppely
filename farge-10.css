@@ -1,9 +1,10 @@
 /* Farge 10 · Fersken */
 :root {
   /* Peach ground (#FBD0B0: 40% orange-soft into cream, nudged warm) with
-     maroon-deep text. Maroon carries the prislapp, the pills, the bar, the
-     join and the footer; Min side goes mauve and the finds orange, so the
-     page runs peach, mauve, orange, peach, maroon.
+     maroon-deep text, kept in the warm half of the palette: an orange-soft
+     band, a maroon-deep Min side, an orange finds strip and a maroon-deep
+     join, with maroon on the prislapp, the pills, the bar and the footer.
+     No mauve section and no cream section.
      Contrast: maroon-deep on peach 12.3, maroon on peach 9.3; cream on
      maroon 11.6, on maroon-deep 15.1; peach on maroon 9.3; maroon-deep on
      orange 5.3, on mauve 5.4; orange-soft on maroon-deep 8.6, on maroon 6.5. */
@@ -86,15 +87,15 @@
   --board-badge-fg: var(--peach);
   --board-ring: var(--hero-bg);
 
-  /* Shortcut band: cream strip, paper cards, orange arrows */
-  --band-bg: var(--cream);
+  /* Shortcut band: orange-soft strip, paper cards, orange arrows */
+  --band-bg: var(--orange-soft);
   --band-card-bg: var(--paper);
   --band-text: var(--maroon-deep);
   --band-muted: var(--maroon);
   --band-line: rgba(86, 26, 18, 0.24);
   --band-arrow-bg: var(--orange);
   --band-arrow-fg: var(--maroon-deep);
-  --band-focus: var(--focus-on-light);
+  --band-focus: var(--focus-on-light);       /* maroon-deep, 8.6:1 on orange-soft */
 
   /* Steps: peach; faces avoid the peach, notes are small maroon tags */
   --steps-bg: var(--page-bg);
@@ -109,23 +110,23 @@
   --steps-note-bg: var(--maroon);
   --steps-note-text: var(--cream);
 
-  /* Min side: mauve, maroon-deep text (5.4:1), maroon pill and ticks */
-  --minside-bg: var(--mauve);
-  --minside-text: var(--maroon-deep);
-  --minside-muted: var(--maroon-deep);
-  --minside-accent: var(--maroon-deep);
-  --minside-focus: var(--focus-on-light);
-  --minside-tick-bg: var(--maroon);
-  --minside-tick-fg: var(--peach);           /* 9.3:1 */
-  --minside-cta-bg: var(--cta-bg);           /* maroon pill, cream text */
-  --minside-cta-text: var(--cta-text);
+  /* Min side: maroon-deep; its CTA turns peach so it shows */
+  --minside-bg: var(--maroon-deep);
+  --minside-text: var(--cream);              /* 15.1:1 */
+  --minside-muted: var(--cream-soft);        /* 11.5:1 */
+  --minside-accent: var(--orange-soft);      /* 8.6:1 */
+  --minside-focus: var(--focus-on-dark);
+  --minside-tick-bg: var(--peach);
+  --minside-tick-fg: var(--maroon-deep);
+  --minside-cta-bg: var(--peach);
+  --minside-cta-text: var(--maroon-deep);
 
-  /* Mock window: cream, maroon-deep block shadow on the mauve */
+  /* Mock window: cream, peach block shadow */
   --mock-bg: var(--cream);
   --mock-text: var(--maroon);
   --mock-line: var(--mock-text);
   --mock-rule: rgba(86, 26, 18, 0.35);
-  --mock-shadow: var(--maroon-deep);
+  --mock-shadow: var(--peach);
   --mock-logo-bg: var(--maroon);
   --mock-logo-fg: var(--cream);
   --mock-flag-bg: var(--mauve);
@@ -171,15 +172,15 @@
   --faq-plus-bg: var(--maroon);
   --faq-plus-fg: var(--cream);
 
-  /* Join: maroon section, cream text, peach heading */
-  --join-bg: var(--maroon);
-  --join-text: var(--cream);                 /* 11.6:1 */
-  --join-heading: var(--peach);              /* 9.3:1 */
-  --join-focus: var(--focus-on-dark);        /* orange-soft, 6.5:1 */
+  /* Join: maroon-deep section, cream text, peach heading */
+  --join-bg: var(--maroon-deep);
+  --join-text: var(--cream);                 /* 15.3:1 */
+  --join-heading: var(--peach);              /* 12.5:1 */
+  --join-focus: var(--focus-on-dark);        /* orange-soft, 8.6:1 */
   --join-tick-bg: var(--peach);
   --join-tick-fg: var(--maroon-deep);
 
-  /* Form card: cream tag, orange shadow on the maroon, paper fields and boxes */
+  /* Form card: cream tag, orange shadow on the maroon-deep, paper fields and boxes */
   --form-string: var(--peach);
   --form-card-shadow: var(--orange);
   --form-card-bg: var(--cream);
@@ -198,7 +199,7 @@
   --reserve-bg: var(--paper);
   --reserve-text: var(--maroon);
 
-  /* Trio: peach strip between the maroon join and the maroon footer */
+  /* Trio: peach strip between the maroon-deep join and the maroon footer */
   --trio-bg: var(--page-bg);
   --trio-text: var(--page-text);
   --trio-muted: var(--page-muted);
