@@ -33,18 +33,18 @@
 <main><iframe id="view" title="Loppely"></iframe></main>
 <script>
   const VERSJONER = [
-    { n: 1, navn: 'Krem', dots: ['#FDEBD5', '#E0693A', '#561A12'] },
-    { n: 2, navn: 'Oransje', dots: ['#E0693A', '#FDEBD5', '#561A12'] },
-    { n: 3, navn: 'Maroon', dots: ['#561A12', '#E0693A', '#FDEBD5'] },
-    { n: 4, navn: 'Mauve', dots: ['#B67B9A', '#E0693A', '#FDEBD5'] },
-    { n: 5, navn: 'Papir', dots: ['#FFFDF9', '#B67B9A', '#E0693A'] },
-    { n: 6, navn: 'Krem og mauve', dots: ['#FDEBD5', '#B67B9A', '#561A12'] },
-    { n: 7, navn: 'Natt', dots: ['#2E0D08', '#E0693A', '#B67B9A'] },
-    { n: 8, navn: 'Oransje og mauve', dots: ['#E0693A', '#B67B9A', '#2E0D08'] },
-    { n: 9, navn: 'Mauve og krem', dots: ['#B67B9A', '#FDEBD5', '#561A12'] },
-    { n: 10, navn: 'Fersken', dots: ['#FBD0B0', '#561A12', '#B67B9A'] },
-    { n: 11, navn: 'Brettet', dots: ['#FDEBD5', '#E0693A', '#B67B9A'] },
-    { n: 12, navn: 'To-tone', dots: ['#FDEBD5', '#561A12', '#2E0D08'] }
+    { n: 1, navn: 'Krem', dots: ['#FDEBD5', '#E0693A', '#561A12'], om: 'Kremgrunn med maroon, mauve og oransje felt.' },
+    { n: 2, navn: 'Oransje', dots: ['#E0693A', '#FDEBD5', '#561A12'], om: 'Kraftig oransje side med maroon og krem.' },
+    { n: 3, navn: 'Maroon', dots: ['#561A12', '#E0693A', '#FDEBD5'], om: 'Mørk maroon side med krem og oransje.' },
+    { n: 4, navn: 'Mauve', dots: ['#B67B9A', '#E0693A', '#FDEBD5'], om: 'Mauve grunn med maroon, krem og oransje.' },
+    { n: 5, navn: 'Papir', dots: ['#FFFDF9', '#B67B9A', '#E0693A'], om: 'Hvit butikkside brutt opp av fargeblokker.' },
+    { n: 6, navn: 'Krem og mauve', dots: ['#FDEBD5', '#B67B9A', '#561A12'], om: 'Rolig krem side der mauve bærer seksjonene.' },
+    { n: 7, navn: 'Natt', dots: ['#2E0D08', '#E0693A', '#B67B9A'], om: 'Nesten svart, dramatisk og med høy kontrast.' },
+    { n: 8, navn: 'Oransje og mauve', dots: ['#E0693A', '#B67B9A', '#561A12'], om: 'Oransje og mauve i vekslende, motepregede felt.' },
+    { n: 9, navn: 'Mauve og krem', dots: ['#B67B9A', '#FDEBD5', '#561A12'], om: 'Mauve grunn med store kremfelt og maroon.' },
+    { n: 10, navn: 'Fersken', dots: ['#FBD0B0', '#561A12', '#2E0D08'], om: 'Varm fersken med oransje og dype mørke felt.' },
+    { n: 11, navn: 'Brettet', dots: ['#FDEBD5', '#E0693A', '#B67B9A'], om: 'Flate fargeplater fra fargekartet, stablet nedover.' },
+    { n: 12, navn: 'To-tone', dots: ['#FDEBD5', '#D8B79C', '#561A12'], om: 'Bare maroon og krem, felt for felt.' }
   ];
   const nav = document.querySelector('nav');
   const frame = document.getElementById('view');
@@ -64,6 +64,7 @@
     navn.textContent = v.navn;
     b.append(dots, nr, navn);
     b.setAttribute('aria-label', v.n + ' ' + v.navn);
+    b.title = v.om;
     b.onclick = () => pick(v.n);
     nav.appendChild(b);
     return b;

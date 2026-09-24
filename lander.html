@@ -425,6 +425,7 @@ a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 0.2em
   font-weight: 700; text-decoration: none;
 }
 .skip:focus { top: 12px; }
+.skip:focus-visible { outline: 3px solid var(--btn-text); outline-offset: -7px; box-shadow: 0 0 0 4px var(--page-bg); }
 .wrap { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: var(--gutter); }
 .sec { padding-block: var(--sec-pad); }
 section[id] { scroll-margin-top: 16px; }
@@ -1145,10 +1146,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   --logo-ink: var(--foot-text); --logo-paper: var(--foot-bg);
 }
 .foot-meta {
-  list-style: none; padding: 0;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px;
+  list-style: none; padding: 20px 8px 0;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 0;
   font-size: var(--fs-sm); color: var(--foot-muted);
+  border-top: 1px solid var(--foot-muted);
 }
+.foot-meta li + li::before { content: "·"; margin-inline: 12px; }
 .foot-meta a { color: var(--foot-link); }
 
 /* ---------- Motion preference ---------- */
