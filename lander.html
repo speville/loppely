@@ -1073,7 +1073,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .field-set legend { font-weight: 700; font-size: 1rem; line-height: 1.3; }
 .opt { font-weight: 500; font-size: var(--fs-sm); color: var(--form-card-muted); margin-left: 0.4em; }
 .hint { font-size: var(--fs-sm); color: var(--form-card-muted); line-height: 1.4; }
-.err { display: flex; align-items: center; gap: 8px; font-size: var(--fs-sm); font-weight: 700; line-height: 1.35; }
+.err { display: flex; align-items: flex-start; gap: 8px; font-size: var(--fs-sm); font-weight: 700; line-height: 1.35; }
 .err::before {
   content: "!"; flex: none; display: inline-grid; place-items: center;
   width: 20px; height: 20px; border-radius: 50%;
@@ -1109,16 +1109,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .status-msg[data-state="feil"] { border-color: var(--status-error-line); }
 .status-msg:empty { padding: 0; border: 0; background: none; }
-.reserve { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; font-size: var(--fs-sm); }
-.reserve-text {
-  width: 100%; margin: 0;
-  font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.5;
-  white-space: pre-wrap; overflow-wrap: anywhere;
-  background: var(--reserve-bg); color: var(--reserve-text);
-  padding: 12px 14px; border-radius: 14px;
-  max-height: 240px; overflow: auto;
-}
-.copy-note { font-weight: 700; }
+.status-msg a { color: inherit; font-weight: 700; }
+.btn[aria-disabled="true"] { opacity: 0.85; cursor: progress; }
+@media (min-width: 760px) { html { scroll-padding-top: calc(var(--head-h) + 16px); } }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ---------- Trio ---------- */
 .trio-sec { padding-block: clamp(40px, 5vw, 64px); background: var(--trio-bg); color: var(--trio-text); }
@@ -1195,7 +1189,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   <div class="announce">
     <div class="wrap announce-in">
       <span class="pill-mini">Snart</span>
-      <p>Loppely åpner snart. Vi ser etter de første selgerne.</p>
+      <p>Loppely åpner i Lyngdal. Vi ser etter de første selgerne.</p>
       <a href="#meld-interesse">Meld interesse <span aria-hidden="true">→</span></a>
     </div>
   </div>
@@ -1225,10 +1219,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <span class="h1-line">Du rydder.</span>
             <span class="tag-wrap"><span class="tag-shadow"><span class="tag-hl">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span>
           </h1>
-          <p class="lede">Loppely er et nytt loppesupermarked. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
+          <p class="lede">Loppely blir et nytt loppesupermarked i Lyngdal. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
           <form class="quick" id="hurtigskjema" novalidate>
             <label class="sr-only" for="hurtig-epost">E-postadressen din</label>
-            <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="din@e-post.no" aria-describedby="hurtig-note">
+            <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="navn@eksempel.no" aria-describedby="hurtig-note">
             <button class="btn btn-dark" type="submit">Meld interesse</button>
           </form>
           <p class="quick-note" id="hurtig-note">Resten fyller du ut lenger ned.</p>
@@ -1248,7 +1242,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <div class="blk blk-2">
             <p class="b-eyebrow">Et loppesupermarked</p>
             <p class="b-word">Loppely</p>
-            <p class="b-eyebrow">Åpner snart</p>
+            <p class="b-eyebrow">Snart i Lyngdal</p>
           </div>
           <div class="blk blk-3">
             <p class="b-vert" aria-hidden="true">loppely.no</p>
@@ -1288,7 +1282,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </li>
           <li>
             <a class="sc-card" href="#meld-interesse">
-              <span><span class="sc-title">Pris og åpning</span><span class="sc-desc">Ikke bestemt ennå. De på interesselista får vite det først.</span></span>
+              <span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Ikke bestemt ennå. De på interesselista får vite det først.</span></span>
               <span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
             </a>
           </li>
@@ -1429,7 +1423,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <div class="faq-intro">
           <p class="eyebrow">Før du melder deg på</p>
           <h2 id="faq-title">Spørsmål og svar.</h2>
-          <p>Det vi vet, svarer vi på. Det som ikke er bestemt, sier vi fra om.</p>
+          <p>Det vi vet, svarer vi på. Det som ikke er bestemt ennå, sier vi rett ut.</p>
           <p>Fant du ikke svaret? Skriv til <a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a>.</p>
         </div>
         <div class="faq-list">
@@ -1469,7 +1463,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Hva kan jeg selge?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Brukte ting som andre kan ha glede av. Typisk er klær, barneting, bøker, spill, kjøkkenutstyr, sportsutstyr, møbler og interiør. Om det blir noe vi ikke tar imot, sier vi fra før vi åpner.</p></div>
+            <div class="faq-a"><p>Brukte ting som andre kan ha glede av. Typisk er det klær, barneting, bøker, spill, kjøkkenutstyr, sportsutstyr, møbler og interiør. Hvis det er noe vi ikke tar imot, sier vi fra før vi åpner.</p></div>
           </details>
           <details>
             <summary>Hva koster en stand?<span class="plus" aria-hidden="true"></span></summary>
@@ -1477,7 +1471,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Når og hvor åpner dere?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Det er ikke bestemt ennå. Når vi vet det, sier vi fra til alle på interesselista først. Skriv hvor du bor når du melder interesse. Det hjelper oss å velge sted.</p></div>
+            <div class="faq-a"><p>Vi åpner i Lyngdal. Adressen og datoen er ikke klare ennå. Når de er det, sier vi fra til alle på interesselista først.</p></div>
           </details>
         </div>
       </div>
@@ -1489,10 +1483,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <div class="join-copy">
           <p class="eyebrow">Interesseliste for selgere</p>
           <h2 id="join-title">Bli en av de første selgerne.</h2>
-          <p class="lede">Prisene og åpningsdatoen kommer snart. De som står på lista, hører det først.</p>
+          <p class="lede">Prisene, adressen og åpningsdatoen kommer snart. De som står på interesselista, hører det først.</p>
           <ul class="join-list" role="list">
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Hvor du bor, hjelper oss å velge hvor vi åpner.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Hva du vil selge, forteller oss hvilke stander vi trenger.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Når vi vet hva du vil selge, vet vi bedre hvilke stander vi trenger.</li>
             <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Å melde interesse er ikke en bestilling.</li>
           </ul>
         </div>
@@ -1500,7 +1493,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <div class="form-hang">
           <div class="form-shadow">
             <form class="form-card" id="selgerskjema" novalidate aria-labelledby="join-title">
-              <p class="form-top">Navn, e-post og hvor du bor må være med.</p>
+              <p class="form-top">Du må fylle ut navn og e-post. Resten er valgfritt.</p>
               <div class="field">
                 <label for="navn">Navn</label>
                 <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
@@ -1512,13 +1505,16 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <p class="err" id="epost-feil" hidden></p>
               </div>
               <div class="field">
-                <label for="poststed">Hvor bor du?</label>
-                <p class="hint" id="poststed-hint">Poststed holder. Det hjelper oss å velge hvor vi åpner.</p>
-                <input class="input" id="poststed" name="poststed" type="text" autocomplete="address-level2" required placeholder="Poststed" aria-describedby="poststed-hint poststed-feil">
-                <p class="err" id="poststed-feil" hidden></p>
+                <label for="telefon">Telefon <span class="opt">Valgfritt</span></label>
+                <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="telefon-feil">
+                <p class="err" id="telefon-feil" hidden></p>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="hp-felt">La dette feltet stå tomt</label>
+                <input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off">
               </div>
               <fieldset class="field-set" aria-describedby="kat-hint">
-                <legend>Hva vil du selge?<span class="opt">Valgfritt</span></legend>
+                <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
                 <p class="hint" id="kat-hint">Velg så mange du vil.</p>
                 <div class="chips">
                   <input class="chip-input sr-only" type="checkbox" id="kat-klaer" name="kategori" value="Klær">
@@ -1538,20 +1534,14 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 </div>
               </fieldset>
               <div class="field">
-                <label for="mer">Noe mer vi bør vite?<span class="opt">Valgfritt</span></label>
+                <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
                 <textarea class="input" id="mer" name="mer" rows="3" placeholder="For eksempel: en hel bod etter flytting"></textarea>
               </div>
               <div class="submit-row">
-                <button class="btn btn-dark btn-lg" type="submit">Meld interesse</button>
-                <p class="form-note">Når du trykker, åpnes e-postappen din med meldingen ferdig skrevet til <span data-epost>hei@loppely.no</span>. Du sender den selv.</p>
+                <button class="btn btn-dark btn-lg" type="submit" id="send-knapp">Meld interesse</button>
+                <p class="form-note">Påmeldingen sendes til oss på e-post. Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
               </div>
               <p class="status-msg" id="status-tekst" role="status" aria-live="polite"></p>
-              <div class="reserve" id="reserve" hidden>
-                <p>Åpnet ikke e-postappen seg? Kopier meldingen under og send den til <strong data-epost>hei@loppely.no</strong>.</p>
-                <pre class="reserve-text" id="reserve-melding"></pre>
-                <button class="btn btn-outline btn-sm" type="button" id="kopier-melding">Kopier meldingen</button>
-                <span class="copy-note" id="kopier-status" aria-live="polite"></span>
-              </div>
             </form>
           </div>
           <svg class="form-string" viewBox="0 0 40 82" aria-hidden="true" focusable="false"><path d="M20 80 C 22 54, 6 30, 16 2"></path></svg>
@@ -1580,8 +1570,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <li>
             <svg class="trio-ico face-3" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use></svg>
             <div>
-              <p class="trio-title">De på lista hører det først</p>
-              <p class="trio-text">Pris, sted og åpning går først til interesselista.</p>
+              <p class="trio-title">Lista får vite alt først</p>
+              <p class="trio-text">Pris, adresse og åpningsdato går først til interesselista.</p>
             </div>
           </li>
         </ul>
@@ -1601,7 +1591,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         </div>
       </div>
       <ul class="foot-meta" role="list">
-        <li>loppely.no</li>
         <li><a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a></li>
         <li>© 2026 Loppely</li>
       </ul>
@@ -1612,6 +1601,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 
 <script>
 const LOPPELY_EPOST = 'hei@loppely.no';
+/* Temporary recipient until hei@loppely.no exists; split so the address is not scraped from the source */
+const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['speville', 'gmail.com'].join('@');
 
 (function () {
   'use strict';
@@ -1630,13 +1621,12 @@ const LOPPELY_EPOST = 'hei@loppely.no';
   var form = document.getElementById('selgerskjema');
   var fNavn = document.getElementById('navn');
   var fEpost = document.getElementById('epost');
-  var fSted = document.getElementById('poststed');
+  var fTelefon = document.getElementById('telefon');
   var fMer = document.getElementById('mer');
+  var fHonning = document.getElementById('hp-felt');
+  var sendBtn = document.getElementById('send-knapp');
   var statusText = document.getElementById('status-tekst');
-  var reserve = document.getElementById('reserve');
-  var reserveText = document.getElementById('reserve-melding');
-  var copyBtn = document.getElementById('kopier-melding');
-  var copyNote = document.getElementById('kopier-status');
+  var sending = false;
 
   /* Hero: carry the e-post down to the real form and jump there */
   quick.addEventListener('submit', function (e) {
@@ -1647,7 +1637,7 @@ const LOPPELY_EPOST = 'hei@loppely.no';
     fNavn.focus({ preventScroll: true });
   });
 
-  function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+  function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) && !/\.$/.test(v); }
 
   function setError(input, msg) {
     var err = document.getElementById(input.id + '-feil');
@@ -1672,95 +1662,112 @@ const LOPPELY_EPOST = 'hei@loppely.no';
     if (!emailOk(v)) { setError(fEpost, 'Sjekk e-postadressen. Den skal se ut som navn@eksempel.no.'); return false; }
     setError(fEpost, ''); return true;
   }
-  function checkSted() {
-    if (!fSted.value.trim()) { setError(fSted, 'Skriv hvor du bor. Poststed holder.'); return false; }
-    setError(fSted, ''); return true;
+  function checkTelefon() {
+    var v = fTelefon.value.trim();
+    var siffer = v.replace(/\D/g, '').length;
+    if (v && !/^\+?[0-9 ().-]+$/.test(v)) {
+      setError(fTelefon, 'Sjekk telefonnummeret. Bruk bare tall.');
+      return false;
+    }
+    if (v && siffer < 8) {
+      setError(fTelefon, 'Sjekk telefonnummeret. Det skal ha minst 8 siffer.');
+      return false;
+    }
+    setError(fTelefon, ''); return true;
   }
 
-  [[fNavn, checkNavn], [fEpost, checkEpost], [fSted, checkSted]].forEach(function (pair) {
+  function setStatus(state, parts) {
+    statusText.setAttribute('data-state', state);
+    statusText.textContent = '';
+    parts.forEach(function (p) {
+      if (typeof p === 'string') { statusText.appendChild(document.createTextNode(p)); return; }
+      var el = document.createElement(p.href ? 'a' : 'strong');
+      el.textContent = p.text;
+      if (p.href) { el.href = p.href; }
+      statusText.appendChild(el);
+    });
+  }
+
+  function setSending(on) {
+    sending = on;
+    form.setAttribute('aria-busy', on ? 'true' : 'false');
+    sendBtn.setAttribute('aria-disabled', on ? 'true' : 'false');
+    sendBtn.textContent = on ? 'Sender …' : 'Meld interesse';
+  }
+
+  [[fNavn, checkNavn], [fEpost, checkEpost], [fTelefon, checkTelefon]].forEach(function (pair) {
     pair[0].addEventListener('input', function () {
       if (pair[0].getAttribute('aria-invalid') === 'true') { pair[1](); }
+      if (statusText.getAttribute('data-state') === 'feil' && !form.querySelector('[aria-invalid="true"]')) { setStatus('', []); }
     });
   });
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (sending) { return; }
     var okNavn = checkNavn();
     var okEpost = checkEpost();
-    var okSted = checkSted();
+    var okTelefon = checkTelefon();
 
-    if (!okNavn || !okEpost || !okSted) {
-      reserve.hidden = true;
-      copyNote.textContent = '';
-      statusText.setAttribute('data-state', 'feil');
-      statusText.textContent = 'Noe mangler eller må rettes. Se merknadene i skjemaet.';
-      if (!okNavn) { fNavn.focus(); } else if (!okEpost) { fEpost.focus(); } else { fSted.focus(); }
+    if (!okNavn || !okEpost || !okTelefon) {
+      setStatus('feil', ['Noe mangler eller må rettes. Se merknadene i skjemaet.']);
+      if (!okNavn) { fNavn.focus(); } else if (!okEpost) { fEpost.focus(); } else { fTelefon.focus(); }
       return;
     }
 
     var navn = fNavn.value.trim();
     var epost = fEpost.value.trim();
-    var sted = fSted.value.trim();
+    var telefon = fTelefon.value.trim();
     var mer = fMer.value.trim();
     var kategorier = Array.prototype.map.call(
       form.querySelectorAll('input[name="kategori"]:checked'),
       function (i) { return i.value; }
     );
 
-    var lines = [
-      'Hei Loppely!',
-      '',
-      'Jeg er interessert i å leie en stand når dere åpner. Sett meg på interesselista.',
-      '',
-      'Navn: ' + navn,
-      'E-post: ' + epost,
-      'Bor i: ' + sted,
-      'Vil selge: ' + (kategorier.length ? kategorier.join(', ') : 'Ikke valgt ennå')
-    ];
-    if (mer) { lines.push('', 'Melding:', mer); }
-    lines.push('', 'Hilsen ' + navn);
+    /* FormSubmit uses the field named "email" as the Reply-To of the mail we receive */
+    var data = {
+      'Navn': navn,
+      'email': epost,
+      '_replyto': epost,
+      'Telefon': telefon || 'Ikke oppgitt',
+      'Vil selge': kategorier.length ? kategorier.join(', ') : 'Ikke valgt',
+      'Melding': mer || '-',
+      '_subject': 'Ny selger: ' + navn,
+      '_template': 'table',
+      '_honey': fHonning.value
+    };
 
-    var subject = 'Ny selger: ' + navn;
-    var href = 'mailto:' + LOPPELY_EPOST +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(lines.join('\n').replace(/\r?\n/g, '\r\n'));
+    setSending(true);
+    setStatus('', ['Sender påmeldingen …']);
 
-    reserveText.textContent = 'Til: ' + LOPPELY_EPOST + '\nEmne: ' + subject + '\n\n' + lines.join('\n');
-    copyNote.textContent = '';
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
 
-    var lead = document.createElement('strong');
-    lead.textContent = 'Nesten ferdig. ';
-    statusText.setAttribute('data-state', 'ok');
-    statusText.textContent = '';
-    statusText.appendChild(lead);
-    statusText.appendChild(document.createTextNode(
-      'E-postappen din åpner seg nå med meldingen ferdig skrevet til ' + LOPPELY_EPOST +
-      '. Den er ikke sendt ennå. Trykk send, så står du på lista.'
-    ));
-    reserve.hidden = false;
-
-    try { window.location.href = href; } catch (err) { /* the copy fallback stays visible */ }
-  });
-
-  copyBtn.addEventListener('click', function () {
-    var text = reserveText.textContent;
-    function selectIt() {
-      try {
-        var range = document.createRange();
-        range.selectNodeContents(reserveText);
-        var sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-      } catch (err) { /* selection not available */ }
-      copyNote.textContent = 'Teksten er merket. Kopier med Cmd+C eller Ctrl+C.';
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () {
-        copyNote.textContent = 'Kopiert.';
-      }, selectIt);
-    } else {
-      selectIt();
-    }
+    fetch(SKJEMA_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data),
+      signal: ctrl ? ctrl.signal : undefined
+    })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) {
+          if (!res.ok || String(body.success) !== 'true') { throw new Error(body.message || ('HTTP ' + res.status)); }
+        });
+      })
+      .then(function () {
+        form.reset();
+        setStatus('ok', [
+          { text: 'Takk, ' + navn.split(/\s+/)[0] + '! ' },
+          'Du står på interesselista. Vi sier fra når åpningen nærmer seg.'
+        ]);
+      })
+      .catch(function () {
+        setStatus('feil', ['Påmeldingen ble ikke sendt. Prøv igjen om litt.']);
+      })
+      .then(function () {
+        if (timer) { clearTimeout(timer); }
+        setSending(false);
+      });
   });
 })();
 </script>
