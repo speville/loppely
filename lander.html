@@ -1,0 +1,1788 @@
+<title>Loppely</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
+<style>
+/* =====================================================================
+   COLOUR ROLES. Every colour on the page comes from one of these tokens.
+   Recolour by overriding them on :root, e.g. in a <style id="fargeversjon">:
+     :root { --page-bg: var(--cream); --minside-bg: var(--orange); }
+   Palette to point at: --maroon --maroon-deep --orange --orange-deep
+   --orange-soft --cream --cream-soft --mauve --paper (or any colour).
+   A role set to var(--other-role) follows that role in both themes.
+   Plain :root overrides style the light theme. In dark mode the dark
+   blocks further down win for the roles they redefine.
+
+   Page        --page-bg --page-text --page-muted --page-line
+               --page-surface --page-card
+               --page-focus --focus-on-dark --focus-on-light
+   Controls    --cta-bg --cta-text --btn-bg --btn-text
+               --field-bg --field-text --field-border
+               --field-placeholder --field-invalid
+   Tag shapes  --tag-shadow --tag-stroke
+   Announce    --announce-bg --announce-text --announce-accent
+               --announce-focus --pill-bg --pill-text
+   Header      --header-bg --header-text --header-line --header-focus
+               --logo-bg --logo-fg
+   Hero        --hero-bg --hero-text --hero-muted --hero-focus
+               --hero-tick-bg --hero-tick-fg
+               --highlight-bg --highlight-text --highlight-shadow
+               --highlight-string
+   Brand board --board-1-bg --board-1-fg --board-1-link --board-1-focus
+               --board-2-bg --board-2-fg --board-2-word
+               --board-3-bg --board-3-fg --board-4-bg --board-4-fg
+               --board-badge-bg --board-badge-fg --board-ring
+   Band        --band-bg --band-card-bg --band-text --band-muted
+               --band-line --band-arrow-bg --band-arrow-fg --band-focus
+   Steps       --steps-bg --steps-text --steps-muted
+               --step-badge-1 --step-badge-2 --step-badge-3
+               --step-badge-shadow --step-badge-stroke --step-num
+               --steps-note-bg --steps-note-text
+   Min side    --minside-bg --minside-text --minside-muted
+               --minside-accent --minside-focus
+               --minside-tick-bg --minside-tick-fg
+               --minside-cta-bg --minside-cta-text
+   Mock window --mock-bg --mock-text --mock-line --mock-rule
+               --mock-shadow --mock-logo-bg --mock-logo-fg
+               --mock-flag-bg --mock-flag-text --mock-stat-bg
+               --mock-sold-bg --mock-sold-text --mock-btn-bg
+               --mock-btn-text --toast-bg --toast-text
+               --toast-tick-bg --toast-tick-fg
+   SOLGT tag   --plapp-bg --plapp-text --plapp-shadow --plapp-rule
+               --plapp-barcode --plapp-stamp
+   Finds       --finds-bg --finds-text --finds-heading --finds-eyebrow
+               --finds-focus --chip-shadow
+               --chip-a-bg --chip-a-fg --chip-b-bg --chip-b-fg
+               --chip-c-bg --chip-c-fg
+   FAQ         --faq-bg --faq-text --faq-muted --faq-rule --faq-focus
+               --faq-plus-bg --faq-plus-fg
+   Join        --join-bg --join-text --join-heading --join-focus
+               --join-tick-bg --join-tick-fg
+   Form card   --form-string --form-card-shadow --form-card-bg
+               --form-card-text --form-card-muted --form-card-focus
+               --option-line --option-on-bg --option-on-text
+               --option-on-dot --error-badge-bg --error-badge-text
+               --status-bg --status-line --status-error-line
+               --reserve-bg --reserve-text
+   Trio        --trio-bg --trio-text --trio-muted
+               --trio-icon-1 --trio-icon-2 --trio-icon-3
+               --trio-icon-shadow --trio-icon-stroke
+   Footer      --foot-bg --foot-text --foot-muted --foot-link
+               --foot-focus --foot-logo-bg --foot-logo-fg
+   Slots set per component from the roles (not for overriding):
+   --focus --badge-bg --badge-fg --tick-bg --tick-fg --face
+   --face-shadow --face-stroke --chip-bg --chip-fg
+   ===================================================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+/* ---------- Tokens: light (the defaults) ---------- */
+:root {
+  --scheme: light;
+  color-scheme: var(--scheme);
+  --mask-ink: #000; /* alpha for the tag-hole masks, not a colour */
+
+  /* Brand palette. Rules never use these directly, only the roles below do. */
+  --maroon: #561A12;
+  --maroon-deep: #2E0D08;
+  --orange: #E0693A;
+  --orange-deep: #B85630;
+  --orange-soft: #F2A07C;
+  --cream: #FDEBD5;
+  --cream-soft: #E9CDB6;
+  --mauve: #B67B9A;
+  --paper: #FFFDF9;
+
+  /* ===== Colour roles (light values) ===== */
+
+  /* Page: the base the plain sections follow; switches with the theme */
+  --page-bg: #FFF8F0;
+  --page-text: var(--maroon);
+  --page-muted: #7A3A2E;
+  --page-line: rgba(86, 26, 18, 0.2);
+  --page-surface: var(--cream);
+  --page-card: #FFFCF8;
+  --page-focus: var(--maroon);
+  --focus-on-dark: var(--orange-soft);
+  --focus-on-light: var(--maroon-deep);
+
+  /* Controls */
+  --cta-bg: var(--orange);
+  --cta-text: var(--maroon-deep);
+  --btn-bg: var(--maroon);
+  --btn-text: var(--cream);
+  --field-bg: var(--paper);
+  --field-text: var(--page-text);
+  --field-border: var(--maroon);
+  --field-placeholder: var(--page-muted);
+  --field-invalid: var(--orange);
+
+  /* Tag shapes: shadow and outline shared by every prislapp shape */
+  --tag-shadow: var(--maroon);
+  --tag-stroke: var(--maroon);
+
+  /* Announcement bar */
+  --announce-bg: var(--maroon);
+  --announce-text: var(--cream);
+  --announce-accent: var(--orange-soft);
+  --announce-focus: var(--focus-on-dark);
+  --pill-bg: var(--orange);
+  --pill-text: var(--maroon-deep);
+
+  /* Header */
+  --header-bg: var(--page-bg);
+  --header-text: var(--page-text);
+  --header-line: var(--page-line);
+  --header-focus: var(--page-focus);
+  --logo-bg: var(--maroon);
+  --logo-fg: var(--cream);
+
+  /* Hero */
+  --hero-bg: var(--page-bg);
+  --hero-text: var(--page-text);
+  --hero-muted: var(--page-muted);
+  --hero-focus: var(--page-focus);
+  --hero-tick-bg: var(--orange);
+  --hero-tick-fg: var(--maroon-deep);
+  --highlight-bg: var(--orange);
+  --highlight-text: var(--maroon);
+  --highlight-shadow: var(--tag-shadow);
+  --highlight-string: var(--hero-text);
+
+  /* Hero brand board: 1 top left, 2 top right, 3 bottom left, 4 bottom right */
+  --board-1-bg: var(--maroon);
+  --board-1-fg: var(--cream);
+  --board-1-link: var(--orange-soft);
+  --board-1-focus: var(--focus-on-dark);
+  --board-2-bg: var(--orange);
+  --board-2-fg: var(--maroon-deep);
+  --board-2-word: var(--maroon);
+  --board-3-bg: var(--cream);
+  --board-3-fg: var(--maroon);
+  --board-4-bg: var(--mauve);
+  --board-4-fg: var(--maroon-deep);
+  --board-badge-bg: var(--maroon);
+  --board-badge-fg: var(--cream);
+  --board-ring: var(--hero-bg);
+
+  /* Shortcut band */
+  --band-bg: #F1E4EA;
+  --band-card-bg: var(--page-card);
+  --band-text: var(--page-text);
+  --band-muted: var(--page-muted);
+  --band-line: var(--page-line);
+  --band-arrow-bg: var(--orange);
+  --band-arrow-fg: var(--maroon-deep);
+  --band-focus: var(--page-focus);
+
+  /* Slik fungerer det */
+  --steps-bg: var(--page-bg);
+  --steps-text: var(--page-text);
+  --steps-muted: var(--page-muted);
+  --step-badge-1: var(--orange);
+  --step-badge-2: var(--mauve);
+  --step-badge-3: var(--cream);
+  --step-badge-shadow: var(--tag-shadow);
+  --step-badge-stroke: var(--tag-stroke);
+  --step-num: var(--maroon);
+  --steps-note-bg: var(--mauve);
+  --steps-note-text: var(--maroon-deep);
+
+  /* Min side */
+  --minside-bg: var(--maroon);
+  --minside-text: var(--cream);
+  --minside-muted: var(--cream-soft);
+  --minside-accent: var(--orange-soft);
+  --minside-focus: var(--focus-on-dark);
+  --minside-tick-bg: var(--orange);
+  --minside-tick-fg: var(--maroon-deep);
+  --minside-cta-bg: var(--cta-bg);
+  --minside-cta-text: var(--cta-text);
+
+  /* Min side: the mock browser window */
+  --mock-bg: var(--cream);
+  --mock-text: var(--maroon);
+  --mock-line: var(--mock-text);
+  --mock-rule: rgba(86, 26, 18, 0.35);
+  --mock-shadow: var(--orange);
+  --mock-logo-bg: var(--maroon);
+  --mock-logo-fg: var(--cream);
+  --mock-flag-bg: var(--mauve);
+  --mock-flag-text: var(--maroon-deep);
+  --mock-stat-bg: var(--paper);
+  --mock-sold-bg: var(--orange);
+  --mock-sold-text: var(--maroon-deep);
+  --mock-btn-bg: var(--maroon);
+  --mock-btn-text: var(--cream);
+  --toast-bg: var(--maroon);
+  --toast-text: var(--cream);
+  --toast-tick-bg: var(--orange);
+  --toast-tick-fg: var(--maroon-deep);
+
+  /* Min side: the SOLGT prislapp */
+  --plapp-bg: var(--paper);
+  --plapp-text: var(--maroon);
+  --plapp-shadow: var(--mauve);
+  --plapp-rule: var(--mock-rule);
+  --plapp-barcode: var(--plapp-text);
+  --plapp-stamp: var(--orange-deep);
+
+  /* Example prislapper (finds) */
+  --finds-bg: var(--mauve);
+  --finds-text: var(--maroon-deep);
+  --finds-heading: var(--maroon);
+  --finds-eyebrow: var(--finds-text);
+  --finds-focus: var(--finds-text);
+  --chip-shadow: var(--tag-shadow);
+  --chip-a-bg: var(--cream);
+  --chip-a-fg: var(--maroon);
+  --chip-b-bg: var(--maroon);
+  --chip-b-fg: var(--cream);
+  --chip-c-bg: var(--orange);
+  --chip-c-fg: var(--maroon-deep);
+
+  /* FAQ */
+  --faq-bg: var(--page-surface);
+  --faq-text: var(--page-text);
+  --faq-muted: var(--page-muted);
+  --faq-rule: var(--faq-text);
+  --faq-focus: var(--page-focus);
+  --faq-plus-bg: var(--orange);
+  --faq-plus-fg: var(--maroon-deep);
+
+  /* Meld interesse */
+  --join-bg: var(--orange);
+  --join-text: var(--maroon-deep);
+  --join-heading: var(--maroon);
+  --join-focus: var(--focus-on-light);
+  --join-tick-bg: var(--maroon);
+  --join-tick-fg: var(--cream);
+
+  /* Meld interesse: the form card */
+  --form-string: var(--join-text);
+  --form-card-shadow: var(--maroon);
+  --form-card-bg: var(--page-card);
+  --form-card-text: var(--page-text);
+  --form-card-muted: var(--page-muted);
+  --form-card-focus: var(--page-focus);
+  --option-line: var(--field-border);
+  --option-on-bg: var(--btn-bg);
+  --option-on-text: var(--btn-text);
+  --option-on-dot: var(--orange);
+  --error-badge-bg: var(--orange);
+  --error-badge-text: var(--maroon-deep);
+  --status-bg: var(--page-surface);
+  --status-line: var(--form-card-text);
+  --status-error-line: var(--orange);
+  --reserve-bg: var(--page-surface);
+  --reserve-text: var(--form-card-text);
+
+  /* Trio */
+  --trio-bg: var(--page-bg);
+  --trio-text: var(--page-text);
+  --trio-muted: var(--page-muted);
+  --trio-icon-1: var(--orange);
+  --trio-icon-2: var(--mauve);
+  --trio-icon-3: var(--cream);
+  --trio-icon-shadow: var(--tag-shadow);
+  --trio-icon-stroke: var(--tag-stroke);
+
+  /* Footer */
+  --foot-bg: var(--maroon);
+  --foot-text: var(--cream);
+  --foot-muted: var(--cream-soft);
+  --foot-link: var(--foot-text);
+  --foot-focus: var(--focus-on-dark);
+  --foot-logo-bg: transparent;
+  --foot-logo-fg: var(--mauve);
+
+  /* Component slots: components set these from the roles. Do not override. */
+  --focus: var(--page-focus);
+  --badge-bg: var(--board-badge-bg);
+  --badge-fg: var(--board-badge-fg);
+  --tick-bg: var(--hero-tick-bg);
+  --tick-fg: var(--hero-tick-fg);
+  --face: var(--step-badge-1);
+  --face-shadow: var(--tag-shadow);
+  --face-stroke: var(--tag-stroke);
+
+  /* Type */
+  --font-display: "Archivo", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-md: 1.25rem;
+  --fs-lg: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
+  --fs-xl: clamp(2rem, 1.3rem + 3vw, 3.5rem);
+  --fs-2xl: clamp(2.25rem, 0.9rem + 4.6vw, 4.5rem);
+  --fs-hero: clamp(2.6rem, 1.4rem + 4.6vw, 5.25rem);
+
+  /* Space and shape */
+  --gutter: clamp(16px, 4vw, 40px);
+  --sec-pad: clamp(64px, 9vw, 128px);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --head-h: 68px;
+}
+
+/* ---------- Tokens: dark (system) ----------
+   Only roles that hold their own value are redefined here; roles written
+   as var(--other-role) follow it. Keep this block and the next identical. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --scheme: dark;
+    --page-bg: #230A06;
+    --page-text: #FDEBD5;
+    --page-muted: #E3C5AE;
+    --page-line: rgba(253, 235, 213, 0.18);
+    --page-surface: #2F0E09;
+    --page-card: #34120C;
+    --page-focus: #F2A07C;
+    --btn-bg: #FDEBD5;
+    --btn-text: #561A12;
+    --field-bg: #1C0805;
+    --field-border: #E3C5AE;
+    --tag-shadow: #B67B9A;
+    --tag-stroke: #2E0D08;
+    --logo-bg: #FDEBD5;
+    --logo-fg: #561A12;
+    --band-bg: #3A1A28;
+    --finds-bg: #3A1A28;
+    --finds-text: #FDEBD5;
+    --finds-heading: #E7BDD1;
+    --chip-b-bg: #B67B9A;
+    --chip-b-fg: #2E0D08;
+  }
+}
+
+/* ---------- Tokens: dark (explicit) ---------- */
+:root[data-theme="dark"] {
+  --scheme: dark;
+  --page-bg: #230A06;
+  --page-text: #FDEBD5;
+  --page-muted: #E3C5AE;
+  --page-line: rgba(253, 235, 213, 0.18);
+  --page-surface: #2F0E09;
+  --page-card: #34120C;
+  --page-focus: #F2A07C;
+  --btn-bg: #FDEBD5;
+  --btn-text: #561A12;
+  --field-bg: #1C0805;
+  --field-border: #E3C5AE;
+  --tag-shadow: #B67B9A;
+  --tag-stroke: #2E0D08;
+  --logo-bg: #FDEBD5;
+  --logo-fg: #561A12;
+  --band-bg: #3A1A28;
+  --finds-bg: #3A1A28;
+  --finds-text: #FDEBD5;
+  --finds-heading: #E7BDD1;
+  --chip-b-bg: #B67B9A;
+  --chip-b-fg: #2E0D08;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root { scroll-behavior: smooth; }
+}
+
+/* ---------- Base ---------- */
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--page-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.page { overflow-x: clip; }
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+p { text-wrap: pretty; }
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip {
+  position: absolute; left: 16px; top: -120px; z-index: 60;
+  background: var(--btn-bg); color: var(--btn-text);
+  padding: 12px 18px; border-radius: 999px;
+  font-weight: 700; text-decoration: none;
+}
+.skip:focus { top: 12px; }
+.wrap { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: var(--gutter); }
+.sec { padding-block: var(--sec-pad); }
+section[id] { scroll-margin-top: 16px; }
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.ico { width: 20px; height: 20px; flex: none; display: block; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.1;
+  padding: 0.95em 1.5em;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-cta { background: var(--cta-bg); color: var(--cta-text); }
+.btn-dark { background: var(--btn-bg); color: var(--btn-text); }
+.btn-outline { background: transparent; color: inherit; border-color: currentColor; }
+.btn-sm { font-size: 0.9375rem; padding: 0.7em 1.15em; }
+.btn-lg { font-size: 1.0625rem; padding: 1em 1.8em; }
+
+/* ---------- Inputs ---------- */
+.input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--field-text);
+  background: var(--field-bg);
+  border: 2px solid var(--field-border);
+  border-radius: 999px;
+  padding: 0.85em 1.15em;
+}
+textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-height: 1.5; }
+.input::placeholder { color: var(--field-placeholder); opacity: 1; }
+.input:focus-visible { outline-offset: 2px; }
+.input[aria-invalid="true"] { box-shadow: 0 0 0 3px var(--field-invalid); }
+
+/* ---------- Announcement bar ---------- */
+.announce { background: var(--announce-bg); color: var(--announce-text); font-size: 0.875rem; --focus: var(--announce-focus); }
+.announce-in {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 6px 14px; padding-block: 10px; text-align: center;
+}
+.pill-mini {
+  background: var(--pill-bg); color: var(--pill-text);
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
+  font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 10px 3px; border-radius: 999px;
+}
+.announce a { color: var(--announce-accent); font-weight: 700; white-space: nowrap; }
+
+/* ---------- Header ---------- */
+.site-head {
+  position: relative;
+  z-index: 20;
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-bottom: 1px solid var(--header-line);
+  --focus: var(--header-focus);
+}
+.head-in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "brand cta" "nav nav";
+  align-items: center;
+  gap: 6px 16px;
+  padding-block: 12px 8px;
+}
+.brand {
+  grid-area: brand;
+  justify-self: start;
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--header-text); text-decoration: none;
+}
+.brand svg { width: 38px; height: 38px; flex: none; --badge-bg: var(--logo-bg); --badge-fg: var(--logo-fg); }
+.wordmark {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 900;
+  font-size: 1.125rem; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1;
+}
+.nav { grid-area: nav; display: flex; flex-wrap: wrap; gap: 2px 22px; }
+.nav a { text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 9px 0; }
+.nav a:hover { text-decoration: underline; }
+.head-cta { grid-area: cta; justify-self: end; }
+@media (min-width: 760px) {
+  .site-head { position: sticky; top: env(safe-area-inset-top, 0px); }
+  .head-in {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-areas: "brand nav cta";
+    min-height: var(--head-h);
+    padding-block: 0;
+  }
+  .nav { gap: 28px; }
+  section[id] { scroll-margin-top: calc(var(--head-h) + 12px + env(safe-area-inset-top, 0px)); }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(40px, 6vw, 96px) clamp(56px, 7vw, 108px);
+  background: var(--hero-bg); color: var(--hero-text); --focus: var(--hero-focus);
+}
+.hero-grid { display: grid; gap: clamp(44px, 6vw, 72px); align-items: center; }
+@media (min-width: 980px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr); }
+}
+.hero-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
+.hero-copy .eyebrow { color: var(--hero-muted); }
+.hero h1 {
+  font-size: var(--fs-hero);
+  font-stretch: 112%;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  max-width: 100%;
+}
+.h1-line { display: block; }
+
+/* The one bold move: line two hangs on a prislapp */
+.tag-wrap {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.14em;
+  white-space: nowrap;
+  transform: rotate(-2deg);
+  transform-origin: 0.64em 0.55em;
+}
+.tag-shadow { display: inline-block; filter: drop-shadow(0.07em 0.07em 0 var(--highlight-shadow)); }
+.tag-hl {
+  display: inline-block;
+  background: var(--highlight-bg);
+  color: var(--highlight-text);
+  padding: 0.05em 0.32em 0.1em 1.04em;
+  clip-path: polygon(0.5em 0, 100% 0, 100% 100%, 0.5em 100%, 0 50%);
+  -webkit-mask: radial-gradient(circle at 0.64em 50%, transparent 0.1em, var(--mask-ink) calc(0.1em + 1px));
+  mask: radial-gradient(circle at 0.64em 50%, transparent 0.1em, var(--mask-ink) calc(0.1em + 1px));
+}
+.tag-string {
+  position: absolute;
+  left: 0; top: -0.34em;
+  width: 0.9em; height: 0.9em;
+  overflow: visible;
+  pointer-events: none;
+}
+.tag-string path { fill: none; stroke: var(--highlight-string); stroke-width: 4; stroke-linecap: round; }
+@keyframes swing {
+  0% { transform: rotate(-10deg); }
+  35% { transform: rotate(3deg); }
+  60% { transform: rotate(-4.5deg); }
+  82% { transform: rotate(-1deg); }
+  100% { transform: rotate(-2deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tag-wrap { animation: swing 1.6s cubic-bezier(0.3, 0.7, 0.4, 1) 0.3s both; }
+}
+
+.lede { font-size: var(--fs-md); line-height: 1.5; max-width: 32em; }
+.quick { display: flex; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 540px; }
+.quick .input { flex: 1 1 230px; min-width: 0; }
+.quick .btn { flex: 0 0 auto; }
+.quick-note { font-size: var(--fs-sm); color: var(--hero-muted); margin-top: -12px; }
+.facts {
+  list-style: none; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 10px 22px;
+  font-size: var(--fs-sm); font-weight: 600; line-height: 1.3;
+  --tick-bg: var(--hero-tick-bg); --tick-fg: var(--hero-tick-fg);
+}
+.facts li { display: inline-flex; align-items: center; gap: 8px; }
+
+/* Brand board: four flat, gapless blocks with the L badge on the shared corner */
+.board {
+  position: relative;
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 1fr 1fr;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 520px;
+  justify-self: start;
+}
+@media (min-width: 980px) { .board { justify-self: end; } }
+.blk {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: max(6px, 2cqi);
+  padding: max(12px, 4.5cqi);
+}
+.b-eyebrow {
+  font-family: var(--font-display);
+  font-stretch: 100%;
+  font-weight: 700;
+  font-size: max(11px, 2.5cqi);
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+.blk-1 { background: var(--board-1-bg); color: var(--board-1-fg); align-items: flex-start; --focus: var(--board-1-focus); }
+.b-big {
+  font-family: var(--font-display); font-stretch: 108%; font-weight: 800;
+  font-size: max(16px, 5.2cqi); line-height: 1.05; letter-spacing: -0.01em;
+}
+.b-link { color: var(--board-1-link); font-weight: 700; font-size: max(13px, 3.2cqi); line-height: 1.3; }
+.blk-2 { background: var(--board-2-bg); color: var(--board-2-fg); }
+.b-word {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 900;
+  font-size: max(20px, 5.6cqi); letter-spacing: 0.02em; line-height: 1;
+  text-transform: uppercase; color: var(--board-2-word);
+}
+.blk-3 {
+  background: var(--board-3-bg); color: var(--board-3-fg);
+  justify-content: flex-end; align-items: flex-end;
+  /* Resolved here in horizontal writing mode; cqi inside the vertical label would fall back to viewport height */
+  font-size: max(11px, 2.4cqi);
+}
+.b-vert {
+  position: absolute;
+  left: max(12px, 9%);
+  top: max(12px, 9%);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 700;
+  font-size: 1em; letter-spacing: 0.22em;
+  text-transform: uppercase; line-height: 1;
+}
+.b-shout {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 900;
+  font-size: max(16px, 5cqi); line-height: 1; text-transform: uppercase; text-align: right;
+}
+.blk-4 { background: var(--board-4-bg); color: var(--board-4-fg); justify-content: flex-end; gap: max(4px, 1.2cqi); }
+.for-list {
+  list-style: none; padding: 0;
+  font-family: var(--font-display); font-stretch: 118%; font-weight: 800;
+  font-size: max(14px, 4.2cqi); line-height: 1.08; text-transform: uppercase;
+}
+.board-badge {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 22cqi;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 max(4px, 1.6cqi) var(--board-ring);
+  --badge-bg: var(--board-badge-bg);
+  --badge-fg: var(--board-badge-fg);
+}
+.board-badge svg { display: block; width: 100%; height: 100%; }
+
+/* ---------- Shortcut band ---------- */
+.shortcuts { background: var(--band-bg); padding-block: clamp(28px, 4vw, 48px); --focus: var(--band-focus); }
+.sc-grid { list-style: none; padding: 0; display: grid; gap: 14px; }
+@media (min-width: 860px) { .sc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.sc-card {
+  height: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 22px 22px 26px;
+  background: var(--band-card-bg);
+  color: var(--band-text);
+  border: 1px solid var(--band-line);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.sc-card:hover { transform: translateY(-2px); }
+.sc-title {
+  display: block; font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
+  font-size: var(--fs-md); line-height: 1.15;
+}
+.sc-desc { display: block; margin-top: 6px; font-size: var(--fs-sm); color: var(--band-muted); line-height: 1.4; }
+.sc-arrow {
+  flex: none; width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--band-arrow-bg); color: var(--band-arrow-fg);
+}
+.sc-arrow svg { width: 20px; height: 20px; }
+
+/* ---------- Slik fungerer det ---------- */
+.steps-sec { background: var(--steps-bg); color: var(--steps-text); }
+.steps-head {
+  display: flex; flex-direction: column; align-items: center; gap: 18px;
+  text-align: center; margin-bottom: clamp(44px, 6vw, 80px);
+}
+.steps-head .eyebrow { color: var(--steps-muted); }
+.steps-head h2 {
+  font-size: var(--fs-2xl); font-stretch: 118%; font-weight: 900;
+  text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.98;
+}
+@media (max-width: 639px) { .steps-head h2 { font-stretch: 100%; } }
+.steps-head p { font-size: var(--fs-md); color: var(--steps-muted); max-width: 28em; }
+.step-badge { --face-shadow: var(--step-badge-shadow); --face-stroke: var(--step-badge-stroke); }
+.step-badge.face-1 { --face: var(--step-badge-1); }
+.step-badge.face-2 { --face: var(--step-badge-2); }
+.step-badge.face-3 { --face: var(--step-badge-3); }
+.steps {
+  list-style: none; padding: 0;
+  display: grid; gap: 36px;
+  max-width: 36rem; margin-inline: auto;
+}
+.step {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 6px 18px;
+  align-content: start;
+  align-items: start;
+}
+.step-badge { grid-column: 1; grid-row: 1 / span 2; display: block; width: 96px; height: auto; }
+.step-num {
+  fill: var(--step-num);
+  font-family: var(--font-display); font-stretch: 118%; font-weight: 900; font-size: 38px;
+}
+.step h3 {
+  grid-column: 2;
+  font-size: 1.125rem; font-stretch: 125%; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.15;
+  padding-top: 6px;
+}
+.step p { grid-column: 2; color: var(--steps-muted); }
+@media (min-width: 880px) {
+  .steps {
+    max-width: none;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 60px 40px;
+  }
+  .step {
+    grid-column: span 2;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+  .step-badge { grid-column: auto; grid-row: auto; width: 136px; }
+  .step:nth-child(odd) .step-badge { transform: rotate(-3deg); }
+  .step:nth-child(even) .step-badge { transform: rotate(3deg); }
+  .step h3, .step p { grid-column: auto; }
+  .step p { max-width: 30ch; }
+  .step:nth-child(4) { grid-column: 2 / span 2; }
+  .step:nth-child(5) { grid-column: 4 / span 2; }
+}
+.step-notes {
+  margin-top: clamp(44px, 5vw, 64px);
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 14px 36px;
+}
+.note { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+.note-tag {
+  background: var(--steps-note-bg);
+  color: var(--steps-note-text);
+  font-family: var(--font-mono); font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.08em; text-transform: uppercase; line-height: 1;
+  padding: 7px 12px 7px 22px;
+  clip-path: polygon(0 50%, 10px 0, 100% 0, 100% 100%, 10px 100%);
+  -webkit-mask: radial-gradient(circle at 10px 50%, transparent 2.5px, var(--mask-ink) 3.5px);
+  mask: radial-gradient(circle at 10px 50%, transparent 2.5px, var(--mask-ink) 3.5px);
+}
+
+/* ---------- Min side ---------- */
+.minside { background: var(--minside-bg); color: var(--minside-text); --focus: var(--minside-focus); }
+.minside .btn-cta { background: var(--minside-cta-bg); color: var(--minside-cta-text); }
+.minside-grid { display: grid; gap: clamp(48px, 6vw, 88px); align-items: center; }
+@media (min-width: 980px) {
+  .minside-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+.ms-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.ms-copy .eyebrow { color: var(--minside-accent); }
+.ms-copy h2 { font-size: var(--fs-xl); }
+.ms-copy p { color: var(--minside-muted); max-width: 32em; }
+.ms-facts {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: 10px;
+  font-weight: 600; line-height: 1.3;
+  --tick-bg: var(--minside-tick-bg); --tick-fg: var(--minside-tick-fg);
+}
+.ms-facts li { display: flex; align-items: center; gap: 10px; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.mock { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 26px 28px; min-width: 0; }
+.mock-win {
+  width: 100%;
+  background: var(--mock-bg);
+  color: var(--mock-text);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 10px 10px 0 var(--mock-shadow);
+  font-size: 0.9rem;
+}
+.mock-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--mock-line);
+  --badge-bg: var(--mock-logo-bg); --badge-fg: var(--mock-logo-fg);
+}
+.mock-bar svg { width: 26px; height: 26px; flex: none; }
+.mock-url {
+  font-family: var(--font-mono); font-weight: 500; font-size: 0.8rem;
+  min-width: 0; overflow-wrap: anywhere; line-height: 1.3;
+}
+.mock-flag {
+  margin-left: auto; flex: none;
+  background: var(--mock-flag-bg); color: var(--mock-flag-text);
+  font-family: var(--font-display); font-stretch: 118%; font-weight: 800;
+  font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 5px 10px 4px; border-radius: 999px;
+}
+.mock-body { padding: clamp(16px, 3vw, 24px); display: flex; flex-direction: column; gap: 16px; }
+.mock-kicker { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.mock-stand {
+  font-family: var(--font-display); font-stretch: 118%; font-weight: 900;
+  font-size: 1.75rem; line-height: 1;
+}
+.mock-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.stat { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 14px; background: var(--mock-stat-bg); min-width: 0; }
+.stat dt { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.25; }
+.stat dd {
+  font-family: var(--font-mono); font-weight: 600; font-size: 1.05rem; line-height: 1.1;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.mock-rows { list-style: none; padding: 0; border-top: 2px solid var(--mock-line); }
+.mock-rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.4em 6.6em;
+  gap: 10px;
+  align-items: center;
+  padding-block: 10px;
+  border-bottom: 1px dashed var(--mock-rule);
+}
+.mr-item { font-weight: 600; line-height: 1.3; overflow-wrap: break-word; }
+.mr-price { font-family: var(--font-mono); font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.st {
+  justify-self: stretch; text-align: center;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 4px 6px; border-radius: 999px; white-space: nowrap; line-height: 1.2;
+}
+.st-sold { background: var(--mock-sold-bg); color: var(--mock-sold-text); }
+.st-in { border: 1.5px solid var(--mock-line); color: var(--mock-text); }
+.mock-acts { display: flex; flex-wrap: wrap; gap: 8px; }
+.mock-act {
+  font-size: 0.78rem; font-weight: 700; padding: 7px 12px; border-radius: 999px;
+  border: 1.5px solid var(--mock-line); line-height: 1.2;
+}
+.mock-act.is-fill { background: var(--mock-btn-bg); color: var(--mock-btn-text); }
+.mock-toast {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--toast-bg); color: var(--toast-text);
+  padding: 10px 14px; border-radius: 16px;
+  font-size: 0.82rem; font-weight: 600; line-height: 1.35;
+  --tick-bg: var(--toast-tick-bg); --tick-fg: var(--toast-tick-fg);
+}
+.plapp-wrap {
+  width: min(100%, 300px);
+  margin-left: 8px;
+  filter: drop-shadow(6px 6px 0 var(--plapp-shadow));
+  transform: rotate(-4deg);
+}
+.plapp {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: start;
+  background: var(--plapp-bg);
+  color: var(--plapp-text);
+  padding: 14px 18px 16px 44px;
+  clip-path: polygon(22px 0, 100% 0, 100% 100%, 22px 100%, 0 50%);
+  -webkit-mask: radial-gradient(circle at 26px 50%, transparent 6px, var(--mask-ink) 7px);
+  mask: radial-gradient(circle at 26px 50%, transparent 6px, var(--mask-ink) 7px);
+}
+.plapp-top {
+  grid-column: 1 / -1;
+  display: flex; justify-content: space-between; gap: 10px;
+  padding-bottom: 6px; margin-bottom: 2px;
+  border-bottom: 1.5px dashed var(--plapp-rule);
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.2;
+}
+.plapp-item { grid-column: 1; font-weight: 600; font-size: 0.9rem; line-height: 1.3; }
+.plapp-price {
+  grid-column: 1;
+  font-family: var(--font-mono); font-weight: 600; font-size: 1.6rem; line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.plapp-code {
+  grid-column: 1;
+  height: 26px; width: 100%; max-width: 120px; margin-top: 2px;
+  background: repeating-linear-gradient(90deg,
+    var(--plapp-barcode) 0 2px, transparent 2px 4px,
+    var(--plapp-barcode) 4px 5px, transparent 5px 8px,
+    var(--plapp-barcode) 8px 11px, transparent 11px 12px,
+    var(--plapp-barcode) 12px 13px, transparent 13px 16px);
+}
+.plapp-stamp {
+  grid-column: 2; grid-row: 2 / span 3;
+  align-self: center;
+  transform: rotate(-12deg);
+  border: 3px solid var(--plapp-stamp); color: var(--plapp-stamp);
+  border-radius: 6px; padding: 3px 8px 2px;
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 900;
+  font-size: 1.1rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.1;
+}
+.mock-cap { font-size: var(--fs-sm); color: var(--minside-muted); max-width: 34em; }
+@media (min-width: 600px) {
+  .mock { grid-template-columns: auto minmax(0, 1fr); }
+  .mock-win { grid-column: 1 / -1; }
+  .plapp-wrap { width: 280px; }
+}
+
+/* ---------- Example prislapper (finds) ---------- */
+.finds { position: relative; background: var(--finds-bg); color: var(--finds-text); --focus: var(--finds-focus); }
+.finds-in { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
+.finds .eyebrow { color: var(--finds-eyebrow); }
+.finds h2 { color: var(--finds-heading); font-size: var(--fs-xl); max-width: 15em; }
+.ptags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 16px 14px; max-width: 64rem; }
+.ptag {
+  --chip-bg: var(--chip-a-bg); --chip-fg: var(--chip-a-fg);
+  max-width: 100%;
+  filter: drop-shadow(3px 3px 0 var(--chip-shadow));
+  transition: transform 0.2s ease;
+}
+.ptag:nth-child(3n+1) { transform: rotate(-1.5deg); }
+.ptag:nth-child(3n+2) { --chip-bg: var(--chip-b-bg); --chip-fg: var(--chip-b-fg); transform: rotate(1deg); }
+.ptag:nth-child(3n) { --chip-bg: var(--chip-c-bg); --chip-fg: var(--chip-c-fg); }
+.ptag:hover { transform: rotate(-3deg); }
+.ptag-in {
+  display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0.2em 0.7em;
+  background: var(--chip-bg); color: var(--chip-fg);
+  padding: 0.6em 1em 0.6em 1.9em;
+  clip-path: polygon(0.85em 0, 100% 0, 100% 100%, 0.85em 100%, 0 50%);
+  -webkit-mask: radial-gradient(circle at 1.05em 50%, transparent 0.2em, var(--mask-ink) calc(0.2em + 1px));
+  mask: radial-gradient(circle at 1.05em 50%, transparent 0.2em, var(--mask-ink) calc(0.2em + 1px));
+  font-weight: 600; line-height: 1.25;
+}
+.ptag-price { font-family: var(--font-mono); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.finds-note { font-size: var(--fs-sm); font-weight: 700; }
+.vlabel { display: none; }
+@media (min-width: 900px) {
+  .vlabel {
+    display: block;
+    position: absolute; right: 14px; top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    font-family: var(--font-display); font-stretch: 125%; font-weight: 700;
+    font-size: 0.6875rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--finds-eyebrow); line-height: 1;
+  }
+}
+
+/* ---------- FAQ ---------- */
+.faq { background: var(--faq-bg); color: var(--faq-text); --focus: var(--faq-focus); }
+.faq-grid { display: grid; gap: 40px; }
+@media (min-width: 920px) {
+  .faq-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 64px; }
+  .faq-intro { position: sticky; top: calc(var(--head-h) + 32px + env(safe-area-inset-top, 0px)); align-self: start; }
+}
+.faq-intro { display: flex; flex-direction: column; gap: 18px; }
+.faq-intro .eyebrow { color: var(--faq-muted); }
+.faq-intro h2 { font-size: var(--fs-xl); }
+.faq-intro p { color: var(--faq-muted); max-width: 26em; }
+.faq-intro a { color: var(--faq-text); font-weight: 700; }
+.faq-list { border-bottom: 2px solid var(--faq-rule); }
+.faq-list details { border-top: 2px solid var(--faq-rule); }
+.faq-list summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding-block: 20px;
+  cursor: pointer; list-style: none;
+  font-family: var(--font-display); font-stretch: 106%; font-weight: 700;
+  font-size: var(--fs-md); line-height: 1.25; letter-spacing: -0.005em;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.plus {
+  position: relative; flex: none;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--faq-plus-bg);
+  transition: transform 0.25s ease;
+}
+.plus::before,
+.plus::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 14px; height: 2.5px; border-radius: 2px;
+  background: var(--faq-plus-fg);
+  transform: translate(-50%, -50%);
+}
+.plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq-list details[open] .plus { transform: rotate(45deg); }
+.faq-a { display: flex; flex-direction: column; gap: 10px; padding-bottom: 22px; max-width: 62ch; }
+@media (min-width: 600px) { .faq-a { padding-right: 54px; } }
+
+/* ---------- Meld interesse ---------- */
+.join { background: var(--join-bg); color: var(--join-text); --focus: var(--join-focus); }
+.join-grid { display: grid; gap: 44px; align-items: start; }
+@media (min-width: 980px) {
+  .join-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 72px; }
+  .join-copy { position: sticky; top: calc(var(--head-h) + 48px + env(safe-area-inset-top, 0px)); }
+}
+.join-copy { display: flex; flex-direction: column; gap: 22px; }
+.join-copy h2 { color: var(--join-heading); font-size: var(--fs-xl); }
+.join-copy .lede { max-width: 26em; }
+.join-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-weight: 600; line-height: 1.35; --tick-bg: var(--join-tick-bg); --tick-fg: var(--join-tick-fg); }
+.join-list li { display: flex; align-items: flex-start; gap: 10px; }
+.join-list .ico { margin-top: 1px; }
+
+/* The form card is cut as one large hang tag */
+.form-hang { position: relative; padding-top: 46px; min-width: 0; }
+.form-string {
+  position: absolute; left: 50%; top: 0; z-index: 1;
+  width: 40px; height: 82px;
+  transform: translateX(-50%);
+  overflow: visible; pointer-events: none;
+}
+.form-string path { fill: none; stroke: var(--form-string); stroke-width: 3; stroke-linecap: round; }
+.form-shadow { filter: drop-shadow(10px 10px 0 var(--form-card-shadow)); }
+.form-card {
+  --focus: var(--form-card-focus);
+  background: var(--form-card-bg);
+  color: var(--form-card-text);
+  padding: 72px clamp(22px, 4vw, 40px) clamp(28px, 4vw, 40px);
+  clip-path: polygon(44px 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%, 0 44px);
+  -webkit-mask: radial-gradient(circle at 50% 34px, transparent 10px, var(--mask-ink) 11px);
+  mask: radial-gradient(circle at 50% 34px, transparent 10px, var(--mask-ink) 11px);
+  display: flex; flex-direction: column; gap: 22px;
+  min-width: 0;
+}
+.form-top { font-size: var(--fs-sm); color: var(--form-card-muted); text-align: center; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label,
+.field-set legend { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+.opt { font-weight: 500; font-size: var(--fs-sm); color: var(--form-card-muted); margin-left: 0.4em; }
+.hint { font-size: var(--fs-sm); color: var(--form-card-muted); line-height: 1.4; }
+.err { display: flex; align-items: center; gap: 8px; font-size: var(--fs-sm); font-weight: 700; line-height: 1.35; }
+.err::before {
+  content: "!"; flex: none; display: inline-grid; place-items: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--error-badge-bg); color: var(--error-badge-text); font-size: 0.8rem; font-weight: 800;
+}
+.field-set { border: 0; padding: 0; margin: 0; min-width: 0; }
+.field-set legend { padding: 0; margin-bottom: 6px; }
+.field-set .hint { margin-bottom: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  min-height: 44px;
+  padding: 0.55em 1em;
+  border: 2px solid var(--option-line);
+  border-radius: 999px;
+  font-weight: 600; font-size: 0.95rem; line-height: 1.2;
+  cursor: pointer; user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.chip::before {
+  content: ""; flex: none; width: 0.85em; height: 0.85em; border-radius: 50%;
+  border: 2px solid currentColor;
+}
+.chip-input:checked + .chip { background: var(--option-on-bg); color: var(--option-on-text); border-color: var(--option-on-bg); }
+.chip-input:checked + .chip::before { background: var(--option-on-dot); border-color: var(--option-on-dot); }
+.chip-input:focus-visible + .chip { outline: 3px solid var(--focus); outline-offset: 3px; }
+.submit-row { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.form-note { font-size: var(--fs-sm); color: var(--form-card-muted); line-height: 1.45; max-width: 34em; }
+.status-msg {
+  font-weight: 600; line-height: 1.45;
+  padding: 14px 16px; border-radius: 16px;
+  background: var(--status-bg); border: 2px solid var(--status-line);
+}
+.status-msg[data-state="feil"] { border-color: var(--status-error-line); }
+.status-msg:empty { padding: 0; border: 0; background: none; }
+.reserve { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; font-size: var(--fs-sm); }
+.reserve-text {
+  width: 100%; margin: 0;
+  font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.5;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+  background: var(--reserve-bg); color: var(--reserve-text);
+  padding: 12px 14px; border-radius: 14px;
+  max-height: 240px; overflow: auto;
+}
+.copy-note { font-weight: 700; }
+
+/* ---------- Trio ---------- */
+.trio-sec { padding-block: clamp(40px, 5vw, 64px); background: var(--trio-bg); color: var(--trio-text); }
+.trio { list-style: none; padding: 0; display: grid; gap: 24px 32px; }
+@media (min-width: 760px) { .trio { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.trio li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 4px 14px; align-items: start; }
+.trio-ico { display: block; width: 56px; height: auto; margin-top: 2px; --face-shadow: var(--trio-icon-shadow); --face-stroke: var(--trio-icon-stroke); }
+.trio-ico.face-1 { --face: var(--trio-icon-1); }
+.trio-ico.face-2 { --face: var(--trio-icon-2); }
+.trio-ico.face-3 { --face: var(--trio-icon-3); }
+.trio-title {
+  font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
+  font-size: var(--fs-md); line-height: 1.2;
+}
+.trio-text { color: var(--trio-muted); font-size: var(--fs-sm); line-height: 1.45; margin-top: 4px; }
+
+/* ---------- Footer ---------- */
+.site-foot { background: var(--foot-bg); color: var(--foot-text); padding-block: clamp(40px, 5vw, 56px); --focus: var(--foot-focus); }
+.foot-in { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 40px; }
+.lockup { display: flex; align-items: center; gap: 16px; }
+.lock-badge { width: 64px; height: 64px; flex: none; --badge-bg: var(--foot-logo-bg); --badge-fg: var(--foot-logo-fg); }
+.lock-text { display: flex; flex-direction: column; gap: 6px; }
+.lock-eyebrow {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 700;
+  font-size: 0.6875rem; letter-spacing: 0.24em; text-transform: uppercase; line-height: 1.3;
+  color: var(--foot-muted);
+}
+.lock-word {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 900;
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem); letter-spacing: 0.02em;
+  text-transform: uppercase; line-height: 0.95;
+}
+.foot-meta {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: 4px;
+  font-size: var(--fs-sm); color: var(--foot-muted);
+}
+.foot-meta a { color: var(--foot-link); }
+@media (min-width: 760px) { .foot-meta { text-align: right; } }
+
+/* ---------- Motion preference ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .btn:hover,
+  .sc-card:hover { transform: none; }
+}
+</style>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-badge" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="49" style="fill:var(--badge-bg)"></circle>
+    <circle cx="50" cy="50" r="43" style="fill:none;stroke:var(--badge-fg);stroke-width:3"></circle>
+    <circle cx="50" cy="50" r="36.5" style="fill:none;stroke:var(--badge-fg);stroke-width:1.6"></circle>
+    <path d="M37 30h10.5v29.5H64V70H37z" style="fill:var(--badge-fg)"></path>
+  </symbol>
+  <symbol id="i-tick" viewBox="0 0 20 20">
+    <circle cx="10" cy="10" r="10" style="fill:var(--tick-bg)"></circle>
+    <path d="M5.6 10.3l2.9 2.9 5.9-6.3" style="fill:none;stroke:var(--tick-fg);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"></path>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 20 20">
+    <path d="M3.5 10h12M10.5 5l5 5-5 5" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"></path>
+  </symbol>
+  <symbol id="i-plapp" viewBox="0 0 136 76">
+    <path fill-rule="evenodd" d="M12 42 L36 12 H132 V72 H36 Z M23 34 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 Z" style="fill:var(--face-shadow)"></path>
+    <path fill-rule="evenodd" d="M4 34 L28 4 H124 V64 H28 Z M23 34 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 Z" style="fill:var(--face);stroke:var(--face-stroke);stroke-width:4;stroke-linejoin:round"></path>
+  </symbol>
+</svg>
+
+<div class="page" id="top" lang="nb">
+  <a class="skip" href="#innhold">Hopp til innholdet</a>
+
+  <div class="announce">
+    <div class="wrap announce-in">
+      <span class="pill-mini">Snart</span>
+      <p>Loppely åpner snart. Vi ser etter de første selgerne.</p>
+      <a href="#meld-interesse">Meld interesse <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <header class="site-head">
+    <div class="wrap head-in">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#i-badge"></use></svg>
+        <span class="wordmark">Loppely</span>
+      </a>
+      <nav class="nav" aria-label="Hovedmeny">
+        <a href="#slik-fungerer">Slik fungerer det</a>
+        <a href="#sporsmal">Spørsmål og svar</a>
+      </nav>
+      <a class="btn btn-cta btn-sm head-cta" href="#meld-interesse">Meld interesse</a>
+    </div>
+  </header>
+
+  <main id="innhold">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Stand · Prislapp · Utbetaling</p>
+          <h1 id="hero-title">
+            <span class="h1-line">Du rydder.</span>
+            <span class="tag-wrap"><span class="tag-shadow"><span class="tag-hl">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span>
+          </h1>
+          <p class="lede">Loppely er et nytt loppesupermarked. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
+          <form class="quick" id="hurtigskjema" novalidate>
+            <label class="sr-only" for="hurtig-epost">E-postadressen din</label>
+            <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="din@e-post.no" aria-describedby="hurtig-note">
+            <button class="btn btn-dark" type="submit">Meld interesse</button>
+          </form>
+          <p class="quick-note" id="hurtig-note">Resten fyller du ut lenger ned.</p>
+          <ul class="facts" role="list">
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du setter prisen selv</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke stå i standen</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Følg salget på Min side</li>
+          </ul>
+        </div>
+
+        <div class="board">
+          <div class="blk blk-1">
+            <p class="b-eyebrow">Standleie</p>
+            <p class="b-big">Ikke satt ennå.</p>
+            <a class="b-link" href="#meld-interesse">Sett deg på lista <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="blk blk-2">
+            <p class="b-eyebrow">Et loppesupermarked</p>
+            <p class="b-word">Loppely</p>
+            <p class="b-eyebrow">Åpner snart</p>
+          </div>
+          <div class="blk blk-3">
+            <p class="b-vert" aria-hidden="true">loppely.no</p>
+            <p class="b-shout">Selgere<br>søkes</p>
+          </div>
+          <div class="blk blk-4">
+            <p class="b-eyebrow">For</p>
+            <ul class="for-list" role="list">
+              <li>Flyttere</li>
+              <li>Foreldre</li>
+              <li>Arvinger</li>
+              <li>Samlere</li>
+            </ul>
+          </div>
+          <div class="board-badge" aria-hidden="true">
+            <svg viewBox="0 0 100 100" focusable="false"><use href="#i-badge"></use></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shortcut band -->
+    <nav class="shortcuts" aria-label="Snarveier">
+      <div class="wrap">
+        <ul class="sc-grid" role="list">
+          <li>
+            <a class="sc-card" href="#sporsmal">
+              <span><span class="sc-title">Hva er et loppesupermarked?</span><span class="sc-desc">Et loppemarked der butikken selger for deg. Du trenger ikke stå der selv.</span></span>
+              <span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
+            </a>
+          </li>
+          <li>
+            <a class="sc-card" href="#slik-fungerer">
+              <span><span class="sc-title">Slik fungerer det</span><span class="sc-desc">Fem steg fra full bod til penger på konto.</span></span>
+              <span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
+            </a>
+          </li>
+          <li>
+            <a class="sc-card" href="#meld-interesse">
+              <span><span class="sc-title">Pris og åpning</span><span class="sc-desc">Ikke bestemt ennå. De på interesselista får vite det først.</span></span>
+              <span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Slik fungerer det -->
+    <section class="steps-sec sec" id="slik-fungerer" aria-labelledby="steps-title">
+      <div class="wrap">
+        <div class="steps-head">
+          <p class="eyebrow">Guide for selgere</p>
+          <h2 id="steps-title">Slik fungerer det</h2>
+          <p>Fem steg. De tre første gjør du, resten tar vi.</p>
+        </div>
+        <ol class="steps" role="list">
+          <li class="step">
+            <svg class="step-badge face-1" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">1</text></svg>
+            <h3>Lei en stand</h3>
+            <p>Du leier en stand i butikken for en periode. Pris og lengde på perioden kommer før vi åpner.</p>
+          </li>
+          <li class="step">
+            <svg class="step-badge face-2" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">2</text></svg>
+            <h3>Registrer varene dine</h3>
+            <p>Legg inn tingene på Min side og sett prisen selv. Så skriver du ut prislappene.</p>
+          </li>
+          <li class="step">
+            <svg class="step-badge face-3" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">3</text></svg>
+            <h3>Ta med tingene</h3>
+            <p>Fest prislappene og ta med tingene når leieperioden starter. Så fyller du standen.</p>
+          </li>
+          <li class="step">
+            <svg class="step-badge face-1" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">4</text></svg>
+            <h3>Vi står i kassa</h3>
+            <p>Kundene betaler hos oss, så du trenger ikke være der. Salget følger du på Min side.</p>
+          </li>
+          <li class="step">
+            <svg class="step-badge face-2" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">5</text></svg>
+            <h3>Utbetaling</h3>
+            <p>Det du har solgt for, blir betalt ut til bankkontoen din.</p>
+          </li>
+        </ol>
+        <div class="step-notes">
+          <p class="note"><span class="note-tag">Underveis</span> Du kan fylle på standen så lenge perioden varer.</p>
+          <p class="note"><span class="note-tag">Til slutt</span> Du henter det som ikke ble solgt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Min side -->
+    <section class="minside sec" id="min-side" aria-labelledby="ms-title">
+      <div class="wrap minside-grid">
+        <div class="ms-copy">
+          <p class="eyebrow">Min side · Selgerprofilen din</p>
+          <h2 id="ms-title">Følg salget fra sofaen.</h2>
+          <p>Min side er profilen din på nettet. Der registrerer du tingene, skriver ut prislappene og ser hva som er solgt. Du slipper å stikke innom for å sjekke.</p>
+          <ul class="ms-facts" role="list">
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Registrer varene dine og sett pris</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Se hva som er solgt</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Fyll på standen når det blir glissent</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn-cta" href="#meld-interesse">Meld interesse</a>
+            <a class="btn btn-outline" href="#sporsmal">Spørsmål og svar</a>
+          </div>
+        </div>
+
+        <figure class="mock">
+          <div class="mock-win">
+            <div class="mock-bar">
+              <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#i-badge"></use></svg>
+              <span class="mock-url">loppely.no/min-side</span>
+              <span class="mock-flag">Eksempel</span>
+            </div>
+            <div class="mock-body">
+              <div>
+                <p class="mock-kicker">Din stand</p>
+                <p class="mock-stand">Stand 24</p>
+              </div>
+              <dl class="mock-stats">
+                <div class="stat"><dt>Varer</dt><dd>5</dd></div>
+                <div class="stat"><dt>Solgt</dt><dd>3</dd></div>
+                <div class="stat"><dt>Solgt for</dt><dd>520 kr</dd></div>
+              </dl>
+              <ul class="mock-rows" role="list">
+                <li><span class="mr-item">Barnesykkel, 16 tommer</span><span class="mr-price">250 kr</span><span class="st st-sold">Solgt</span></li>
+                <li><span class="mr-item">Marius-genser, str. M</span><span class="mr-price">150 kr</span><span class="st st-sold">Solgt</span></li>
+                <li><span class="mr-item">Figgjo-kopper, 4 stk.</span><span class="mr-price">120 kr</span><span class="st st-sold">Solgt</span></li>
+                <li><span class="mr-item">Kjelke</span><span class="mr-price">80 kr</span><span class="st st-in">I standen</span></li>
+                <li><span class="mr-item">Donald-blader, 10 stk.</span><span class="mr-price">50 kr</span><span class="st st-in">I standen</span></li>
+              </ul>
+              <div class="mock-acts" aria-hidden="true">
+                <span class="mock-act is-fill">+ Registrer vare</span>
+                <span class="mock-act">Lag prislapper</span>
+              </div>
+              <p class="mock-toast"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Nettopp solgt: Figgjo-kopper (4 stk.), 120 kr</p>
+            </div>
+          </div>
+          <div class="plapp-wrap">
+            <div class="plapp" role="img" aria-label="Eksempel på prislapp: Marius-genser, str. M, fra stand 24, 150 kroner, stemplet solgt.">
+              <span class="plapp-top"><span>Loppely</span><span>Stand 24</span></span>
+              <span class="plapp-item">Marius-genser, str. M</span>
+              <span class="plapp-price">150 kr</span>
+              <span class="plapp-code"></span>
+              <span class="plapp-stamp">Solgt</span>
+            </div>
+          </div>
+          <figcaption class="mock-cap">Eksempel. Standen, varene og tallene er oppdiktet for å vise hvordan det virker.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Example prislapper -->
+    <section class="finds sec" aria-labelledby="finds-title">
+      <p class="vlabel" aria-hidden="true">Klær · Bøker · Kjøkken · Sport</p>
+      <div class="wrap finds-in">
+        <p class="eyebrow">Eksempler på prislapper</p>
+        <h2 id="finds-title">Det du ikke bruker, leter noen etter.</h2>
+        <ul class="ptags" role="list" aria-label="Eksempler på varer og priser">
+          <li class="ptag"><span class="ptag-in"><span>Marius-genser, str. M</span><span class="ptag-price">150 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Cathrineholm-kjele</span><span class="ptag-price">200 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Donald-blader, 10 stk.</span><span class="ptag-price">50 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Barnesykkel, 16 tommer</span><span class="ptag-price">250 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Kjelke</span><span class="ptag-price">80 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Figgjo-kopper, 4 stk.</span><span class="ptag-price">120 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Langrennsski, 190 cm</span><span class="ptag-price">150 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Vinylplater, 5 stk.</span><span class="ptag-price">100 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Brettspill</span><span class="ptag-price">60 kr</span></span></li>
+          <li class="ptag"><span class="ptag-in"><span>Lysestaker i messing</span><span class="ptag-price">90 kr</span></span></li>
+        </ul>
+        <p class="finds-note">Eksempler. Du setter prisen på dine egne ting.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq sec" id="sporsmal" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div class="faq-intro">
+          <p class="eyebrow">Før du melder deg på</p>
+          <h2 id="faq-title">Spørsmål og svar.</h2>
+          <p>Det vi vet, svarer vi på. Det som ikke er bestemt, sier vi fra om.</p>
+          <p>Fant du ikke svaret? Skriv til <a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a>.</p>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Hva er et loppesupermarked?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a">
+              <p>En bruktbutikk der mange selgere har hver sin stand. Du leier en stand, fyller den med tingene dine og setter prisene. Kundene handler fra alle standene og betaler i én kasse.</p>
+              <p>Modellen er vanlig i Finland, der den kalles kirppis.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Må jeg stå i standen selv?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Nei. Du leverer tingene, og vi selger dem i kassa. Du kan være på jobb, på hytta eller hjemme i sofaen. Salget følger du på Min side.</p></div>
+          </details>
+          <details>
+            <summary>Hvem setter prisen?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Det gjør du. Prisen legger du inn når du registrerer varen, og den står på prislappen. Kunden betaler det som står der.</p></div>
+          </details>
+          <details>
+            <summary>Hvordan lager jeg prislapper?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a">
+              <p>Du registrerer tingene på Min side med en kort beskrivelse og pris. Så skriver du ut prislappene og fester dem på tingene.</p>
+              <p>Hver lapp viser hvilken stand varen hører til, så salget blir registrert på deg.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Kan jeg fylle på standen underveis?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Ja. Registrer de nye tingene på Min side, skriv ut prislapper og ta dem med. Det kan du gjøre så lenge leieperioden varer.</p></div>
+          </details>
+          <details>
+            <summary>Hvordan får jeg pengene?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Det du har solgt for, blir betalt ut til bankkontoen din. På Min side ser du hva som er solgt. Hvor ofte vi betaler ut, forteller vi før vi åpner.</p></div>
+          </details>
+          <details>
+            <summary>Hva skjer med det som ikke blir solgt?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Det henter du når leieperioden er over. Tingene er dine helt til noen har kjøpt dem.</p></div>
+          </details>
+          <details>
+            <summary>Hva kan jeg selge?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Brukte ting som andre kan ha glede av. Typisk er klær, barneting, bøker, spill, kjøkkenutstyr, sportsutstyr, møbler og interiør. Om det blir noe vi ikke tar imot, sier vi fra før vi åpner.</p></div>
+          </details>
+          <details>
+            <summary>Hva koster en stand?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Prisene er ikke satt ennå. Det gjelder både leie av stand og eventuell provisjon. De som står på interesselista, får prisene først.</p></div>
+          </details>
+          <details>
+            <summary>Når og hvor åpner dere?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Det er ikke bestemt ennå. Når vi vet det, sier vi fra til alle på interesselista først. Skriv hvor du bor når du melder interesse. Det hjelper oss å velge sted.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meld interesse -->
+    <section class="join sec" id="meld-interesse" aria-labelledby="join-title">
+      <div class="wrap join-grid">
+        <div class="join-copy">
+          <p class="eyebrow">Interesseliste for selgere</p>
+          <h2 id="join-title">Bli en av de første selgerne.</h2>
+          <p class="lede">Prisene og åpningsdatoen kommer snart. De som står på lista, hører det først.</p>
+          <ul class="join-list" role="list">
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Hvor du bor, hjelper oss å velge hvor vi åpner.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Hva du vil selge, forteller oss hvilke stander vi trenger.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Å melde interesse er ikke en bestilling.</li>
+          </ul>
+        </div>
+
+        <div class="form-hang">
+          <div class="form-shadow">
+            <form class="form-card" id="selgerskjema" novalidate aria-labelledby="join-title">
+              <p class="form-top">Navn, e-post og hvor du bor må være med.</p>
+              <div class="field">
+                <label for="navn">Navn</label>
+                <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
+                <p class="err" id="navn-feil" hidden></p>
+              </div>
+              <div class="field">
+                <label for="epost">E-post</label>
+                <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
+                <p class="err" id="epost-feil" hidden></p>
+              </div>
+              <div class="field">
+                <label for="poststed">Hvor bor du?</label>
+                <p class="hint" id="poststed-hint">Poststed holder. Det hjelper oss å velge hvor vi åpner.</p>
+                <input class="input" id="poststed" name="poststed" type="text" autocomplete="address-level2" required placeholder="Poststed" aria-describedby="poststed-hint poststed-feil">
+                <p class="err" id="poststed-feil" hidden></p>
+              </div>
+              <fieldset class="field-set" aria-describedby="kat-hint">
+                <legend>Hva vil du selge?<span class="opt">Valgfritt</span></legend>
+                <p class="hint" id="kat-hint">Velg så mange du vil.</p>
+                <div class="chips">
+                  <input class="chip-input sr-only" type="checkbox" id="kat-klaer" name="kategori" value="Klær">
+                  <label class="chip" for="kat-klaer">Klær</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-barneting" name="kategori" value="Barneting">
+                  <label class="chip" for="kat-barneting">Barneting</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-mobler" name="kategori" value="Møbler og interiør">
+                  <label class="chip" for="kat-mobler">Møbler og interiør</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-boker" name="kategori" value="Bøker og spill">
+                  <label class="chip" for="kat-boker">Bøker og spill</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-kjokken" name="kategori" value="Kjøkkenutstyr">
+                  <label class="chip" for="kat-kjokken">Kjøkkenutstyr</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-sport" name="kategori" value="Sport og fritid">
+                  <label class="chip" for="kat-sport">Sport og fritid</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-annet" name="kategori" value="Annet">
+                  <label class="chip" for="kat-annet">Annet</label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="mer">Noe mer vi bør vite?<span class="opt">Valgfritt</span></label>
+                <textarea class="input" id="mer" name="mer" rows="3" placeholder="For eksempel: en hel bod etter flytting"></textarea>
+              </div>
+              <div class="submit-row">
+                <button class="btn btn-dark btn-lg" type="submit">Meld interesse</button>
+                <p class="form-note">Når du trykker, åpnes e-postappen din med meldingen ferdig skrevet til <span data-epost>hei@loppely.no</span>. Du sender den selv.</p>
+              </div>
+              <p class="status-msg" id="status-tekst" role="status" aria-live="polite"></p>
+              <div class="reserve" id="reserve" hidden>
+                <p>Åpnet ikke e-postappen seg? Kopier meldingen under og send den til <strong data-epost>hei@loppely.no</strong>.</p>
+                <pre class="reserve-text" id="reserve-melding"></pre>
+                <button class="btn btn-outline btn-sm" type="button" id="kopier-melding">Kopier meldingen</button>
+                <span class="copy-note" id="kopier-status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+          <svg class="form-string" viewBox="0 0 40 82" aria-hidden="true" focusable="false"><path d="M20 80 C 22 54, 6 30, 16 2"></path></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trio -->
+    <section class="trio-sec" aria-label="Kort sagt">
+      <div class="wrap">
+        <ul class="trio" role="list">
+          <li>
+            <svg class="trio-ico face-1" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use></svg>
+            <div>
+              <p class="trio-title">Du setter prisen</p>
+              <p class="trio-text">Det er dine ting. Prisen står på prislappen.</p>
+            </div>
+          </li>
+          <li>
+            <svg class="trio-ico face-2" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use></svg>
+            <div>
+              <p class="trio-title">Vi står i kassa</p>
+              <p class="trio-text">Du trenger ikke være der når det selges.</p>
+            </div>
+          </li>
+          <li>
+            <svg class="trio-ico face-3" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use></svg>
+            <div>
+              <p class="trio-title">De på lista hører det først</p>
+              <p class="trio-text">Pris, sted og åpning går først til interesselista.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-in">
+      <div class="lockup">
+        <svg class="lock-badge" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#i-badge"></use></svg>
+        <div class="lock-text">
+          <p class="lock-eyebrow">Et loppesupermarked</p>
+          <p class="lock-word">Loppely</p>
+          <p class="lock-eyebrow">Lei stand · Sett pris · Vi selger</p>
+        </div>
+      </div>
+      <ul class="foot-meta" role="list">
+        <li>loppely.no</li>
+        <li><a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a></li>
+        <li>© 2026 Loppely</li>
+      </ul>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const LOPPELY_EPOST = 'hei@loppely.no';
+
+(function () {
+  'use strict';
+
+  document.querySelectorAll('[data-epost]').forEach(function (el) { el.textContent = LOPPELY_EPOST; });
+  document.querySelectorAll('[data-epost-link]').forEach(function (el) {
+    el.textContent = LOPPELY_EPOST;
+    el.setAttribute('href', 'mailto:' + LOPPELY_EPOST);
+  });
+
+  var reduceMotion = false;
+  try { reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { reduceMotion = false; }
+
+  var quick = document.getElementById('hurtigskjema');
+  var quickEpost = document.getElementById('hurtig-epost');
+  var form = document.getElementById('selgerskjema');
+  var fNavn = document.getElementById('navn');
+  var fEpost = document.getElementById('epost');
+  var fSted = document.getElementById('poststed');
+  var fMer = document.getElementById('mer');
+  var statusText = document.getElementById('status-tekst');
+  var reserve = document.getElementById('reserve');
+  var reserveText = document.getElementById('reserve-melding');
+  var copyBtn = document.getElementById('kopier-melding');
+  var copyNote = document.getElementById('kopier-status');
+
+  /* Hero: carry the e-post down to the real form and jump there */
+  quick.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = quickEpost.value.trim();
+    if (v) { fEpost.value = v; }
+    document.getElementById('meld-interesse').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    fNavn.focus({ preventScroll: true });
+  });
+
+  function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+  function setError(input, msg) {
+    var err = document.getElementById(input.id + '-feil');
+    if (msg) {
+      input.setAttribute('aria-invalid', 'true');
+      err.textContent = msg;
+      err.hidden = false;
+    } else {
+      input.removeAttribute('aria-invalid');
+      err.textContent = '';
+      err.hidden = true;
+    }
+  }
+
+  function checkNavn() {
+    if (!fNavn.value.trim()) { setError(fNavn, 'Skriv navnet ditt.'); return false; }
+    setError(fNavn, ''); return true;
+  }
+  function checkEpost() {
+    var v = fEpost.value.trim();
+    if (!v) { setError(fEpost, 'Skriv e-postadressen din.'); return false; }
+    if (!emailOk(v)) { setError(fEpost, 'Sjekk e-postadressen. Den skal se ut som navn@eksempel.no.'); return false; }
+    setError(fEpost, ''); return true;
+  }
+  function checkSted() {
+    if (!fSted.value.trim()) { setError(fSted, 'Skriv hvor du bor. Poststed holder.'); return false; }
+    setError(fSted, ''); return true;
+  }
+
+  [[fNavn, checkNavn], [fEpost, checkEpost], [fSted, checkSted]].forEach(function (pair) {
+    pair[0].addEventListener('input', function () {
+      if (pair[0].getAttribute('aria-invalid') === 'true') { pair[1](); }
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var okNavn = checkNavn();
+    var okEpost = checkEpost();
+    var okSted = checkSted();
+
+    if (!okNavn || !okEpost || !okSted) {
+      reserve.hidden = true;
+      copyNote.textContent = '';
+      statusText.setAttribute('data-state', 'feil');
+      statusText.textContent = 'Noe mangler eller må rettes. Se merknadene i skjemaet.';
+      if (!okNavn) { fNavn.focus(); } else if (!okEpost) { fEpost.focus(); } else { fSted.focus(); }
+      return;
+    }
+
+    var navn = fNavn.value.trim();
+    var epost = fEpost.value.trim();
+    var sted = fSted.value.trim();
+    var mer = fMer.value.trim();
+    var kategorier = Array.prototype.map.call(
+      form.querySelectorAll('input[name="kategori"]:checked'),
+      function (i) { return i.value; }
+    );
+
+    var lines = [
+      'Hei Loppely!',
+      '',
+      'Jeg er interessert i å leie en stand når dere åpner. Sett meg på interesselista.',
+      '',
+      'Navn: ' + navn,
+      'E-post: ' + epost,
+      'Bor i: ' + sted,
+      'Vil selge: ' + (kategorier.length ? kategorier.join(', ') : 'Ikke valgt ennå')
+    ];
+    if (mer) { lines.push('', 'Melding:', mer); }
+    lines.push('', 'Hilsen ' + navn);
+
+    var subject = 'Ny selger: ' + navn;
+    var href = 'mailto:' + LOPPELY_EPOST +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(lines.join('\n').replace(/\r?\n/g, '\r\n'));
+
+    reserveText.textContent = 'Til: ' + LOPPELY_EPOST + '\nEmne: ' + subject + '\n\n' + lines.join('\n');
+    copyNote.textContent = '';
+
+    var lead = document.createElement('strong');
+    lead.textContent = 'Nesten ferdig. ';
+    statusText.setAttribute('data-state', 'ok');
+    statusText.textContent = '';
+    statusText.appendChild(lead);
+    statusText.appendChild(document.createTextNode(
+      'E-postappen din åpner seg nå med meldingen ferdig skrevet til ' + LOPPELY_EPOST +
+      '. Den er ikke sendt ennå. Trykk send, så står du på lista.'
+    ));
+    reserve.hidden = false;
+
+    try { window.location.href = href; } catch (err) { /* the copy fallback stays visible */ }
+  });
+
+  copyBtn.addEventListener('click', function () {
+    var text = reserveText.textContent;
+    function selectIt() {
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(reserveText);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      } catch (err) { /* selection not available */ }
+      copyNote.textContent = 'Teksten er merket. Kopier med Cmd+C eller Ctrl+C.';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        copyNote.textContent = 'Kopiert.';
+      }, selectIt);
+    } else {
+      selectIt();
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var tag = document.querySelector('.tag-wrap');
+  if (!tag || !tag.animate) return;
+  var ease = 'cubic-bezier(0.3, 0.7, 0.4, 1)';
+  var frames = [
+    { transform: 'rotate(-2deg)', easing: ease },
+    { transform: 'rotate(-10deg)', offset: 0.15, easing: ease },
+    { transform: 'rotate(3deg)', offset: 0.45, easing: ease },
+    { transform: 'rotate(-4.5deg)', offset: 0.66, easing: ease },
+    { transform: 'rotate(-1deg)', offset: 0.85, easing: ease },
+    { transform: 'rotate(-2deg)' }
+  ];
+  tag.addEventListener('pointerenter', function () {
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduce) return;
+    if (tag.getAnimations().some(function (a) { return a.playState === 'running'; })) return;
+    tag.animate(frames, { duration: 1800 });
+  });
+})();
+</script>

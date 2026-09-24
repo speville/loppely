@@ -1,0 +1,213 @@
+/* Farge 2 · Oransje */
+:root {
+  /* Orange-led poster. Plain areas (header, hero, steps, FAQ, trio) sit on
+     orange, and every small text on orange is maroon-deep (5.3:1).
+     Contrast: maroon-deep on orange 5.3, on mauve 5.4; maroon on cream 11.6;
+     cream on maroon 11.6; orange-soft on maroon 6.5; orange on maroon-deep 5.3;
+     paper on orange-deep 4.7; #7A3A2E on cream 7.3, on paper 8.4. */
+
+  /* Page */
+  --page-bg: var(--orange);
+  --page-text: var(--maroon-deep);
+  --page-muted: var(--maroon-deep);          /* muted on orange must stay maroon-deep */
+  --page-line: rgba(46, 13, 8, 0.32);
+  --page-surface: var(--cream);
+  --page-card: var(--paper);
+  /* Only the skip link still follows --page-focus (header, hero and FAQ set
+     their own below). It pops up across the maroon bar and the orange header,
+     so its ring is paper: 13.4:1 on maroon, 3.3:1 on orange. */
+  --page-focus: var(--paper);
+  --focus-on-dark: var(--orange-soft);
+  --focus-on-light: var(--maroon-deep);
+
+  /* Controls */
+  --cta-bg: var(--maroon);
+  --cta-text: var(--cream);
+  --btn-bg: var(--maroon);
+  --btn-text: var(--cream);
+  --field-bg: var(--paper);
+  --field-text: var(--maroon);
+  --field-border: var(--maroon);
+  --field-placeholder: #7A3A2E;              /* maroon tint, 8.4:1 on paper */
+  --field-invalid: var(--orange-deep);       /* 4.1:1 on the cream card */
+
+  /* Tag shapes */
+  --tag-shadow: var(--maroon);
+  --tag-stroke: var(--maroon);
+
+  /* Announcement bar: maroon */
+  --announce-bg: var(--maroon);
+  --announce-text: var(--cream);
+  --announce-accent: var(--orange-soft);
+  --announce-focus: var(--focus-on-dark);
+  --pill-bg: var(--orange);
+  --pill-text: var(--maroon-deep);
+
+  /* Header: orange */
+  --header-bg: var(--page-bg);
+  --header-text: var(--page-text);
+  --header-line: var(--page-line);
+  --header-focus: var(--focus-on-light);     /* maroon-deep on orange 5.3 */
+  --logo-bg: var(--maroon);
+  --logo-fg: var(--cream);
+
+  /* Hero: orange; ticks turn dark so they don't vanish into the ground */
+  --hero-bg: var(--page-bg);
+  --hero-text: var(--page-text);
+  --hero-muted: var(--page-muted);
+  --hero-focus: var(--focus-on-light);
+  --hero-tick-bg: var(--maroon-deep);
+  --hero-tick-fg: var(--orange);
+  --highlight-bg: var(--cream);
+  --highlight-text: var(--maroon);
+  --highlight-shadow: var(--maroon);
+  --highlight-string: var(--hero-text);
+
+  /* Brand board: the orange block leaves the board (it would merge with the
+     ground). Checkerboard: maroon | cream / mauve | maroon-deep. */
+  --board-1-bg: var(--maroon);
+  --board-1-fg: var(--cream);
+  --board-1-link: var(--orange-soft);
+  --board-1-focus: var(--focus-on-dark);
+  --board-2-bg: var(--cream);
+  --board-2-fg: var(--maroon-deep);
+  --board-2-word: var(--maroon);
+  --board-3-bg: var(--mauve);
+  --board-3-fg: var(--maroon-deep);
+  --board-4-bg: var(--maroon-deep);
+  --board-4-fg: var(--orange);
+  --board-badge-bg: var(--maroon);
+  --board-badge-fg: var(--cream);
+  --board-ring: var(--hero-bg);
+
+  /* Shortcut band: orange-soft tinted toward cream, paper cards */
+  --band-bg: #F8C6A9;
+  --band-card-bg: var(--paper);
+  --band-text: var(--maroon);
+  --band-muted: #7A3A2E;
+  --band-line: rgba(86, 26, 18, 0.3);
+  --band-arrow-bg: var(--orange);
+  --band-arrow-fg: var(--maroon-deep);
+  --band-focus: var(--maroon-deep);
+
+  /* Steps: orange; badge faces avoid orange */
+  --steps-bg: var(--page-bg);
+  --steps-text: var(--page-text);
+  --steps-muted: var(--page-muted);
+  --step-badge-1: var(--cream);
+  --step-badge-2: var(--mauve);
+  --step-badge-3: var(--orange-soft);
+  --step-badge-shadow: var(--tag-shadow);
+  --step-badge-stroke: var(--tag-stroke);
+  --step-num: var(--maroon);                 /* >= 27px, 900 weight */
+  --steps-note-bg: var(--maroon-deep);
+  --steps-note-text: var(--cream);
+
+  /* Min side: maroon; its CTA flips to orange so it shows on maroon */
+  --minside-bg: var(--maroon);
+  --minside-text: var(--cream);
+  --minside-muted: var(--cream-soft);
+  --minside-accent: var(--orange-soft);
+  --minside-focus: var(--focus-on-dark);
+  --minside-tick-bg: var(--orange);
+  --minside-tick-fg: var(--maroon-deep);
+  --minside-cta-bg: var(--orange);
+  --minside-cta-text: var(--maroon-deep);
+
+  /* Mock window */
+  --mock-bg: var(--cream);
+  --mock-text: var(--maroon);
+  --mock-line: var(--mock-text);
+  --mock-rule: rgba(86, 26, 18, 0.35);
+  --mock-shadow: var(--orange);
+  --mock-logo-bg: var(--maroon);
+  --mock-logo-fg: var(--cream);
+  --mock-flag-bg: var(--mauve);
+  --mock-flag-text: var(--maroon-deep);
+  --mock-stat-bg: var(--paper);
+  --mock-sold-bg: var(--orange);
+  --mock-sold-text: var(--maroon-deep);
+  --mock-btn-bg: var(--maroon);
+  --mock-btn-text: var(--cream);
+  --toast-bg: var(--maroon);
+  --toast-text: var(--cream);
+  --toast-tick-bg: var(--orange);
+  --toast-tick-fg: var(--maroon-deep);
+
+  /* SOLGT prislapp */
+  --plapp-bg: var(--paper);
+  --plapp-text: var(--maroon);
+  --plapp-shadow: var(--mauve);
+  --plapp-rule: var(--mock-rule);
+  --plapp-barcode: var(--plapp-text);
+  --plapp-stamp: var(--orange-deep);
+
+  /* Finds: cream section, chips maroon / mauve / orange-deep */
+  --finds-bg: var(--cream);
+  --finds-text: var(--maroon-deep);
+  --finds-heading: var(--maroon);
+  --finds-eyebrow: var(--finds-text);
+  --finds-focus: var(--finds-text);
+  --chip-shadow: var(--maroon-deep);
+  --chip-a-bg: var(--maroon);
+  --chip-a-fg: var(--cream);
+  --chip-b-bg: var(--mauve);
+  --chip-b-fg: var(--maroon-deep);
+  --chip-c-bg: var(--orange-deep);
+  --chip-c-fg: var(--paper);                 /* 4.7:1; cream would be 4.1 */
+
+  /* FAQ: orange ground, paper plus discs */
+  --faq-bg: var(--page-bg);
+  --faq-text: var(--page-text);
+  --faq-muted: var(--page-muted);
+  --faq-rule: var(--faq-text);
+  --faq-focus: var(--focus-on-light);
+  --faq-plus-bg: var(--paper);
+  --faq-plus-fg: var(--maroon-deep);
+
+  /* Join: maroon section */
+  --join-bg: var(--maroon);
+  --join-text: var(--cream);
+  --join-heading: var(--orange);             /* large display size only */
+  --join-focus: var(--focus-on-dark);
+  --join-tick-bg: var(--orange);
+  --join-tick-fg: var(--maroon-deep);
+
+  /* Form card: cream tag with an orange shadow on maroon */
+  --form-string: var(--join-text);
+  --form-card-shadow: var(--orange);
+  --form-card-bg: var(--cream);
+  --form-card-text: var(--maroon);
+  --form-card-muted: #7A3A2E;
+  --form-card-focus: var(--maroon-deep);
+  --option-line: var(--field-border);
+  --option-on-bg: var(--btn-bg);
+  --option-on-text: var(--btn-text);
+  --option-on-dot: var(--orange);
+  --error-badge-bg: var(--orange);
+  --error-badge-text: var(--maroon-deep);
+  --status-bg: var(--paper);
+  --status-line: var(--form-card-text);
+  --status-error-line: var(--orange-deep);
+  --reserve-bg: var(--paper);
+  --reserve-text: var(--form-card-text);
+
+  /* Trio: orange strip between join and footer */
+  --trio-bg: var(--page-bg);
+  --trio-text: var(--page-text);
+  --trio-muted: var(--page-muted);
+  --trio-icon-1: var(--cream);
+  --trio-icon-2: var(--mauve);
+  --trio-icon-3: var(--orange-soft);
+  --trio-icon-shadow: var(--tag-shadow);
+  --trio-icon-stroke: var(--tag-stroke);
+
+  /* Footer: maroon-deep, orange sign-off */
+  --foot-bg: var(--maroon-deep);
+  --foot-text: var(--orange);
+  --foot-muted: var(--cream-soft);
+  --foot-link: var(--cream);
+  --foot-focus: var(--focus-on-dark);
+  --foot-logo-bg: transparent;
+  --foot-logo-fg: var(--orange);
+}

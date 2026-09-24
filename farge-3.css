@@ -1,0 +1,133 @@
+/* Farge 3 · Maroon */
+:root {
+  /* Page ground: maroon with cream text. Header, hero, steps and trio follow
+     these through their var(--page-*) defaults; FAQ is pointed at it below. */
+  --page-bg: var(--maroon);                  /* #561A12 */
+  --page-text: var(--cream);                 /* 11.6:1 on maroon */
+  --page-muted: var(--cream-soft);           /* 8.9:1 on maroon */
+  --page-line: rgba(253, 235, 213, 0.2);     /* cream hairline */
+  --page-surface: #6E2A1E;                   /* lighter maroon tint */
+  --page-card: #6E2A1E;
+  /* page-focus only reaches the skip link, whose ring straddles the orange
+     announce bar and the maroon header: paper is 3.3:1 / 13.3:1 there
+     (orange-soft was 1.6:1 on the orange). The maroon sections keep the
+     orange-soft ring through their own roles. */
+  --page-focus: var(--paper);
+  --header-focus: var(--focus-on-dark);      /* orange-soft, 6.5:1 on maroon */
+  --hero-focus: var(--focus-on-dark);
+  --faq-focus: var(--focus-on-dark);
+
+  /* Controls: orange buttons, cream fields with maroon text */
+  --btn-bg: var(--orange);
+  --btn-text: var(--maroon-deep);
+  --field-bg: var(--cream);
+  --field-text: var(--maroon);
+  --field-border: var(--maroon);
+  --field-placeholder: #7A3A2E;              /* 7.3:1 on cream */
+  --field-invalid: var(--orange-deep);       /* 4.1:1 ring on the cream card */
+
+  /* Tag shapes on a maroon ground: tone-on-tone deep shadow and outline */
+  --tag-shadow: var(--maroon-deep);
+  --tag-stroke: var(--maroon-deep);
+
+  /* Announcement bar: orange, maroon-deep text, maroon pill */
+  --announce-bg: var(--orange);
+  --announce-text: var(--maroon-deep);       /* 5.3:1 */
+  --announce-accent: var(--maroon-deep);     /* link: underline + bold carry it */
+  --announce-focus: var(--focus-on-light);
+  --pill-bg: var(--maroon);
+  --pill-text: var(--cream);
+
+  /* Header: inverted badge on the maroon ground */
+  --logo-bg: var(--cream);
+  --logo-fg: var(--maroon);
+
+  /* Hero highlight prislapp */
+  --highlight-bg: var(--orange);
+  --highlight-text: var(--maroon-deep);
+  --highlight-shadow: var(--mauve);
+
+  /* Brand board: the maroon block would vanish into the ground, so the
+     blocks become cream / orange / mauve / cream-soft (creams on the
+     diagonal) and the maroon shows through the centre badge + ring. */
+  --board-1-bg: var(--cream);
+  --board-1-fg: var(--maroon);
+  --board-1-link: var(--maroon-deep);
+  --board-1-focus: var(--focus-on-light);
+  --board-2-bg: var(--orange);
+  --board-2-fg: var(--maroon-deep);
+  --board-2-word: var(--maroon);             /* large text only */
+  --board-3-bg: var(--mauve);
+  --board-3-fg: var(--maroon-deep);          /* 5.3:1, covers the small vertical label */
+  --board-4-bg: var(--cream-soft);
+  --board-4-fg: var(--maroon);
+  --board-badge-bg: var(--maroon);
+  --board-badge-fg: var(--cream);
+
+  /* Shortcut band: mauve with cream cards and maroon-deep text */
+  --band-bg: var(--mauve);
+  --band-card-bg: var(--cream);
+  --band-text: var(--maroon-deep);
+  --band-muted: var(--maroon);
+  --band-line: rgba(46, 13, 8, 0.3);
+  --band-arrow-bg: var(--orange);
+  --band-arrow-fg: var(--maroon-deep);
+  --band-focus: var(--focus-on-light);
+
+  /* Min side: inverted to cream, maroon text and maroon accents */
+  --minside-bg: var(--cream);
+  --minside-text: var(--maroon);
+  --minside-muted: #7A3A2E;                  /* 7.3:1 on cream */
+  --minside-accent: #A84C28;                 /* orange-deep shade, 4.8:1 on cream */
+  --minside-focus: var(--focus-on-light);
+  --minside-tick-bg: var(--maroon);
+  --minside-tick-fg: var(--cream);
+  --minside-cta-bg: var(--orange);
+  --minside-cta-text: var(--maroon-deep);
+
+  /* Mock window: paper on the cream section, lifted by a maroon block shadow */
+  --mock-bg: var(--paper);
+  --mock-text: var(--maroon);
+  --mock-shadow: var(--maroon);
+  --mock-stat-bg: var(--cream);
+  --mock-logo-bg: var(--maroon);
+  --mock-logo-fg: var(--cream);
+  --mock-btn-bg: var(--maroon);
+  --mock-btn-text: var(--cream);
+
+  /* Example tags: mauve section */
+  --finds-bg: var(--mauve);
+  --finds-text: var(--maroon-deep);
+  --finds-heading: var(--maroon);            /* large text only */
+  --chip-shadow: var(--maroon-deep);
+
+  /* FAQ on the page ground */
+  --faq-bg: var(--page-bg);
+  --faq-plus-bg: var(--orange);
+  --faq-plus-fg: var(--maroon-deep);
+
+  /* Join: orange section with a cream form card */
+  --join-bg: var(--orange);
+  --join-text: var(--maroon-deep);
+  --join-heading: var(--maroon);             /* large text only */
+  --join-tick-bg: var(--maroon);
+  --join-tick-fg: var(--cream);
+  --form-card-shadow: var(--maroon);
+  --form-card-bg: var(--cream);
+  --form-card-text: var(--maroon);
+  --form-card-muted: #7A3A2E;
+  --form-card-focus: var(--focus-on-light);
+  --option-on-bg: var(--maroon);
+  --option-on-text: var(--cream);
+  --option-on-dot: var(--orange);
+  --status-bg: var(--cream-soft);
+  --status-error-line: var(--orange-deep);
+  --reserve-bg: var(--cream-soft);
+
+  /* Footer: maroon-deep under the maroon trio */
+  --foot-bg: var(--maroon-deep);
+  --foot-text: var(--cream);
+  --foot-muted: var(--cream-soft);           /* 11.8:1 */
+  --foot-focus: var(--focus-on-dark);
+  --foot-logo-fg: var(--mauve);
+}

@@ -1,0 +1,214 @@
+/* Farge 1 · Krem */
+:root {
+  /* Every role is listed. Roles that follow another role stay chained, so
+     the page dark blocks still take over the page roles in dark mode.
+     "Changed" marks a value that differs from the page defaults. */
+
+  /* Page: cream ground, paper cards, maroon text */
+  --page-bg: var(--cream);                 /* changed: was #FFF8F0 */
+  --page-text: var(--maroon);
+  --page-muted: #7A3A2E;                   /* maroon tint, 7.3:1 on cream */
+  --page-line: rgba(86, 26, 18, 0.2);
+  --page-surface: var(--cream);
+  --page-card: var(--paper);               /* changed: was #FFFCF8 */
+  /* changed: was maroon. In light mode only the skip link still reads this
+     role (header, hero, band, FAQ and form now follow --page-text). The skip
+     link sits over the maroon announce bar and the cream header, so its ring
+     needs 3:1 on both: orange/orange-deep midpoint, 3.4:1 on each. Dark mode
+     still redefines this role. */
+  --page-focus: #CC6035;
+  --focus-on-dark: var(--orange-soft);
+  --focus-on-light: var(--maroon-deep);
+
+  /* Controls: primary pills maroon/cream, header pill orange/maroon-deep */
+  --cta-bg: var(--orange);
+  --cta-text: var(--maroon-deep);
+  --btn-bg: var(--maroon);
+  --btn-text: var(--cream);
+  --field-bg: var(--paper);
+  --field-text: var(--page-text);
+  --field-border: var(--maroon);
+  --field-placeholder: var(--page-muted);
+  --field-invalid: var(--orange);
+
+  /* Tag shapes */
+  --tag-shadow: var(--maroon);
+  --tag-stroke: var(--maroon);
+
+  /* Announcement bar: maroon */
+  --announce-bg: var(--maroon);
+  --announce-text: var(--cream);
+  --announce-accent: var(--orange-soft);
+  --announce-focus: var(--focus-on-dark);
+  --pill-bg: var(--orange);
+  --pill-text: var(--maroon-deep);
+
+  /* Header: on the cream ground */
+  --header-bg: var(--page-bg);
+  --header-text: var(--page-text);
+  --header-line: var(--page-line);
+  --header-focus: var(--page-text);        /* changed: was --page-focus; maroon ring, cream in dark */
+  --logo-bg: var(--maroon);
+  --logo-fg: var(--cream);
+
+  /* Hero: on the cream ground */
+  --hero-bg: var(--page-bg);
+  --hero-text: var(--page-text);
+  --hero-muted: var(--page-muted);
+  --hero-focus: var(--page-text);          /* changed: was --page-focus; maroon ring, cream in dark */
+  --hero-tick-bg: var(--orange);
+  --hero-tick-fg: var(--maroon-deep);
+  --highlight-bg: var(--orange);
+  --highlight-text: var(--maroon-deep);    /* changed: was maroon */
+  --highlight-shadow: var(--tag-shadow);   /* maroon */
+  --highlight-string: var(--hero-text);
+
+  /* Brand board. The cream block would vanish into the cream hero, so
+     block 3 takes orange-soft: the diagonals become orange/orange-soft
+     and maroon/mauve, and no block matches the ground. */
+  --board-1-bg: var(--maroon);
+  --board-1-fg: var(--cream);
+  --board-1-link: var(--orange-soft);
+  --board-1-focus: var(--focus-on-dark);
+  --board-2-bg: var(--orange);
+  --board-2-fg: var(--maroon-deep);
+  --board-2-word: var(--maroon);
+  --board-3-bg: var(--orange-soft);        /* changed: was cream */
+  --board-3-fg: var(--maroon);             /* 6.5:1 on orange-soft */
+  --board-4-bg: var(--mauve);
+  --board-4-fg: var(--maroon-deep);
+  --board-badge-bg: var(--maroon);
+  --board-badge-fg: var(--cream);
+  --board-ring: var(--hero-bg);
+
+  /* Shortcut band: cream-soft strip, paper cards */
+  --band-bg: var(--cream-soft);            /* changed: was #F1E4EA */
+  --band-card-bg: var(--page-card);
+  --band-text: var(--page-text);
+  --band-muted: var(--page-muted);
+  --band-line: var(--page-line);
+  --band-arrow-bg: var(--orange);
+  --band-arrow-fg: var(--maroon-deep);
+  --band-focus: var(--page-text);          /* changed: was --page-focus; maroon ring, cream in dark */
+
+  /* Slik fungerer det: on the cream ground */
+  --steps-bg: var(--page-bg);
+  --steps-text: var(--page-text);
+  --steps-muted: var(--page-muted);
+  --step-badge-1: var(--orange);
+  --step-badge-2: var(--mauve);
+  --step-badge-3: var(--paper);            /* changed: a cream face sat on the cream ground */
+  --step-badge-shadow: var(--tag-shadow);
+  --step-badge-stroke: var(--tag-stroke);
+  --step-num: var(--maroon);
+  --steps-note-bg: var(--mauve);
+  --steps-note-text: var(--maroon-deep);
+
+  /* Min side: maroon, cream text, orange CTA (a maroon pill would vanish here) */
+  --minside-bg: var(--maroon);
+  --minside-text: var(--cream);
+  --minside-muted: var(--cream-soft);
+  --minside-accent: var(--orange-soft);
+  --minside-focus: var(--focus-on-dark);
+  --minside-tick-bg: var(--orange);
+  --minside-tick-fg: var(--maroon-deep);
+  --minside-cta-bg: var(--cta-bg);
+  --minside-cta-text: var(--cta-text);
+
+  /* Mock window: cream window, paper tiles, orange block shadow */
+  --mock-bg: var(--cream);
+  --mock-text: var(--maroon);
+  --mock-line: var(--mock-text);
+  --mock-rule: rgba(86, 26, 18, 0.35);
+  --mock-shadow: var(--orange);
+  --mock-logo-bg: var(--maroon);
+  --mock-logo-fg: var(--cream);
+  --mock-flag-bg: var(--mauve);
+  --mock-flag-text: var(--maroon-deep);
+  --mock-stat-bg: var(--paper);
+  --mock-sold-bg: var(--orange);
+  --mock-sold-text: var(--maroon-deep);
+  --mock-btn-bg: var(--maroon);
+  --mock-btn-text: var(--cream);
+  --toast-bg: var(--maroon);
+  --toast-text: var(--cream);
+  --toast-tick-bg: var(--orange);
+  --toast-tick-fg: var(--maroon-deep);
+
+  /* SOLGT prislapp */
+  --plapp-bg: var(--paper);
+  --plapp-text: var(--maroon);
+  --plapp-shadow: var(--mauve);
+  --plapp-rule: var(--mock-rule);
+  --plapp-barcode: var(--plapp-text);
+  --plapp-stamp: var(--orange-deep);
+
+  /* Example prislapper: mauve section */
+  --finds-bg: var(--mauve);
+  --finds-text: var(--maroon-deep);
+  --finds-heading: var(--maroon);
+  --finds-eyebrow: var(--finds-text);
+  --finds-focus: var(--finds-text);
+  --chip-shadow: var(--tag-shadow);
+  --chip-a-bg: var(--cream);
+  --chip-a-fg: var(--maroon);
+  --chip-b-bg: var(--maroon);
+  --chip-b-fg: var(--cream);
+  --chip-c-bg: var(--orange);
+  --chip-c-fg: var(--maroon-deep);
+
+  /* FAQ: on the cream ground */
+  --faq-bg: var(--page-surface);           /* cream */
+  --faq-text: var(--page-text);
+  --faq-muted: var(--page-muted);
+  --faq-rule: var(--faq-text);
+  --faq-focus: var(--page-text);           /* changed: was --page-focus; maroon ring, cream in dark */
+  --faq-plus-bg: var(--orange);
+  --faq-plus-fg: var(--maroon-deep);
+
+  /* Meld interesse: orange section */
+  --join-bg: var(--orange);
+  --join-text: var(--maroon-deep);
+  --join-heading: var(--maroon);
+  --join-focus: var(--focus-on-light);
+  --join-tick-bg: var(--maroon);
+  --join-tick-fg: var(--cream);
+
+  /* Form card: paper card, maroon shadow, cream boxes inside */
+  --form-string: var(--join-text);
+  --form-card-shadow: var(--maroon);
+  --form-card-bg: var(--page-card);        /* paper */
+  --form-card-text: var(--page-text);
+  --form-card-muted: var(--page-muted);
+  --form-card-focus: var(--page-text);     /* changed: was --page-focus; maroon ring, cream in dark */
+  --option-line: var(--field-border);
+  --option-on-bg: var(--btn-bg);
+  --option-on-text: var(--btn-text);
+  --option-on-dot: var(--orange);
+  --error-badge-bg: var(--orange);
+  --error-badge-text: var(--maroon-deep);
+  --status-bg: var(--page-surface);
+  --status-line: var(--form-card-text);
+  --status-error-line: var(--orange);
+  --reserve-bg: var(--page-surface);
+  --reserve-text: var(--form-card-text);
+
+  /* Trio: on the cream ground */
+  --trio-bg: var(--page-bg);
+  --trio-text: var(--page-text);
+  --trio-muted: var(--page-muted);
+  --trio-icon-1: var(--orange);
+  --trio-icon-2: var(--mauve);
+  --trio-icon-3: var(--paper);             /* changed: a cream face sat on the cream ground */
+  --trio-icon-shadow: var(--tag-shadow);
+  --trio-icon-stroke: var(--tag-stroke);
+
+  /* Footer: maroon */
+  --foot-bg: var(--maroon);
+  --foot-text: var(--cream);
+  --foot-muted: var(--cream-soft);
+  --foot-link: var(--foot-text);
+  --foot-focus: var(--focus-on-dark);
+  --foot-logo-bg: transparent;
+  --foot-logo-fg: var(--mauve);
+}
