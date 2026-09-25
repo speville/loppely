@@ -22,6 +22,7 @@
   h1 { font-family: Archivo, "Arial Black", sans-serif; font-stretch: 118%; font-weight: 900; font-size: clamp(30px, 5vw, 48px); line-height: 1; margin: 0 0 10px; }
   .lede { max-width: 60ch; margin: 0 0 24px; }
   .bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 14px 0; border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); margin-bottom: 28px; font-size: 0.95rem; }
+  .bar .ctl { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .bar label { font-weight: 700; }
   .bar select, .bar button { font: inherit; padding: 6px 10px; border: 2px solid var(--maroon); border-radius: 999px; background: var(--paper); color: var(--maroon); cursor: pointer; }
   .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); }
@@ -45,7 +46,7 @@
   <h1>Loppely logoer <span id="count"></span></h1>
   <p class="lede">Logoen og L-merket i 100 fargekombinasjoner: først de tjue fra profilen, deretter et bredere utvalg. Hver variant kan lastes ned som SVG (for trykk og skilt) og som PNG med gjennomsiktig bakgrunn (for nett og sosiale medier).</p>
   <div class="bar">
-    <label for="bg">Bakgrunn i forhåndsvisningen</label>
+    <span class="ctl"><label for="bg">Bakgrunn i forhåndsvisningen</label>
     <select id="bg">
       <option value="auto">Passende for hver variant</option>
       <option value="checker">Gjennomsiktig (rutenett)</option>
@@ -57,13 +58,13 @@
       <option value="#2E0D08">Mørk maroon</option>
       <option value="#FFFFFF">Hvit</option>
       <option value="#111111">Svart</option>
-    </select>
-    <label for="pngsize">PNG-bredde</label>
+    </select></span>
+    <span class="ctl"><label for="pngsize">PNG-bredde</label>
     <select id="pngsize">
       <option value="1000">1000 px</option>
       <option value="2000" selected>2000 px</option>
       <option value="4000">4000 px</option>
-    </select>
+    </select></span>
   </div>
   <div class="grid" id="grid"></div>
   <footer>Fargene: maroon #561A12, mørk maroon #2E0D08, oransje #E0693A, dyp oransje #B85630, myk oransje #F2A07C, krem #FDEBD5, mauve #B67B9A, papir #FFFDF9.</footer>
