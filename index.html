@@ -833,7 +833,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 /* Illustration of the shop: stands, price tags and the shared till */
 .shop-illo { display: block; width: 100%; height: auto; border-radius: 22px; }
-.steps-illo { margin: 0 auto clamp(36px, 5vw, 56px); max-width: 980px; }
+.hero-illo { width: 100%; margin: 0; }
 .step-notes {
   margin-top: clamp(44px, 5vw, 64px);
   display: flex; flex-wrap: wrap; justify-content: center;
@@ -1542,102 +1542,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <span class="tag-wrap"><span class="tag-shadow"><span class="tag-hl">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span>
           </h1>
           <p class="lede">Loppely blir et nytt loppesupermarked i Lyngdal. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
-          <form class="quick" id="hurtigskjema" novalidate>
-            <label class="sr-only" for="hurtig-epost">E-postadressen din</label>
-            <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="navn@eksempel.no" aria-describedby="hurtig-note">
-            <button class="btn btn-dark" type="submit">Meld interesse</button>
-          </form>
-          <p class="quick-note" id="hurtig-note">Resten fyller du ut lenger ned.</p>
-          <ul class="facts" role="list">
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du setter prisen selv</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke stå i standen</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Følg salget på Min side</li>
-          </ul>
-        </div>
-
-        <div class="board">
-          <div class="blk blk-1">
-            <p class="b-eyebrow">Provisjon</p>
-            <p class="b-big">19%</p>
-            <p class="b-note">Standleie kommer.</p>
-            <a class="b-link" href="#meld-interesse">Sett deg på lista <span aria-hidden="true">→</span></a>
-          </div>
-          <div class="blk blk-2">
-            <p class="b-eyebrow">Loppesupermarked</p>
-            <svg class="b-logo" viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><use href="#i-logo"></use></svg>
-            <p class="b-eyebrow">Snart i Lyngdal</p>
-          </div>
-          <div class="blk blk-3">
-            <p class="b-vert" aria-hidden="true">loppely.no</p>
-            <p class="b-shout">Lei en<br>stand</p>
-          </div>
-          <div class="blk blk-4">
-            <p class="b-eyebrow">For</p>
-            <ul class="for-list" role="list">
-              <li>Flyttere</li>
-              <li>Foreldre</li>
-              <li>Arvinger</li>
-              <li>Samlere,</li>
-              <li class="for-alle">For alle</li>
-            </ul>
-          </div>
-          <div class="board-badge" aria-hidden="true">
-            <svg viewBox="0 0 100 100" focusable="false"><use href="#i-badge"></use></svg>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Shortcut band -->
-    <section class="shortcuts" aria-label="Kort fortalt">
-      <div class="wrap">
-        <ul class="sc-grid" role="list">
-          <li>
-            <details class="sc-card">
-              <summary><span><span class="sc-title">Hva er et loppesupermarked?</span><span class="sc-desc">Et loppemarked der butikken selger for deg. Du trenger ikke stå der selv.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
-              <div class="sc-body">
-                <p>En bruktbutikk der mange selgere har hver sin stand. Du leier en stand, fyller den med tingene dine og setter prisene selv. Kundene handler fra alle standene og betaler i én kasse. Vi står i kassa, så du trenger ikke være der.</p>
-                <p><a href="#sporsmal">Flere spørsmål og svar</a></p>
-              </div>
-            </details>
-          </li>
-          <li>
-            <details class="sc-card">
-              <summary><span><span class="sc-title">Slik fungerer det</span><span class="sc-desc">Fem steg fra full bod til penger på konto.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
-              <div class="sc-body">
-                <ol>
-                  <li>Lei en stand for en periode.</li>
-                  <li>Registrer varene på Min side, sett pris og skriv ut prislapper.</li>
-                  <li>Lever tingene i butikken og fyll standen.</li>
-                  <li>Vi står i kassa og selger.</li>
-                  <li>Pengene betales ut til bankkontoen din.</li>
-                </ol>
-                <p><a href="#slik-fungerer">Les mer om stegene</a></p>
-              </div>
-            </details>
-          </li>
-          <li>
-            <details class="sc-card">
-              <summary><span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Provisjonen er 19%. Standleie og dato kommer.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
-              <div class="sc-body">
-                <p>Vi tar 19% provisjon av det du selger for. Prisen på stand, adressen og åpningsdatoen er ikke bestemt ennå. Det er gratis å stå på interesselista, og det er ikke en bestilling. De som står der, får beskjed før alle andre.</p>
-                <p><a href="#meld-interesse">Meld interesse</a></p>
-              </div>
-            </details>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Slik fungerer det -->
-    <section class="steps-sec sec" id="slik-fungerer" aria-labelledby="steps-title">
-      <div class="wrap">
-        <div class="steps-head">
-          <p class="eyebrow">Fra bod til bankkonto</p>
-          <h2 id="steps-title">Slik fungerer det</h2>
-          <p>Fem steg. De tre første gjør du, resten tar vi.</p>
-        </div>
-        <figure class="illo steps-illo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" class="shop-illo" focusable="false" role="img" aria-label="Illustrasjon av Loppely: stands med klær, bøker og leker, og en felles kasse med en ansatt">
+          <figure class="illo hero-illo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" class="shop-illo" focusable="false" role="img" aria-label="Illustrasjon av Loppely: stands med klær, bøker og leker, og en felles kasse med en ansatt">
   <defs>
     <style>
       .il-ink{fill:#561A12}.il-deep{fill:#2E0D08}.il-or{fill:#E0693A}.il-ors{fill:#F2A07C}.il-cr{fill:#FDEBD5}.il-crs{fill:#E9CDB6}.il-mv{fill:#B67B9A}.il-pp{fill:#FFFDF9}
@@ -1836,6 +1741,101 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     <circle cx="1150" cy="532" r="6" class="il-or"/>
   </g>
 </svg></figure>
+          <form class="quick" id="hurtigskjema" novalidate>
+            <label class="sr-only" for="hurtig-epost">E-postadressen din</label>
+            <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="navn@eksempel.no" aria-describedby="hurtig-note">
+            <button class="btn btn-dark" type="submit">Meld interesse</button>
+          </form>
+          <p class="quick-note" id="hurtig-note">Resten fyller du ut lenger ned.</p>
+          <ul class="facts" role="list">
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du setter prisen selv</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke stå i standen</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Følg salget på Min side</li>
+          </ul>
+        </div>
+
+        <div class="board">
+          <div class="blk blk-1">
+            <p class="b-eyebrow">Provisjon</p>
+            <p class="b-big">19%</p>
+            <p class="b-note">Standleie kommer.</p>
+            <a class="b-link" href="#meld-interesse">Sett deg på lista <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="blk blk-2">
+            <p class="b-eyebrow">Loppesupermarked</p>
+            <svg class="b-logo" viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><use href="#i-logo"></use></svg>
+            <p class="b-eyebrow">Snart i Lyngdal</p>
+          </div>
+          <div class="blk blk-3">
+            <p class="b-vert" aria-hidden="true">loppely.no</p>
+            <p class="b-shout">Lei en<br>stand</p>
+          </div>
+          <div class="blk blk-4">
+            <p class="b-eyebrow">For</p>
+            <ul class="for-list" role="list">
+              <li>Flyttere</li>
+              <li>Foreldre</li>
+              <li>Arvinger</li>
+              <li>Samlere,</li>
+              <li class="for-alle">For alle</li>
+            </ul>
+          </div>
+          <div class="board-badge" aria-hidden="true">
+            <svg viewBox="0 0 100 100" focusable="false"><use href="#i-badge"></use></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shortcut band -->
+    <section class="shortcuts" aria-label="Kort fortalt">
+      <div class="wrap">
+        <ul class="sc-grid" role="list">
+          <li>
+            <details class="sc-card">
+              <summary><span><span class="sc-title">Hva er et loppesupermarked?</span><span class="sc-desc">Et loppemarked der butikken selger for deg. Du trenger ikke stå der selv.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <div class="sc-body">
+                <p>En bruktbutikk der mange selgere har hver sin stand. Du leier en stand, fyller den med tingene dine og setter prisene selv. Kundene handler fra alle standene og betaler i én kasse. Vi står i kassa, så du trenger ikke være der.</p>
+                <p><a href="#sporsmal">Flere spørsmål og svar</a></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="sc-card">
+              <summary><span><span class="sc-title">Slik fungerer det</span><span class="sc-desc">Fem steg fra full bod til penger på konto.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <div class="sc-body">
+                <ol>
+                  <li>Lei en stand for en periode.</li>
+                  <li>Registrer varene på Min side, sett pris og skriv ut prislapper.</li>
+                  <li>Lever tingene i butikken og fyll standen.</li>
+                  <li>Vi står i kassa og selger.</li>
+                  <li>Pengene betales ut til bankkontoen din.</li>
+                </ol>
+                <p><a href="#slik-fungerer">Les mer om stegene</a></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="sc-card">
+              <summary><span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Provisjonen er 19%. Standleie og dato kommer.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <div class="sc-body">
+                <p>Vi tar 19% provisjon av det du selger for. Prisen på stand, adressen og åpningsdatoen er ikke bestemt ennå. Det er gratis å stå på interesselista, og det er ikke en bestilling. De som står der, får beskjed før alle andre.</p>
+                <p><a href="#meld-interesse">Meld interesse</a></p>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slik fungerer det -->
+    <section class="steps-sec sec" id="slik-fungerer" aria-labelledby="steps-title">
+      <div class="wrap">
+        <div class="steps-head">
+          <p class="eyebrow">Fra bod til bankkonto</p>
+          <h2 id="steps-title">Slik fungerer det</h2>
+          <p>Fem steg. De tre første gjør du, resten tar vi.</p>
+        </div>
         <ol class="steps" role="list">
           <li class="step">
             <svg class="step-badge face-1" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">1</text></svg>
