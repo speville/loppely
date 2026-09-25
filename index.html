@@ -719,30 +719,39 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 
 /* ---------- Shortcut band ---------- */
 .shortcuts { background: var(--band-bg); padding-block: clamp(28px, 4vw, 48px); --focus: var(--band-focus); }
-.sc-grid { list-style: none; padding: 0; display: grid; gap: 14px; }
+.sc-grid { list-style: none; padding: 0; display: grid; gap: 14px; align-items: start; }
 @media (min-width: 860px) { .sc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .sc-card {
-  height: 100%;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 22px 22px 22px 26px;
   background: var(--band-card-bg);
   color: var(--band-text);
   border: 1px solid var(--band-line);
   border-radius: var(--radius-md);
-  text-decoration: none;
-  transition: transform 0.15s ease;
 }
-.sc-card:hover { transform: translateY(-2px); }
+.sc-card summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 22px 22px 26px;
+  border-radius: var(--radius-md);
+}
+.sc-card summary::-webkit-details-marker { display: none; }
+.sc-card summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .sc-title {
   display: block; font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
   font-size: var(--fs-md); line-height: 1.15;
 }
 .sc-desc { display: block; margin-top: 6px; font-size: var(--fs-sm); color: var(--band-muted); line-height: 1.4; }
+.sc-body { padding: 0 26px 24px; font-size: var(--fs-sm); line-height: 1.5; color: var(--band-text); }
+.sc-body p { margin: 0 0 12px; }
+.sc-body ol { margin: 0 0 12px; padding-left: 1.3em; }
+.sc-body li { margin: 4px 0; }
+.sc-body a { color: var(--band-text); font-weight: 700; }
 .sc-arrow {
   flex: none; width: 42px; height: 42px; border-radius: 50%;
   display: grid; place-items: center;
   background: var(--band-arrow-bg); color: var(--band-arrow-fg);
+  transition: transform 0.2s ease;
 }
+.sc-card[open] .sc-arrow { transform: rotate(90deg); }
 .sc-arrow svg { width: 20px; height: 20px; }
 
 /* ---------- Slik fungerer det ---------- */
@@ -1184,7 +1193,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   *::before,
   *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
   .btn:hover,
-  .sc-card:hover { transform: none; }
+  .sc-arrow { transition: none; }
 }
 </style>
 <style id="farge">
@@ -1529,30 +1538,45 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     </section>
 
     <!-- Shortcut band -->
-    <nav class="shortcuts" aria-label="Snarveier">
+    <section class="shortcuts" aria-label="Kort fortalt">
       <div class="wrap">
         <ul class="sc-grid" role="list">
           <li>
-            <a class="sc-card" href="#sporsmal">
-              <span><span class="sc-title">Hva er et loppesupermarked?</span><span class="sc-desc">Et loppemarked der butikken selger for deg. Du trenger ikke stå der selv.</span></span>
-              <span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
-            </a>
+            <details class="sc-card">
+              <summary><span><span class="sc-title">Hva er et loppesupermarked?</span><span class="sc-desc">Et loppemarked der butikken selger for deg. Du trenger ikke stå der selv.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <div class="sc-body">
+                <p>En bruktbutikk der mange selgere har hver sin stand. Du leier en stand, fyller den med tingene dine og setter prisene selv. Kundene handler fra alle standene og betaler i én kasse. Vi står i kassa, så du trenger ikke være der.</p>
+                <p><a href="#sporsmal">Flere spørsmål og svar</a></p>
+              </div>
+            </details>
           </li>
           <li>
-            <a class="sc-card" href="#slik-fungerer">
-              <span><span class="sc-title">Slik fungerer det</span><span class="sc-desc">Fem steg fra full bod til penger på konto.</span></span>
-              <span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
-            </a>
+            <details class="sc-card">
+              <summary><span><span class="sc-title">Slik fungerer det</span><span class="sc-desc">Fem steg fra full bod til penger på konto.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <div class="sc-body">
+                <ol>
+                  <li>Lei en stand for en periode.</li>
+                  <li>Registrer varene på Min side, sett pris og skriv ut prislapper.</li>
+                  <li>Lever tingene i butikken og fyll standen.</li>
+                  <li>Vi står i kassa og selger.</li>
+                  <li>Pengene betales ut til bankkontoen din.</li>
+                </ol>
+                <p><a href="#slik-fungerer">Les mer om stegene</a></p>
+              </div>
+            </details>
           </li>
           <li>
-            <a class="sc-card" href="#meld-interesse">
-              <span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Ikke bestemt ennå. De på interesselista får vite det først.</span></span>
-              <span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
-            </a>
+            <details class="sc-card">
+              <summary><span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Ikke bestemt ennå. De på interesselista får vite det først.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <div class="sc-body">
+                <p>Prisen på stand, adressen og åpningsdatoen er ikke bestemt ennå. Det er gratis å stå på interesselista, og det er ikke en bestilling. De som står der, får beskjed før alle andre.</p>
+                <p><a href="#meld-interesse">Meld interesse</a></p>
+              </div>
+            </details>
           </li>
         </ul>
       </div>
-    </nav>
+    </section>
 
     <!-- Slik fungerer det -->
     <section class="steps-sec sec" id="slik-fungerer" aria-labelledby="steps-title">
