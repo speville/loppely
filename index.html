@@ -1862,6 +1862,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 </div>
 
 <script>
+/* Old links to the colour viewer ended in #1..#12; drop that so the bar reads loppely.no */
+if (/^#\d{1,2}$/.test(location.hash)) { history.replaceState(null, '', location.pathname + location.search); }
+
 const LOPPELY_EPOST = 'hei@loppely.no';
 /* Split so the address is not scraped from the source */
 const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@');
