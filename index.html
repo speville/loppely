@@ -640,7 +640,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .quick { display: flex; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 540px; }
 .quick .input { flex: 1 1 230px; min-width: 0; }
 .quick .btn { flex: 0 0 auto; }
-.quick-note { font-size: var(--fs-sm); color: var(--hero-muted); margin-top: -12px; }
 .facts {
   list-style: none; padding: 0;
   display: grid; gap: 12px;
@@ -1763,10 +1762,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <p class="lede">Loppely blir et nytt loppesupermarked i Lyngdal. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
           <form class="quick" id="hurtigskjema" novalidate>
             <label class="sr-only" for="hurtig-epost">E-postadressen din</label>
-            <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="navn@eksempel.no" aria-describedby="hurtig-note">
+            <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="navn@eksempel.no">
             <button class="btn btn-dark" type="submit">Meld interesse</button>
           </form>
-          <p class="quick-note" id="hurtig-note">Resten fyller du ut lenger ned.</p>
         </div>
         <div class="board">
           <div class="blk blk-1">
