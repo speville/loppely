@@ -17,7 +17,7 @@
 <title>Loppely. Du rydder. Vi selger.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Leckerli+One&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
 <style>
 /* =====================================================================
    COLOUR ROLES. Every colour on the page comes from one of these tokens.
@@ -328,6 +328,7 @@
   --font-display: "Archivo", "Arial Black", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-script: "Leckerli One", "Brush Script MT", cursive;
   --fs-xs: 0.75rem;
   --fs-sm: 0.9375rem;
   --fs-base: 1.0625rem;
@@ -697,11 +698,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   font-family: var(--font-display); font-stretch: 118%; font-weight: 800;
   font-size: max(14px, 4.2cqi); line-height: 1.08; text-transform: uppercase;
 }
-/* The last line breaks the shouting: "For alle" lettered by hand in the same
-   round monoline stroke as the logo's "ly" */
-.for-list .for-alle { margin-top: max(3px, 1cqi); }
-.for-list .for-alle svg { display: block; height: max(22px, 7.2cqi); width: auto; overflow: visible; }
-.for-list .for-alle path { fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+/* The last line breaks the shouting: a round script close to the logo's "ly" */
+.for-list .for-alle {
+  font-family: var(--font-script); font-stretch: normal; font-weight: 400;
+  font-size: max(20px, 6.6cqi); line-height: 1.1; text-transform: none; margin-top: max(2px, 0.6cqi);
+}
 .board-badge {
   position: absolute;
   left: 50%; top: 50%;
@@ -1517,7 +1518,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
               <li>Foreldre</li>
               <li>Arvinger</li>
               <li>Samlere,</li>
-              <li class="for-alle"><svg viewBox="-8 -8 240 118" role="img" aria-label="For alle" focusable="false"><g transform="skewX(-12)" transform-origin="0 67"><path d="M4.00,15.00 C10.00,6.00 24.00,3.50 38.00,7.00 M23.50,7.50 C21.00,28.00 17.00,48.00 11.00,66.00 C9.50,70.50 5.00,71.50 3.00,68.50 M10.00,38.00 C15.00,34.50 22.00,34.00 28.00,36.50 M59.00,40.00 C54.00,29.00 36.00,31.00 34.50,48.00 C33.00,66.00 52.00,70.00 58.50,58.00 C62.00,51.00 61.50,44.00 59.00,40.00 C60.00,37.00 63.50,35.00 67.00,37.00 M72.00,34.00 C71.50,45.00 70.50,56.00 68.50,67.00 M71.00,43.00 C73.00,35.00 81.00,30.50 87.00,36.00 M129.00,38.50 C124.00,29.00 107.00,31.00 105.50,48.00 C104.00,66.00 122.00,70.00 128.50,58.00 M129.50,35.00 C129.50,46.00 128.50,57.00 128.00,64.00 C127.50,69.50 133.00,70.00 137.00,64.00 M134.00,59.44 C151.28,52.96 165.32,29.20 165.32,13.00 C165.32,3.28 158.84,0.04 153.44,2.20 C145.88,5.44 142.64,20.56 142.64,37.84 C142.64,54.04 144.80,67.00 153.44,67.00 C158.70,67.00 162.70,62.00 166.70,55.00 M161.00,59.44 C178.28,52.96 192.32,29.20 192.32,13.00 C192.32,3.28 185.84,0.04 180.44,2.20 C172.88,5.44 169.64,20.56 169.64,37.84 C169.64,54.04 171.80,67.00 180.44,67.00 C185.70,67.00 189.70,62.00 193.70,55.00 M190.50,52.50 C198.00,49.00 209.00,45.00 209.00,39.50 C209.00,35.00 202.00,35.50 196.00,42.50 C189.50,50.50 189.50,64.50 199.00,66.50 C205.50,67.50 212.00,64.00 217.00,58.00"></path></g></svg></li>
+              <li class="for-alle">For alle</li>
             </ul>
           </div>
           <div class="board-badge" aria-hidden="true">
