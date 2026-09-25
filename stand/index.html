@@ -56,6 +56,20 @@
   .btn:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 3px; }
   .btn[aria-disabled="true"] { opacity: 0.85; cursor: progress; }
   .fine { font-size: 0.9rem; margin: 0; }
+  .form-top { margin: 0; text-align: center; font-size: 0.95rem; }
+  .opt { font-weight: 400; font-size: 0.9rem; margin-left: 0.4em; }
+  .hint { font-size: 0.9rem; margin: -2px 0 10px; }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  legend { padding: 0; font-weight: 700; margin-bottom: 6px; }
+  textarea.input { border-radius: 22px; resize: vertical; min-height: 5.5em; line-height: 1.5; }
+  .input::placeholder { color: #7A3A2E; opacity: 1; }
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 0.5em; min-height: 44px; padding: 0.55em 1em; border: 2px solid var(--maroon); border-radius: 999px; font-weight: 600; font-size: 0.95rem; line-height: 1.2; cursor: pointer; user-select: none; background: var(--paper); }
+  .chip::before { content: ""; flex: none; width: 0.85em; height: 0.85em; border-radius: 50%; border: 2px solid currentColor; }
+  .chip-input:checked + .chip { background: var(--maroon); color: var(--cream); }
+  .chip-input:checked + .chip::before { background: var(--orange); border-color: var(--orange); }
+  .chip-input:focus-visible + .chip { outline: 3px solid var(--orange-deep); outline-offset: 3px; }
   .feil { color: var(--orange-deep); font-weight: 700; font-size: 0.9rem; margin: 6px 0 0; min-height: 0; }
   .feil:empty { display: none; }
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -97,6 +111,7 @@
   </ul>
 
   <form id="skjema" novalidate>
+    <p class="form-top">Du må fylle ut navn og e-post. Resten er valgfritt.</p>
     <div>
       <label for="navn">Navn</label>
       <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
@@ -111,9 +126,27 @@
       <label for="telefon">Telefon <small>Valgfritt</small></label>
       <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel">
     </div>
+    <fieldset aria-describedby="kat-hint">
+      <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
+      <p class="hint" id="kat-hint">Velg så mange du vil.</p>
+      <div class="chips">
+        <input class="chip-input sr-only" type="checkbox" id="kat-klaer" name="kategori" value="Klær"><label class="chip" for="kat-klaer">Klær</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-barneting" name="kategori" value="Barneting"><label class="chip" for="kat-barneting">Barneting</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-mobler" name="kategori" value="Møbler og interiør"><label class="chip" for="kat-mobler">Møbler og interiør</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-boker" name="kategori" value="Bøker og spill"><label class="chip" for="kat-boker">Bøker og spill</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-kjokken" name="kategori" value="Kjøkkenutstyr"><label class="chip" for="kat-kjokken">Kjøkkenutstyr</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-sport" name="kategori" value="Sport og fritid"><label class="chip" for="kat-sport">Sport og fritid</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-annet" name="kategori" value="Annet"><label class="chip" for="kat-annet">Annet</label>
+      </div>
+    </fieldset>
+    <div>
+      <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
+      <textarea class="input" id="mer" name="mer" rows="3" placeholder="For eksempel: en hel bod etter flytting"></textarea>
+    </div>
     <div class="hp" aria-hidden="true"><label for="hp-felt">La dette feltet stå tomt</label><input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
     <button class="btn" type="submit" id="send-knapp">Sett meg på lista</button>
     <p class="fine">Gratis og uforpliktende. Pris på stand, adresse og åpningsdato går først til lista.</p>
+    <p class="fine">Påmeldingen sendes til oss på e-post. Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
     <p class="status" id="status" role="status" aria-live="polite"></p>
   </form>
 
@@ -127,7 +160,7 @@
   'use strict';
   var SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@');
   var form = document.getElementById('skjema');
-  var fNavn = document.getElementById('navn'), fEpost = document.getElementById('epost'), fTelefon = document.getElementById('telefon'), fHonning = document.getElementById('hp-felt');
+  var fNavn = document.getElementById('navn'), fEpost = document.getElementById('epost'), fTelefon = document.getElementById('telefon'), fMer = document.getElementById('mer'), fHonning = document.getElementById('hp-felt');
   var eNavn = document.getElementById('navn-feil'), eEpost = document.getElementById('epost-feil');
   var status = document.getElementById('status'), sendBtn = document.getElementById('send-knapp');
   var sending = false;
@@ -160,7 +193,8 @@
     eNavn.textContent = navn ? '' : 'Skriv inn navnet ditt.';
     eEpost.textContent = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(epost) ? '' : 'Skriv inn en gyldig e-postadresse.';
     if (eNavn.textContent || eEpost.textContent) { (eNavn.textContent ? fNavn : fEpost).focus(); return; }
-    var data = { 'Navn': navn, 'email': epost, '_replyto': epost, 'Telefon': fTelefon.value.trim() || 'Ikke oppgitt', 'Kilde': kilde, '_subject': 'Ny selger (annonse): ' + navn, '_template': 'table', '_honey': fHonning.value };
+    var kategorier = Array.prototype.map.call(form.querySelectorAll('input[name="kategori"]:checked'), function (i) { return i.value; });
+    var data = { 'Navn': navn, 'email': epost, '_replyto': epost, 'Telefon': fTelefon.value.trim() || 'Ikke oppgitt', 'Vil selge': kategorier.length ? kategorier.join(', ') : 'Ikke valgt', 'Melding': fMer.value.trim() || '-', 'Kilde': kilde, '_subject': 'Ny selger (annonse): ' + navn, '_template': 'table', '_honey': fHonning.value };
     setSending(true); setStatus('', ['Sender …']);
     var ctrl = window.AbortController ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
