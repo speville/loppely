@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Loppely logoer</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
+<style>
+  :root {
+    --maroon: #561A12; --maroon-deep: #2E0D08; --orange: #E0693A; --orange-deep: #B85630;
+    --orange-soft: #F2A07C; --cream: #FDEBD5; --cream-soft: #E9CDB6; --mauve: #B67B9A; --paper: #FFFDF9;
+    --page-bg: var(--paper); --page-text: var(--maroon); --line: rgba(86, 26, 18, 0.18);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page-bg); color: var(--page-text); font-family: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif; line-height: 1.5; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-family: Archivo, "Arial Black", sans-serif; font-stretch: 118%; font-weight: 900; font-size: clamp(30px, 5vw, 48px); line-height: 1; margin: 0 0 10px; }
+  .lede { max-width: 60ch; margin: 0 0 24px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 14px 0; border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); margin-bottom: 28px; font-size: 0.95rem; }
+  .bar label { font-weight: 700; }
+  .bar select, .bar button { font: inherit; padding: 6px 10px; border: 2px solid var(--maroon); border-radius: 999px; background: var(--paper); color: var(--maroon); cursor: pointer; }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); }
+  .card { border: 2px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--paper); display: flex; flex-direction: column; }
+  .art { padding: 26px 22px 20px; display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; }
+  .art.checker { background-image: repeating-conic-gradient(#e6e6e6 0 25%, #fff 0 50%); background-size: 20px 20px; }
+  .art svg { display: block; width: 100%; height: auto; }
+  .art .merke { width: 64px; }
+  .meta { padding: 12px 16px 14px; border-top: 2px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+  .name { font-family: Archivo, sans-serif; font-stretch: 110%; font-weight: 800; font-size: 1rem; }
+  .swatches { display: flex; gap: 6px; }
+  .swatches i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15); }
+  .dl { display: flex; flex-wrap: wrap; gap: 6px; }
+  .dl a { font-size: 0.8rem; font-weight: 700; text-decoration: none; color: var(--maroon); border: 1.5px solid var(--maroon); border-radius: 999px; padding: 4px 10px; }
+  .dl a:hover { background: var(--maroon); color: var(--cream); }
+  footer { margin-top: 40px; font-size: 0.9rem; opacity: 0.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Loppely logoer</h1>
+  <p class="lede">Logoen og L-merket i fargene fra profilen. Hver variant kan lastes ned som SVG (for trykk og skilt) og som PNG med gjennomsiktig bakgrunn (for nett og sosiale medier).</p>
+  <div class="bar">
+    <label for="bg">Bakgrunn i forhåndsvisningen</label>
+    <select id="bg">
+      <option value="auto">Passende for hver variant</option>
+      <option value="checker">Gjennomsiktig (rutenett)</option>
+      <option value="#FFFDF9">Papir</option>
+      <option value="#FDEBD5">Krem</option>
+      <option value="#E0693A">Oransje</option>
+      <option value="#B67B9A">Mauve</option>
+      <option value="#561A12">Maroon</option>
+      <option value="#2E0D08">Mørk maroon</option>
+      <option value="#FFFFFF">Hvit</option>
+      <option value="#111111">Svart</option>
+    </select>
+    <label for="pngsize">PNG-bredde</label>
+    <select id="pngsize">
+      <option value="1000">1000 px</option>
+      <option value="2000" selected>2000 px</option>
+      <option value="4000">4000 px</option>
+    </select>
+  </div>
+  <div class="grid" id="grid"></div>
+  <footer>Fargene: maroon #561A12, mørk maroon #2E0D08, oransje #E0693A, dyp oransje #B85630, myk oransje #F2A07C, krem #FDEBD5, mauve #B67B9A, papir #FFFDF9.</footer>
+</div>
+<script>
+(async function () {
+  'use strict';
+  const C = { maroon: '#561A12', maroonDeep: '#2E0D08', orange: '#E0693A', orangeDeep: '#B85630', orangeSoft: '#F2A07C', cream: '#FDEBD5', creamSoft: '#E9CDB6', mauve: '#B67B9A', paper: '#FFFDF9', white: '#FFFFFF', black: '#111111' };
+  /* ink = the tag and the script, accent = the eyelet ring, paper = the lettering and the string. bg = the preview background that suits it */
+  const VARIANTS = [
+    ['Original', C.maroon, C.orange, C.cream, C.paper],
+    ['Original på krem', C.maroon, C.orange, C.cream, C.cream],
+    ['Mørk maroon', C.maroonDeep, C.orange, C.cream, C.paper],
+    ['Oransje', C.orange, C.maroon, C.maroonDeep, C.paper],
+    ['Oransje på krem', C.orange, C.maroon, C.cream, C.cream],
+    ['Krem på maroon', C.cream, C.orange, C.maroon, C.maroon],
+    ['Krem på mørk', C.cream, C.orangeSoft, C.maroonDeep, C.maroonDeep],
+    ['Oransje på maroon', C.orange, C.cream, C.maroonDeep, C.maroon],
+    ['Myk oransje på mørk', C.orangeSoft, C.orange, C.maroonDeep, C.maroonDeep],
+    ['Mauve', C.mauve, C.orange, C.maroonDeep, C.paper],
+    ['Mauve på maroon', C.mauve, C.cream, C.maroonDeep, C.maroon],
+    ['Maroon på mauve', C.maroon, C.orange, C.mauve, C.mauve],
+    ['Maroon på oransje', C.maroon, C.cream, C.orange, C.orange],
+    ['Krem på oransje', C.cream, C.maroon, C.orange, C.orange],
+    ['Dyp oransje', C.orangeDeep, C.maroon, C.cream, C.paper],
+    ['Ettfarget maroon', C.maroon, C.maroon, C.cream, C.paper],
+    ['Ettfarget oransje', C.orange, C.orange, C.maroonDeep, C.paper],
+    ['Ettfarget krem', C.cream, C.cream, C.maroon, C.maroon],
+    ['Svart', C.black, C.black, C.white, C.white],
+    ['Hvit', C.white, C.white, C.black, C.black],
+  ];
+  const fetchText = async (p) => (await fetch(p)).text();
+  const [LOGO, MERKE] = await Promise.all([fetchText('../logo/loppely-logo.svg'), fetchText('../logo/loppely-merke.svg')]);
+  const bake = (svg, ink, accent, paper) => svg
+    .replace(/var\(--ink, #[0-9A-Fa-f]+\)/g, ink)
+    .replace(/var\(--accent, #[0-9A-Fa-f]+\)/g, accent)
+    .replace(/var\(--paper, #[0-9A-Fa-f]+\)/g, paper);
+  const slug = (s) => s.toLowerCase().replace(/å/g, 'a').replace(/ø/g, 'o').replace(/æ/g, 'ae').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const grid = document.getElementById('grid');
+  const bgSel = document.getElementById('bg');
+  const sizeSel = document.getElementById('pngsize');
+
+  function pngDownload(svgText, width, filename) {
+    const blob = new Blob([svgText], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = function () {
+      const scale = width / img.width;
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * scale); canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(url);
+      canvas.toBlob(function (b) {
+        const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = filename; a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+      }, 'image/png');
+    };
+    img.src = url;
+  }
+
+  VARIANTS.forEach(function (v) {
+    const [name, ink, accent, paper, bg] = v;
+    const card = document.createElement('div'); card.className = 'card';
+    const art = document.createElement('div'); art.className = 'art'; art.dataset.bg = bg;
+    art.style.setProperty('--ink', ink); art.style.setProperty('--accent', accent); art.style.setProperty('--paper', paper);
+    art.innerHTML = LOGO.replace('<svg ', '<svg class="logo" ') + MERKE.replace('<svg ', '<svg class="merke" ');
+    const meta = document.createElement('div'); meta.className = 'meta';
+    const s = slug(name);
+    meta.innerHTML = '<div class="name">' + name + '</div>' +
+      '<div class="swatches"><i style="background:' + ink + '" title="Merke"></i><i style="background:' + accent + '" title="Ring"></i><i style="background:' + paper + '" title="Skrift"></i></div>' +
+      '<div class="dl">' +
+        '<a href="#" data-kind="logo" data-fmt="svg">Logo SVG</a><a href="#" data-kind="logo" data-fmt="png">Logo PNG</a>' +
+        '<a href="#" data-kind="merke" data-fmt="svg">Merke SVG</a><a href="#" data-kind="merke" data-fmt="png">Merke PNG</a>' +
+      '</div>';
+    meta.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        const src = a.dataset.kind === 'logo' ? LOGO : MERKE;
+        const svg = bake(src, ink, accent, paper);
+        const base = 'loppely-' + a.dataset.kind + '-' + s;
+        if (a.dataset.fmt === 'svg') {
+          const b = new Blob([svg], { type: 'image/svg+xml' });
+          const l = document.createElement('a'); l.href = URL.createObjectURL(b); l.download = base + '.svg'; l.click();
+          setTimeout(function () { URL.revokeObjectURL(l.href); }, 5000);
+        } else {
+          pngDownload(svg, +sizeSel.value, base + '.png');
+        }
+      });
+    });
+    card.append(art, meta); grid.appendChild(card);
+  });
+
+  function applyBg() {
+    const v = bgSel.value;
+    document.querySelectorAll('.art').forEach(function (art) {
+      art.classList.toggle('checker', v === 'checker');
+      art.style.background = v === 'checker' ? '' : (v === 'auto' ? art.dataset.bg : v);
+    });
+  }
+  bgSel.addEventListener('change', applyBg); applyBg();
+})();
+</script>
+</body>
+</html>
