@@ -292,6 +292,10 @@
   --status-bg: var(--page-surface);
   --status-line: var(--form-card-text);
   --status-error-line: var(--orange);
+  --status-ok-bg: #2F6B45;                 /* green: cream text 7.1:1 */
+  --status-ok-text: var(--cream);
+  --status-ok-tick-bg: var(--cream);
+  --status-ok-tick-fg: #2F6B45;
   --reserve-bg: var(--page-surface);
   --reserve-text: var(--form-card-text);
 
@@ -1167,6 +1171,14 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   background: var(--status-bg); border: 2px solid var(--status-line);
 }
 .status-msg[data-state="feil"] { border-color: var(--status-error-line); }
+/* Success is unmistakable: a solid green box with a tick, so "it went through" needs no reading */
+.status-msg[data-state="ok"] {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 18px 20px; font-size: 1.08em;
+  background: var(--status-ok-bg); color: var(--status-ok-text); border-color: var(--status-ok-bg);
+  --tick-bg: var(--status-ok-tick-bg); --tick-fg: var(--status-ok-tick-fg);
+}
+.status-msg[data-state="ok"] .ico { width: 28px; height: 28px; flex: none; margin-top: 1px; }
 .status-msg:empty { padding: 0; border: 0; background: none; }
 .status-msg a { color: inherit; font-weight: 700; }
 .btn[aria-disabled="true"] { opacity: 0.85; cursor: progress; }
@@ -1999,12 +2011,21 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
   function setStatus(state, parts) {
     statusText.setAttribute('data-state', state);
     statusText.textContent = '';
+    var target = statusText;
+    if (state === 'ok') {
+      var ico = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      ico.setAttribute('class', 'ico'); ico.setAttribute('viewBox', '0 0 20 20'); ico.setAttribute('aria-hidden', 'true'); ico.setAttribute('focusable', 'false');
+      var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      use.setAttribute('href', '#i-tick'); ico.appendChild(use);
+      statusText.appendChild(ico);
+      target = document.createElement('span'); statusText.appendChild(target);
+    }
     parts.forEach(function (p) {
-      if (typeof p === 'string') { statusText.appendChild(document.createTextNode(p)); return; }
+      if (typeof p === 'string') { target.appendChild(document.createTextNode(p)); return; }
       var el = document.createElement(p.href ? 'a' : 'strong');
       el.textContent = p.text;
       if (p.href) { el.href = p.href; }
-      statusText.appendChild(el);
+      target.appendChild(el);
     });
   }
 
