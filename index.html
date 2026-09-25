@@ -826,11 +826,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .note { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
 /* "Til slutt" ends with a finish-line check, like the flag at the end of a race */
-.note-tag.note-tag-finish { position: relative; padding-right: 33px; }
-.note-tag.note-tag-finish::after {
-  content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 21px;
-  background: repeating-conic-gradient(var(--steps-note-text) 0 25%, var(--steps-note-bg) 0 50%) 0 0 / 14px 14px;
-}
+.note-tag.note-tag-finish .flag { display: inline-block; width: 1.6em; height: 1.5em; vertical-align: -0.4em; margin: -0.2em 6px -0.2em -6px; }
 /* Narrow screens: one note per row, tag above its text, all left-aligned */
 @media (max-width: 639px) {
   .step-notes { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 20px; }
@@ -1464,6 +1460,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     <circle cx="10" cy="10" r="10" style="fill:var(--tick-bg)"></circle>
     <path d="M5.6 10.3l2.9 2.9 5.9-6.3" style="fill:none;stroke:var(--tick-fg);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"></path>
   </symbol>
+  <symbol id="i-flag" viewBox="0 0 30 28">
+    <pattern id="p-check" patternUnits="userSpaceOnUse" width="8" height="8"><rect width="8" height="8" style="fill:var(--steps-note-bg)"></rect><rect width="4" height="4" style="fill:var(--steps-note-text)"></rect><rect x="4" y="4" width="4" height="4" style="fill:var(--steps-note-text)"></rect></pattern>
+    <path d="M6 3 C11 0 15 6 20 3 C23 1.5 26 1.5 28 3 L28 17 C26 15.5 23 15.5 20 17 C15 20 11 14 6 17 Z" fill="url(#p-check)" style="stroke:var(--steps-note-text);stroke-width:1.3;stroke-linejoin:round"></path>
+    <path d="M5 2 V27" style="fill:none;stroke:var(--steps-note-text);stroke-width:2.4;stroke-linecap:round"></path>
+  </symbol>
   <symbol id="i-mail" viewBox="0 0 20 20">
     <rect x="2" y="4.5" width="16" height="11" rx="2.2" style="fill:none;stroke:currentColor;stroke-width:2"></rect>
     <path d="M2.9 5.7l7.1 5.3 7.1-5.3" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"></path>
@@ -1636,7 +1637,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         </ol>
         <div class="step-notes">
           <p class="note"><span class="note-tag">Underveis</span> Du kan fylle på standen så lenge perioden varer.</p>
-          <p class="note"><span class="note-tag note-tag-finish">Til slutt</span> Du henter det som ikke ble solgt.</p>
+          <p class="note"><span class="note-tag note-tag-finish"><svg class="flag" viewBox="0 0 30 28" aria-hidden="true" focusable="false"><use href="#i-flag"></use></svg>Til slutt</span> Du henter det som ikke ble solgt.</p>
         </div>
       </div>
     </section>
