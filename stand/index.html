@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lei en stand hos Loppely</title>
+<meta name="description" content="Loppely blir et loppesupermarked i Lyngdal. Lei en stand, sett prisen selv, og vi selger for deg. Sett deg på lista.">
+<meta name="theme-color" content="#FFFDF9">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:site_name" content="Loppely">
+<meta property="og:title" content="Du rydder. Vi selger.">
+<meta property="og:description" content="Lei en stand hos Loppely i Lyngdal. Du setter prisen, vi står i kassa. Sett deg på lista.">
+<meta property="og:url" content="https://loppely.no/stand/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..900&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
+<style>
+  :root {
+    --maroon: #561A12; --maroon-deep: #2E0D08; --orange: #E0693A; --orange-deep: #B85630;
+    --cream: #FDEBD5; --mauve: #B67B9A; --paper: #FFFDF9; --green: #2F6B45;
+    --font-display: "Archivo", "Arial Black", sans-serif;
+    --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--maroon); font-family: var(--font-body); line-height: 1.5; font-size: 17px; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 28px 18px 56px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 30px; }
+  .top svg { height: 42px; width: auto; display: block; }
+  .kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: clamp(42px, 12vw, 64px); line-height: 0.95; letter-spacing: -0.02em; margin: 0 0 18px; }
+  h1 .tag {
+    display: inline-block; background: var(--orange); color: var(--maroon-deep);
+    padding: 0.04em 0.28em 0.08em 0.9em; margin-top: 0.12em;
+    clip-path: polygon(0.45em 0, 100% 0, 100% 100%, 0.45em 100%, 0 50%);
+    -webkit-mask: radial-gradient(circle at 0.56em 50%, transparent 0.09em, #000 calc(0.09em + 1px));
+    mask: radial-gradient(circle at 0.56em 50%, transparent 0.09em, #000 calc(0.09em + 1px));
+    transform: rotate(-2deg);
+  }
+  .lede { font-size: 1.15rem; margin: 0 0 22px; max-width: 30ch; }
+  .facts { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 10px; font-weight: 700; }
+  .facts li { display: flex; gap: 12px; align-items: flex-start; }
+  .facts .ico { flex: none; width: 24px; height: 24px; margin-top: 1px; }
+  .facts .big { font-family: var(--font-display); font-stretch: 118%; font-weight: 900; font-size: 1.25em; line-height: 1; }
+  form { display: grid; gap: 14px; padding: 22px 20px 20px; background: var(--cream); border-radius: 22px; }
+  label { display: block; font-weight: 700; margin-bottom: 6px; }
+  label small { font-weight: 400; margin-left: 6px; }
+  .input { width: 100%; font: inherit; color: var(--maroon); background: var(--paper); border: 2px solid var(--maroon); border-radius: 999px; padding: 0.8em 1.1em; }
+  .input:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 2px; }
+  .btn { font: inherit; font-weight: 700; font-size: 1.1rem; padding: 1em 1.6em; border: 0; border-radius: 999px; background: var(--maroon); color: var(--cream); cursor: pointer; width: 100%; }
+  .btn:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 3px; }
+  .btn[aria-disabled="true"] { opacity: 0.85; cursor: progress; }
+  .fine { font-size: 0.9rem; margin: 0; }
+  .feil { color: var(--orange-deep); font-weight: 700; font-size: 0.9rem; margin: 6px 0 0; min-height: 0; }
+  .feil:empty { display: none; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .status { font-weight: 600; padding: 14px 16px; border-radius: 16px; background: var(--paper); border: 2px solid var(--maroon); }
+  .status:empty { display: none; }
+  .status[data-state="feil"] { border-color: var(--orange-deep); }
+  .status[data-state="ok"] { display: flex; align-items: flex-start; gap: 14px; background: var(--green); border-color: var(--green); color: var(--cream); font-size: 1.08em; padding: 18px 20px; }
+  .status[data-state="ok"] .ico { width: 28px; height: 28px; flex: none; --tick-bg: var(--cream); --tick-fg: var(--green); }
+  .ico { --tick-bg: var(--orange); --tick-fg: var(--maroon-deep); }
+  footer { margin-top: 30px; font-size: 0.9rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  footer a { color: inherit; font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes swing { 0% { transform: rotate(-9deg); } 40% { transform: rotate(2deg); } 70% { transform: rotate(-4deg); } 100% { transform: rotate(-2deg); } }
+    h1 .tag { animation: swing 1.4s cubic-bezier(0.3, 0.7, 0.4, 1) 0.2s both; transform-origin: 0.5em 50%; }
+  }
+</style>
+</head>
+<body>
+<svg style="display:none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-tick" viewBox="0 0 20 20">
+    <circle cx="10" cy="10" r="10" style="fill:var(--tick-bg)"></circle>
+    <path d="M5.6 10.3l2.9 2.9 5.9-6.3" style="fill:none;stroke:var(--tick-fg);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"></path>
+  </symbol>
+</svg>
+<main class="wrap">
+  <div class="top">
+    <a href="https://loppely.no/" aria-label="Loppely"><svg viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><image href="../logo/loppely-logo.svg" width="364.4" height="113.8" x="-2" y="-4.5"></image></svg></a>
+    <span class="kicker">Snart i Lyngdal</span>
+  </div>
+
+  <h1>Du rydder.<br><span class="tag">Vi selger.</span></h1>
+  <p class="lede">Loppely blir et loppesupermarked i Lyngdal. Du leier en stand og setter prisen. Vi står i kassa.</p>
+
+  <ul class="facts" role="list">
+    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du setter prisen selv</span></li>
+    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du trenger ikke stå i standen</span></li>
+    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span><span class="big">19%</span> provisjon. Resten er ditt.</span></li>
+    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Pengene rett til bankkontoen din</span></li>
+  </ul>
+
+  <form id="skjema" novalidate>
+    <div>
+      <label for="navn">Navn</label>
+      <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
+      <p class="feil" id="navn-feil" aria-live="polite"></p>
+    </div>
+    <div>
+      <label for="epost">E-post</label>
+      <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
+      <p class="feil" id="epost-feil" aria-live="polite"></p>
+    </div>
+    <div>
+      <label for="telefon">Telefon <small>Valgfritt</small></label>
+      <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel">
+    </div>
+    <div class="hp" aria-hidden="true"><label for="hp-felt">La dette feltet stå tomt</label><input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+    <button class="btn" type="submit" id="send-knapp">Sett meg på lista</button>
+    <p class="fine">Gratis og uforpliktende. Pris på stand, adresse og åpningsdato går først til lista.</p>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <footer>
+    <a href="https://loppely.no/">Les mer på loppely.no</a>
+    <a href="mailto:hei@loppely.no">hei@loppely.no</a>
+  </footer>
+</main>
+<script>
+(function () {
+  'use strict';
+  var SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@');
+  var form = document.getElementById('skjema');
+  var fNavn = document.getElementById('navn'), fEpost = document.getElementById('epost'), fTelefon = document.getElementById('telefon'), fHonning = document.getElementById('hp-felt');
+  var eNavn = document.getElementById('navn-feil'), eEpost = document.getElementById('epost-feil');
+  var status = document.getElementById('status'), sendBtn = document.getElementById('send-knapp');
+  var sending = false;
+  /* Which ad brought them here, from the link's utm parameters */
+  var q = new URLSearchParams(location.search);
+  var kilde = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].map(function (k) { return q.get(k); }).filter(Boolean).join(' / ') || 'loppely.no/stand';
+
+  function setStatus(state, parts) {
+    status.setAttribute('data-state', state); status.textContent = '';
+    var target = status;
+    if (state === 'ok') {
+      var ico = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      ico.setAttribute('class', 'ico'); ico.setAttribute('viewBox', '0 0 20 20'); ico.setAttribute('aria-hidden', 'true'); ico.setAttribute('focusable', 'false');
+      var use = document.createElementNS('http://www.w3.org/2000/svg', 'use'); use.setAttribute('href', '#i-tick'); ico.appendChild(use);
+      status.appendChild(ico); target = document.createElement('span'); status.appendChild(target);
+    }
+    parts.forEach(function (p) {
+      if (typeof p === 'string') { target.appendChild(document.createTextNode(p)); return; }
+      var el = document.createElement('strong'); el.textContent = p.text; target.appendChild(el);
+    });
+  }
+  function setSending(on) {
+    sending = on; form.setAttribute('aria-busy', on ? 'true' : 'false');
+    sendBtn.setAttribute('aria-disabled', on ? 'true' : 'false'); sendBtn.textContent = on ? 'Sender …' : 'Sett meg på lista';
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) { return; }
+    var navn = fNavn.value.trim(), epost = fEpost.value.trim();
+    eNavn.textContent = navn ? '' : 'Skriv inn navnet ditt.';
+    eEpost.textContent = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(epost) ? '' : 'Skriv inn en gyldig e-postadresse.';
+    if (eNavn.textContent || eEpost.textContent) { (eNavn.textContent ? fNavn : fEpost).focus(); return; }
+    var data = { 'Navn': navn, 'email': epost, '_replyto': epost, 'Telefon': fTelefon.value.trim() || 'Ikke oppgitt', 'Kilde': kilde, '_subject': 'Ny selger (annonse): ' + navn, '_template': 'table', '_honey': fHonning.value };
+    setSending(true); setStatus('', ['Sender …']);
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
+    fetch(SKJEMA_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data), signal: ctrl ? ctrl.signal : undefined })
+      .then(function (res) { return res.json().catch(function () { return {}; }).then(function (body) { if (!res.ok || String(body.success) !== 'true') { throw new Error('send'); } }); })
+      .then(function () {
+        form.reset();
+        setStatus('ok', [{ text: 'Takk, ' + navn.split(/\s+/)[0] + '! ' }, 'Du står på interesselista. Vi sier fra når åpningen nærmer seg.']);
+      })
+      .catch(function () { setStatus('feil', ['Påmeldingen ble ikke sendt. Prøv igjen om litt, eller skriv til hei@loppely.no.']); })
+      .then(function () { if (timer) { clearTimeout(timer); } setSending(false); });
+  });
+})();
+</script>
+</body>
+</html>
