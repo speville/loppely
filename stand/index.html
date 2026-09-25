@@ -49,6 +49,9 @@
   .tag-string { position: absolute; left: 0; top: -0.34em; width: 0.9em; height: 0.9em; overflow: visible; pointer-events: none; }
   .tag-string path { fill: none; stroke: var(--maroon); stroke-width: 4; stroke-linecap: round; }
   .lede { font-size: 1.15rem; margin: 0 0 22px; max-width: 30ch; }
+  /* Illustration of the shop: stands, price tags and the shared till */
+  .shop-illo { display: block; width: 100%; height: auto; border-radius: 22px; }
+  .illo { margin: 0 0 26px; }
   .facts { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 10px; font-weight: 700; }
   .facts li { display: flex; gap: 12px; align-items: flex-start; }
   .facts .ico { flex: none; width: 24px; height: 24px; margin-top: 1px; }
@@ -116,6 +119,159 @@
 
   <h1>Du rydder.<br><span class="tag-wrap" id="lapp"><span class="tag-shadow"><span class="tag">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span></h1>
   <p class="lede">Loppely blir et loppesupermarked i Lyngdal. Du leier en stand og setter prisen. Vi står i kassa.</p>
+
+  <figure class="illo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" class="shop-illo" focusable="false" role="img" aria-label="Illustrasjon av Loppely: stands med klær, bøker og leker, og en felles kasse">
+  <defs>
+    <style>
+      .il-ink{fill:#561A12}.il-deep{fill:#2E0D08}.il-or{fill:#E0693A}.il-ors{fill:#F2A07C}.il-cr{fill:#FDEBD5}.il-crs{fill:#E9CDB6}.il-mv{fill:#B67B9A}.il-pp{fill:#FFFDF9}
+      .il-ln{fill:none;stroke:#561A12;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+      .il-lnt{fill:none;stroke:#561A12;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .il-num{font-family:Archivo,"Arial Black",Arial,sans-serif;font-weight:900;font-size:22px;fill:#FDEBD5}
+      .il-pr{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:600;font-size:13px;fill:#2E0D08}
+      .il-sign{font-family:Archivo,"Arial Black",Arial,sans-serif;font-weight:900;font-size:30px;letter-spacing:1px;fill:#FDEBD5}
+    </style>
+    <!-- a small hanging price tag, hole on the left -->
+    <symbol id="il-tag" viewBox="0 0 60 26" overflow="visible">
+      <path d="M8 0 H58 a2 2 0 0 1 2 2 V24 a2 2 0 0 1 -2 2 H8 L0 13 Z" class="il-pp" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="9" cy="13" r="2.6" fill="#561A12"/>
+    </symbol>
+    <!-- a stand number tag -->
+    <symbol id="il-standtag" viewBox="0 0 70 34" overflow="visible">
+      <path d="M11 0 H66 a4 4 0 0 1 4 4 V30 a4 4 0 0 1 -4 4 H11 L0 17 Z" fill="#561A12"/>
+      <circle cx="12" cy="17" r="3.4" fill="#E0693A"/>
+    </symbol>
+    <!-- t-shirt on a hanger -->
+    <symbol id="il-shirt" viewBox="0 0 90 110" overflow="visible">
+      <path d="M45 2 v8 M45 10 L20 24 H70 Z" class="il-lnt"/>
+      <path d="M28 24 L6 36 L14 56 L24 52 V104 H66 V52 L76 56 L84 36 L62 24 C58 32 32 32 28 24 Z" stroke="#561A12" stroke-width="3" stroke-linejoin="round"/>
+    </symbol>
+    <!-- dress on a hanger -->
+    <symbol id="il-dress" viewBox="0 0 90 130" overflow="visible">
+      <path d="M45 2 v8 M45 10 L20 24 H70 Z" class="il-lnt"/>
+      <path d="M32 24 L28 44 L12 124 H78 L62 44 L58 24 C54 31 36 31 32 24 Z" stroke="#561A12" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M28 46 H62" class="il-lnt"/>
+    </symbol>
+  </defs>
+
+  <!-- wall and floor -->
+  <rect width="1200" height="720" class="il-cr"/>
+  <rect y="590" width="1200" height="130" class="il-crs"/>
+  <rect y="584" width="1200" height="10" class="il-ink" opacity=".9"/>
+  <!-- floor planks -->
+  <path d="M0 640 H1200 M0 690 H1200" stroke="#561A12" stroke-opacity=".12" stroke-width="3"/>
+
+  <!-- hanging shop sign -->
+  <path d="M520 0 V58 M680 0 V58" class="il-lnt"/>
+  <path d="M486 58 H714 a8 8 0 0 1 8 8 V110 a8 8 0 0 1 -8 8 H486 L462 88 Z" class="il-ink"/>
+  <circle cx="482" cy="88" r="7" class="il-or"/>
+  <text x="600" y="100" text-anchor="middle" class="il-sign">LOPPELY</text>
+
+  <!-- ===== Stand 1: clothes rail ===== -->
+  <g>
+    <path d="M70 250 V585 M350 250 V585 M58 250 H362" class="il-ln"/>
+    <path d="M52 585 H90 M330 585 H368" class="il-ln"/>
+    <use href="#il-shirt" x="78" y="248" width="90" height="110" class="il-or"/>
+    <use href="#il-dress" x="150" y="248" width="90" height="130" class="il-mv"/>
+    <use href="#il-shirt" x="222" y="248" width="90" height="110" class="il-pp"/>
+    <use href="#il-shirt" x="270" y="252" width="80" height="100" class="il-ink"/>
+    <!-- shoes box -->
+    <rect x="96" y="520" width="120" height="64" rx="6" class="il-ors" stroke="#561A12" stroke-width="3"/>
+    <path d="M112 540 H200 M112 556 H180" class="il-lnt" opacity=".5"/>
+    <rect x="236" y="500" width="96" height="84" rx="6" class="il-pp" stroke="#561A12" stroke-width="3"/>
+    <path d="M252 520 H316 M252 540 H316 M252 560 H300" class="il-lnt" opacity=".5"/>
+    <use href="#il-tag" x="186" y="370" width="60" height="26"/>
+    <text x="221" y="388" text-anchor="middle" class="il-pr">150,-</text>
+    <use href="#il-standtag" x="248" y="196" width="70" height="34"/>
+    <text x="289" y="221" text-anchor="middle" class="il-num">01</text>
+    <path d="M260 213 L262 250" class="il-lnt"/>
+  </g>
+
+  <!-- ===== Stand 2: shelf with books and home things ===== -->
+  <g>
+    <rect x="410" y="210" width="290" height="375" rx="6" class="il-pp" stroke="#561A12" stroke-width="5"/>
+    <path d="M410 330 H700 M410 455 H700" class="il-ln"/>
+    <!-- top shelf: lamp, vase, plant -->
+    <path d="M450 330 V300 M436 300 H464 M442 300 L430 262 H470 L458 300" class="il-ln"/>
+    <path d="M430 262 H470 L460 240 H440 Z" class="il-or" stroke="#561A12" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M520 330 c-18 -8 -18 -44 0 -52 v-10 h16 v10 c18 8 18 44 0 52 Z" class="il-mv" stroke="#561A12" stroke-width="3"/>
+    <rect x="600" y="290" width="44" height="40" rx="4" class="il-ors" stroke="#561A12" stroke-width="3"/>
+    <path d="M622 290 c-18 -30 -10 -48 0 -52 c10 4 18 22 0 52 M622 290 c-26 -14 -34 -30 -30 -38 c10 -2 26 10 30 38 M622 290 c26 -14 34 -30 30 -38 c-10 -2 -26 10 -30 38" class="il-ink"/>
+    <!-- middle shelf: books -->
+    <rect x="428" y="360" width="22" height="95" class="il-ink"/>
+    <rect x="452" y="372" width="18" height="83" class="il-or"/>
+    <rect x="472" y="352" width="26" height="103" class="il-mv"/>
+    <rect x="500" y="378" width="16" height="77" class="il-ors"/>
+    <path d="M522 455 L536 366 L556 369 L542 457 Z" class="il-ink"/>
+    <rect x="570" y="425" width="110" height="14" class="il-or" stroke="#561A12" stroke-width="2"/>
+    <rect x="576" y="411" width="98" height="14" class="il-mv" stroke="#561A12" stroke-width="2"/>
+    <rect x="582" y="397" width="86" height="14" class="il-pp" stroke="#561A12" stroke-width="2"/>
+    <use href="#il-tag" x="600" y="360" width="60" height="26"/>
+    <text x="635" y="378" text-anchor="middle" class="il-pr">60,-</text>
+    <!-- bottom shelf: teddy, pot, plates -->
+    <g transform="translate(460 480)">
+      <circle cx="0" cy="10" r="11" class="il-ors" stroke="#561A12" stroke-width="3"/>
+      <circle cx="36" cy="10" r="11" class="il-ors" stroke="#561A12" stroke-width="3"/>
+      <circle cx="18" cy="28" r="24" class="il-ors" stroke="#561A12" stroke-width="3"/>
+      <ellipse cx="18" cy="76" rx="28" ry="24" class="il-ors" stroke="#561A12" stroke-width="3"/>
+      <circle cx="10" cy="24" r="3" class="il-ink"/><circle cx="26" cy="24" r="3" class="il-ink"/>
+      <ellipse cx="18" cy="35" rx="6" ry="4" class="il-ink"/>
+    </g>
+    <path d="M540 585 V548 a6 6 0 0 1 6 -6 h72 a6 6 0 0 1 6 6 V585" class="il-ink"/>
+    <path d="M530 548 H540 M624 548 H634 M566 536 H598 M582 536 V528" class="il-ln"/>
+    <ellipse cx="664" cy="578" rx="26" ry="7" class="il-pp" stroke="#561A12" stroke-width="3"/>
+    <ellipse cx="664" cy="568" rx="26" ry="7" class="il-pp" stroke="#561A12" stroke-width="3"/>
+    <ellipse cx="664" cy="558" rx="26" ry="7" class="il-or" stroke="#561A12" stroke-width="3"/>
+    <use href="#il-standtag" x="596" y="160" width="70" height="34"/>
+    <text x="637" y="185" text-anchor="middle" class="il-num">02</text>
+    <path d="M608 177 L604 210" class="il-lnt"/>
+  </g>
+
+  <!-- ===== Stand 3: toys and games on a low table ===== -->
+  <g>
+    <rect x="740" y="455" width="200" height="22" rx="4" class="il-ink"/>
+    <path d="M756 477 V585 M924 477 V585" class="il-ln"/>
+    <!-- game boxes -->
+    <rect x="752" y="395" width="70" height="60" rx="4" class="il-mv" stroke="#561A12" stroke-width="3"/>
+    <rect x="760" y="360" width="58" height="35" rx="4" class="il-or" stroke="#561A12" stroke-width="3"/>
+    <!-- controller -->
+    <rect x="836" y="418" width="78" height="34" rx="17" class="il-pp" stroke="#561A12" stroke-width="3"/>
+    <path d="M856 427 v16 M848 435 h16" class="il-lnt"/>
+    <circle cx="892" cy="430" r="3.5" class="il-ink"/><circle cx="900" cy="440" r="3.5" class="il-or"/>
+    <!-- ball and skateboard under -->
+    <circle cx="800" cy="556" r="28" class="il-or" stroke="#561A12" stroke-width="3"/>
+    <path d="M774 548 c16 8 36 8 52 0 M800 528 v56" class="il-lnt"/>
+    <rect x="846" y="566" width="84" height="10" rx="5" class="il-mv" stroke="#561A12" stroke-width="2.5"/>
+    <circle cx="860" cy="582" r="5" class="il-ink"/><circle cx="916" cy="582" r="5" class="il-ink"/>
+    <use href="#il-tag" x="830" y="382" width="60" height="26"/>
+    <text x="865" y="400" text-anchor="middle" class="il-pr">200,-</text>
+    <use href="#il-standtag" x="860" y="300" width="70" height="34"/>
+    <text x="901" y="325" text-anchor="middle" class="il-num">03</text>
+  </g>
+
+  <!-- ===== The shared till ===== -->
+  <g>
+    <path d="M1060 0 V190 M1150 0 V190" class="il-lnt"/>
+    <rect x="1040" y="190" width="130" height="44" rx="8" class="il-or"/>
+    <text x="1105" y="222" text-anchor="middle" class="il-sign" style="font-size:24px;fill:#2E0D08">KASSE</text>
+    <!-- counter -->
+    <rect x="990" y="440" width="200" height="145" rx="8" class="il-ink"/>
+    <rect x="980" y="428" width="220" height="18" rx="6" class="il-deep"/>
+    <!-- tablet on stand -->
+    <path d="M1060 428 V404" class="il-ln"/>
+    <rect x="1024" y="348" width="76" height="56" rx="6" class="il-pp" stroke="#561A12" stroke-width="4"/>
+    <path d="M1036 364 H1088 M1036 376 H1076 M1036 388 H1082" class="il-lnt" opacity=".45"/>
+    <!-- card terminal -->
+    <rect x="1120" y="384" width="34" height="44" rx="6" class="il-mv" stroke="#561A12" stroke-width="3"/>
+    <rect x="1126" y="390" width="22" height="12" rx="2" class="il-pp"/>
+    <!-- basket -->
+    <path d="M1004 410 H1040 L1034 428 H1010 Z" class="il-ors" stroke="#561A12" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M1010 410 c0 -16 24 -16 24 0" class="il-lnt"/>
+    <!-- paper bag on the counter front -->
+    <path d="M1130 500 h40 l6 70 h-52 Z" class="il-cr" stroke="#FDEBD5" stroke-width="0"/>
+    <path d="M1142 500 c0 -14 16 -14 16 0" fill="none" stroke="#FDEBD5" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1150" cy="532" r="6" class="il-or"/>
+  </g>
+</svg></figure>
 
   <ul class="facts" role="list">
     <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du setter prisen selv</span></li>
