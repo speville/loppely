@@ -57,14 +57,14 @@
   --logo-bg: var(--maroon);
   --logo-fg: var(--cream);
 
-  /* Hero: paper; the one bold move is a mauve prislapp with a maroon shadow */
+  /* Hero: paper; the one bold move is an orange prislapp with a maroon shadow */
   --hero-bg: var(--page-bg);
   --hero-text: var(--page-text);
   --hero-muted: var(--page-muted);
   --hero-focus: var(--maroon);
   --hero-tick-bg: var(--orange);
   --hero-tick-fg: var(--maroon-deep);
-  --highlight-bg: var(--mauve);
+  --highlight-bg: var(--orange);
   --highlight-text: var(--maroon-deep);      /* 5.3:1 */
   --highlight-shadow: var(--maroon);
   --highlight-string: var(--maroon);
