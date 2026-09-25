@@ -1,7 +1,7 @@
 <title>Loppely</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Norican&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
 <style>
 /* =====================================================================
    COLOUR ROLES. Every colour on the page comes from one of these tokens.
@@ -312,6 +312,7 @@
   --font-display: "Archivo", "Arial Black", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-script: "Norican", "Brush Script MT", cursive;
   --fs-xs: 0.75rem;
   --fs-sm: 0.9375rem;
   --fs-base: 1.0625rem;
@@ -681,10 +682,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   font-family: var(--font-display); font-stretch: 118%; font-weight: 800;
   font-size: max(14px, 4.2cqi); line-height: 1.08; text-transform: uppercase;
 }
-/* The last line breaks the shouting: body face, italic, sentence case */
+/* The last line breaks the shouting: the script from the logo's "ly" */
 .for-list .for-alle {
-  font-family: var(--font-body); font-stretch: normal; font-weight: 600; font-style: italic;
-  font-size: max(15px, 4.6cqi); text-transform: none; margin-top: max(2px, 0.6cqi);
+  font-family: var(--font-script); font-stretch: normal; font-weight: 400;
+  font-size: max(20px, 6.4cqi); line-height: 1; text-transform: none; margin-top: max(2px, 0.8cqi);
 }
 .board-badge {
   position: absolute;
