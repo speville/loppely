@@ -822,6 +822,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   gap: 14px 36px;
 }
 .note { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+/* Narrow screens: one note per row, tag above its text, all left-aligned */
+@media (max-width: 639px) {
+  .step-notes { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 20px; }
+  .note { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
 .note-tag {
   background: var(--steps-note-bg);
   color: var(--steps-note-text);
