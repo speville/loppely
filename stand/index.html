@@ -32,14 +32,17 @@
   .top svg { height: 42px; width: auto; display: block; }
   .kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
   h1 { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: clamp(42px, 12vw, 64px); line-height: 0.95; letter-spacing: -0.02em; margin: 0 0 18px; }
-  h1 .tag {
+  .tag-wrap { position: relative; display: inline-block; margin-top: 0.14em; white-space: nowrap; transform: rotate(-2deg); transform-origin: 0.64em 0.55em; }
+  .tag-shadow { display: inline-block; filter: drop-shadow(0.07em 0.07em 0 var(--maroon)); }
+  .tag {
     display: inline-block; background: var(--orange); color: var(--maroon-deep);
-    padding: 0.04em 0.28em 0.08em 0.9em; margin-top: 0.12em;
-    clip-path: polygon(0.45em 0, 100% 0, 100% 100%, 0.45em 100%, 0 50%);
-    -webkit-mask: radial-gradient(circle at 0.56em 50%, transparent 0.09em, #000 calc(0.09em + 1px));
-    mask: radial-gradient(circle at 0.56em 50%, transparent 0.09em, #000 calc(0.09em + 1px));
-    transform: rotate(-2deg);
+    padding: 0.05em 0.32em 0.1em 1.04em;
+    clip-path: polygon(0.5em 0, 100% 0, 100% 100%, 0.5em 100%, 0 50%);
+    -webkit-mask: radial-gradient(circle at 0.64em 50%, transparent 0.1em, #000 calc(0.1em + 1px));
+    mask: radial-gradient(circle at 0.64em 50%, transparent 0.1em, #000 calc(0.1em + 1px));
   }
+  .tag-string { position: absolute; left: 0; top: -0.34em; width: 0.9em; height: 0.9em; overflow: visible; pointer-events: none; }
+  .tag-string path { fill: none; stroke: var(--maroon); stroke-width: 4; stroke-linecap: round; }
   .lede { font-size: 1.15rem; margin: 0 0 22px; max-width: 30ch; }
   .facts { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 10px; font-weight: 700; }
   .facts li { display: flex; gap: 12px; align-items: flex-start; }
@@ -64,10 +67,10 @@
   .ico { --tick-bg: var(--orange); --tick-fg: var(--maroon-deep); }
   footer { margin-top: 30px; font-size: 0.9rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
   footer a { color: inherit; font-weight: 700; }
-  @media (prefers-reduced-motion: no-preference) {
-    @keyframes swing { 0% { transform: rotate(-9deg); } 40% { transform: rotate(2deg); } 70% { transform: rotate(-4deg); } 100% { transform: rotate(-2deg); } }
-    h1 .tag { animation: swing 1.4s cubic-bezier(0.3, 0.7, 0.4, 1) 0.2s both; transform-origin: 0.5em 50%; }
+  @keyframes swing {
+    0% { transform: rotate(-10deg); } 35% { transform: rotate(3deg); } 60% { transform: rotate(-4.5deg); } 82% { transform: rotate(-1deg); } 100% { transform: rotate(-2deg); }
   }
+  @media (prefers-reduced-motion: no-preference) { .tag-wrap { animation: swing 1.6s cubic-bezier(0.3, 0.7, 0.4, 1) 0.3s both; } }
 </style>
 </head>
 <body>
@@ -83,7 +86,7 @@
     <span class="kicker">Snart i Lyngdal</span>
   </div>
 
-  <h1>Du rydder.<br><span class="tag">Vi selger.</span></h1>
+  <h1>Du rydder.<br><span class="tag-wrap" id="lapp"><span class="tag-shadow"><span class="tag">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span></h1>
   <p class="lede">Loppely blir et loppesupermarked i Lyngdal. Du leier en stand og setter prisen. Vi står i kassa.</p>
 
   <ul class="facts" role="list">
@@ -170,6 +173,27 @@
       .catch(function () { setStatus('feil', ['Påmeldingen ble ikke sendt. Prøv igjen om litt, eller skriv til hei@loppely.no.']); })
       .then(function () { if (timer) { clearTimeout(timer); } setSending(false); });
   });
+
+  /* The tag swings again when the pointer lands on it, like on the front page */
+  var tag = document.getElementById('lapp');
+  if (tag && tag.animate) {
+    var ease = 'cubic-bezier(0.3, 0.7, 0.4, 1)';
+    var frames = [
+      { transform: 'rotate(-2deg)', easing: ease },
+      { transform: 'rotate(-10deg)', offset: 0.15, easing: ease },
+      { transform: 'rotate(3deg)', offset: 0.45, easing: ease },
+      { transform: 'rotate(-4.5deg)', offset: 0.66, easing: ease },
+      { transform: 'rotate(-1deg)', offset: 0.85, easing: ease },
+      { transform: 'rotate(-2deg)' }
+    ];
+    tag.addEventListener('pointerenter', function () {
+      var reduce = false;
+      try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      if (reduce) return;
+      if (tag.getAnimations().some(function (a) { return a.playState === 'running'; })) return;
+      tag.animate(frames, { duration: 1800 });
+    });
+  }
 })();
 </script>
 </body>
