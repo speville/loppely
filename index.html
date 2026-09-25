@@ -694,6 +694,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   font-size: max(11px, 2.5cqi); line-height: 1.4; letter-spacing: 0.05em; text-transform: uppercase;
 }
 .b-note { margin: 0 0 max(4px, 1.2cqi); }
+/* Heavier, larger small print on the board so it reads on the mauve and orange blocks */
+.board .b-eyebrow, .board .b-note, .board .b-link { font-size: max(13px, 3.1cqi); font-weight: 800; }
+.board .for-list { font-weight: 900; }
 .b-link { color: var(--board-1-link); }
 .blk-2 { background: var(--board-2-bg); color: var(--board-2-fg); }
 .b-logo {
@@ -1128,6 +1131,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .join-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-weight: 600; line-height: 1.35; --tick-bg: var(--join-tick-bg); --tick-fg: var(--join-tick-fg); }
 .join-list li { display: flex; align-items: flex-start; gap: 10px; }
 .join-list .ico { margin-top: 1px; }
+/* Dark text on the mauve and orange sections: heavier weights and full-strength colour */
+.minside .eyebrow, .join .eyebrow { font-weight: 800; font-size: calc(var(--fs-xs) * 1.12); }
+.ms-copy p { color: var(--minside-text); font-weight: 500; }
+.join-copy .lede { font-weight: 500; }
+.ms-facts, .join-list { font-weight: 700; }
 
 /* The form card is cut as one large hang tag */
 .form-hang { position: relative; padding-top: 46px; min-width: 0; }
