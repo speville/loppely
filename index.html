@@ -569,7 +569,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .hero-grid {
   display: grid;
   gap: 28px;
-  grid-template-areas: "head" "illo" "copy" "board";
+  grid-template-areas: "head" "illo" "copy" "board" "facts";
 }
 .hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
 .hero-head .eyebrow { color: var(--hero-muted); }
@@ -581,7 +581,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 @media (min-width: 980px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1.846fr) minmax(0, 1fr);
-    grid-template-areas: "head head" "illo board" "copy copy";
+    grid-template-areas: "head head" "illo board" "copy facts";
     column-gap: 20px;
     row-gap: 36px;
     align-items: stretch;
@@ -643,11 +643,13 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .quick-note { font-size: var(--fs-sm); color: var(--hero-muted); margin-top: -12px; }
 .facts {
   list-style: none; padding: 0;
-  display: flex; flex-wrap: wrap; gap: 10px 22px;
-  font-size: var(--fs-sm); font-weight: 600; line-height: 1.3;
+  display: grid; gap: 12px;
+  font-size: var(--fs-md); font-weight: 700; line-height: 1.3;
   --tick-bg: var(--hero-tick-bg); --tick-fg: var(--hero-tick-fg);
 }
-.facts li { display: inline-flex; align-items: center; gap: 8px; }
+.facts li { display: flex; align-items: flex-start; gap: 12px; }
+.facts .ico { flex: none; width: 1.4em; height: 1.4em; }
+.hero-facts { grid-area: facts; }
 
 /* Brand board: four flat, gapless blocks with the L badge on the shared corner */
 .board {
@@ -1765,11 +1767,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <button class="btn btn-dark" type="submit">Meld interesse</button>
           </form>
           <p class="quick-note" id="hurtig-note">Resten fyller du ut lenger ned.</p>
-          <ul class="facts" role="list">
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du setter prisen selv</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke stå i standen</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Følg salget på Min side</li>
-          </ul>
         </div>
         <div class="board">
           <div class="blk blk-1">
@@ -1801,6 +1798,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <svg viewBox="0 0 100 100" focusable="false"><use href="#i-badge"></use></svg>
           </div>
         </div>
+        <ul class="facts hero-facts" role="list">
+          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du setter prisen selv</span></li>
+          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du trenger ikke stå i standen</span></li>
+          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Vi tar 19% provisjon. Resten er ditt.</span></li>
+          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Pengene rett til bankkontoen din</span></li>
+        </ul>
       </div>
     </section>
 
