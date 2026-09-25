@@ -719,9 +719,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 
 /* ---------- Shortcut band ---------- */
 .shortcuts { background: var(--band-bg); padding-block: clamp(28px, 4vw, 48px); --focus: var(--band-focus); }
-.sc-grid { list-style: none; padding: 0; display: grid; gap: 14px; align-items: start; }
+.sc-grid { list-style: none; padding: 0; display: grid; gap: 14px; }
 @media (min-width: 860px) { .sc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .sc-card {
+  height: 100%;
   background: var(--band-card-bg);
   color: var(--band-text);
   border: 1px solid var(--band-line);
@@ -734,6 +735,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   border-radius: var(--radius-md);
 }
 .sc-card summary::-webkit-details-marker { display: none; }
+/* Closed cards fill the row so all three read as the same size */
+.sc-card:not([open]) summary { height: 100%; box-sizing: border-box; }
 .sc-card summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .sc-title {
   display: block; font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
@@ -1047,8 +1050,15 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .faq-intro h2 { font-size: var(--fs-xl); }
 .faq-intro p { color: var(--faq-muted); max-width: 26em; }
 .faq-intro a { color: var(--faq-text); font-weight: 700; }
-.mail-link { white-space: nowrap; }
-.mail-link .ico { display: inline-block; width: 1.3em; height: 1.3em; margin-right: .3em; vertical-align: -.28em; }
+/* The address as a small pill on its own line */
+.mail-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 4px; padding: 10px 18px 10px 14px;
+  border: 2px solid var(--faq-text); border-radius: 999px;
+  color: var(--faq-text); text-decoration: none; font-weight: 700; white-space: nowrap;
+}
+.mail-link .ico { width: 1.25em; height: 1.25em; }
+.mail-link:hover, .mail-link:focus-visible { background: var(--faq-text); color: var(--faq-bg); }
 .faq-list { border-bottom: 2px solid var(--faq-rule); }
 .faq-list details { border-top: 2px solid var(--faq-rule); }
 .faq-list summary {
@@ -1723,7 +1733,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <p class="eyebrow">Før du melder deg på</p>
           <h2 id="faq-title">Spørsmål og svar.</h2>
           <p>Det vi vet, svarer vi på. Det som ikke er bestemt ennå, sier vi rett ut.</p>
-          <p>Fant du ikke svaret? Skriv til <a class="mail-link" href="mailto:hei@loppely.no"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg><span data-epost>hei@loppely.no</span></a>.</p>
+          <p>Fant du ikke svaret? Skriv til oss.</p>
+          <p><a class="mail-link" href="mailto:hei@loppely.no"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg><span data-epost>hei@loppely.no</span></a></p>
         </div>
         <div class="faq-list">
           <details open>
