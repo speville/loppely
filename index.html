@@ -665,6 +665,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   font-family: var(--font-display); font-stretch: 108%; font-weight: 800;
   font-size: max(16px, 5.2cqi); line-height: 1.05; letter-spacing: -0.01em;
 }
+/* The commission figure is the one number on the board, so it gets the room */
+.blk-1 .b-big { font-size: max(30px, 12cqi); font-stretch: 118%; font-weight: 900; margin: 2px 0 4px; }
 .b-link { color: var(--board-1-link); font-weight: 700; font-size: max(13px, 3.2cqi); line-height: 1.3; }
 .blk-2 { background: var(--board-2-bg); color: var(--board-2-fg); }
 .b-logo {
@@ -1529,9 +1531,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 
         <div class="board">
           <div class="blk blk-1">
-            <p class="b-eyebrow">Standleie</p>
-            <p class="b-big">Ikke satt ennå.</p>
-            <a class="b-link" href="#meld-interesse">Sett deg på lista <span aria-hidden="true">→</span></a>
+            <p class="b-eyebrow">Provisjon på salget</p>
+            <p class="b-big">19 %</p>
+            <a class="b-link" href="#meld-interesse">Standleie kommer. Sett deg på lista <span aria-hidden="true">→</span></a>
           </div>
           <div class="blk blk-2">
             <p class="b-eyebrow">Loppesupermarked</p>
@@ -1589,9 +1591,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </li>
           <li>
             <details class="sc-card">
-              <summary><span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Ikke bestemt ennå. De på interesselista får vite det først.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <summary><span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Provisjonen er 19 %. Standleie og dato kommer.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
               <div class="sc-body">
-                <p>Prisen på stand, adressen og åpningsdatoen er ikke bestemt ennå. Det er gratis å stå på interesselista, og det er ikke en bestilling. De som står der, får beskjed før alle andre.</p>
+                <p>Vi tar 19 % provisjon av det du selger for. Prisen på stand, adressen og åpningsdatoen er ikke bestemt ennå. Det er gratis å stå på interesselista, og det er ikke en bestilling. De som står der, får beskjed før alle andre.</p>
                 <p><a href="#meld-interesse">Meld interesse</a></p>
               </div>
             </details>
@@ -1632,7 +1634,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <li class="step">
             <svg class="step-badge face-2" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">5</text></svg>
             <h3>Utbetaling</h3>
-            <p>Det du har solgt for, blir betalt ut til bankkontoen din.</p>
+            <p>Det du har solgt for, minus 19 % provisjon, blir betalt ut til bankkontoen din.</p>
           </li>
         </ol>
         <div class="step-notes">
@@ -1765,7 +1767,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Hvordan får jeg pengene?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Det du har solgt for, blir betalt ut til bankkontoen din. På Min side ser du hva som er solgt. Hvor ofte vi betaler ut, forteller vi før vi åpner.</p></div>
+            <div class="faq-a"><p>Vi tar 19 % provisjon av det du selger for. Resten blir betalt ut til bankkontoen din. På Min side ser du hva som er solgt. Hvor ofte vi betaler ut, forteller vi før vi åpner.</p></div>
           </details>
           <details>
             <summary>Hva skjer med det som ikke blir solgt?<span class="plus" aria-hidden="true"></span></summary>
@@ -1777,7 +1779,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Hva koster en stand?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Prisene er ikke satt ennå. Det gjelder både leie av stand og eventuell provisjon. De som står på interesselista, får prisene først.</p></div>
+            <div class="faq-a"><p>Provisjonen er 19 % av det du selger for. Prisen for å leie stand er ikke satt ennå. De som står på interesselista, får den først.</p></div>
           </details>
           <details>
             <summary>Når og hvor åpner dere?<span class="plus" aria-hidden="true"></span></summary>
