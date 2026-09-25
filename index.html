@@ -566,12 +566,28 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   padding-block: clamp(40px, 6vw, 96px) clamp(56px, 7vw, 108px);
   background: var(--hero-bg); color: var(--hero-text); --focus: var(--hero-focus);
 }
-.hero-grid { display: grid; gap: clamp(44px, 6vw, 72px); align-items: center; }
-@media (min-width: 980px) {
-  .hero-grid { grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr); }
+.hero-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-areas: "head" "illo" "copy" "board";
 }
-.hero-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
-.hero-copy .eyebrow { color: var(--hero-muted); }
+.hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
+.hero-head .eyebrow { color: var(--hero-muted); }
+.hero-illo { grid-area: illo; }
+.hero-copy { grid-area: copy; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
+.hero-grid > .board { grid-area: board; margin-top: 16px; border-radius: 22px; overflow: hidden; }
+/* Illustration and board side by side, same height: the columns follow
+   the illustration's 1200:650 ratio against the square board. */
+@media (min-width: 980px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.846fr) minmax(0, 1fr);
+    grid-template-areas: "head head" "illo board" "copy copy";
+    column-gap: 20px;
+    row-gap: 36px;
+    align-items: stretch;
+  }
+  .hero-grid > .board { margin-top: 0; max-width: none; }
+}
 .hero h1 {
   font-size: var(--fs-hero);
   font-stretch: 112%;
@@ -1535,14 +1551,14 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
-        <div class="hero-copy">
+        <div class="hero-head">
           <p class="eyebrow">Stand · Prislapp · Utbetaling</p>
           <h1 id="hero-title">
             <span class="h1-line">Du rydder.</span>
             <span class="tag-wrap"><span class="tag-shadow"><span class="tag-hl">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span>
           </h1>
-          <p class="lede">Loppely blir et nytt loppesupermarked i Lyngdal. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
-          <figure class="illo hero-illo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" class="shop-illo" focusable="false" role="img" aria-label="Illustrasjon av Loppely: stands med klær, bøker og leker, og en felles kasse med en ansatt">
+        </div>
+        <figure class="illo hero-illo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" class="shop-illo" focusable="false" role="img" aria-label="Illustrasjon av Loppely: stands med klær, bøker og leker, og en felles kasse med en ansatt">
   <defs>
     <style>
       .il-ink{fill:#561A12}.il-deep{fill:#2E0D08}.il-or{fill:#E0693A}.il-ors{fill:#F2A07C}.il-cr{fill:#FDEBD5}.il-crs{fill:#E9CDB6}.il-mv{fill:#B67B9A}.il-pp{fill:#FFFDF9}
@@ -1741,6 +1757,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     <circle cx="1150" cy="532" r="6" class="il-or"/>
   </g>
 </svg></figure>
+        <div class="hero-copy">
+          <p class="lede">Loppely blir et nytt loppesupermarked i Lyngdal. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
           <form class="quick" id="hurtigskjema" novalidate>
             <label class="sr-only" for="hurtig-epost">E-postadressen din</label>
             <input class="input" id="hurtig-epost" name="hurtig-epost" type="email" inputmode="email" autocomplete="email" placeholder="navn@eksempel.no" aria-describedby="hurtig-note">
@@ -1753,7 +1771,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Følg salget på Min side</li>
           </ul>
         </div>
-
         <div class="board">
           <div class="blk blk-1">
             <p class="b-eyebrow">Provisjon</p>
