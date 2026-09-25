@@ -503,20 +503,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .input:focus-visible { outline-offset: 2px; }
 .input[aria-invalid="true"] { box-shadow: 0 0 0 3px var(--field-invalid); }
 
-/* ---------- Announcement bar ---------- */
-.announce { background: var(--announce-bg); color: var(--announce-text); font-size: 0.875rem; --focus: var(--announce-focus); }
-.announce-in {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-  gap: 6px 14px; padding-block: 10px; text-align: center;
-}
-.pill-mini {
-  background: var(--pill-bg); color: var(--pill-text);
-  font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
-  font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 4px 10px 3px; border-radius: 999px;
-}
-.announce a { color: var(--announce-accent); font-weight: 700; white-space: nowrap; }
-
 /* ---------- Header ---------- */
 .site-head {
   position: relative;
@@ -1553,13 +1539,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 
 <div class="page" id="top" lang="nb">
   <a class="skip" href="#innhold">Hopp til innholdet</a>
-
-  <div class="announce">
-    <div class="wrap announce-in">
-      <span class="pill-mini">Snart</span>
-      <p>Loppely åpner i Lyngdal. Har du ting du vil selge? Lei en stand hos oss.</p>
-    </div>
-  </div>
 
   <header class="site-head">
     <div class="wrap head-in">
