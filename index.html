@@ -2121,6 +2121,84 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       </div>
     </section>
 
+    <!-- Meld interesse -->
+    <section class="join sec" id="meld-interesse" aria-labelledby="join-title">
+      <div class="wrap join-grid">
+        <div class="join-copy">
+          <p class="eyebrow">Interesseliste for stand</p>
+          <h2 id="join-title">Vær blant de første med egen stand.</h2>
+          <p class="lede">Vi åpner 1.&nbsp;desember i <a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3 i Lyngdal</a>. Står du på lista, får du først tilgang til early bird-pris på standleie, og kan fylle standen din før vi åpner.</p>
+          <ul class="join-list" role="list">
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><strong>Du får early bird-tilbud på standleie før alle andre.</strong></li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Vær med fra åpningen 1.&nbsp;desember, midt i julehandelen.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>De første standene får med seg all oppmerksomheten rundt åpningen.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Påmeldingen er gratis og tar under ett minutt.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Å melde interesse er ikke en bestilling.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke bo i Lyngdal. Vi gjør resten, så du kjører bare når du leverer, henter eller fyller på.</li>
+          </ul>
+        </div>
+
+        <div class="form-hang">
+          <div class="form-shadow">
+            <form class="form-card" id="selgerskjema" novalidate aria-labelledby="join-title">
+              <p class="form-top">Du må fylle ut navn og e-post. Resten er valgfritt.</p>
+              <div class="field">
+                <label for="navn">Navn</label>
+                <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
+                <p class="err" id="navn-feil" hidden></p>
+              </div>
+              <div class="field">
+                <label for="epost">E-post</label>
+                <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
+                <p class="err" id="epost-feil" hidden></p>
+              </div>
+              <div class="field">
+                <label for="telefon">Telefon <span class="opt">Valgfritt</span></label>
+                <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="telefon-feil">
+                <p class="err" id="telefon-feil" hidden></p>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="hp-felt">La dette feltet stå tomt</label>
+                <input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <fieldset class="field-set" aria-describedby="kat-hint">
+                <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
+                <p class="hint" id="kat-hint">Velg så mange du vil.</p>
+                <div class="chips">
+                  <input class="chip-input sr-only" type="checkbox" id="kat-klaer" name="kategori" value="Klær">
+                  <label class="chip" for="kat-klaer"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-klaer"></use></svg>Klær</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-barneting" name="kategori" value="Barneting og leker">
+                  <label class="chip" for="kat-barneting"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-barneting"></use></svg>Barneting og leker</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-mobler" name="kategori" value="Møbler og interiør">
+                  <label class="chip" for="kat-mobler"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-mobler"></use></svg>Møbler og interiør</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-boker" name="kategori" value="Bøker og blader">
+                  <label class="chip" for="kat-boker"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-boker"></use></svg>Bøker og blader</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-spill" name="kategori" value="Spill og elektronikk">
+                  <label class="chip" for="kat-spill"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-spill"></use></svg>Spill og elektronikk</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-kjokken" name="kategori" value="Kjøkkenutstyr">
+                  <label class="chip" for="kat-kjokken"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-kjokken"></use></svg>Kjøkkenutstyr</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-sport" name="kategori" value="Sport og fritid">
+                  <label class="chip" for="kat-sport"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-sport"></use></svg>Sport og fritid</label>
+                  <input class="chip-input sr-only" type="checkbox" id="kat-annet" name="kategori" value="Annet">
+                  <label class="chip" for="kat-annet"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-annet"></use></svg>Annet</label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
+                <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har, hvor mye, og når du vil starte."></textarea>
+              </div>
+              <div class="submit-row">
+                <button class="btn btn-dark btn-lg" type="submit" id="send-knapp">Meld interesse</button>
+                <p class="form-note">Påmeldingen sendes til oss på e-post. Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
+              </div>
+              <p class="status-msg" id="status-tekst" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <svg class="form-string" viewBox="0 0 40 82" aria-hidden="true" focusable="false"><path d="M20 80 C 22 54, 6 30, 16 2"></path></svg>
+        </div>
+      </div>
+    </section>
+
     <!-- Priser -->
     <section class="prices sec" id="priser" aria-labelledby="prices-title">
       <div class="wrap">
@@ -2366,83 +2444,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       </div>
     </section>
 
-    <!-- Meld interesse -->
-    <section class="join sec" id="meld-interesse" aria-labelledby="join-title">
-      <div class="wrap join-grid">
-        <div class="join-copy">
-          <p class="eyebrow">Interesseliste for stand</p>
-          <h2 id="join-title">Vær blant de første med egen stand.</h2>
-          <p class="lede">Vi åpner 1.&nbsp;desember i <a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3 i Lyngdal</a>. Står du på lista, får du først tilgang til early bird-pris på standleie, og kan fylle standen din før vi åpner.</p>
-          <ul class="join-list" role="list">
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><strong>Du får early bird-tilbud på standleie før alle andre.</strong></li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Vær med fra åpningen 1.&nbsp;desember, midt i julehandelen.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>De første standene får med seg all oppmerksomheten rundt åpningen.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Påmeldingen er gratis og tar under ett minutt.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Å melde interesse er ikke en bestilling.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke bo i Lyngdal. Vi gjør resten, så du kjører bare når du leverer, henter eller fyller på.</li>
-          </ul>
-        </div>
-
-        <div class="form-hang">
-          <div class="form-shadow">
-            <form class="form-card" id="selgerskjema" novalidate aria-labelledby="join-title">
-              <p class="form-top">Du må fylle ut navn og e-post. Resten er valgfritt.</p>
-              <div class="field">
-                <label for="navn">Navn</label>
-                <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
-                <p class="err" id="navn-feil" hidden></p>
-              </div>
-              <div class="field">
-                <label for="epost">E-post</label>
-                <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
-                <p class="err" id="epost-feil" hidden></p>
-              </div>
-              <div class="field">
-                <label for="telefon">Telefon <span class="opt">Valgfritt</span></label>
-                <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="telefon-feil">
-                <p class="err" id="telefon-feil" hidden></p>
-              </div>
-              <div class="hp" aria-hidden="true">
-                <label for="hp-felt">La dette feltet stå tomt</label>
-                <input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off">
-              </div>
-              <fieldset class="field-set" aria-describedby="kat-hint">
-                <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
-                <p class="hint" id="kat-hint">Velg så mange du vil.</p>
-                <div class="chips">
-                  <input class="chip-input sr-only" type="checkbox" id="kat-klaer" name="kategori" value="Klær">
-                  <label class="chip" for="kat-klaer"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-klaer"></use></svg>Klær</label>
-                  <input class="chip-input sr-only" type="checkbox" id="kat-barneting" name="kategori" value="Barneting og leker">
-                  <label class="chip" for="kat-barneting"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-barneting"></use></svg>Barneting og leker</label>
-                  <input class="chip-input sr-only" type="checkbox" id="kat-mobler" name="kategori" value="Møbler og interiør">
-                  <label class="chip" for="kat-mobler"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-mobler"></use></svg>Møbler og interiør</label>
-                  <input class="chip-input sr-only" type="checkbox" id="kat-boker" name="kategori" value="Bøker og blader">
-                  <label class="chip" for="kat-boker"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-boker"></use></svg>Bøker og blader</label>
-                  <input class="chip-input sr-only" type="checkbox" id="kat-spill" name="kategori" value="Spill og elektronikk">
-                  <label class="chip" for="kat-spill"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-spill"></use></svg>Spill og elektronikk</label>
-                  <input class="chip-input sr-only" type="checkbox" id="kat-kjokken" name="kategori" value="Kjøkkenutstyr">
-                  <label class="chip" for="kat-kjokken"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-kjokken"></use></svg>Kjøkkenutstyr</label>
-                  <input class="chip-input sr-only" type="checkbox" id="kat-sport" name="kategori" value="Sport og fritid">
-                  <label class="chip" for="kat-sport"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-sport"></use></svg>Sport og fritid</label>
-                  <input class="chip-input sr-only" type="checkbox" id="kat-annet" name="kategori" value="Annet">
-                  <label class="chip" for="kat-annet"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-annet"></use></svg>Annet</label>
-                </div>
-              </fieldset>
-              <div class="field">
-                <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
-                <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har, hvor mye, og når du vil starte."></textarea>
-              </div>
-              <div class="submit-row">
-                <button class="btn btn-dark btn-lg" type="submit" id="send-knapp">Meld interesse</button>
-                <p class="form-note">Påmeldingen sendes til oss på e-post. Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
-              </div>
-              <p class="status-msg" id="status-tekst" role="status" aria-live="polite"></p>
-            </form>
-          </div>
-          <svg class="form-string" viewBox="0 0 40 82" aria-hidden="true" focusable="false"><path d="M20 80 C 22 54, 6 30, 16 2"></path></svg>
-        </div>
-      </div>
-    </section>
 
 
 
