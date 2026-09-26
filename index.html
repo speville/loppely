@@ -617,6 +617,13 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
 .hero-head .eyebrow { color: var(--hero-muted); }
+/* Opening date up top, as a dark pill beside the eyebrow */
+.hero-open { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.open-pill {
+  font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
+  font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; white-space: nowrap;
+  padding: 0.7em 1.05em 0.66em; border-radius: 999px; background: #2E0D08; color: #FDEBD5;
+}
 /* "Spar deg for arbeid" as a record on a turntable: the disc spins, the ring text turns slowly */
 .hero-stamp {
   grid-area: head; justify-self: end; align-self: end; z-index: 2;
@@ -1663,7 +1670,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-head">
-          <p class="eyebrow">Nytt loppesupermarked i Lyngdal</p>
+          <p class="hero-open"><span class="open-pill">Åpner 1.&nbsp;desember</span><span class="eyebrow">Nytt loppesupermarked i Lyngdal</span></p>
           <h1 id="hero-title">
             <span class="h1-line">Du rydder.</span>
             <span class="tag-wrap"><span class="tag-shadow"><span class="tag-hl">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span>
