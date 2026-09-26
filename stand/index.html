@@ -144,6 +144,17 @@
   .plans-wrap.swiped .swipe-hint { opacity: 0; visibility: hidden; animation: none; }
   @keyframes swipe-hint { 0% { transform: translateX(0) scale(1); opacity: 0; } 12% { opacity: 1; transform: translateX(0) scale(0.92); } 55% { transform: translateX(-120px) scale(0.92); opacity: 1; } 70%, 100% { transform: translateX(-140px) scale(1); opacity: 0; } }
   @media (prefers-reduced-motion: no-preference) { .swipe-hint { animation: swipe-hint 2.4s cubic-bezier(0.45, 0, 0.25, 1) 0.6s infinite both; } }
+  /* Desktop: the three cards side by side like on the front page, wider than the sheet so they get room */
+  @media (min-width: 820px) {
+    .pris { overflow-x: visible; }
+    .plans-wrap { width: min(1080px, calc(100vw - 48px)); margin-left: 50%; transform: translateX(-50%); }
+    .plans { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; margin: 0; padding: 18px 0 0; gap: 16px; }
+    .plan-dots, .swipe-hint { display: none; }
+  }
+  @media (min-width: 1100px) {
+    .plans { gap: 20px; }
+    .plan { padding: 30px 28px 26px; }
+  }
   .payout { margin-top: 22px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px 20px; }
   .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 1.3rem; margin-bottom: 10px !important; }
   .payout-table { --payout-vip: color-mix(in srgb, var(--mauve) 30%, var(--card)); width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
