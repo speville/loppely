@@ -1143,10 +1143,16 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .findus-hours span { font-size: 0.875rem; color: var(--page-muted); }
 .findus-map {
   border-radius: 24px; overflow: hidden; border: 1.5px solid var(--page-line); aspect-ratio: 4 / 3;
-  /* A pin shows until the map has loaded, or if it is blocked */
+  /* A pin shows until the photo has loaded */
   background: var(--page-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E0693A' stroke='%23561A12' stroke-width='1.5'%3E%3Cpath d='M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z'/%3E%3Ccircle cx='12' cy='10' r='2.6' fill='%23FDEBD5'/%3E%3C/svg%3E") center / 56px no-repeat;
 }
-.findus-map iframe { display: block; width: 100%; height: 100%; border: 0; filter: saturate(0.85) sepia(0.12); }
+.findus-map { display: block; position: relative; }
+.findus-map img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.findus-map-cta {
+  position: absolute; right: 14px; bottom: 14px; padding: 8px 14px; border-radius: 999px;
+  background: #561A12; color: #FDEBD5; font-weight: 700; font-size: 0.875rem;
+}
+.findus-map:hover .findus-map-cta, .findus-map:focus-visible .findus-map-cta { background: #E0693A; color: #2E0D08; }
 
 /* ---------- Min side ---------- */
 .minside { background: var(--minside-bg); color: var(--minside-text); --focus: var(--minside-focus); }
@@ -2492,9 +2498,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <a class="btn btn-outline" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Åpne i Google Maps</a>
           </div>
         </div>
-        <div class="findus-map">
-          <iframe title="Street View: Loppely, Kirkeveien 3, 4580 Lyngdal" src="https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1s0FKhDvEe1NblPDpRfmuLrQ!2m2!1d58.1376298!2d7.0699848!3f31.68!4f11.44!5f0.78" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        </div>
+        <a class="findus-map" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+          <img src="bilder/butikk-her-er-vi.jpg" width="1400" height="1050" loading="lazy" alt="Gatebilde av Kirkeveien 3 i Lyngdal. En stor pil peker mot inngangen med teksten: Her er vi! Rett ned trappen.">
+          <span class="findus-map-cta" aria-hidden="true">Se gatebildet ↗</span>
+        </a>
       </div>
     </section>
   </main>
