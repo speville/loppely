@@ -1198,7 +1198,14 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   cursor: pointer; user-select: none;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
-.chip-input:checked + .chip { background: var(--option-on-bg); color: var(--option-on-text); border-color: var(--option-on-bg); }
+/* Each category is a checkbox: an empty box on the right, green with a tick when picked */
+.chip::after {
+  content: ""; flex: none; margin-left: auto;
+  width: 22px; height: 22px; border: 2px solid currentColor; border-radius: 7px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.chip-input:checked + .chip { background: #2F6B45; color: #FDEBD5; border-color: #2F6B45; }
+.chip-input:checked + .chip::after { background: #FDEBD5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.4l3.2 3.2L15 6.6' fill='none' stroke='%232F6B45' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat; border-color: #FDEBD5; }
 .chip-input:focus-visible + .chip { outline: 3px solid var(--focus); outline-offset: 3px; }
 .submit-row { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .form-note { font-size: var(--fs-sm); color: var(--form-card-muted); line-height: 1.45; max-width: 34em; }
