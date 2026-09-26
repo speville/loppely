@@ -1041,6 +1041,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   mask: radial-gradient(circle at 10px 50%, transparent 2.5px, var(--mask-ink) 3.5px);
 }
 
+.faq-a .faq-list-no { margin: 8px 0 10px; padding-left: 1.2em; display: grid; gap: 4px; }
 /* Small print in an FAQ answer, e.g. the condition rules */
 .faq-a .faq-fine { margin-top: 8px; font-size: 0.875rem; line-height: 1.45; opacity: 0.85; }
 /* VIP callout under the steps: the one dark box in the section */
@@ -2263,7 +2264,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <li class="step">
             <svg class="step-badge face-2" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">5</text></svg>
             <h3>Utbetaling</h3>
-            <p>Det du har solgt for, minus 19% provisjon, blir betalt ut til bankkontoen din.</p>
+            <p>Det du har solgt for, minus provisjonen, blir betalt ut til bankkontoen din én gang i måneden.</p>
           </li>
         </ol>
         <div class="step-notes">
@@ -2375,48 +2376,32 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         </div>
         <div class="faq-list">
           <details open>
-            <summary>Hva er et loppesupermarked?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Et loppemarked der vi selger for deg. Du leier en stand, vi står i kassa.</p></div>
+            <summary>Hva kan jeg ikke selge?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Dette tar vi ikke imot:</p><ul class="faq-list-no"><li>Ulovlige ting og kopivarer</li><li>Levende dyr og insekter</li><li>Våpen, ammunisjon og fyrverkeri</li><li>Alkohol, tobakk, snus og e-sigaretter</li><li>Legemidler og kosttilskudd</li><li>Mat og drikke</li><li>Åpnet kosmetikk, hudpleie og hårprodukter</li><li>Bilseter og hjelmer</li></ul><p>Utstyr til dyr, som bur, senger og leker, tar vi gjerne imot.</p></div>
           </details>
           <details>
-            <summary>Må jeg stå i standen selv?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Nei. Vi rydder standen og selger for deg. Du kommer bare innom hvis du vil fylle på.</p></div>
+            <summary>Kan dere si nei til en vare?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Ja. Vi kan si nei til varer som er i for dårlig stand, som er for store, eller som går imot verdiene våre, for eksempel rasistiske eller krenkende ting.</p><p class="faq-fine">Tingene må være hele og rene. Vask det som har flekker eller er støvete. Har et fint plagg et hull, for eksempel et ullplagg, kan du gjerne selge det. Bare sett prisen deretter.</p></div>
           </details>
           <details>
-            <summary>Hvem setter prisen?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Du. Kunden betaler det som står på lappen.</p></div>
+            <summary>Når får jeg utbetalt?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Én gang i måneden, rett til bankkontoen din. Salget ser du på «Min side» hele tiden.</p></div>
           </details>
           <details>
-            <summary>Hvordan lager jeg prislapper?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Du legger inn prisen på nett. Lappene skriver du ut i butikken når du kommer med tingene.</p></div>
+            <summary>Kan jeg endre prisen underveis?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Ja. Endre prisen på «Min side», og skriv ut en ny lapp i butikken.</p></div>
           </details>
           <details>
-            <summary>Kan jeg fylle på standen underveis?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Ja, så ofte du vil i leieperioden. Ellers trenger du ikke komme.</p></div>
+            <summary>Hva hvis noe blir stjålet eller ødelagt?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Vi følger med i butikken, men tingene er ditt ansvar til de er solgt. Selg derfor ikke ting du ikke tåler å miste.</p></div>
           </details>
           <details>
-            <summary>Hvordan får jeg pengene?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Rett på bankkontoen din. Vi tar 19% (VIP: 29%), resten er ditt.</p></div>
+            <summary>Hva skjer med det som ikke blir solgt?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Du henter det når perioden er over, eller forlenger leieperioden. Vi kan også pakke ned standen for deg for 150 kr.</p></div>
           </details>
           <details>
             <summary>Må jeg betale skatt eller mva?<span class="plus" aria-hidden="true"></span></summary>
             <div class="faq-a"><p>Nei. Selger du dine egne, private ting, betaler du verken skatt eller mva av salget.</p></div>
-          </details>
-          <details>
-            <summary>Hva skjer med det som ikke blir solgt?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Du henter det når perioden er over, eller forlenger leieperioden din.</p></div>
-          </details>
-          <details>
-            <summary>Hva kan jeg selge?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Klær og tilbehør, barneting, større varer og alt mulig annet. <a href="#kinds-title">Se hva som passer i hvilken stand</a>. Lager du ting selv, kan du selge dem for 25% provisjon. Skriv til oss.</p><p class="faq-fine">Tingene må være hele og rene. Vask det som har flekker eller er støvete. Har et fint plagg et hull, for eksempel et ullplagg, kan du gjerne selge det. Bare sett prisen deretter.</p></div>
-          </details>
-          <details>
-            <summary>Hva koster en stand?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Fra 200 kr per uke og 19% av det du selger, mva inkludert. <a href="#priser">Se alle priser</a>.</p></div>
-          </details>
-          <details>
-            <summary>Når og hvor åpner dere?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>1.&nbsp;desember, i <a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3, 4580 Lyngdal</a>. Du får beskjed når standen kan fylles.</p></div>
           </details>
         </div>
       </div>
