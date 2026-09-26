@@ -2492,7 +2492,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   <dialog class="meld-dialog" id="meld-dialog" aria-labelledby="meld-dialog-title">
     <div class="meld-top">
       <p class="meld-title" id="meld-dialog-title">Meld interesse</p>
-      <button class="meld-close" type="button" aria-label="Lukk">
+      <button class="meld-close" type="button" aria-label="Lukk" autofocus>
         <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15"/></svg>
       </button>
     </div>
@@ -2776,8 +2776,9 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     home.style.minHeight = home.offsetHeight + 'px';
     slot.appendChild(shadow);
     dlg.showModal();
-    var first = document.getElementById('navn');
-    if (first) first.focus({ preventScroll: true });
+    // Focus the close button, not a text field, so the phone keyboard stays down
+    dlg.querySelector('.meld-close').focus({ preventScroll: true });
+    dlg.scrollTop = 0;
   }
   document.querySelectorAll('a[href="#meld-interesse"]').forEach(function (a) { a.addEventListener('click', open); });
   dlg.querySelector('.meld-close').addEventListener('click', function () { dlg.close(); });
