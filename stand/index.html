@@ -147,16 +147,16 @@
   .payout { margin-top: 22px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px 20px; }
   .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 1.3rem; margin-bottom: 10px !important; }
   .payout-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-  .payout-table th, .payout-table td { text-align: left; padding: 10px 8px 10px 0; border-bottom: 1.5px solid var(--line); vertical-align: baseline; }
-  .payout-table thead th { font-size: 0.8rem; font-weight: 700; color: var(--muted); vertical-align: bottom; }
-  .payout-table thead th span { display: block; font-weight: 500; white-space: nowrap; }
-  .payout-table thead th:first-child { width: 28%; }
+  .payout-table th, .payout-table td { text-align: left; padding: 10px 10px 10px 0; border-bottom: 1.5px solid var(--line); vertical-align: baseline; font-size: 1.05rem; font-weight: 600; }
   .payout-table th:last-child, .payout-table td:last-child { padding-right: 0; }
-  @media (min-width: 410px) {
-    .payout-table thead th { white-space: nowrap; font-size: 0.8rem; padding-right: 6px; vertical-align: top; }
-    .payout-table thead th:first-child { width: auto; }
-  }
-  .payout-table tbody th, .payout-table td { font-size: 1.05rem; font-weight: 600; }
+  /* Two header rows: the names, then the commission as pills, so the pills always line up */
+  .payout-table thead th { font-weight: 700; vertical-align: bottom; border-bottom: 0; padding-bottom: 6px; }
+  .payout-table thead tr + tr > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); }
+  .payout-table .payout-rate { display: inline-block; font-size: 0.9rem; font-weight: 600; white-space: nowrap; padding: 0.3em 0.75em; border-radius: 999px; background: var(--surface); color: var(--muted); }
+  .payout-table .payout-rate-label { font-size: 0.9rem; font-weight: 600; color: var(--muted); vertical-align: middle; }
+  .payout-table thead tr + tr td { vertical-align: middle; }
+  .payout-table tbody th { color: var(--muted); }
+  .payout-table tbody th, .payout-table tbody td { white-space: nowrap; }
   .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
   .payout-cta { margin-top: 16px !important; display: flex; justify-content: center; }
   .payout-cta .btn { width: auto; }
@@ -551,7 +551,8 @@
     <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
     <table class="payout-table">
       <thead>
-        <tr><th scope="col">Du selger for</th><th scope="col">Standard og Premium<span>19% provisjon</span></th><th scope="col">VIP<span>29% provisjon</span></th></tr>
+        <tr><th scope="col">Du selger for</th><th scope="col">Standard og Premium</th><th scope="col">VIP</th></tr>
+        <tr><th scope="row" class="payout-rate-label">Provisjon</th><td><span class="payout-rate">19%</span></td><td><span class="payout-rate">29%</span></td></tr>
       </thead>
       <tbody>
         <tr><th scope="row">100 kr</th><td>81 kr</td><td>71 kr</td></tr>
