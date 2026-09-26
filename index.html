@@ -1248,6 +1248,17 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 
 /* ---------- Example prislapper (finds) ---------- */
+/* Countdown to opening day */
+.count-in { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; }
+.countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(8px, 2vw, 18px); width: 100%; max-width: 720px; margin: 6px 0 8px; }
+.cd-box {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: rgba(253, 235, 213, 0.08); border: 1.5px solid rgba(253, 235, 213, 0.22);
+  border-radius: 20px; padding: clamp(14px, 3vw, 26px) 4px clamp(12px, 2.4vw, 20px);
+}
+.cd-num { font-family: var(--font-display); font-weight: 900; font-stretch: 112%; font-size: clamp(2.2rem, 1.2rem + 5vw, 4.4rem); line-height: 1; font-variant-numeric: tabular-nums; color: var(--finds-heading); }
+.cd-lab { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.66rem, 0.6rem + 0.4vw, 0.85rem); letter-spacing: 0.1em; text-transform: uppercase; }
+.count-sec .btn-cta { background: #E0693A; color: #2E0D08; }
 .finds { position: relative; background: var(--finds-bg); color: var(--finds-text); --focus: var(--finds-focus); }
 .finds-in { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
 .finds .eyebrow { color: var(--finds-eyebrow); }
@@ -2337,25 +2348,19 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       </div>
     </section>
 
-    <!-- Example prislapper -->
-    <section class="finds sec" aria-labelledby="finds-title">
-      <p class="vlabel" aria-hidden="true">Klær · Bøker · Kjøkken · Sport</p>
-      <div class="wrap finds-in">
-        <p class="eyebrow">Eksempler på prislapper</p>
-        <h2 id="finds-title">Det du ikke bruker, leter noen etter.</h2>
-        <ul class="ptags" role="list" aria-label="Eksempler på varer og priser">
-          <li class="ptag"><span class="ptag-in"><span>Marius-genser, str. M</span><span class="ptag-price">150 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Cathrineholm-kjele</span><span class="ptag-price">200 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Donald-blader, 10 stk.</span><span class="ptag-price">50 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Barnesykkel, 16 tommer</span><span class="ptag-price">250 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Kjelke</span><span class="ptag-price">80 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Figgjo-kopper, 4 stk.</span><span class="ptag-price">120 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Langrennsski, 190 cm</span><span class="ptag-price">150 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Vinylplater, 5 stk.</span><span class="ptag-price">100 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Brettspill</span><span class="ptag-price">60 kr</span></span></li>
-          <li class="ptag"><span class="ptag-in"><span>Lysestaker i messing</span><span class="ptag-price">90 kr</span></span></li>
-        </ul>
-        <p class="finds-note">Eksempler. Du setter prisen på dine egne ting.</p>
+    <!-- Countdown to opening -->
+    <section class="finds sec count-sec" aria-labelledby="count-title">
+      <div class="wrap count-in">
+        <p class="eyebrow">Åpner 1.&nbsp;desember</p>
+        <h2 id="count-title">Snart åpner vi dørene.</h2>
+        <div class="countdown" id="countdown" data-target="2026-12-01T00:00:00+01:00" aria-hidden="true">
+          <div class="cd-box"><span class="cd-num" data-unit="d">--</span><span class="cd-lab">dager</span></div>
+          <div class="cd-box"><span class="cd-num" data-unit="h">--</span><span class="cd-lab">timer</span></div>
+          <div class="cd-box"><span class="cd-num" data-unit="m">--</span><span class="cd-lab">minutter</span></div>
+          <div class="cd-box"><span class="cd-num" data-unit="s">--</span><span class="cd-lab">sekunder</span></div>
+        </div>
+        <p class="sr-only" id="countdown-text">Vi åpner 1. desember 2026.</p>
+        <a class="btn btn-cta btn-lg" href="#meld-interesse">Sett meg på lista</a>
       </div>
     </section>
 
@@ -2770,6 +2775,32 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
   }
   list.addEventListener('scroll', function () { window.requestAnimationFrame(update); if (list.scrollLeft > 20 && !list.parentNode.classList.contains('swiped')) { list.parentNode.classList.add('swiped'); var h = list.parentNode.querySelector('.swipe-hint'); if (h) window.setTimeout(function () { h.remove(); }, 400); } }, { passive: true });
   update();
+})();
+</script>
+<script>
+/* Countdown to opening day, updated every second */
+(function () {
+  var el = document.getElementById('countdown');
+  if (!el) return;
+  var target = new Date(el.getAttribute('data-target')).getTime();
+  var parts = {};
+  ['d', 'h', 'm', 's'].forEach(function (u) { parts[u] = el.querySelector('[data-unit="' + u + '"]'); });
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function tick() {
+    var left = Math.max(0, target - Date.now());
+    var sec = Math.floor(left / 1000);
+    parts.d.textContent = Math.floor(sec / 86400);
+    parts.h.textContent = pad(Math.floor(sec % 86400 / 3600));
+    parts.m.textContent = pad(Math.floor(sec % 3600 / 60));
+    parts.s.textContent = pad(sec % 60);
+    if (left === 0) {
+      var h = document.getElementById('count-title');
+      if (h) h.textContent = 'Vi har åpnet!';
+      return;
+    }
+    window.setTimeout(tick, 1000 - (Date.now() % 1000));
+  }
+  tick();
 })();
 </script>
 </body>
