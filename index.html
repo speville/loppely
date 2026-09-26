@@ -663,13 +663,17 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table :is(th, td):last-child { padding-right: 12px; }
 .payout-table thead tr:first-child > :not(:first-child) { border-radius: 16px 16px 0 0; }
 .payout-table tbody tr:last-child > :not(:first-child) { border-radius: 0 0 16px 16px; }
-/* Header rows: illustrations, the names, then the commission as pills, so each row lines up across the panels */
+/* Header rows: illustrations, the names, then the commission, so each row lines up across the panels */
 .payout-table thead th { font-weight: 700; vertical-align: bottom; border-bottom: 0; padding-top: 6px; padding-bottom: 6px; }
 .payout-table .payout-icons > * { padding-top: 14px; padding-bottom: 0; border-bottom: 0; vertical-align: bottom; line-height: 0; }
 .payout-table .payout-ico { width: 48px; height: 48px; }
 .payout-table .payout-rates > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--page-line); vertical-align: middle; }
 .payout-table .payout-rate { display: inline-block; font-size: 0.9rem; font-weight: 600; white-space: nowrap; padding: 0.3em 0.75em; border-radius: 999px; background: var(--page-card); color: var(--page-muted); }
-.payout-table .payout-rate-label { font-size: 0.9rem; color: var(--page-muted); }
+/* Phones: "provisjon" sits under the pill, and the first column keeps "Du selger" on one line */
+.payout-table thead th:first-child { width: 30%; }
+.payout-table .payout-rate-label { display: block; margin-top: 0.3em; font-size: 0.9rem; color: var(--page-muted); }
+/* From 520px both columns have room for "provisjon" beside the pill */
+@media (min-width: 520px) { .payout-table thead th:first-child { width: auto; } .payout-table .payout-rates td { white-space: nowrap; } .payout-table .payout-rate-label { display: inline; margin: 0 0 0 0.25em; } }
 .payout-table tbody th { color: var(--page-muted); }
 .payout-table tbody th, .payout-table tbody td { white-space: nowrap; }
 .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
@@ -2326,7 +2330,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <thead>
               <tr class="payout-icons" aria-hidden="true"><td><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-pricetag"></use></svg></td><td><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td><td><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td></tr>
               <tr><th scope="col">Du selger for</th><th scope="col">Standard og Premium</th><th scope="col">VIP</th></tr>
-              <tr class="payout-rates"><th scope="row" class="payout-rate-label">Provisjon</th><td><span class="payout-rate">19%</span></td><td><span class="payout-rate">29%</span></td></tr>
+              <tr class="payout-rates"><td></td><td><span class="payout-rate">19%</span> <span class="payout-rate-label">provisjon</span></td><td><span class="payout-rate">29%</span> <span class="payout-rate-label">provisjon</span></td></tr>
             </thead>
             <tbody>
               <tr><th scope="row">100 kr</th><td>81 kr</td><td>71 kr</td></tr>
