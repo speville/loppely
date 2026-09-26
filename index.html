@@ -626,6 +626,25 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 @media (min-width: 900px) { .swipe-hint { display: none; } }
 
+/* Stand types: what goes where */
+.kinds { margin-top: clamp(36px, 5vw, 56px); }
+.kinds-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: var(--fs-lg); }
+.kinds-sub { color: var(--page-muted); margin: 6px 0 16px; }
+.kinds-grid { list-style: none; padding: 0; display: grid; gap: 14px; }
+@media (min-width: 640px) { .kinds-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } }
+@media (min-width: 1100px) { .kinds-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.kind { background: var(--page-card); border: 1.5px solid var(--page-line); border-radius: 22px; padding: 22px; }
+.kind-head { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 1.1rem; margin-bottom: 10px; }
+.kind-ico { width: 26px; height: 26px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.kind-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.kind-list li { font-size: 0.9rem; font-weight: 600; padding: 0.4em 0.8em; border-radius: 16px; background: var(--page-surface); }
+.made {
+  margin-top: 14px; display: flex; align-items: center; gap: 14px;
+  border: 1.5px dashed var(--page-line); border-radius: 22px; padding: 16px 20px;
+}
+.made-ico { width: 28px; height: 28px; flex: none; fill: none; stroke: #E0693A; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.made a { color: inherit; font-weight: 700; }
+
 /* The payout example: the one place the commission is spelled out in kroner */
 .payout {
   margin-top: clamp(32px, 4vw, 48px); background: var(--page-card);
@@ -2156,6 +2175,33 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         </div>
         <div class="plan-dots" aria-hidden="true"><span></span><span></span><span></span></div>
 
+        <div class="kinds" aria-labelledby="kinds-title">
+          <h3 id="kinds-title" class="kinds-title">Hva kan du selge?</h3>
+          <p class="kinds-sub">Velg standen som passer tingene dine.</p>
+          <ul class="kinds-grid" role="list">
+            <li class="kind">
+              <p class="kind-head"><svg class="kind-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-klaer"></use></svg><span>Klesstand</span></p>
+              <ul class="kind-list" role="list"><li>Klær</li><li>Sko</li><li>Vesker og belter</li><li>Smykker</li><li>Skjerf, luer og annet tilbehør</li></ul>
+            </li>
+            <li class="kind">
+              <p class="kind-head"><svg class="kind-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-barneting"></use></svg><span>Barnestand</span></p>
+              <ul class="kind-list" role="list"><li>Barneklær</li><li>Leker og spill</li><li>Barneutstyr</li><li>Barnebøker</li></ul>
+            </li>
+            <li class="kind">
+              <p class="kind-head"><svg class="kind-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-annet"></use></svg><span>Alt mulig</span></p>
+              <ul class="kind-list" role="list"><li>Interiør og pynt</li><li>Kjøkkenutstyr</li><li>Elektronikk</li><li>Friluft- og sportsutstyr</li><li>Bøker, spill og musikk</li><li>Hobby og håndarbeid</li><li>Uåpnede hudpleie- og hårprodukter</li></ul>
+            </li>
+            <li class="kind">
+              <p class="kind-head"><svg class="kind-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-mobler"></use></svg><span>Større varer</span></p>
+              <ul class="kind-list" role="list"><li>Møbler</li><li>Sykler</li><li>Barnevogner</li><li>Ski og snowboard</li><li>Store lamper</li></ul>
+            </li>
+          </ul>
+          <div class="made">
+            <svg class="made-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+            <p><strong>Lager du ting selv?</strong> Da kan du selge dem hos oss for 25% provisjon. Skriv til <a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a>.</p>
+          </div>
+        </div>
+
         <div class="payout" aria-labelledby="payout-title">
           <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
           <table class="payout-table">
@@ -2355,7 +2401,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Hva kan jeg selge?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Brukte ting andre vil ha. Klær, leker, bøker, spill, møbler og mer.</p><p class="faq-fine">Tingene må være hele og rene. Vask det som har flekker eller er støvete. Har et fint plagg et hull, for eksempel et ullplagg, kan du gjerne selge det. Bare sett prisen deretter.</p></div>
+            <div class="faq-a"><p>Klær og tilbehør, barneting, større varer og alt mulig annet. <a href="#kinds-title">Se hva som passer i hvilken stand</a>. Lager du ting selv, kan du selge dem for 25% provisjon. Skriv til oss.</p><p class="faq-fine">Tingene må være hele og rene. Vask det som har flekker eller er støvete. Har et fint plagg et hull, for eksempel et ullplagg, kan du gjerne selge det. Bare sett prisen deretter.</p></div>
           </details>
           <details>
             <summary>Hva koster en stand?<span class="plus" aria-hidden="true"></span></summary>
