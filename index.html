@@ -565,14 +565,13 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
 .hero-head .eyebrow { color: var(--hero-muted); }
-/* "Spar deg for arbeid" as a record on a turntable: the disc spins, the printed text stays still */
+/* "Spar deg for arbeid" as a record on a turntable: the disc spins, the ring text turns slowly */
 .hero-stamp {
   grid-area: head; justify-self: end; align-self: end; z-index: 2;
   width: clamp(92px, 25vw, 150px); aspect-ratio: 268 / 220; margin: 0 -10px -6px 0;
 }
 .hero-stamp svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(46, 13, 8, 0.22)); }
 .stamp-text { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: 22px; letter-spacing: 2px; fill: #FDEBD5; }
-.stamp-speed { font-family: var(--font-display); font-weight: 800; font-size: 11px; letter-spacing: 1px; fill: #FDEBD5; opacity: .7; }
 @media (min-width: 980px) {
   .hero-stamp { grid-area: auto; grid-row: 1; grid-column: 2; justify-self: center; align-self: center; width: clamp(240px, 20vw, 300px); margin: 0; }
 }
@@ -580,6 +579,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 @media (prefers-reduced-motion: no-preference) {
   .vinyl-spin { transform-origin: 100px 100px; animation: vinyl-spin 3.6s linear infinite; }
   .hero-stamp:hover .vinyl-spin { animation-duration: 1.8s; }
+  .stamp-slow { transform-origin: 100px 100px; animation: vinyl-spin 40s linear infinite; }
 }
 .hero-illo { grid-area: illo; }
 /* The pitch under the picture: a soft card with a chip label and the key words in bold */
@@ -1640,9 +1640,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <path d="M126 70 C127 76 129 78 135 79 C129 80 127 82 126 88 C125 82 123 80 117 79 C123 78 125 76 126 70 Z" fill="#2E0D08"/>
                 <circle cx="100" cy="100" r="3.2" fill="#FDEBD5"/>
               </g>
-              <!-- printed ring text stays still so it can be read -->
-              <text class="stamp-text"><textPath href="#stamp-top" startOffset="50%" text-anchor="middle">SPAR DEG</textPath></text>
-              <text class="stamp-text"><textPath href="#stamp-bot" startOffset="50%" text-anchor="middle">FOR ARBEID</textPath></text>
+              <!-- ring text turns slowly, much slower than the record, so it stays readable -->
+              <g class="stamp-slow">
+                <text class="stamp-text"><textPath href="#stamp-top" startOffset="50%" text-anchor="middle">SPAR DEG</textPath></text>
+                <text class="stamp-text"><textPath href="#stamp-bot" startOffset="50%" text-anchor="middle">FOR ARBEID</textPath></text>
+              </g>
             </g>
             <!-- tonearm on its base -->
             <circle cx="238" cy="38" r="17" fill="#2E0D08"/>
@@ -1654,7 +1656,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <!-- speed and volume knobs -->
             <circle cx="238" cy="172" r="9" fill="#FDEBD5"/><path d="M238 172 V165" stroke="#2E0D08" stroke-width="2.5" stroke-linecap="round"/>
             <circle cx="238" cy="198" r="5" fill="#E0693A"/>
-            <text x="222" y="202" text-anchor="end" class="stamp-speed">33</text>
           </svg>
         </div>
         <figure class="illo hero-illo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" class="shop-illo" focusable="false" role="img" aria-label="Illustrasjon av Loppely: stands med klær, bøker og leker, og en felles kasse med en ansatt">
