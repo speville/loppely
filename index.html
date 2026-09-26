@@ -515,7 +515,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .head-in {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas: "brand cta" "nav nav";
+  grid-template-areas: "brand count" "nav cta";
   align-items: center;
   gap: 6px 16px;
   padding-block: 12px 8px;
@@ -538,7 +538,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 /* Phones: the header button matches the logo's height instead of towering over it */
 @media (max-width: 759px) {
   /* Phones: logo on top, then the menu links and the button on one row */
-  .head-in { grid-template-areas: "brand brand" "nav cta"; padding-block: 12px 10px; gap: 8px 12px; }
+  .head-in { grid-template-areas: "brand count" "nav cta"; padding-block: 12px 10px; gap: 8px 12px; }
   .head-cta { height: 36px; padding: 0 0.95em; font-size: 0.875rem; }
   .nav { gap: 2px 16px; flex-wrap: nowrap; }
   .nav a { font-size: 0.9rem; padding: 8px 0; white-space: nowrap; }
@@ -546,8 +546,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 @media (min-width: 760px) {
   .site-head { position: sticky; top: env(safe-area-inset-top, 0px); }
   .head-in {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    grid-template-areas: "brand nav cta";
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    grid-template-areas: "brand nav count cta";
+    column-gap: 22px;
     min-height: var(--head-h);
     padding-block: 0;
   }
@@ -663,6 +664,15 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table td { font-family: var(--font-display); font-weight: 900; font-stretch: 105%; font-size: clamp(1.25rem, 1rem + 1vw, 1.7rem); }
 .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
 
+/* Countdown to opening, top right in the header */
+.head-count {
+  grid-area: count; justify-self: end;
+  display: inline-flex; flex-direction: column; align-items: flex-end; gap: 2px; line-height: 1;
+}
+.hc-lab { font-family: var(--font-display); font-weight: 800; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--page-muted); }
+.hc-nums { display: inline-flex; gap: 4px; font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; color: var(--header-text); }
+.hc-nums > span { background: #2E0D08; color: #FDEBD5; border-radius: 6px; padding: 4px 5px 3px; font-variant-numeric: tabular-nums; }
+.hc-nums b { font-weight: 900; font-size: 0.95rem; margin-right: 1px; }
 /* ---------- Hero ---------- */
 .hero {
   padding-block: clamp(40px, 6vw, 96px) clamp(56px, 7vw, 108px);
@@ -1283,17 +1293,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 
 /* ---------- Example prislapper (finds) ---------- */
-/* Countdown to opening day */
-.count-in { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; }
-.countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(8px, 2vw, 18px); width: 100%; max-width: 720px; margin: 6px 0 8px; }
-.cd-box {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  background: rgba(253, 235, 213, 0.08); border: 1.5px solid rgba(253, 235, 213, 0.22);
-  border-radius: 20px; padding: clamp(14px, 3vw, 26px) 4px clamp(12px, 2.4vw, 20px);
-}
-.cd-num { font-family: var(--font-display); font-weight: 900; font-stretch: 112%; font-size: clamp(2.2rem, 1.2rem + 5vw, 4.4rem); line-height: 1; font-variant-numeric: tabular-nums; color: var(--finds-heading); }
-.cd-lab { font-family: var(--font-display); font-weight: 700; font-size: clamp(0.66rem, 0.6rem + 0.4vw, 0.85rem); letter-spacing: 0.1em; text-transform: uppercase; }
-.count-sec .btn-cta { background: #E0693A; color: #2E0D08; }
 .finds { position: relative; background: var(--finds-bg); color: var(--finds-text); --focus: var(--finds-focus); }
 .finds-in { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
 .finds .eyebrow { color: var(--finds-eyebrow); }
@@ -1816,6 +1815,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <a href="#priser">Priser</a>
         <a href="#sporsmal">Spørsmål og svar</a>
       </nav>
+      <p class="head-count" id="countdown" data-target="2026-12-01T00:00:00+01:00" aria-label="Vi åpner 1. desember 2026">
+        <span class="hc-lab" aria-hidden="true">Åpner om</span>
+        <span class="hc-nums" aria-hidden="true"><span><b data-unit="d">--</b>d</span><span><b data-unit="h">--</b>t</span><span><b data-unit="m">--</b>m</span><span><b data-unit="s">--</b>s</span></span>
+      </p>
       <a class="btn btn-cta btn-sm head-cta" href="#meld-interesse">Meld interesse</a>
     </div>
   </header>
@@ -2408,21 +2411,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       </div>
     </section>
 
-    <!-- Countdown to opening -->
-    <section class="finds sec count-sec" aria-labelledby="count-title">
-      <div class="wrap count-in">
-        <p class="eyebrow">Åpner 1.&nbsp;desember</p>
-        <h2 id="count-title">Snart åpner vi dørene.</h2>
-        <div class="countdown" id="countdown" data-target="2026-12-01T00:00:00+01:00" aria-hidden="true">
-          <div class="cd-box"><span class="cd-num" data-unit="d">--</span><span class="cd-lab">dager</span></div>
-          <div class="cd-box"><span class="cd-num" data-unit="h">--</span><span class="cd-lab">timer</span></div>
-          <div class="cd-box"><span class="cd-num" data-unit="m">--</span><span class="cd-lab">minutter</span></div>
-          <div class="cd-box"><span class="cd-num" data-unit="s">--</span><span class="cd-lab">sekunder</span></div>
-        </div>
-        <p class="sr-only" id="countdown-text">Vi åpner 1. desember 2026.</p>
-        <a class="btn btn-cta btn-lg" href="#meld-interesse">Sett meg på lista</a>
-      </div>
-    </section>
 
     <!-- FAQ -->
     <section class="faq sec" id="sporsmal" aria-labelledby="faq-title">
@@ -2760,8 +2748,7 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     parts.m.textContent = pad(Math.floor(sec % 3600 / 60));
     parts.s.textContent = pad(sec % 60);
     if (left === 0) {
-      var h = document.getElementById('count-title');
-      if (h) h.textContent = 'Vi har åpnet!';
+      el.innerHTML = '<span class="hc-lab">Vi har åpnet!</span>';
       return;
     }
     window.setTimeout(tick, 1000 - (Date.now() % 1000));
