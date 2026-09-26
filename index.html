@@ -1091,6 +1091,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .findus-copy .eyebrow { color: var(--page-muted); }
 .findus-copy h2 { font-size: var(--fs-xl); font-stretch: 112%; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
 .findus-addr { font-size: var(--fs-md); font-weight: 600; line-height: 1.4; }
+.findus-hours { line-height: 1.5; }
+.findus-hours span { font-size: 0.875rem; color: var(--page-muted); }
 .findus-map {
   border-radius: 24px; overflow: hidden; border: 1.5px solid var(--page-line); aspect-ratio: 4 / 3;
   /* A pin shows until the map has loaded, or if it is blocked */
@@ -2371,7 +2373,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <div class="faq-intro">
           <p class="eyebrow">Før du melder deg på</p>
           <h2 id="faq-title">Spørsmål og svar.</h2>
-          <p>Korte svar. Fant du ikke ditt? Skriv til oss.</p>
+          <p>Korte svar. Alt står i <a href="vilkar/">vilkårene</a>. Fant du ikke ditt? Skriv til oss.</p>
           <p><a class="mail-link" href="mailto:hei@loppely.no"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg><span data-epost>hei@loppely.no</span></a></p>
         </div>
         <div class="faq-list">
@@ -2405,7 +2407,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Hva skjer med det som ikke blir solgt?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Du henter det når perioden er over, eller forlenger leieperioden. Vi kan også pakke ned standen for deg for 150 kr.</p></div>
+            <div class="faq-a"><p>Du henter det når perioden er over. Standen må være tømt senest 30 minutter før stengetid siste dag. Er den ikke tømt, forlenger vi leien med en ny periode. Vi kan også pakke ned standen for deg for 150 kr.</p></div>
           </details>
           <details>
             <summary>Må jeg betale skatt eller mva?<span class="plus" aria-hidden="true"></span></summary>
@@ -2526,6 +2528,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <p class="eyebrow">Finn oss</p>
           <h2 id="findus-title">Her finner du oss.</h2>
           <p class="findus-addr">Kirkeveien 3<br>4580 Lyngdal</p>
+          <p class="findus-hours"><strong>Åpningstider</strong><br>Onsdag til lørdag kl. 10 til 15<br><span>Kan bli endret før åpning.</span></p>
           <p class="findus-open"><span class="open-pill">Åpner 1.&nbsp;desember</span></p>
           <div class="btn-row">
             <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kirkeveien+3,+4580+Lyngdal,+Norge" target="_blank" rel="noopener">Veibeskrivelse</a>
@@ -2551,6 +2554,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       <ul class="foot-meta" role="list">
         <li><a href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3, 4580 Lyngdal</a></li>
         <li><a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a></li>
+        <li><a href="vilkar/">Vilkår</a></li>
         <li>© 2026 Loppely</li>
       </ul>
     </div>
