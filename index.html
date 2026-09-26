@@ -2108,7 +2108,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                   <li>Pengene betales til bankkontoen din.</li>
                 </ol>
                 <p class="sc-vip"><strong>VIP:</strong> Lever varene dine, så ordner vi alt.</p>
-                <p><a href="#slik-fungerer">Les mer om stegene</a></p>
               </div>
             </details>
           </li>
@@ -2221,6 +2220,19 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </div>
         </div>
 
+        <aside class="vip-note" aria-label="VIP">
+          <p class="vip-tag">VIP</p>
+          <p class="vip-title">Vi gjør alt for deg.</p>
+          <ol class="vip-flow" role="list">
+            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.29 7 12 12l8.71-5M12 22V12"/></svg></span><span class="vf-txt"><strong>Du</strong> leverer varene<span class="vf-sub">Inntil 21 varer</span></span></li>
+            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span class="vf-txt"><strong>Vi</strong> tar bilder og priser</span></li>
+            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></span><span class="vf-txt"><strong>Vi</strong> selger og rydder</span></li>
+            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span class="vf-txt"><strong>Du</strong> fyller på<span class="vf-sub">Når noe er solgt</span></span></li>
+            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></span><span class="vf-txt"><strong>Pengene</strong> går til kontoen din</span></li>
+          </ol>
+          <a class="vip-link" href="#priser">Se VIP-prisen <span aria-hidden="true">→</span></a>
+        </aside>
+
         <div class="payout" aria-labelledby="payout-title">
           <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
           <table class="payout-table">
@@ -2237,59 +2249,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       </div>
     </section>
 
-    <!-- Slik fungerer det -->
-    <section class="steps-sec sec" id="slik-fungerer" aria-labelledby="steps-title">
-      <div class="wrap">
-        <div class="steps-head">
-          <p class="eyebrow">Fra bod til bankkonto</p>
-          <h2 id="steps-title">Slik fungerer det</h2>
-          <p>Fem steg. De tre første gjør du, resten tar vi.</p>
-        </div>
-        <ol class="steps" role="list">
-          <li class="step">
-            <svg class="step-badge face-1" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">1</text></svg>
-            <h3>Lei en stand</h3>
-            <p>Du leier en stand i 2 eller 4 uker, fra 200 kr per uke.</p>
-          </li>
-          <li class="step">
-            <svg class="step-badge face-2" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">2</text></svg>
-            <h3>Registrer varene dine</h3>
-            <p>Legg inn tingene på «Min side» og sett prisen selv.</p>
-          </li>
-          <li class="step">
-            <svg class="step-badge face-3" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">3</text></svg>
-            <h3>Ta med tingene</h3>
-            <p>Ta med tingene til butikken når leieperioden starter. Der skriver du ut prislappene, fester dem og fyller standen.</p>
-          </li>
-          <li class="step">
-            <svg class="step-badge face-1" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">4</text></svg>
-            <h3>Vi rydder og selger</h3>
-            <p>Vi holder standen ryddig og står i kassa. Du trenger ikke være der. Salget følger du på «Min side».</p>
-          </li>
-          <li class="step">
-            <svg class="step-badge face-2" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">5</text></svg>
-            <h3>Utbetaling</h3>
-            <p>Det du har solgt for, minus provisjonen, blir betalt ut til bankkontoen din én gang i måneden.</p>
-          </li>
-        </ol>
-        <div class="step-notes">
-          <p class="note"><span class="note-tag">Underveis</span> Du kommer bare innom hvis du vil fylle på varer.</p>
-          <p class="note"><span class="note-tag note-tag-finish"><svg class="flag" viewBox="0 0 30 28" aria-hidden="true" focusable="false"><use href="#i-flag"></use></svg>Til slutt</span> Du henter det som ikke ble solgt, eller forlenger leieperioden din. Vi kan også pakke ned standen for deg, for et tillegg på 150 kr.</p>
-        </div>
-        <aside class="vip-note" aria-label="VIP">
-          <p class="vip-tag">VIP</p>
-          <p class="vip-title">Vi gjør alt for deg.</p>
-          <ol class="vip-flow" role="list">
-            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.29 7 12 12l8.71-5M12 22V12"/></svg></span><span class="vf-txt"><strong>Du</strong> leverer varene<span class="vf-sub">Inntil 21 varer</span></span></li>
-            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span class="vf-txt"><strong>Vi</strong> tar bilder og priser</span></li>
-            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></span><span class="vf-txt"><strong>Vi</strong> selger og rydder</span></li>
-            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span class="vf-txt"><strong>Du</strong> fyller på<span class="vf-sub">Når noe er solgt</span></span></li>
-            <li><span class="vf-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></span><span class="vf-txt"><strong>Pengene</strong> går til kontoen din</span></li>
-          </ol>
-          <a class="vip-link" href="#priser">Se VIP-prisen <span aria-hidden="true">→</span></a>
-        </aside>
-      </div>
-    </section>
 
     <!-- Min side -->
     <section class="minside sec" id="min-side" aria-labelledby="ms-title">
