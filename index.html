@@ -1087,6 +1087,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .vip-link:hover { text-decoration: underline; }
 
 .addr-link { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
+/* Short form first: only name and e-mail until someone starts typing */
+.form-card.is-short .more { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .form-card.is-opening .more { animation: more-in 0.3s ease both; }
+  @keyframes more-in { from { opacity: 0; transform: translateY(-6px); } }
+}
 /* Signup opens in a dialog where you are, instead of jumping down the page */
 .meld-dialog {
   width: min(560px, calc(100vw - 24px)); max-height: calc(100dvh - 24px);
@@ -2173,7 +2179,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
                 <p class="err" id="epost-feil" hidden></p>
               </div>
-              <div class="field">
+              <div class="field more">
                 <label for="telefon">Telefon <span class="opt">Valgfritt</span></label>
                 <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="telefon-feil">
                 <p class="err" id="telefon-feil" hidden></p>
@@ -2182,7 +2188,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <label for="hp-felt">La dette feltet stå tomt</label>
                 <input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off">
               </div>
-              <fieldset class="field-set" aria-describedby="kat-hint">
+              <fieldset class="field-set more" aria-describedby="kat-hint">
                 <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
                 <p class="hint" id="kat-hint">Velg så mange du vil.</p>
                 <div class="chips">
@@ -2204,7 +2210,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                   <label class="chip" for="kat-annet"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-annet"></use></svg>Annet</label>
                 </div>
               </fieldset>
-              <div class="field">
+              <div class="field more">
                 <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
                 <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har, hvor mye, og når du vil starte."></textarea>
               </div>
@@ -2785,6 +2791,24 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
   dlg.querySelector('.meld-close').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', function () { home.insertBefore(shadow, anchor); home.style.minHeight = ''; });
+})();
+</script>
+<script>
+/* Show phone, categories and message only once the name or e-mail field is used */
+(function () {
+  var form = document.getElementById('selgerskjema');
+  if (!form) return;
+  form.classList.add('is-short');
+  function expand() {
+    if (!form.classList.contains('is-short')) return;
+    form.classList.remove('is-short');
+    form.classList.add('is-opening');
+  }
+  ['navn', 'epost'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.addEventListener('focus', expand); el.addEventListener('input', expand); }
+  });
+  // If the form is sent before expanding, the optional fields are simply empty
 })();
 </script>
 </body>
