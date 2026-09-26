@@ -556,7 +556,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 
 /* ---------- Priser ---------- */
-.prices { background: var(--page-bg); color: var(--page-text); }
+.prices { background: var(--page-bg); color: var(--page-text); overflow-x: clip; }
 .prices-head { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-bottom: clamp(28px, 4vw, 48px); }
 .prices-head .eyebrow { color: var(--page-muted); }
 .prices-head h2 { font-size: var(--fs-xl); font-stretch: 112%; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
@@ -579,7 +579,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .plan-price { font-family: var(--font-display); font-weight: 900; font-stretch: 110%; font-size: clamp(2.2rem, 1.8rem + 1.4vw, 2.8rem); line-height: 1; letter-spacing: -0.02em; }
 .plan-from, .plan-unit { font-family: var(--font-body); font-weight: 600; font-size: 1rem; letter-spacing: 0; }
 .plan-comm { align-self: flex-start; font-weight: 700; font-size: 0.95rem; padding: 0.35em 0.8em; border-radius: 999px; border: 1.5px solid var(--page-line); }
-.plan-desc { color: var(--page-muted); line-height: 1.5; flex: 1; }
+.plan-feats { list-style: none; padding: 0; flex: 1; display: flex; flex-direction: column; gap: 9px; margin-top: 4px; }
+.plan-feats li { display: flex; align-items: flex-start; gap: 10px; line-height: 1.35; font-weight: 600; }
+.pf-ico { flex: none; width: 20px; height: 20px; margin-top: 1px; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.pf-yes .pf-ico { stroke: #2F6B45; }
+.pf-no { color: var(--page-muted); font-weight: 500; }
+.pf-no .pf-ico { stroke: var(--page-muted); opacity: 0.7; }
 .plan-periods { list-style: none; padding: 0; margin-top: 6px; border-top: 1.5px solid var(--page-line); }
 .plan-periods li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0 0; font-weight: 600; }
 .plan-periods li + li { padding-top: 8px; }
@@ -592,6 +597,27 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   .plan { padding: 30px 28px 26px; }
   .plan-dots { display: none; }
 }
+
+/* Swipe hint on phones: a hand drags left over the cards on a loop until the list is swiped */
+.plans-wrap { position: relative; }
+.swipe-hint {
+  position: absolute; z-index: 3; right: 18%; top: 60%; pointer-events: none;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(46, 13, 8, 0.82); box-shadow: 0 8px 20px rgba(46, 13, 8, 0.25);
+  display: grid; place-items: center; transition: opacity 0.35s ease;
+}
+.swipe-hint svg { width: 30px; height: 30px; fill: none; stroke: #FDEBD5; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.plans-wrap.swiped .swipe-hint { opacity: 0; }
+@keyframes swipe-hint {
+  0% { transform: translateX(0) scale(1); opacity: 0; }
+  12% { opacity: 1; transform: translateX(0) scale(0.92); }
+  55% { transform: translateX(-120px) scale(0.92); opacity: 1; }
+  70%, 100% { transform: translateX(-140px) scale(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .swipe-hint { animation: swipe-hint 2.4s cubic-bezier(0.45, 0, 0.25, 1) 0.6s infinite both; }
+}
+@media (min-width: 900px) { .swipe-hint { display: none; } }
 
 /* The payout example: the one place the commission is spelled out in kroner */
 .payout {
@@ -2010,12 +2036,21 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <h2 id="prices-title">Velg standen som passer deg.</h2>
           <p>Alle priser inkluderer mva.</p>
         </div>
+        <div class="plans-wrap">
+        <div class="swipe-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+        </div>
         <ul class="plans" role="list" id="plans">
           <li class="plan">
             <h3 class="plan-name">Standard</h3>
             <p class="plan-price"><span class="plan-from">Fra</span> 200 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">19% provisjon</p>
-            <p class="plan-desc">Du registrerer og priser varene dine selv. Vi selger dem og rydder standen din hver dag. Kleshengere og prislapper er inkludert.</p>
+            <ul class="plan-feats" role="list">
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi selger varene dine</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi rydder standen hver dag</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Kleshengere og prislapper</span></li>
+              <li class="pf-no"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7"/></svg><span><span class="sr-only">Ikke inkludert: </span>Du registrerer og priser varene selv</span></li>
+            </ul>
             <ul class="plan-periods" role="list">
                 <li><span>2 uker</span><span>249 kr per uke</span></li>
                 <li><span>4 uker</span><span>200 kr per uke</span></li>
@@ -2025,7 +2060,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <h3 class="plan-name">Premium</h3>
             <p class="plan-price"><span class="plan-from">Fra</span> 249 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">19% provisjon</p>
-            <p class="plan-desc">Alt i Standard, pluss ekstra synlighet. Vi viser frem utvalgte varer i våre kanaler og på attraktive plasser i butikken.</p>
+            <ul class="plan-feats" role="list">
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Standard</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Utvalgte varer vises i våre kanaler</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Attraktive plasser i butikken</span></li>
+              <li class="pf-no"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7"/></svg><span><span class="sr-only">Ikke inkludert: </span>Du registrerer og priser varene selv</span></li>
+            </ul>
             <ul class="plan-periods" role="list">
                 <li><span>2 uker</span><span>299 kr per uke</span></li>
                 <li><span>4 uker</span><span>249 kr per uke</span></li>
@@ -2035,13 +2075,21 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <h3 class="plan-name">VIP</h3>
             <p class="plan-price"><span class="plan-from">Fra</span> 349 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">29% provisjon</p>
-            <p class="plan-desc">Bare lever varene til oss. Vi tar bilder, registrerer og priser dem, gjør standen klar og tar oss av resten. Du kan ha inntil 21 varer i salg samtidig og fylle på når noe blir solgt. Alt i Premium og plass til én større vare er inkludert.</p>
+            <ul class="plan-feats" role="list">
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Premium</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi tar bilder, registrerer og priser</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi gjør standen klar</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Inntil 21 varer i salg samtidig</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Fyll på når noe blir solgt</span></li>
+              <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Plass til én større vare</span></li>
+            </ul>
             <ul class="plan-periods" role="list">
                 <li><span>2 uker</span><span>399 kr per uke</span></li>
                 <li><span>4 uker</span><span>349 kr per uke</span></li>
             </ul>
           </li>
         </ul>
+        </div>
         <div class="plan-dots" aria-hidden="true"><span></span><span></span><span></span></div>
 
         <div class="payout" aria-labelledby="payout-title">
@@ -2576,7 +2624,7 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     }
     for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === best);
   }
-  list.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+  list.addEventListener('scroll', function () { window.requestAnimationFrame(update); if (list.scrollLeft > 20) list.parentNode.classList.add('swiped'); }, { passive: true });
   update();
 })();
 </script>
