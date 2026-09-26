@@ -537,9 +537,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .head-cta { grid-area: cta; justify-self: end; }
 /* Phones: the header button matches the logo's height instead of towering over it */
 @media (max-width: 759px) {
-  .head-cta { height: 36px; padding: 0 1em; font-size: 0.875rem; }
-  .head-in { padding-block: 12px 4px; }
-  .nav a { font-size: 0.9rem; padding: 8px 0; }
+  /* Phones: logo on top, then the menu links and the button on one row */
+  .head-in { grid-template-areas: "brand brand" "nav cta"; padding-block: 12px 10px; gap: 8px 12px; }
+  .head-cta { height: 36px; padding: 0 0.95em; font-size: 0.875rem; }
+  .nav { gap: 2px 16px; flex-wrap: nowrap; }
+  .nav a { font-size: 0.9rem; padding: 8px 0; white-space: nowrap; }
 }
 @media (min-width: 760px) {
   .site-head { position: sticky; top: env(safe-area-inset-top, 0px); }
@@ -1656,7 +1658,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <svg class="brand-logo" viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><use href="#i-logo"></use></svg>
       </a>
       <nav class="nav" aria-label="Hovedmeny">
-        <a href="#slik-fungerer">Slik fungerer det</a>
         <a href="#priser">Priser</a>
         <a href="#sporsmal">Spørsmål og svar</a>
       </nav>
