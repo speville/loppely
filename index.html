@@ -656,15 +656,13 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .payout-cta { margin-top: 20px; display: flex; justify-content: center; }
 .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: var(--fs-lg); margin-bottom: 14px; }
-.payout-table { width: 100%; border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
+.payout-table { width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
 .payout-table th, .payout-table td { text-align: left; padding: 12px 8px 12px 0; border-bottom: 1.5px solid var(--page-line); vertical-align: baseline; font-size: 1.05rem; font-weight: 600; }
-/* The two payout columns sit together on a tinted panel, so the answer reads as one block */
+/* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in the dark VIP colour */
 .payout-table :is(th, td):not(:first-child) { background: var(--page-surface); padding-left: 12px; }
 .payout-table :is(th, td):last-child { padding-right: 12px; }
-.payout-table thead tr:first-child > :nth-child(2) { border-top-left-radius: 16px; }
-.payout-table thead tr:first-child > :last-child { border-top-right-radius: 16px; }
-.payout-table tbody tr:last-child > :nth-child(2) { border-bottom-left-radius: 16px; }
-.payout-table tbody tr:last-child > :last-child { border-bottom-right-radius: 16px; }
+.payout-table thead tr:first-child > :not(:first-child) { border-radius: 16px 16px 0 0; }
+.payout-table tbody tr:last-child > :not(:first-child) { border-radius: 0 0 16px 16px; }
 /* Two header rows: the names, then the commission as pills, so the pills always line up */
 .payout-table thead th { font-weight: 700; vertical-align: bottom; border-bottom: 0; padding-top: 14px; padding-bottom: 6px; }
 .payout-table thead tr + tr > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--page-line); vertical-align: middle; }
@@ -673,6 +671,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table tbody th { color: var(--page-muted); }
 .payout-table tbody th, .payout-table tbody td { white-space: nowrap; }
 .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
+.payout-table :is(th, td):last-child { background: var(--page-text); color: var(--page-bg); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
+.payout-table :is(th, td):last-child .payout-rate { background: var(--orange); color: var(--maroon-deep); }
 
 /* Countdown to opening, top right in the header */
 .head-count {
