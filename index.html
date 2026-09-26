@@ -535,6 +535,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .nav a { text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 9px 0; }
 .nav a:hover { text-decoration: underline; }
 .head-cta { grid-area: cta; justify-self: end; }
+/* Phones: the header button matches the logo's height instead of towering over it */
+@media (max-width: 759px) {
+  .head-cta { height: 36px; padding: 0 1em; font-size: 0.875rem; }
+  .head-in { padding-block: 12px 4px; }
+  .nav a { font-size: 0.9rem; padding: 8px 0; }
+}
 @media (min-width: 760px) {
   .site-head { position: sticky; top: env(safe-area-inset-top, 0px); }
   .head-in {
@@ -562,7 +568,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 /* "Spar deg for arbeid" stamp: upright text on both arcs, a gentle swing, never a spin */
 .hero-stamp {
   grid-area: head; justify-self: end; align-self: end; z-index: 2;
-  width: clamp(84px, 24vw, 124px); aspect-ratio: 1; margin: 0 0 calc(-0.5 * clamp(84px, 24vw, 124px)) 0;
+  width: clamp(80px, 23vw, 120px); aspect-ratio: 1; margin: 0 0 -6px 0;
   transform: rotate(-8deg); transform-origin: 50% 50%;
 }
 .hero-stamp svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(46, 13, 8, 0.22)); }
