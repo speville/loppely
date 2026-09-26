@@ -1021,6 +1021,23 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   mask: radial-gradient(circle at 10px 50%, transparent 2.5px, var(--mask-ink) 3.5px);
 }
 
+/* VIP callout under the steps: the one dark box in the section */
+.vip-note {
+  margin: clamp(36px, 5vw, 56px) auto 0; max-width: 720px; text-align: center;
+  background: #2E0D08; color: #FDEBD5; border-radius: 24px;
+  padding: clamp(26px, 4vw, 38px) clamp(22px, 4vw, 44px);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.vip-tag {
+  font-family: var(--font-display); font-stretch: 110%; font-weight: 800; font-size: 0.75rem;
+  letter-spacing: 0.12em; line-height: 1; padding: 0.6em 1em 0.56em; border-radius: 999px;
+  background: #E0693A; color: #2E0D08;
+}
+.vip-title { font-family: var(--font-display); font-stretch: 110%; font-weight: 900; font-size: var(--fs-lg); line-height: 1.1; }
+.vip-text { font-size: var(--fs-md); line-height: 1.5; max-width: 34em; text-wrap: balance; }
+.vip-link { color: #F2A07C; font-weight: 700; text-decoration: none; margin-top: 4px; }
+.vip-link:hover { text-decoration: underline; }
+
 /* ---------- Min side ---------- */
 .minside { background: var(--minside-bg); color: var(--minside-text); --focus: var(--minside-focus); }
 .minside .btn-cta { background: var(--minside-cta-bg); color: var(--minside-cta-text); }
@@ -2155,6 +2172,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <p class="note"><span class="note-tag">Underveis</span> Du kommer bare innom hvis du vil fylle på varer.</p>
           <p class="note"><span class="note-tag note-tag-finish"><svg class="flag" viewBox="0 0 30 28" aria-hidden="true" focusable="false"><use href="#i-flag"></use></svg>Til slutt</span> Du henter det som ikke ble solgt, eller forlenger leieperioden din.</p>
         </div>
+        <aside class="vip-note" aria-label="VIP">
+          <p class="vip-tag">VIP</p>
+          <p class="vip-title">Vi gjør alt for deg.</p>
+          <p class="vip-text">Du leverer bare varene i butikken (inntil 21 varer) og kommer med påfyll når noe blir solgt. Resten tar vi.</p>
+          <a class="vip-link" href="#priser">Se VIP-prisen <span aria-hidden="true">→</span></a>
+        </aside>
       </div>
     </section>
 
