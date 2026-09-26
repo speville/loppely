@@ -1021,8 +1021,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   mask: radial-gradient(circle at 10px 50%, transparent 2.5px, var(--mask-ink) 3.5px);
 }
 
-/* Small print under a step, e.g. the condition rules under "Ta med tingene" */
-.step .step-fine { margin-top: 8px; font-size: 0.875rem; line-height: 1.45; opacity: 0.85; max-width: 32em; }
+/* Small print in an FAQ answer, e.g. the condition rules */
+.faq-a .faq-fine { margin-top: 8px; font-size: 0.875rem; line-height: 1.45; opacity: 0.85; }
 /* VIP callout under the steps: the one dark box in the section */
 .vip-note {
   margin: clamp(36px, 5vw, 56px) auto 0; max-width: 720px; text-align: center;
@@ -2195,7 +2195,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <svg class="step-badge face-3" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">3</text></svg>
             <h3>Ta med tingene</h3>
             <p>Ta med tingene til butikken når leieperioden starter. Der skriver du ut prislappene, fester dem og fyller standen.</p>
-            <p class="step-fine">Tingene må være hele og rene. Vask det som har flekker eller er støvete. Har et fint plagg et hull, for eksempel et ullplagg, kan du gjerne selge det. Bare sett prisen deretter.</p>
           </li>
           <li class="step">
             <svg class="step-badge face-1" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use><text class="step-num" x="80" y="47" text-anchor="middle">4</text></svg>
@@ -2356,7 +2355,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Hva kan jeg selge?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>Brukte ting andre vil ha. Klær, leker, bøker, spill, møbler og mer. Tingene må være hele og rene.</p></div>
+            <div class="faq-a"><p>Brukte ting andre vil ha. Klær, leker, bøker, spill, møbler og mer.</p><p class="faq-fine">Tingene må være hele og rene. Vask det som har flekker eller er støvete. Har et fint plagg et hull, for eksempel et ullplagg, kan du gjerne selge det. Bare sett prisen deretter.</p></div>
           </details>
           <details>
             <summary>Hva koster en stand?<span class="plus" aria-hidden="true"></span></summary>
