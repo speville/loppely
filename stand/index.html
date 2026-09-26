@@ -103,6 +103,51 @@
   .facts { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 10px; font-weight: 700; }
   .facts li { display: flex; gap: 12px; align-items: flex-start; }
   .facts .ico { flex: none; width: 24px; height: 24px; margin-top: 1px; }
+  /* Prices: same cards and payout table as the front page */
+  .pris { --card: #FFFCF8; --line: rgba(86, 26, 18, 0.2); --muted: #7A3A2E; --surface: #FDEBD5; margin: 0 0 30px; overflow-x: clip; }
+  .pris-title { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: 1.8rem; line-height: 1; margin: 0; }
+  .pris-sub { color: var(--muted); margin: 6px 0 14px; }
+  .pris p, .pris ul, .pris h3 { margin: 0; }
+  .plans-wrap { position: relative; }
+  .plans { list-style: none; padding: 18px 18px 8px; margin: 0 -18px; display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 18px; scrollbar-width: none; }
+  .plans::-webkit-scrollbar { display: none; }
+  @media (min-width: 680px) { .plans { margin: 0 -44px; padding-inline: 44px; scroll-padding-inline: 44px; grid-auto-columns: 62%; } }
+  .plan { position: relative; scroll-snap-align: start; display: flex; flex-direction: column; gap: 10px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 24px 20px 20px; }
+  .plan-pick { border-color: var(--maroon); border-width: 2px; box-shadow: 0 14px 30px -18px rgba(86, 26, 18, 0.45); }
+  .plan-badge { position: absolute; top: 0; left: 20px; transform: translateY(-50%); font-family: var(--font-display); font-stretch: 110%; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; padding: 0.6em 0.95em 0.56em; border-radius: 999px; background: var(--maroon-deep); color: var(--cream); }
+  .plan-name { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .plan-price { font-family: var(--font-display); font-weight: 900; font-stretch: 110%; font-size: 2.3rem; line-height: 1; letter-spacing: -0.02em; }
+  .plan-from, .plan-unit { font-family: var(--font-body); font-weight: 600; font-size: 1rem; letter-spacing: 0; }
+  .plan-comm { align-self: flex-start; font-weight: 700; font-size: 0.9rem; padding: 0.35em 0.8em; border-radius: 999px; border: 1.5px solid var(--line); }
+  .plan-feats { list-style: none; padding: 0; flex: 1; display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .plan-feats li { display: flex; align-items: flex-start; gap: 10px; line-height: 1.35; font-weight: 600; font-size: 0.95rem; }
+  .pf-ico { flex: none; width: 20px; height: 20px; margin-top: 1px; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .pf-yes .pf-ico { stroke: var(--green); }
+  .pf-no { color: var(--muted); font-weight: 500; }
+  .pf-no .pf-ico { stroke: var(--muted); opacity: 0.7; }
+  .plan-periods { list-style: none; padding: 0; margin-top: 6px; border-top: 1.5px solid var(--line); }
+  .plan-periods li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0 0; font-weight: 600; }
+  .plan-periods li + li { padding-top: 6px; }
+  .plan-periods li span:last-child { font-weight: 800; }
+  .plan-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+  .plan-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: background-color 0.2s ease, width 0.2s ease; }
+  .plan-dots span.on { width: 22px; border-radius: 999px; background: var(--maroon); }
+  .swipe-hint { position: absolute; z-index: 3; right: 18%; top: 60%; pointer-events: none; width: 56px; height: 56px; border-radius: 50%; background: rgba(46, 13, 8, 0.82); box-shadow: 0 8px 20px rgba(46, 13, 8, 0.25); display: grid; place-items: center; transition: opacity 0.35s ease; }
+  .swipe-hint svg { width: 30px; height: 30px; fill: none; stroke: var(--cream); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .plans-wrap.swiped .swipe-hint { opacity: 0; visibility: hidden; animation: none; }
+  @keyframes swipe-hint { 0% { transform: translateX(0) scale(1); opacity: 0; } 12% { opacity: 1; transform: translateX(0) scale(0.92); } 55% { transform: translateX(-120px) scale(0.92); opacity: 1; } 70%, 100% { transform: translateX(-140px) scale(1); opacity: 0; } }
+  @media (prefers-reduced-motion: no-preference) { .swipe-hint { animation: swipe-hint 2.4s cubic-bezier(0.45, 0, 0.25, 1) 0.6s infinite both; } }
+  .payout { margin-top: 22px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px 20px; }
+  .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 1.3rem; margin-bottom: 10px !important; }
+  .payout-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .payout-table th, .payout-table td { text-align: left; padding: 10px 8px 10px 0; border-bottom: 1.5px solid var(--line); vertical-align: baseline; }
+  .payout-table thead th { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+  .payout-table thead th span { display: block; font-weight: 500; }
+  .payout-table tbody th { font-weight: 600; }
+  .payout-table td { font-family: var(--font-display); font-weight: 900; font-stretch: 105%; font-size: 1.3rem; }
+  .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
+  .payout-cta { margin-top: 16px !important; display: flex; justify-content: center; }
+  .payout-cta .btn { width: auto; }
   form { display: grid; gap: 14px; padding: 22px 20px 20px; background: var(--cream); border-radius: 22px; }
   @media (min-width: 680px) { form { padding: 26px 26px 24px; } }
   label { display: block; font-weight: 700; margin-bottom: 6px; }
@@ -431,6 +476,80 @@
     <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Følg med på salget på «Min side»</span></li>
   </ul>
 
+  <section class="pris" aria-labelledby="pris-title">
+    <h2 id="pris-title" class="pris-title">Priser</h2>
+    <p class="pris-sub">Alle priser inkluderer mva.</p>
+  <div class="plans-wrap">
+  <div class="swipe-hint" aria-hidden="true">
+    <svg viewBox="0 0 24 24" focusable="false"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+  </div>
+  <ul class="plans" role="list" id="plans">
+    <li class="plan">
+      <h3 class="plan-name">Standard</h3>
+      <p class="plan-price"><span class="plan-from">Fra</span> 200 <span class="plan-unit">kr per uke</span></p>
+      <p class="plan-comm">19% provisjon</p>
+      <ul class="plan-feats" role="list">
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi selger varene dine</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi rydder standen hver dag</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Kleshengere og prislapper</span></li>
+        <li class="pf-no"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7"/></svg><span><span class="sr-only">Ikke inkludert: </span>Du registrerer og priser varene selv</span></li>
+      </ul>
+      <ul class="plan-periods" role="list">
+          <li><span>2 uker</span><span>249 kr per uke</span></li>
+          <li><span>4 uker</span><span>200 kr per uke</span></li>
+      </ul>
+    </li>
+    <li class="plan plan-pick">
+      <p class="plan-badge">Anbefalt</p>
+      <h3 class="plan-name">Premium</h3>
+      <p class="plan-price"><span class="plan-from">Fra</span> 249 <span class="plan-unit">kr per uke</span></p>
+      <p class="plan-comm">19% provisjon</p>
+      <ul class="plan-feats" role="list">
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Standard</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Utvalgte varer vises i våre kanaler</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Attraktive plasser i butikken</span></li>
+        <li class="pf-no"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7"/></svg><span><span class="sr-only">Ikke inkludert: </span>Du registrerer og priser varene selv</span></li>
+      </ul>
+      <ul class="plan-periods" role="list">
+          <li><span>2 uker</span><span>299 kr per uke</span></li>
+          <li><span>4 uker</span><span>249 kr per uke</span></li>
+      </ul>
+    </li>
+    <li class="plan">
+      <h3 class="plan-name">VIP</h3>
+      <p class="plan-price"><span class="plan-from">Fra</span> 349 <span class="plan-unit">kr per uke</span></p>
+      <p class="plan-comm">29% provisjon</p>
+      <ul class="plan-feats" role="list">
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Premium</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi tar bilder, priser og registrerer varene dine</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi gjør standen klar</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Inntil 21 varer i salg samtidig</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Fyll på når noe blir solgt</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Plass til én større vare</span></li>
+      </ul>
+      <ul class="plan-periods" role="list">
+          <li><span>2 uker</span><span>399 kr per uke</span></li>
+          <li><span>4 uker</span><span>349 kr per uke</span></li>
+      </ul>
+    </li>
+  </ul>
+  </div>
+  <div class="plan-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="payout" aria-labelledby="payout-title">
+    <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
+    <table class="payout-table">
+      <thead>
+        <tr><th scope="col">Du selger for</th><th scope="col">Standard og Premium<span>19% provisjon</span></th><th scope="col">VIP<span>29% provisjon</span></th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">100 kr</th><td>81 kr</td><td>71 kr</td></tr>
+        <tr><th scope="row">500 kr</th><td>405 kr</td><td>355 kr</td></tr>
+        <tr><th scope="row">1000 kr</th><td>810 kr</td><td>710 kr</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </section>
+
   <form id="skjema" novalidate>
     <p class="form-top">Du må fylle ut navn og e-post. Resten er valgfritt.</p>
     <div>
@@ -463,7 +582,7 @@
     </fieldset>
     <div>
       <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
-      <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har, hvor mye, og når du vil starte."></textarea>
+      <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har og hvor mye."></textarea>
     </div>
     <div class="hp" aria-hidden="true"><label for="hp-felt">La dette feltet stå tomt</label><input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
     <button class="btn" type="submit" id="send-knapp">Sett meg på lista</button>
@@ -551,6 +670,24 @@
       tag.animate(frames, { duration: 1800 });
     });
   }
+})();
+</script>
+<script>
+/* Price cards: dots follow the swipe on phones */
+(function () {
+  var list = document.getElementById('plans');
+  var dots = document.querySelectorAll('.plan-dots span');
+  if (!list || !dots.length) return;
+  function update() {
+    var cards = list.children, best = 0, bestD = Infinity, x = list.scrollLeft;
+    for (var i = 0; i < cards.length; i++) {
+      var d = Math.abs(cards[i].offsetLeft - list.offsetLeft - x - 16);
+      if (d < bestD) { bestD = d; best = i; }
+    }
+    for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === best);
+  }
+  list.addEventListener('scroll', function () { window.requestAnimationFrame(update); if (list.scrollLeft > 20 && !list.parentNode.classList.contains('swiped')) { list.parentNode.classList.add('swiped'); var h = list.parentNode.querySelector('.swipe-hint'); if (h) window.setTimeout(function () { h.remove(); }, 400); } }, { passive: true });
+  update();
 })();
 </script>
 </body>
