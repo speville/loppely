@@ -673,6 +673,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
 .payout-table :is(th, td):last-child { background: var(--page-text); color: var(--page-bg); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
 .payout-table :is(th, td):last-child .payout-rate { background: var(--orange); color: var(--maroon-deep); }
+/* Close the hairline seam browsers can leave between the two header rows on the panels */
+.payout-table thead tr + tr > :not(:first-child) { box-shadow: 0 -1px 0 var(--page-surface); }
+.payout-table thead tr + tr > :last-child { box-shadow: 0 -1px 0 var(--page-text); }
 
 /* Countdown to opening, top right in the header */
 .head-count {

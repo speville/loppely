@@ -163,6 +163,9 @@
   .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
   .payout-table :is(th, td):last-child { background: var(--maroon); color: var(--cream); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
   .payout-table :is(th, td):last-child .payout-rate { background: var(--orange); color: var(--maroon-deep); }
+  /* Close the hairline seam browsers can leave between the two header rows on the panels */
+  .payout-table thead tr + tr > :not(:first-child) { box-shadow: 0 -1px 0 var(--surface); }
+  .payout-table thead tr + tr > :last-child { box-shadow: 0 -1px 0 var(--maroon); }
   .payout-cta { margin-top: 16px !important; display: flex; justify-content: center; }
   .payout-cta .btn { width: auto; }
   form { display: grid; gap: 14px; padding: 22px 20px 20px; background: var(--cream); border-radius: 22px; }
