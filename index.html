@@ -670,7 +670,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .hero-grid {
   display: grid;
   gap: 28px;
-  grid-template-areas: "head" "illo" "lede" "board" "facts";
+  grid-template-areas: "head" "illo" "lede" "board";
 }
 .hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
 .hero-head .eyebrow { color: var(--hero-muted); }
@@ -724,7 +724,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 @media (min-width: 980px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1.846fr) minmax(0, 1fr);
-    grid-template-areas: "head head" "illo board" "lede lede" "facts facts";
+    grid-template-areas: "head head" "illo board" "lede lede";
     column-gap: 20px;
     row-gap: 36px;
     align-items: stretch;
@@ -2075,11 +2075,6 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <svg viewBox="0 0 100 100" focusable="false"><use href="#i-badge"></use></svg>
           </div>
         </div>
-        <ul class="facts hero-facts" role="list">
-          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du velger prisen selv</span></li>
-          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Vi rydder standen og selger varene dine</span></li>
-          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Følg med på salget på «Min side»</span></li>
-        </ul>
       </div>
     </section>
 
