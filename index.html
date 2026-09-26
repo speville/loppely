@@ -560,12 +560,26 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
 .hero-head .eyebrow { color: var(--hero-muted); }
 .hero-illo { grid-area: illo; }
-/* The one-line pitch under the picture: centred, larger, balanced lines */
-.hero-lede {
-  grid-area: lede; justify-self: center; text-align: center;
-  font-size: clamp(20px, 2.1vw, 28px); line-height: 1.4; font-weight: 500;
-  max-width: 36ch; text-wrap: balance; margin-block: 6px;
+/* The pitch under the picture: a soft card with a chip label and the key words in bold */
+.hero-lede { grid-area: lede; justify-self: center; width: min(100%, 880px); }
+.pitch {
+  position: relative; text-align: center;
+  background: var(--cream); border-radius: 28px;
+  padding: clamp(34px, 4vw, 48px) clamp(22px, 4vw, 56px) clamp(26px, 3.4vw, 40px);
+  margin-top: 18px;
 }
+.pitch-chip {
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%);
+  font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
+  font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; white-space: nowrap;
+  padding: 0.7em 1.1em 0.66em; border-radius: 999px;
+  background: #2E0D08; color: #FDEBD5;
+}
+.pitch-text {
+  font-size: clamp(20px, 2.2vw, 28px); line-height: 1.45; font-weight: 500;
+  text-wrap: balance; max-width: 34ch; margin-inline: auto;
+}
+.pitch-text strong { font-weight: 800; background: linear-gradient(transparent 62%, rgba(224, 105, 58, 0.35) 62%); padding-inline: 0.08em; }
 .hero-grid > .board { grid-area: board; margin-top: 16px; border-radius: 22px; overflow: hidden; }
 /* Illustration and board side by side, same height: the columns follow
    the illustration's 1200:650 ratio against the square board. */
@@ -1776,7 +1790,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     <circle cx="1150" cy="532" r="6" class="il-or"/>
   </g>
 </svg></figure>
-        <p class="lede hero-lede">Loppely blir et nytt loppesupermarked i Lyngdal. Du leier en stand, setter prisen på tingene dine og leverer dem i butikken. Vi står i kassa og selger. Pengene går til bankkontoen din.</p>
+        <div class="pitch hero-lede">
+          <p class="pitch-chip">Kort fortalt</p>
+          <p class="pitch-text">Du <strong>leier en stand</strong> og <strong>setter prisen</strong> selv. Vi <strong>står i kassa</strong> og selger. Pengene går <strong>rett til kontoen din</strong>.</p>
+        </div>
         <div class="board">
           <div class="blk blk-1">
             <p class="b-chip">Provisjon</p>

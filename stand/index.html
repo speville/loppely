@@ -48,7 +48,11 @@
   }
   .tag-string { position: absolute; left: 0; top: -0.34em; width: 0.9em; height: 0.9em; overflow: visible; pointer-events: none; }
   .tag-string path { fill: none; stroke: var(--maroon); stroke-width: 4; stroke-linecap: round; }
-  .lede { font-size: clamp(20px, 5.4vw, 24px); line-height: 1.4; font-weight: 500; text-align: center; text-wrap: balance; max-width: 26ch; margin: 4px auto 28px; }
+  .pitch { position: relative; text-align: center; background: var(--cream); border-radius: 24px; padding: 34px 20px 24px; margin: 18px 0 30px; }
+  .pitch p { margin: 0; }
+  .pitch-chip { position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); font-family: var(--font-display); font-stretch: 110%; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; white-space: nowrap; padding: 0.7em 1.1em 0.66em; border-radius: 999px; background: var(--maroon-deep); color: var(--cream); }
+  .pitch-text { font-size: clamp(19px, 5vw, 23px); line-height: 1.45; font-weight: 500; text-wrap: balance; max-width: 30ch; margin: 0 auto; }
+  .pitch-text strong { font-weight: 800; background: linear-gradient(transparent 62%, rgba(224, 105, 58, 0.35) 62%); padding-inline: 0.08em; }
   /* Illustration of the shop: stands, price tags and the shared till */
   .shop-illo { display: block; width: 100%; height: auto; border-radius: 22px; }
   .illo { margin: 0 0 26px; }
@@ -383,7 +387,10 @@
   </g>
 </svg></figure>
 
-  <p class="lede">Loppely blir et loppesupermarked i Lyngdal. Du leier en stand og setter prisen. Vi står i kassa.</p>
+  <div class="pitch">
+    <p class="pitch-chip">Kort fortalt</p>
+    <p class="pitch-text">Du <strong>leier en stand</strong> og <strong>setter prisen</strong> selv. Vi <strong>står i kassa</strong> og selger. Pengene går <strong>rett til kontoen din</strong>.</p>
+  </div>
 
   <div class="board">
     <div class="blk blk-1">
