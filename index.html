@@ -1395,6 +1395,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .join-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-weight: 600; line-height: 1.35; --tick-bg: var(--join-tick-bg); --tick-fg: var(--join-tick-fg); }
 .join-list li { display: flex; align-items: flex-start; gap: 10px; }
 .join-list .ico { margin-top: 1px; }
+.join-why { display: block; margin-top: 4px; font-weight: 500; font-size: 0.92em; }
 /* Dark text on the mauve and orange sections: heavier weights and full-strength colour */
 .minside .eyebrow, .join .eyebrow { font-weight: 800; font-size: calc(var(--fs-xs) * 1.12); }
 .ms-copy p { color: var(--minside-text); font-weight: 500; }
@@ -2161,7 +2162,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <h2 id="join-title">Vær blant de første med egen stand.</h2>
           <p class="lede">Vi åpner 1.&nbsp;desember i <a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3 i Lyngdal</a>. Står du på lista, får du første uke gratis når du leier stand i minst 4 uker, og kan fylle standen din før vi åpner.</p>
           <ul class="join-list" role="list">
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><strong>Står du på lista, får du første uke gratis når du leier stand i minst 4 uker.</strong></li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span><strong>Står du på lista, får du første uke gratis når du leier stand i minst 4 uker.</strong><span class="join-why">Hvorfor 4 uker? Desember er måneden med mest julehandel i Lyngdal sentrum. Med 4 uker får du med deg hele julehandelen, og kundene møter en full butikk.</span></span></li>
             <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Vær med fra åpningen 1.&nbsp;desember, midt i julehandelen.</li>
             <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>De første standene får med seg all oppmerksomheten rundt åpningen.</li>
             <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Påmeldingen er gratis og tar under ett minutt.</li>
@@ -2437,6 +2438,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <details>
             <summary>Har dere alarmer til dyrere varer?<span class="plus" aria-hidden="true"></span></summary>
             <div class="faq-a"><p>Nei, ikke foreløpig. Legg dyre ting i glasskapet hvis det er plass.</p></div>
+          </details>
+          <details>
+            <summary>Hvorfor må jeg leie i minst 4 uker for å få første uke gratis?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Desember er måneden med mest julehandel i Lyngdal sentrum. Med 4 uker får du med deg hele julehandelen, og kundene møter en full butikk. Da har du best mulighet til å selge godt.</p></div>
           </details>
           <details>
             <summary>Når får jeg utbetalt?<span class="plus" aria-hidden="true"></span></summary>
