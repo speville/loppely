@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Loppely blir et nytt loppesupermarked i Lyngdal. Lei en stand, sett prisen på tingene dine, og vi selger dem for deg. Meld interesse i dag.">
+<meta name="description" content="Loppely er et nytt loppesupermarked i Lyngdal som åpner 1. desember. Lei en stand, sett prisen på tingene dine, og vi selger dem for deg. Meld interesse i dag.">
 <meta name="theme-color" content="#FFFDF9">
 <link rel="canonical" href="https://loppely.no/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -11,7 +11,7 @@
 <meta property="og:locale" content="nb_NO">
 <meta property="og:site_name" content="Loppely">
 <meta property="og:title" content="Loppely. Du rydder. Vi selger.">
-<meta property="og:description" content="Nytt loppesupermarked i Lyngdal. Lei en stand, sett prisen selv, og vi selger for deg. Meld interesse.">
+<meta property="og:description" content="Nytt loppesupermarked i Lyngdal, åpner 1. desember. Lei en stand, sett prisen selv, og vi selger for deg. Meld interesse.">
 <meta property="og:url" content="https://loppely.no/">
 <meta name="twitter:card" content="summary">
 <title>Loppely. Du rydder. Vi selger.</title>
@@ -652,7 +652,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .facts .ico { flex: none; width: 1.4em; height: 1.4em; }
 .hero-facts { grid-area: facts; }
 @media (min-width: 980px) {
-  .hero-facts { grid-template-columns: repeat(2, auto); justify-content: center; gap: 14px 56px; }
+  .hero-facts { grid-template-columns: repeat(3, auto); justify-content: center; gap: 14px 44px; }
   .hero-facts li { align-items: center; }
 }
 
@@ -805,6 +805,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .sc-body ol { margin: 0 0 12px; padding-left: 1.3em; }
 .sc-body li { margin: 4px 0; }
 .sc-body a { color: var(--band-text); font-weight: 700; }
+.sc-body .sc-vip { background: #2E0D08; color: #FDEBD5; border-radius: 14px; padding: 10px 14px; }
+.sc-vip strong { color: #F2A07C; letter-spacing: 0.04em; }
 .sc-arrow {
   flex: none; width: 42px; height: 42px; border-radius: 50%;
   display: grid; place-items: center;
@@ -1803,7 +1805,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <div class="blk blk-2">
             <p class="b-eyebrow">Loppesupermarked</p>
             <svg class="b-logo" viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><use href="#i-logo"></use></svg>
-            <p class="b-eyebrow">Snart i Lyngdal</p>
+            <p class="b-eyebrow">Åpner 1.&nbsp;desember</p>
           </div>
           <div class="blk blk-3">
             <p class="b-vert" aria-hidden="true">loppely.no</p>
@@ -1824,10 +1826,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </div>
         </div>
         <ul class="facts hero-facts" role="list">
-          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du setter prisen selv</span></li>
-          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du trenger ikke stå i standen</span></li>
-          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Vi tar 19% provisjon. Resten er ditt.</span></li>
-          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Pengene rett til bankkontoen din</span></li>
+          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du velger prisen selv</span></li>
+          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Vi rydder standen og selger varene dine</span></li>
+          <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Følg med på salget på Min side</span></li>
         </ul>
       </div>
     </section>
@@ -1850,21 +1851,24 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
               <summary><span><span class="sc-title">Slik fungerer det</span><span class="sc-desc">Fem steg fra full bod til penger på konto.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
               <div class="sc-body">
                 <ol>
-                  <li>Lei en stand for en periode.</li>
-                  <li>Legg inn tingene og skriv ut prislapper.</li>
-                  <li>Fyll standen din.</li>
-                  <li>Vi står i kassa og selger.</li>
-                  <li>Pengene går til kontoen din.</li>
+                  <li>Lei en stand.</li>
+                  <li>Registrer varene på Min side.</li>
+                  <li>Ta med varene til butikken, skriv ut prislapper og fyll standen din.</li>
+                  <li>Vi håndterer rydding og salg. Du trenger bare å komme hvis du har påfyll av varer.</li>
+                  <li>Pengene betales til bankkontoen din.</li>
                 </ol>
+                <p class="sc-vip"><strong>VIP:</strong> Lever varene dine, så ordner vi alt.</p>
                 <p><a href="#slik-fungerer">Les mer om stegene</a></p>
               </div>
             </details>
           </li>
           <li>
             <details class="sc-card">
-              <summary><span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Provisjonen er 19%. Standleie og dato kommer.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
+              <summary><span><span class="sc-title">Pris og åpningsdato</span><span class="sc-desc">Provisjonen er 19%. Vi åpner 1.&nbsp;desember.</span></span><span class="sc-arrow"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span></summary>
               <div class="sc-body">
-                <p>19% av det du selger. Standleie, adresse og dato kommer. Lista er gratis og ikke bindende.</p>
+                <p>19% av det du selger. Standleie kommer.</p>
+                <p><strong>Åpningsdato:</strong> 1.&nbsp;desember.<br><strong>Adresse:</strong> Kirkeveien 3, 4580 Lyngdal.</p>
+                <p>Du får beskjed når standen kan fylles.</p>
                 <p><a href="#meld-interesse">Meld interesse</a></p>
               </div>
             </details>
@@ -2048,7 +2052,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </details>
           <details>
             <summary>Når og hvor åpner dere?<span class="plus" aria-hidden="true"></span></summary>
-            <div class="faq-a"><p>I Lyngdal. Adresse og dato kommer. Står du på lista, får du vite det først.</p></div>
+            <div class="faq-a"><p>1.&nbsp;desember, i Kirkeveien 3, 4580 Lyngdal. Du får beskjed når standen kan fylles.</p></div>
           </details>
         </div>
       </div>
@@ -2060,7 +2064,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <div class="join-copy">
           <p class="eyebrow">Interesseliste for stand</p>
           <h2 id="join-title">Vær blant de første med egen stand.</h2>
-          <p class="lede">Prisene, adressen og åpningsdatoen kommer snart. De som står på interesselista, hører det først.</p>
+          <p class="lede">Vi åpner 1.&nbsp;desember i Kirkeveien 3 i Lyngdal. Standleie kommer snart, og de som står på lista, hører det først.</p>
           <ul class="join-list" role="list">
             <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Påmeldingen er gratis og tar under ett minutt.</li>
             <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Å melde interesse er ikke en bestilling.</li>
@@ -2150,7 +2154,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <svg class="trio-ico face-3" viewBox="0 0 136 76" aria-hidden="true" focusable="false"><use href="#i-plapp"></use></svg>
             <div>
               <p class="trio-title">Lista får vite alt først</p>
-              <p class="trio-text">Pris, adresse og åpningsdato går først til interesselista.</p>
+              <p class="trio-text">Standleie og når du kan fylle standen, går først til interesselista.</p>
             </div>
           </li>
         </ul>
