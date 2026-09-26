@@ -659,28 +659,30 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table { --payout-vip: color-mix(in srgb, var(--mauve) 30%, var(--page-card)); width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
 .payout-table th, .payout-table td { text-align: left; padding: 12px 8px 12px 0; border-bottom: 1.5px solid var(--page-line); vertical-align: baseline; font-size: 1.05rem; font-weight: 600; }
 /* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in soft mauve */
-.payout-table :is(th, td):not(:first-child) { background: var(--page-surface); padding-left: 12px; }
+.payout-table :is(th, td):nth-last-child(-n+2) { background: var(--page-surface); padding-left: 12px; }
 .payout-table :is(th, td):last-child { padding-right: 12px; }
 .payout-table thead tr:first-child > :not(:first-child) { border-radius: 16px 16px 0 0; }
 .payout-table tbody tr:last-child > :not(:first-child) { border-radius: 0 0 16px 16px; }
-/* Header rows: illustrations, the names, then the commission, so each row lines up across the panels */
+/* Header rows: illustrations, the names, then the commission, so each row lines up across the panels.
+   The first column's header (price tag and "Du selger for") spans all three and sits at the bottom, just above the prices. */
 .payout-table thead th { font-weight: 700; vertical-align: bottom; border-bottom: 0; padding-top: 6px; padding-bottom: 6px; }
 .payout-table .payout-icons > * { padding-top: 14px; padding-bottom: 0; border-bottom: 0; vertical-align: bottom; line-height: 0; }
 .payout-table .payout-ico { width: 48px; height: 48px; }
+.payout-table .payout-stub { width: 30%; line-height: inherit; padding-bottom: 12px; border-bottom: 1.5px solid var(--page-line); }
+.payout-table .payout-stub .payout-ico { display: block; margin-bottom: 8px; }
 .payout-table .payout-rates > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--page-line); vertical-align: middle; }
 .payout-table .payout-rate { display: inline-block; font-size: 0.9rem; font-weight: 600; white-space: nowrap; padding: 0.3em 0.75em; border-radius: 999px; background: var(--page-card); color: var(--page-muted); }
-/* Phones: "provisjon" sits under the pill, and the first column keeps "Du selger" on one line */
-.payout-table thead th:first-child { width: 30%; }
+/* Phones: "provisjon" sits under the pill, and the first column (30% wide, above) keeps "Du selger" on one line */
 .payout-table .payout-rate-label { display: block; margin-top: 0.3em; font-size: 0.9rem; color: var(--page-muted); }
 /* From 520px both columns have room for "provisjon" beside the pill */
-@media (min-width: 520px) { .payout-table thead th:first-child { width: auto; } .payout-table .payout-rates td { white-space: nowrap; } .payout-table .payout-rate-label { display: inline; margin: 0 0 0 0.25em; } }
+@media (min-width: 520px) { .payout-table .payout-stub { width: auto; } .payout-table .payout-rates td { white-space: nowrap; } .payout-table .payout-rate-label { display: inline; margin: 0 0 0 0.25em; } }
 .payout-table tbody th { color: var(--page-muted); }
 .payout-table tbody th, .payout-table tbody td { white-space: nowrap; }
 .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
 .payout-table :is(th, td):last-child { background: var(--payout-vip); color: var(--page-text); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
 .payout-table :is(th, td):last-child .payout-rate { background: var(--mauve); color: var(--maroon-deep); }
 /* Close the hairline seam browsers can leave between the two header rows on the panels */
-.payout-table thead tr + tr > :not(:first-child) { box-shadow: 0 -1px 0 var(--page-surface); }
+.payout-table thead tr + tr > :nth-last-child(-n+2) { box-shadow: 0 -1px 0 var(--page-surface); }
 .payout-table thead tr + tr > :last-child { box-shadow: 0 -1px 0 var(--payout-vip); }
 
 /* Countdown to opening, top right in the header */
@@ -2328,9 +2330,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
           <table class="payout-table">
             <thead>
-              <tr class="payout-icons" aria-hidden="true"><td><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-pricetag"></use></svg></td><td><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td><td><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td></tr>
-              <tr><th scope="col">Du selger for</th><th scope="col">Standard og Premium</th><th scope="col">VIP</th></tr>
-              <tr class="payout-rates"><td></td><td><span class="payout-rate">19%</span> <span class="payout-rate-label">provisjon</span></td><td><span class="payout-rate">29%</span> <span class="payout-rate-label">provisjon</span></td></tr>
+              <tr class="payout-icons"><th scope="col" rowspan="3" class="payout-stub"><svg class="payout-ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#il-pricetag"></use></svg> Du selger for</th><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td></tr>
+              <tr><th scope="col">Standard og Premium</th><th scope="col">VIP</th></tr>
+              <tr class="payout-rates"><td><span class="payout-rate">19%</span> <span class="payout-rate-label">provisjon</span></td><td><span class="payout-rate">29%</span> <span class="payout-rate-label">provisjon</span></td></tr>
             </thead>
             <tbody>
               <tr><th scope="row">100 kr</th><td>81 kr</td><td>71 kr</td></tr>
