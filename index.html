@@ -1085,6 +1085,26 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .vip-link:hover { text-decoration: underline; }
 
 .addr-link { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
+/* Signup opens in a dialog where you are, instead of jumping down the page */
+.meld-dialog {
+  width: min(560px, calc(100vw - 24px)); max-height: calc(100dvh - 24px);
+  padding: 20px 18px 24px; border: 0; border-radius: 24px; overflow: auto;
+  background: var(--join-bg); color: var(--join-text);
+  box-shadow: 0 30px 60px -20px rgba(46, 13, 8, 0.5);
+  --focus: var(--join-focus);
+}
+.meld-dialog::backdrop { background: rgba(46, 13, 8, 0.55); }
+.meld-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.meld-title { font-family: var(--font-display); font-stretch: 110%; font-weight: 900; font-size: 1.5rem; line-height: 1.1; }
+.meld-sub { margin: 6px 0 18px; font-weight: 700; }
+.meld-close { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #2E0D08; color: #FDEBD5; display: grid; place-items: center; cursor: pointer; }
+.meld-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+.meld-close:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.meld-slot .form-shadow { filter: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .meld-dialog[open] { animation: meld-in 0.22s cubic-bezier(0.2, 0.8, 0.3, 1); }
+  @keyframes meld-in { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
+}
 /* ---------- Finn oss ---------- */
 .findus { background: var(--page-bg); color: var(--page-text); }
 .findus-grid { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
@@ -2467,6 +2487,17 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       </div>
     </section>
   </main>
+  <dialog class="meld-dialog" id="meld-dialog" aria-labelledby="meld-dialog-title">
+    <div class="meld-top">
+      <p class="meld-title" id="meld-dialog-title">Meld interesse</p>
+      <button class="meld-close" type="button" aria-label="Lukk">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </div>
+    <p class="meld-sub">Du får early bird-tilbud på standleie før alle andre.</p>
+    <div class="meld-slot"></div>
+  </dialog>
+
 
   <footer class="site-foot">
     <div class="wrap foot-in">
@@ -2724,6 +2755,32 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     window.setTimeout(tick, 1000 - (Date.now() % 1000));
   }
   tick();
+})();
+</script>
+<script>
+/* "Meld interesse" links open the signup form in a dialog on the spot.
+   The one real form is moved into the dialog and back again, so nothing is duplicated. */
+(function () {
+  var dlg = document.getElementById('meld-dialog');
+  var shadow = document.querySelector('.form-hang .form-shadow');
+  if (!dlg || !shadow || typeof dlg.showModal !== 'function') return;
+  var home = shadow.parentNode, anchor = shadow.nextSibling, slot = dlg.querySelector('.meld-slot');
+  function open(e) {
+    var section = document.getElementById('meld-interesse');
+    var r = section.getBoundingClientRect();
+    // Already looking at the form: let the link behave as before
+    if (r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.5) return;
+    e.preventDefault();
+    home.style.minHeight = home.offsetHeight + 'px';
+    slot.appendChild(shadow);
+    dlg.showModal();
+    var first = document.getElementById('navn');
+    if (first) first.focus({ preventScroll: true });
+  }
+  document.querySelectorAll('a[href="#meld-interesse"]').forEach(function (a) { a.addEventListener('click', open); });
+  dlg.querySelector('.meld-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { home.insertBefore(shadow, anchor); home.style.minHeight = ''; });
 })();
 </script>
 </body>
