@@ -1044,7 +1044,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   mask: radial-gradient(circle at 10px 50%, transparent 2.5px, var(--mask-ink) 3.5px);
 }
 
-.faq-cta { margin-top: 28px; }
+.faq-cta { margin-top: 32px; display: flex; justify-content: center; }
 .faq-a .faq-list-no { margin: 8px 0 10px; padding-left: 1.2em; display: grid; gap: 4px; }
 /* Small print in an FAQ answer, e.g. the condition rules */
 .faq-a .faq-fine { margin-top: 8px; font-size: 0.875rem; line-height: 1.45; opacity: 0.85; }
@@ -1353,7 +1353,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .mail-link .ico { width: 1.25em; height: 1.25em; }
 .mail-link:hover, .mail-link:focus-visible { background: var(--faq-text); color: var(--faq-bg); }
-.faq-list { border-bottom: 2px solid var(--faq-rule); }
+.faq-list details:last-of-type { border-bottom: 2px solid var(--faq-rule); }
 .faq-list details { border-top: 2px solid var(--faq-rule); }
 .faq-list summary {
   display: flex; align-items: center; justify-content: space-between; gap: 18px;
