@@ -656,9 +656,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .payout-cta { margin-top: 20px; display: flex; justify-content: center; }
 .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: var(--fs-lg); margin-bottom: 14px; }
-.payout-table { width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
+.payout-table { --payout-vip: color-mix(in srgb, var(--mauve) 30%, var(--page-card)); width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
 .payout-table th, .payout-table td { text-align: left; padding: 12px 8px 12px 0; border-bottom: 1.5px solid var(--page-line); vertical-align: baseline; font-size: 1.05rem; font-weight: 600; }
-/* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in the dark VIP colour */
+/* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in soft mauve */
 .payout-table :is(th, td):not(:first-child) { background: var(--page-surface); padding-left: 12px; }
 .payout-table :is(th, td):last-child { padding-right: 12px; }
 .payout-table thead tr:first-child > :not(:first-child) { border-radius: 16px 16px 0 0; }
@@ -671,11 +671,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table tbody th { color: var(--page-muted); }
 .payout-table tbody th, .payout-table tbody td { white-space: nowrap; }
 .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
-.payout-table :is(th, td):last-child { background: var(--page-text); color: var(--page-bg); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
-.payout-table :is(th, td):last-child .payout-rate { background: var(--orange); color: var(--maroon-deep); }
+.payout-table :is(th, td):last-child { background: var(--payout-vip); color: var(--page-text); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
+.payout-table :is(th, td):last-child .payout-rate { background: var(--mauve); color: var(--maroon-deep); }
 /* Close the hairline seam browsers can leave between the two header rows on the panels */
 .payout-table thead tr + tr > :not(:first-child) { box-shadow: 0 -1px 0 var(--page-surface); }
-.payout-table thead tr + tr > :last-child { box-shadow: 0 -1px 0 var(--page-text); }
+.payout-table thead tr + tr > :last-child { box-shadow: 0 -1px 0 var(--payout-vip); }
 
 /* Countdown to opening, top right in the header */
 .head-count {
