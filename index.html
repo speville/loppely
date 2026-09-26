@@ -562,7 +562,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .prices-head h2 { font-size: var(--fs-xl); font-stretch: 112%; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
 .prices-head p { color: var(--page-muted); }
 .plans {
-  list-style: none; padding: 4px 16px 8px; margin: 0 -16px;
+  list-style: none; padding: 18px 16px 8px; margin: 0 -16px;
   display: grid; grid-auto-flow: column; grid-auto-columns: 86%; gap: 14px;
   overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px;
   -webkit-overflow-scrolling: touch; scrollbar-width: none;
@@ -574,7 +574,14 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   background: var(--page-card); border: 1.5px solid var(--page-line); border-radius: 22px;
   padding: 26px 22px 22px;
 }
-.plan-vip { border-color: var(--page-text); border-width: 2px; }
+.plan { position: relative; }
+.plan-pick { border-color: var(--page-text); border-width: 2px; box-shadow: 0 14px 30px -18px rgba(86, 26, 18, 0.45); }
+.plan-badge {
+  position: absolute; top: 0; left: 22px; transform: translateY(-50%);
+  font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
+  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1;
+  padding: 0.6em 0.95em 0.56em; border-radius: 999px; background: #2E0D08; color: #FDEBD5;
+}
 .plan-name { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .plan-price { font-family: var(--font-display); font-weight: 900; font-stretch: 110%; font-size: clamp(2.2rem, 1.8rem + 1.4vw, 2.8rem); line-height: 1; letter-spacing: -0.02em; }
 .plan-from, .plan-unit { font-family: var(--font-body); font-weight: 600; font-size: 1rem; letter-spacing: 0; }
@@ -607,7 +614,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   display: grid; place-items: center; transition: opacity 0.35s ease;
 }
 .swipe-hint svg { width: 30px; height: 30px; fill: none; stroke: #FDEBD5; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.plans-wrap.swiped .swipe-hint { opacity: 0; }
+.plans-wrap.swiped .swipe-hint { opacity: 0; visibility: hidden; animation: none; transition: opacity 0.3s ease, visibility 0s linear 0.3s; }
 @keyframes swipe-hint {
   0% { transform: translateX(0) scale(1); opacity: 0; }
   12% { opacity: 1; transform: translateX(0) scale(0.92); }
@@ -2056,7 +2063,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <li><span>4 uker</span><span>200 kr per uke</span></li>
             </ul>
           </li>
-          <li class="plan">
+          <li class="plan plan-pick">
+            <p class="plan-badge">Anbefalt</p>
             <h3 class="plan-name">Premium</h3>
             <p class="plan-price"><span class="plan-from">Fra</span> 249 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">19% provisjon</p>
@@ -2071,7 +2079,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <li><span>4 uker</span><span>249 kr per uke</span></li>
             </ul>
           </li>
-          <li class="plan plan-vip">
+          <li class="plan">
             <h3 class="plan-name">VIP</h3>
             <p class="plan-price"><span class="plan-from">Fra</span> 349 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">29% provisjon</p>
@@ -2624,7 +2632,7 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     }
     for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === best);
   }
-  list.addEventListener('scroll', function () { window.requestAnimationFrame(update); if (list.scrollLeft > 20) list.parentNode.classList.add('swiped'); }, { passive: true });
+  list.addEventListener('scroll', function () { window.requestAnimationFrame(update); if (list.scrollLeft > 20 && !list.parentNode.classList.contains('swiped')) { list.parentNode.classList.add('swiped'); var h = list.parentNode.querySelector('.swipe-hint'); if (h) window.setTimeout(function () { h.remove(); }, 400); } }, { passive: true });
   update();
 })();
 </script>
