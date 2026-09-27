@@ -563,7 +563,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .prices-head h2 { font-size: var(--fs-xl); font-stretch: 112%; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
 .prices-head p { color: var(--page-muted); }
 .plans {
-  list-style: none; padding: 18px 16px 8px; margin: 0 -16px;
+  list-style: none; padding: 18px 16px 34px; margin: 0 -16px;
   display: grid; grid-auto-flow: column; grid-auto-columns: 86%; gap: 14px;
   overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px;
   -webkit-overflow-scrolling: touch; scrollbar-width: none;
@@ -593,7 +593,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   position: absolute; top: 0; left: 22px; transform: translateY(-50%);
   font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
   font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1;
-  padding: 0.6em 0.95em 0.56em; border-radius: 999px; background: #2E0D08; color: #FDEBD5;
+  padding: 0.6em 0.95em 0.56em; border-radius: 999px; background: #E0693A; color: #2E0D08;
 }
 .plan-name { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .plan-price { font-family: var(--font-display); font-weight: 900; font-stretch: 110%; font-size: clamp(2.2rem, 1.8rem + 1.4vw, 2.8rem); line-height: 1; letter-spacing: -0.02em; }
@@ -609,11 +609,26 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .plan .pf-plus { font-weight: 800; }
 .plan .pf-plus .pf-ico { stroke: #FFFDF9; stroke-width: 2.6; background: #2F6B45; border-radius: 50%; }
 .plans .plan-vip .pf-plus .pf-ico { stroke: #2E0D08; background: linear-gradient(135deg, #A87B1F 0%, #E9C766 30%, #FFF1B8 50%, #D9AE45 75%, #A87B1F 100%); }
+/* One line on who each stand is for, in the "Du rydder. Vi selger." voice */
+.plan-tag { font-weight: 700; font-size: 1.02rem; line-height: 1.3; margin-top: -4px; }
+.plans .plan-vip .plan-tag { color: #E9C766; }
+/* Rules rather than perks sit quietly under the list */
+.plan-note { font-size: 0.875rem; line-height: 1.45; opacity: 0.8; }
+/* One button per card: only the recommended card gets the filled one */
+.plan-cta { display: flex; align-items: center; justify-content: center; margin-top: 8px; padding: 0.85em 1.2em; border-radius: 999px; border: 2px solid currentColor; font-weight: 700; text-decoration: none; color: inherit; transition: background-color 0.15s ease, border-color 0.15s ease; }
+.plan-cta:hover { background: rgba(86, 26, 18, 0.08); }
+.plan-cta:focus-visible { outline: 3px solid #B85630; outline-offset: 3px; }
+.plans .plan-pick .plan-cta { background: #E0693A; border-color: #E0693A; color: #2E0D08; }
+.plans .plan-pick .plan-cta:hover { background: #C95A2E; border-color: #C95A2E; }
+.plans .plan-vip .plan-cta { border-color: #C9A55A; color: #FDEBD5; }
+.plans .plan-vip .plan-cta:hover { background: rgba(233, 199, 102, 0.14); }
+/* Phones: snap cards to the middle so the carousel can open on the recommended one */
+.plans .plan { scroll-snap-align: center; }
 .plan-periods { list-style: none; padding: 0; margin-top: 6px; border-top: 1.5px solid var(--page-line); }
 .plan-periods li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0 0; font-weight: 600; }
 .plan-periods li + li { padding-top: 8px; }
 .plan-periods li span:last-child { font-weight: 800; }
-.plan-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.plan-dots { display: flex; justify-content: center; gap: 8px; margin-top: -12px; }
 .plan-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--page-line); transition: background-color 0.2s ease, width 0.2s ease; }
 .plan-dots span.on { width: 22px; border-radius: 999px; background: var(--page-text); }
 @media (min-width: 900px) {
@@ -1513,6 +1528,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .chip-input:checked + .chip { background: #2F6B45; color: #FDEBD5; border-color: #2F6B45; }
 .chip-input:checked + .chip::after { background: #FDEBD5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.4l3.2 3.2L15 6.6' fill='none' stroke='%232F6B45' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat; border-color: #FDEBD5; }
+/* Stand choice: compact pills that turn green when picked, no tick box */
+.chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips-row .chip { width: auto; }
+.chip-radio::after { display: none !important; }
 .chip-input:focus-visible + .chip { outline: 3px solid var(--focus); outline-offset: 3px; }
 .submit-row { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .form-note { font-size: var(--fs-sm); color: var(--form-card-muted); line-height: 1.45; max-width: 34em; }
@@ -2240,6 +2259,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
                 <p class="err" id="epost-feil" hidden></p>
               </div>
+              <fieldset class="field-set more">
+                <legend>Hvilken stand er du interessert i? <span class="opt">Valgfritt</span></legend>
+                <div class="chips chips-row"><input class="chip-input sr-only" type="radio" id="st-standard" name="stand" value="Standard"><label class="chip chip-radio" for="st-standard">Standard</label><input class="chip-input sr-only" type="radio" id="st-premium" name="stand" value="Premium"><label class="chip chip-radio" for="st-premium">Premium</label><input class="chip-input sr-only" type="radio" id="st-vip" name="stand" value="VIP"><label class="chip chip-radio" for="st-vip">VIP</label><input class="chip-input sr-only" type="radio" id="st-vet" name="stand" value="Vet ikke ennå"><label class="chip chip-radio" for="st-vet">Vet ikke ennå</label></div>
+              </fieldset>
               <div class="field more">
                 <label for="telefon">Telefon <span class="opt">Valgfritt</span></label>
                 <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="telefon-feil">
@@ -2302,6 +2325,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <ul class="plans" role="list" id="plans">
           <li class="plan">
             <h3 class="plan-name">Standard</h3>
+            <p class="plan-tag">Du priser. Vi selger.</p>
             <p class="plan-price"><span class="plan-from">Fra</span> 200 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">19% provisjon</p>
             <ul class="plan-feats" role="list">
@@ -2313,39 +2337,43 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <li><span>2 uker</span><span>249 kr per uke</span></li>
                 <li><span>4 uker</span><span>200 kr per uke</span></li>
             </ul>
+            <a class="plan-cta" href="#meld-interesse" data-stand="Standard">Velg Standard</a>
           </li>
           <li class="plan plan-pick">
             <p class="plan-badge">Anbefalt</p>
             <h3 class="plan-name">Premium</h3>
+            <p class="plan-tag">Mer synlighet. Mindre jobb.</p>
             <p class="plan-price"><span class="plan-from">Fra</span> 249 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">19% provisjon</p>
             <ul class="plan-feats" role="list">
               <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Standard</span></li>
-              <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi tar bilder og video av utvalgte varer og markedsfører dem i våre kanaler</span></li>
-              <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Attraktive plasser i butikken</span></li>
               <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi priser varene for deg</span></li>
+              <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi tar bilder og video av utvalgte varer og markedsfører dem</span></li>
+              <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Attraktive plasser i butikken</span></li>
             </ul>
             <ul class="plan-periods" role="list">
                 <li><span>2 uker</span><span>299 kr per uke</span></li>
                 <li><span>4 uker</span><span>249 kr per uke</span></li>
             </ul>
+            <a class="plan-cta" href="#meld-interesse" data-stand="Premium">Velg Premium</a>
           </li>
           <li class="plan plan-vip">
             <h3 class="plan-name">VIP</h3>
+            <p class="plan-tag">Du leverer. Vi gjør resten.</p>
             <p class="plan-price"><span class="plan-from">Fra</span> 349 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">29% provisjon</p>
             <ul class="plan-feats" role="list">
               <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Premium</span></li>
               <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi tar bilder, priser og registrerer varene dine</span></li>
               <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi gjør standen klar</span></li>
-              <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Inntil 21 varer i salg samtidig</span></li>
-              <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Fyll på når noe blir solgt</span></li>
               <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Plass til én større vare</span></li>
             </ul>
+            <p class="plan-note">Inntil 21 varer i salg samtidig. Fyll på når noe blir solgt.</p>
             <ul class="plan-periods" role="list">
                 <li><span>2 uker</span><span>399 kr per uke</span></li>
                 <li><span>4 uker</span><span>349 kr per uke</span></li>
             </ul>
+            <a class="plan-cta" href="#meld-interesse" data-stand="VIP">Velg VIP</a>
           </li>
         </ul>
         </div>
@@ -2700,6 +2728,8 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     var epost = fEpost.value.trim();
     var telefon = fTelefon.value.trim();
     var mer = fMer.value.trim();
+    var standValg = form.querySelector('input[name="stand"]:checked');
+    var stand = standValg ? standValg.value : '';
     var kategorier = Array.prototype.map.call(
       form.querySelectorAll('input[name="kategori"]:checked'),
       function (i) { return i.value; }
@@ -2711,9 +2741,10 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
       'email': epost,
       '_replyto': epost,
       'Telefon': telefon || 'Ikke oppgitt',
+      'Stand': stand || 'Ikke valgt',
       'Vil selge': kategorier.length ? kategorier.join(', ') : 'Ikke valgt',
       'Melding': mer || '-',
-      '_subject': 'Ny selger: ' + navn,
+      '_subject': 'Ny selger: ' + navn + (stand ? ' (' + stand + ')' : ''),
       '_template': 'table',
       '_honey': fHonning.value
     };
@@ -2776,20 +2807,37 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
 </script>
 
 <script>
-/* Price cards: dots follow the swipe on phones */
+/* Price cards on phones: open on the recommended card with Standard and VIP peeking out,
+   and let the dots follow the swipe */
 (function () {
   var list = document.getElementById('plans');
   var dots = document.querySelectorAll('.plan-dots span');
   if (!list || !dots.length) return;
-  function update() {
-    var cards = list.children, best = 0, bestD = Infinity, x = list.scrollLeft;
+  var cards = list.children;
+  function nearest() {
+    var lr = list.getBoundingClientRect(), c = lr.left + lr.width / 2, best = 0, bestD = Infinity;
     for (var i = 0; i < cards.length; i++) {
-      var d = Math.abs(cards[i].offsetLeft - list.offsetLeft - x - 16);
+      var r = cards[i].getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - c);
       if (d < bestD) { bestD = d; best = i; }
     }
-    for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === best);
+    return best;
   }
-  list.addEventListener('scroll', function () { window.requestAnimationFrame(update); if (list.scrollLeft > 20 && !list.parentNode.classList.contains('swiped')) { list.parentNode.classList.add('swiped'); var h = list.parentNode.querySelector('.swipe-hint'); if (h) window.setTimeout(function () { h.remove(); }, 400); } }, { passive: true });
+  function update() { var b = nearest(); for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === b); }
+  var pick = list.querySelector('.plan-pick');
+  if (pick && list.scrollWidth > list.clientWidth + 4) {
+    var lr = list.getBoundingClientRect(), pr = pick.getBoundingClientRect();
+    list.scrollLeft += (pr.left + pr.width / 2) - (lr.left + lr.width / 2);
+  }
+  var start = list.scrollLeft;
+  list.addEventListener('scroll', function () {
+    window.requestAnimationFrame(update);
+    var wrap = list.parentNode;
+    if (Math.abs(list.scrollLeft - start) > 20 && !wrap.classList.contains('swiped')) {
+      wrap.classList.add('swiped');
+      var h = wrap.querySelector('.swipe-hint');
+      if (h) window.setTimeout(function () { h.remove(); }, 400);
+    }
+  }, { passive: true });
   update();
 })();
 </script>
@@ -2861,6 +2909,19 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     if (el) { el.addEventListener('focus', expand); el.addEventListener('input', expand); }
   });
   // If the form is sent before expanding, the optional fields are simply empty
+})();
+</script>
+<script>
+/* "Velg Standard/Premium/VIP" in a card pre-selects that stand in the signup form */
+(function () {
+  document.querySelectorAll('.plan-cta[data-stand]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var r = document.querySelector('input[name="stand"][value="' + a.getAttribute('data-stand') + '"]');
+      if (r) { r.checked = true; }
+      var f = r && r.form;
+      if (f && f.classList.contains('is-short')) { f.classList.remove('is-short'); f.classList.add('is-opening'); }
+    });
+  });
 })();
 </script>
 </body>
