@@ -144,6 +144,10 @@
   .pf-yes .pf-ico { stroke: var(--green); }
   .pf-no { color: var(--muted); font-weight: 500; }
   .pf-no .pf-ico { stroke: var(--muted); opacity: 0.7; }
+  /* Extras beyond the tier below: a filled plus and bolder text, so what you gain stands out */
+  .plan .pf-plus { font-weight: 800; }
+  .plan .pf-plus .pf-ico { stroke: #FFFDF9; stroke-width: 2.6; background: #2F6B45; border-radius: 50%; }
+  .plans .plan-vip .pf-plus .pf-ico { stroke: #2E0D08; background: linear-gradient(135deg, #A87B1F 0%, #E9C766 30%, #FFF1B8 50%, #D9AE45 75%, #A87B1F 100%); }
   .plan-periods { list-style: none; padding: 0; margin-top: 6px; border-top: 1.5px solid var(--line); }
   .plan-periods li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0 0; font-weight: 600; }
   .plan-periods li + li { padding-top: 6px; }
@@ -568,9 +572,9 @@
       <p class="plan-comm">19% provisjon</p>
       <ul class="plan-feats" role="list">
         <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Standard</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi tar bilder og video av utvalgte varer og markedsfører dem i våre kanaler</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Attraktive plasser i butikken</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi priser varene for deg</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi tar bilder og video av utvalgte varer og markedsfører dem i våre kanaler</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Attraktive plasser i butikken</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi priser varene for deg</span></li>
       </ul>
       <ul class="plan-periods" role="list">
           <li><span>2 uker</span><span>299 kr per uke</span></li>
@@ -583,11 +587,11 @@
       <p class="plan-comm">29% provisjon</p>
       <ul class="plan-feats" role="list">
         <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Premium</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi tar bilder, priser og registrerer varene dine</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi gjør standen klar</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Inntil 21 varer i salg samtidig</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Fyll på når noe blir solgt</span></li>
-        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Plass til én større vare</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi tar bilder, priser og registrerer varene dine</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi gjør standen klar</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Inntil 21 varer i salg samtidig</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Fyll på når noe blir solgt</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Plass til én større vare</span></li>
       </ul>
       <ul class="plan-periods" role="list">
           <li><span>2 uker</span><span>399 kr per uke</span></li>
