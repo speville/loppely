@@ -120,6 +120,11 @@
   .plans::-webkit-scrollbar { display: none; }
   @media (min-width: 680px) { .plans { margin: 0 -44px; padding-inline: 44px; scroll-padding-inline: 44px; grid-auto-columns: 62%; } }
   .plan { position: relative; scroll-snap-align: start; display: flex; flex-direction: column; gap: 10px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 24px 20px 20px; }
+  /* Card colours match the payout panels: cream for Standard and Premium, gold for VIP */
+  .plans .plan { background: var(--surface); }
+  .plans .plan-vip { background: color-mix(in srgb, #E8C766 28%, var(--card)); border: 2.5px solid #C9A227; }
+  .plans .plan-vip .plan-comm { background: #C9A227; border-color: #C9A227; color: #2E0D08; }
+  .plans .plan:not(.plan-vip) .plan-comm { background: var(--card); }
   .plan-pick { border-color: var(--maroon); border-width: 2px; box-shadow: 0 14px 30px -18px rgba(86, 26, 18, 0.45); }
   .plan-badge { position: absolute; top: 0; left: 20px; transform: translateY(-50%); font-family: var(--font-display); font-stretch: 110%; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; padding: 0.6em 0.95em 0.56em; border-radius: 999px; background: var(--maroon-deep); color: var(--cream); }
   .plan-name { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -157,9 +162,9 @@
   }
   .payout { margin-top: 22px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px 20px; }
   .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 1.3rem; margin-bottom: 10px !important; }
-  .payout-table { --payout-vip: color-mix(in srgb, var(--mauve) 30%, var(--card)); width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
+  .payout-table { --payout-vip: color-mix(in srgb, #E8C766 28%, var(--card)); width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
   .payout-table th, .payout-table td { text-align: left; padding: 10px 8px 10px 0; border-bottom: 1.5px solid var(--line); vertical-align: baseline; font-size: 1.05rem; font-weight: 600; }
-  /* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in soft mauve */
+  /* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in warm gold */
   .payout-table :is(th, td):nth-last-child(-n+2) { background: var(--surface); padding-left: 12px; }
   .payout-table :is(th, td):last-child { padding-right: 12px; }
   .payout-table thead tr:first-child > :not(:first-child) { border-radius: 16px 16px 0 0; }
@@ -184,10 +189,15 @@
   .payout-table tbody td { font-family: var(--font-display); font-weight: 900; font-stretch: 108%; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; }
   .payout-table tbody th { font-size: 1.05rem; font-weight: 600; }
   .payout-table :is(th, td):last-child { background: var(--payout-vip); color: var(--maroon); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
-  .payout-table :is(th, td):last-child .payout-rate { background: var(--mauve); color: var(--maroon-deep); }
   /* Close the hairline seam browsers can leave between the two header rows on the panels */
   .payout-table thead tr + tr > :nth-last-child(-n+2) { box-shadow: 0 -1px 0 var(--surface); }
-  .payout-table thead tr + tr > :last-child { box-shadow: 0 -1px 0 var(--payout-vip); }
+  .payout-table thead tr + tr > :last-child { box-shadow: inset 2.5px 0 0 var(--gold), inset -2.5px 0 0 var(--gold), 0 -4px 0 -2.5px var(--payout-vip); }
+  /* VIP column: warm gold panel with a gold frame */
+  .payout-table { --gold: #C9A227; --gold-deep: #9C7A12; }
+  .payout-table :is(th, td):last-child { box-shadow: inset 2.5px 0 0 var(--gold), inset -2.5px 0 0 var(--gold); border-bottom-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+  .payout-table thead tr:first-child > :last-child { border-top: 2.5px solid var(--gold); }
+  .payout-table tbody tr:last-child > :last-child { border-bottom: 2.5px solid var(--gold); }
+  .payout-table :is(th, td):last-child .payout-rate { background: var(--gold); color: #2E0D08; }
   .payout-cta { margin-top: 16px !important; display: flex; justify-content: center; }
   .payout-cta .btn { width: auto; }
   form { display: grid; gap: 14px; padding: 22px 20px 20px; background: var(--cream); border-radius: 22px; }
@@ -559,7 +569,7 @@
           <li><span>4 uker</span><span>249 kr per uke</span></li>
       </ul>
     </li>
-    <li class="plan">
+    <li class="plan plan-vip">
       <h3 class="plan-name">VIP</h3>
       <p class="plan-price"><span class="plan-from">Fra</span> 349 <span class="plan-unit">kr per uke</span></p>
       <p class="plan-comm">29% provisjon</p>

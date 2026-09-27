@@ -576,6 +576,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   padding: 26px 22px 22px;
 }
 .plan { position: relative; }
+/* Card colours match the payout panels: cream for Standard and Premium, gold for VIP */
+.plans .plan { background: var(--page-surface); }
+.plans .plan-vip { background: color-mix(in srgb, #E8C766 28%, var(--page-card)); border: 2.5px solid #C9A227; }
+.plans .plan-vip .plan-comm { background: #C9A227; border-color: #C9A227; color: #2E0D08; }
+.plans .plan:not(.plan-vip) .plan-comm { background: var(--page-card); }
 .plan-pick { border-color: var(--page-text); border-width: 2px; box-shadow: 0 14px 30px -18px rgba(86, 26, 18, 0.45); }
 .plan-badge {
   position: absolute; top: 0; left: 22px; transform: translateY(-50%);
@@ -656,9 +661,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .payout-cta { margin-top: 20px; display: flex; justify-content: center; }
 .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: var(--fs-lg); margin-bottom: 14px; }
-.payout-table { --payout-vip: color-mix(in srgb, var(--mauve) 30%, var(--page-card)); width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
+.payout-table { --payout-vip: color-mix(in srgb, #E8C766 28%, var(--page-card)); width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
 .payout-table th, .payout-table td { text-align: left; padding: 12px 8px 12px 0; border-bottom: 1.5px solid var(--page-line); vertical-align: baseline; font-size: 1.05rem; font-weight: 600; }
-/* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in soft mauve */
+/* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in warm gold */
 .payout-table :is(th, td):nth-last-child(-n+2) { background: var(--page-surface); padding-left: 12px; }
 .payout-table :is(th, td):last-child { padding-right: 12px; }
 .payout-table thead tr:first-child > :not(:first-child) { border-radius: 16px 16px 0 0; }
@@ -683,10 +688,15 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table tbody td { font-family: var(--font-display); font-weight: 900; font-stretch: 108%; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; }
 .payout-table tbody th { font-size: 1.05rem; font-weight: 600; }
 .payout-table :is(th, td):last-child { background: var(--payout-vip); color: var(--page-text); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
-.payout-table :is(th, td):last-child .payout-rate { background: var(--mauve); color: var(--maroon-deep); }
 /* Close the hairline seam browsers can leave between the two header rows on the panels */
 .payout-table thead tr + tr > :nth-last-child(-n+2) { box-shadow: 0 -1px 0 var(--page-surface); }
-.payout-table thead tr + tr > :last-child { box-shadow: 0 -1px 0 var(--payout-vip); }
+.payout-table thead tr + tr > :last-child { box-shadow: inset 2.5px 0 0 var(--gold), inset -2.5px 0 0 var(--gold), 0 -4px 0 -2.5px var(--payout-vip); }
+/* VIP column: warm gold panel with a gold frame */
+.payout-table { --gold: #C9A227; --gold-deep: #9C7A12; }
+.payout-table :is(th, td):last-child { box-shadow: inset 2.5px 0 0 var(--gold), inset -2.5px 0 0 var(--gold); border-bottom-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+.payout-table thead tr:first-child > :last-child { border-top: 2.5px solid var(--gold); }
+.payout-table tbody tr:last-child > :last-child { border-bottom: 2.5px solid var(--gold); }
+.payout-table :is(th, td):last-child .payout-rate { background: var(--gold); color: #2E0D08; }
 
 /* Countdown to opening, top right in the header */
 .head-count {
@@ -2308,7 +2318,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <li><span>4 uker</span><span>249 kr per uke</span></li>
             </ul>
           </li>
-          <li class="plan">
+          <li class="plan plan-vip">
             <h3 class="plan-name">VIP</h3>
             <p class="plan-price"><span class="plan-from">Fra</span> 349 <span class="plan-unit">kr per uke</span></p>
             <p class="plan-comm">29% provisjon</p>
