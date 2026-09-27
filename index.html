@@ -759,16 +759,17 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .illo { position: relative; }
 .floor-stamp {
   position: absolute; z-index: 1; left: 27%; bottom: 4%; margin: 0;
-  width: clamp(96px, 26vw, 172px); aspect-ratio: 1; border-radius: 50%;
+  --sz: clamp(96px, 26vw, 172px); width: var(--sz); aspect-ratio: 1; padding: 0 8%; border-radius: 50%;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.1em;
   background: #561A12; color: #FDEBD5; text-align: center;
   box-shadow: 0 0 0 5px #FDEBD5, 0 0 0 8px #E0693A, 0 14px 26px -8px rgba(46, 13, 8, 0.6);
   transform: rotate(-8deg);
   font-family: var(--font-display); font-stretch: 112%; font-weight: 900; text-transform: uppercase;
-  font-size: clamp(13px, 3.6vw, 23px); line-height: 1; letter-spacing: 0.02em;
+  font-size: calc(var(--sz) * 0.118); line-height: 1.05; letter-spacing: 0.01em;
 }
 @media (min-width: 700px) { .floor-stamp { left: 31%; bottom: 5%; } }
-.floor-stamp .fs-star { width: 1.15em; height: 1.15em; fill: #E0693A; margin-bottom: 0.2em; }
+.floor-stamp span { white-space: nowrap; }
+.floor-stamp .fs-star { width: 1em; height: 1em; fill: #E0693A; margin-bottom: 0.2em; }
 
 /* The pitch under the picture: a soft card with a chip label and the key words in bold */
 .hero-lede { grid-area: lede; justify-self: center; width: min(100%, 880px); }
@@ -796,11 +797,15 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 @media (min-width: 980px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1.846fr) minmax(0, 1fr);
-    grid-template-areas: "head head" "illo board" "lede lede";
+    grid-template-areas: "head lede" "illo board";
     column-gap: 20px;
     row-gap: 36px;
     align-items: stretch;
   }
+  /* The pitch sits beside the headline, bottom-aligned with it, in the board's column */
+  .hero-lede { width: auto; justify-self: stretch; align-self: end; }
+  .hero-lede .pitch { margin-top: 0; padding: 34px 26px 26px; }
+  .hero-lede .pitch-text { font-size: clamp(18px, 1.55vw, 22px); max-width: none; }
   .hero-grid > .board { margin-top: 0; max-width: none; }
 }
 .hero h1 {
@@ -897,6 +902,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   text-transform: uppercase;
   overflow-wrap: break-word;
 }
+/* Narrow phones: the board's small caps must not break mid-word */
+@media (max-width: 400px) { .board .b-eyebrow { font-size: max(10px, 2.9cqi); letter-spacing: 0.05em; } }
 .blk-1 { background: var(--board-1-bg); color: var(--board-1-fg); align-items: flex-start; --focus: var(--board-1-focus); }
 .b-big {
   font-family: var(--font-display); font-stretch: 108%; font-weight: 800;
@@ -997,7 +1004,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 }
 .sc-card summary {
   list-style: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
   padding: 22px 22px 22px 26px;
   border-radius: var(--radius-md);
 }
@@ -1189,7 +1196,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   @keyframes meld-in { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
 }
 /* ---------- Finn oss ---------- */
-.findus { background: var(--page-bg); color: var(--page-text); }
+.findus { background: var(--page-bg); color: var(--page-text); padding-top: calc(var(--sec-pad) * 0.55); }
 .findus-grid { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
 @media (min-width: 900px) { .findus-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); } }
 .findus-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
@@ -1907,7 +1914,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-head">
-          <p class="hero-open"><span class="open-pill">Åpner lørdag 28.&nbsp;november</span><span class="eyebrow">Nytt loppesupermarked i Lyngdal</span></p>
+          <p class="hero-open"><span class="open-pill">Åpner lørdag 28.&nbsp;november</span><span class="eyebrow">Loppesupermarked i Lyngdal</span></p>
           <h1 id="hero-title">
             <span class="h1-line">Du rydder.</span>
             <span class="tag-wrap"><span class="tag-shadow"><span class="tag-hl">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span>
@@ -1925,7 +1932,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <p class="b-note">Stand fra 200 kr per uke.</p>
           </div>
           <div class="blk blk-2">
-            <p class="b-eyebrow">Loppesupermarked</p>
+            <p class="b-eyebrow">Loppe&shy;supermarked</p>
             <svg class="b-logo" viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><use href="#i-logo"></use></svg>
             <p class="b-eyebrow">Åpner 28.&nbsp;november</p>
           </div>
@@ -1998,21 +2005,19 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <div class="join-copy">
           <p class="eyebrow">Interesseliste for stand</p>
           <h2 id="join-title">Vær blant de første med egen stand.</h2>
-          <p class="lede">Vi åpner 28.&nbsp;november i <a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3 i Lyngdal</a>. Står du på lista, får du første uke gratis når du leier stand i minst 4 uker, og kan fylle standen din før vi åpner.</p>
+          <p class="lede">Vi åpner 28.&nbsp;november i <a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3 i Lyngdal</a>. Meld interesse nå, så får du fylle standen din før dørene åpner.</p>
           <ul class="join-list" role="list">
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span><strong>Står du på lista, får du første uke gratis når du leier stand i minst 4 uker.</strong><span class="join-why">Hvorfor 4 uker? Desember er måneden med mest julehandel i Lyngdal sentrum. Med 4 uker får du med deg hele julehandelen, og kundene møter en full butikk.</span></span></li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Vær med fra åpningen 28.&nbsp;november, midt i julehandelen.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>De første standene får med seg all oppmerksomheten rundt åpningen.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Påmeldingen er gratis og tar under ett minutt.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Å melde interesse er ikke en bestilling.</li>
-            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke bo i Lyngdal. Vi gjør resten, så du kjører bare når du leverer, henter eller fyller på.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span><strong>Første uke gratis når du leier i minst 4 uker.</strong><span class="join-why">Hvorfor 4 uker? Desember er måneden med mest julehandel i Lyngdal sentrum. Med 4 uker får du med deg hele julehandelen, og kundene møter en full butikk.</span></span></li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du er med fra åpningen 28.&nbsp;november, midt i julehandelen.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Gratis og uforpliktende. Å melde interesse er ikke en bestilling.</li>
+            <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Du trenger ikke bo i Lyngdal. Du kjører bare når du leverer, henter eller fyller på.</li>
           </ul>
         </div>
 
         <div class="form-hang">
           <div class="form-shadow">
             <form class="form-card" id="selgerskjema" novalidate aria-labelledby="join-title">
-              <p class="form-top">Du må fylle ut navn, e-post og telefon. Resten er valgfritt.</p>
+              <p class="form-top">Gratis og uforpliktende. Vi tar kontakt før åpning.</p>
               <div class="field">
                 <label for="navn">Navn</label>
                 <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
@@ -2063,7 +2068,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har og hvor mye."></textarea>
               </div>
               <div class="submit-row">
-                <button class="btn btn-dark btn-lg" type="submit" id="send-knapp">Meld interesse</button>
+                <button class="btn btn-dark btn-lg" type="submit" id="send-knapp">Sett meg på lista</button>
                 <p class="form-note">Påmeldingen sendes til oss på e-post. Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
               </div>
               <p class="status-msg" id="status-tekst" role="status" aria-live="polite"></p>
@@ -2465,7 +2470,7 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
     sending = on;
     form.setAttribute('aria-busy', on ? 'true' : 'false');
     sendBtn.setAttribute('aria-disabled', on ? 'true' : 'false');
-    sendBtn.textContent = on ? 'Sender …' : 'Meld interesse';
+    sendBtn.textContent = on ? 'Sender …' : 'Sett meg på lista';
   }
 
   [[fNavn, checkNavn], [fEpost, checkEpost], [fTelefon, checkTelefon]].forEach(function (pair) {
