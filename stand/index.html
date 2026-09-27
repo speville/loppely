@@ -55,61 +55,26 @@
   .pitch-text strong { font-weight: 800; color: var(--maroon-deep); }
   /* Illustration of the shop: stands, price tags and the shared till */
   .shop-illo { display: block; width: 100%; height: auto; border-radius: 22px; }
-  .illo { margin: 0 0 26px; }
-  /* Brand board, same as the front page: four blocks with the L badge in the middle */
-  .board {
-    --b1: var(--mauve); --b2: var(--maroon-deep); --b3: var(--maroon); --b4: var(--orange);
-    position: relative; container-type: inline-size; display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 1fr 1fr;
-    aspect-ratio: 1 / 1; width: 100%; margin: 0 0 26px; border-radius: 22px; overflow: hidden;
-  }
-  .board p, .board ul { margin: 0; }
-  .blk { position: relative; min-width: 0; display: flex; flex-direction: column; gap: max(6px, 2cqi); padding: max(12px, 4.5cqi); }
-  .b-eyebrow, .b-note, .b-link { font-family: var(--font-display); font-stretch: 100%; font-weight: 800; font-size: max(11px, 3.1cqi); letter-spacing: 0.05em; line-height: 1.3; text-transform: uppercase; }
-  .blk-1 { background: var(--b1); color: var(--maroon-deep); align-items: flex-start; }
-  .blk-1 .b-big { font-family: var(--font-display); font-size: max(30px, 12cqi); font-stretch: 125%; font-weight: 900; line-height: 1.05; margin: 2px 0 6px; }
-  .b-note { margin: 0 0 max(4px, 1.2cqi); }
-  .b-link { color: var(--maroon-deep); }
-  /* Commission block: chip label, big figure, quiet note, pill button */
-  .board .blk-1 { gap: 0; }
-  .board .b-chip {
-    align-self: flex-start;
-    font-family: var(--font-display); font-stretch: 110%; font-weight: 800;
-    font-size: max(11px, 2.5cqi); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1;
-    padding: 0.62em 1em 0.58em; border-radius: 999px;
-    background: #2E0D08; color: #FDEBD5;
-  }
-  .board .blk-1 .b-big {
-    font-family: var(--font-display); font-stretch: 125%; font-weight: 900;
-    font-size: max(46px, 16cqi); line-height: 0.9; letter-spacing: -0.03em;
-    margin: max(10px, 3.4cqi) 0 max(6px, 1.6cqi);
-  }
-  .board .b-pct { font-size: 0.5em; letter-spacing: 0; vertical-align: 0.72em; margin-left: 0.06em; }
-  .board .blk-1 .b-note {
-    font-family: var(--font-body); font-stretch: 100%; font-weight: 600;
-    font-size: max(13px, 3cqi); letter-spacing: 0; text-transform: none; line-height: 1.3; margin: 0;
-  }
-  .blk-2 { background: var(--b2); color: var(--cream); }
-  .b-logo { display: block; width: min(100%, max(128px, 36cqi)); height: auto; aspect-ratio: 364.4 / 113.8; --logo-ink: var(--orange); --logo-paper: var(--b2); }
-  .blk-3 { background: var(--b3); color: var(--cream); justify-content: flex-end; align-items: flex-end; font-size: max(11px, 2.4cqi); }
-  .b-vert { position: absolute; left: max(12px, 9%); top: max(12px, 9%); writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; font-family: var(--font-display); font-stretch: 125%; font-weight: 700; font-size: 1em; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1; }
-  .b-shout { font-family: var(--font-display); font-stretch: 125%; font-weight: 900; font-size: max(16px, 5cqi); line-height: 1; text-transform: uppercase; text-align: right; }
-  .blk-4 { background: var(--b4); color: var(--maroon-deep); justify-content: flex-end; gap: max(4px, 1.2cqi); }
-  .for-list { list-style: none; padding: 0; font-family: var(--font-display); font-stretch: 118%; font-weight: 900; font-size: max(14px, 4.2cqi); line-height: 1.08; text-transform: uppercase; }
-  .for-list .for-alle { font-family: "Vujahday Script", "Brush Script MT", cursive; font-stretch: normal; font-weight: 400; font-size: max(22px, 7.4cqi); line-height: 1.05; text-transform: none; margin-top: max(2px, 0.6cqi); }
-  .board-badge { position: absolute; left: 50%; top: 50%; width: 22cqi; aspect-ratio: 1 / 1; transform: translate(-50%, -50%); border-radius: 50%; background: var(--cream); box-shadow: 0 0 0 max(4px, 1.6cqi) var(--paper); --badge-bg: var(--maroon); --badge-fg: var(--cream); }
-  .board-badge svg { display: block; width: 78%; height: 78%; margin: 11%; }
-  .addr-link { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
-  .more-info { margin-top: 26px; padding: 22px 20px; border: 1.5px dashed rgba(86, 26, 18, 0.3); border-radius: 22px; text-align: center; }
+  .illo { margin: 0 0 22px; }
+  /* Fact strip: the whole picture in four tiles */
+  .strip { list-style: none; padding: 0; margin: 0 0 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .strip li { background: var(--cream); border-radius: 16px; padding: 12px 12px 11px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .strip li a { display: flex; flex-direction: column; gap: 2px; color: inherit; text-decoration: none; }
+  .strip b { font-family: var(--font-display); font-stretch: 110%; font-weight: 900; font-size: clamp(1.25rem, 5.2vw, 1.5rem); line-height: 1; letter-spacing: -0.01em; white-space: nowrap; }
+  .strip span { font-size: 0.82rem; font-weight: 600; color: #7A3A2E; }
+  .strip .strip-offer { background: var(--maroon-deep); color: var(--cream); }
+  .strip .strip-offer span { color: #F2A07C; }
+  .strip li a b { text-decoration: underline; text-underline-offset: 0.14em; text-decoration-thickness: 1.5px; }
+  .strip-note { font-size: 0.85rem; line-height: 1.45; color: #7A3A2E; margin: 0 0 26px; }
+  /* Short form first: telefon, categories and message appear once someone starts filling in */
+  form.is-short .more { display: none; }
+  @media (prefers-reduced-motion: no-preference) { form.is-opening .more { animation: more-in 0.3s ease both; } @keyframes more-in { from { opacity: 0; transform: translateY(-6px); } } }
+  .more-info { margin-top: 22px; padding: 18px 20px; border: 1.5px dashed rgba(86, 26, 18, 0.3); border-radius: 22px; text-align: center; }
   .more-info p { margin: 0 0 12px; }
   .more-title { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; margin-bottom: 4px !important; }
   .btn-outline { display: inline-block; font-weight: 700; padding: 0.8em 1.4em; border: 2px solid var(--maroon); border-radius: 999px; color: var(--maroon); text-decoration: none; }
   .btn-outline:hover { background: var(--maroon); color: var(--cream); }
   .btn-outline:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 3px; }
-  .facts { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 10px; font-weight: 700; }
-  .facts li { display: flex; gap: 12px; align-items: flex-start; }
-  .facts .why { display: block; margin-top: 4px; font-weight: 500; font-size: 0.9rem; color: #7A3A2E; }
-  .facts .ico { flex: none; width: 24px; height: 24px; margin-top: 1px; }
   /* Prices: same cards and payout table as the front page */
   .pris { --card: #FFFCF8; --line: rgba(86, 26, 18, 0.2); --muted: #7A3A2E; --surface: #FDEBD5; margin: 0 0 30px; }
   .pris-title { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: 1.8rem; line-height: 1; margin: 0; }
@@ -246,8 +211,7 @@
   textarea.input { border-radius: 22px; resize: vertical; min-height: 5.5em; line-height: 1.5; }
   .input::placeholder { color: #7A3A2E; opacity: 1; }
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-  .chips { display: grid; grid-template-columns: 1fr; gap: 8px; }
-  @media (min-width: 480px) { .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip-ico { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
   .chip { display: inline-flex; align-items: center; gap: 0.5em; min-height: 44px; padding: 0.55em 1em; border: 2px solid var(--maroon); border-radius: 999px; font-weight: 600; font-size: 0.95rem; line-height: 1.2; cursor: pointer; user-select: none; background: var(--paper); }
   /* Each category is a checkbox: an empty box on the right, green with a tick when picked */
@@ -521,46 +485,16 @@
 
   <div class="pitch">
     <p class="pitch-chip">Kort fortalt</p>
-    <p class="pitch-text">Du <strong>leier en stand</strong> og <strong>setter prisen</strong> selv. Vi <strong>rydder standen</strong> og <strong>selger</strong> for deg. Du kommer bare innom <strong>hvis du vil fylle på</strong>.</p>
+    <p class="pitch-text">Du <strong>leier en stand</strong> og <strong>setter prisen</strong> selv. Vi <strong>rydder standen</strong> og <strong>selger</strong> for deg. Du kommer bare innom <strong>hvis du vil fylle på</strong>. Salget følger du på «Min side».</p>
   </div>
 
-  <div class="board">
-    <div class="blk blk-1">
-      <p class="b-chip">Provisjon</p>
-      <p class="b-big">19<span class="b-pct">%</span></p>
-      <p class="b-note">Stand fra 200 kr per uke.</p>
-    </div>
-    <div class="blk blk-2">
-      <p class="b-eyebrow">Loppesupermarked</p>
-      <svg class="b-logo" viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><use href="#i-logo"></use></svg>
-      <p class="b-eyebrow">Åpner 28.&nbsp;november</p>
-    </div>
-    <div class="blk blk-3">
-      <p class="b-vert" aria-hidden="true">loppely.no</p>
-      <p class="b-shout">Lei en<br>stand</p>
-    </div>
-    <div class="blk blk-4">
-      <p class="b-eyebrow">For</p>
-      <ul class="for-list" role="list">
-        <li>Flyttere</li>
-        <li>Foreldre</li>
-        <li>Arvinger</li>
-        <li>Samlere,</li>
-        <li class="for-alle">For alle</li>
-      </ul>
-    </div>
-    <div class="board-badge" aria-hidden="true">
-      <svg viewBox="0 0 100 100" focusable="false"><use href="#i-badge"></use></svg>
-    </div>
-  </div>
-
-
-  <ul class="facts" role="list">
-    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Første uke gratis når du leier i minst 4 uker<small class="why">Hvorfor 4 uker? Desember er måneden med mest julehandel i Lyngdal sentrum. Med 4 uker får du med deg hele julehandelen, og kundene møter en full butikk.</small></span></li>
-    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Du velger prisen selv</span></li>
-    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Vi rydder standen og selger varene dine</span></li>
-    <li><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span>Følg med på salget på «Min side»</span></li>
+  <ul class="strip" role="list">
+    <li><b>19%</b><span>provisjon</span></li>
+    <li><b>Fra 200 kr</b><span>per uke</span></li>
+    <li class="strip-offer"><b>1 uke gratis</b><span>ved minst 4 uker</span></li>
+    <li><a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><b>Kirkeveien 3</b><span>Lyngdal sentrum</span></a></li>
   </ul>
+  <p class="strip-note">Gratisuken gjelder deg som står på lista og leier i minst 4 uker. Desember er måneden med mest julehandel i Lyngdal, så med 4 uker får du med deg hele.</p>
 
   <section class="pris" aria-labelledby="pris-title">
     <h2 id="pris-title" class="pris-title">Priser</h2>
@@ -643,7 +577,7 @@
   </section>
 
   <form id="skjema" novalidate>
-    <p class="form-top">Du må fylle ut navn og e-post. Resten er valgfritt.</p>
+    <p class="form-top">Meld interesse. Gratis og uforpliktende.</p>
     <div>
       <label for="navn">Navn</label>
       <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
@@ -658,11 +592,11 @@
       <legend>Hvilken stand er du interessert i? <span class="opt">Valgfritt</span></legend>
       <div class="chips chips-row"><input class="chip-input sr-only" type="radio" id="st-standard" name="stand" value="Standard"><label class="chip chip-radio" for="st-standard">Standard</label><input class="chip-input sr-only" type="radio" id="st-premium" name="stand" value="Premium"><label class="chip chip-radio" for="st-premium">Premium</label><input class="chip-input sr-only" type="radio" id="st-vip" name="stand" value="VIP"><label class="chip chip-radio" for="st-vip">VIP</label><input class="chip-input sr-only" type="radio" id="st-vet" name="stand" value="Vet ikke ennå"><label class="chip chip-radio" for="st-vet">Vet ikke ennå</label></div>
     </fieldset>
-    <div>
+    <div class="more">
       <label for="telefon">Telefon <small>Valgfritt</small></label>
       <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel">
     </div>
-    <fieldset aria-describedby="kat-hint">
+    <fieldset class="more" aria-describedby="kat-hint">
       <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
       <p class="hint" id="kat-hint">Velg så mange du vil.</p>
       <div class="chips">
@@ -676,25 +610,23 @@
         <input class="chip-input sr-only" type="checkbox" id="kat-annet" name="kategori" value="Annet"><label class="chip" for="kat-annet"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-annet"></use></svg>Annet</label>
       </div>
     </fieldset>
-    <div>
+    <div class="more">
       <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
       <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har og hvor mye."></textarea>
     </div>
     <div class="hp" aria-hidden="true"><label for="hp-felt">La dette feltet stå tomt</label><input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
     <button class="btn" type="submit" id="send-knapp">Sett meg på lista</button>
-    <p class="fine">Gratis og uforpliktende. Vi åpner 28.&nbsp;november i <a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3, Lyngdal</a>. Står du på lista, får du første uke gratis når du leier i minst 4 uker, og kan fylle standen før vi åpner. Da er du med fra åpningen, midt i julehandelen.</p>
-    <p class="fine">Påmeldingen sendes til oss på e-post. Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
+    <p class="fine">Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
     <p class="status" id="status" role="status" aria-live="polite"></p>
   </form>
 
   <aside class="more-info">
     <p class="more-title">Lurer du på noe?</p>
-    <p>Se alle spørsmål og svar, hva du kan selge og hvor vi holder til.</p>
+    <p>Spørsmål og svar, hva du kan selge og hvor vi er.</p>
     <a class="btn-outline" id="til-forsiden" href="https://loppely.no/#sporsmal">Les mer på loppely.no</a>
   </aside>
 
   <footer>
-    <a href="https://loppely.no/">Les mer på loppely.no</a>
     <a href="mailto:hei@loppely.no">hei@loppely.no</a>
     <a href="../vilkar/">Vilkår</a>
   </footer>
@@ -827,6 +759,17 @@
       if (f && f.classList.contains('is-short')) { f.classList.remove('is-short'); f.classList.add('is-opening'); }
     });
   });
+})();
+</script>
+<script>
+/* Only name, e-mail and stand until the visitor starts typing */
+(function () {
+  var form = document.getElementById('skjema');
+  if (!form) return;
+  form.classList.add('is-short');
+  function expand() { if (form.classList.contains('is-short')) { form.classList.remove('is-short'); form.classList.add('is-opening'); } }
+  ['navn', 'epost'].forEach(function (id) { var el = document.getElementById(id); if (el) { el.addEventListener('focus', expand); el.addEventListener('input', expand); } });
+  form.querySelectorAll('input[name="stand"]').forEach(function (r) { r.addEventListener('change', expand); });
 })();
 </script>
 </body>
