@@ -1159,7 +1159,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .vip-link:hover { text-decoration: underline; }
 
 .addr-link { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
-/* Short form first: only name and e-mail until someone starts typing */
+/* Short form first: only name, e-mail and phone until someone starts typing */
 .form-card.is-short .more { display: none; }
 @media (prefers-reduced-motion: no-preference) {
   .form-card.is-opening .more { animation: more-in 0.3s ease both; }
@@ -2248,7 +2248,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
         <div class="form-hang">
           <div class="form-shadow">
             <form class="form-card" id="selgerskjema" novalidate aria-labelledby="join-title">
-              <p class="form-top">Du må fylle ut navn og e-post. Resten er valgfritt.</p>
+              <p class="form-top">Du må fylle ut navn, e-post og telefon. Resten er valgfritt.</p>
               <div class="field">
                 <label for="navn">Navn</label>
                 <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
@@ -2259,15 +2259,15 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
                 <p class="err" id="epost-feil" hidden></p>
               </div>
+              <div class="field">
+                <label for="telefon">Telefon</label>
+                <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="telefon-feil">
+                <p class="err" id="telefon-feil" hidden></p>
+              </div>
               <fieldset class="field-set more">
                 <legend>Hvilken stand er du interessert i? <span class="opt">Valgfritt</span></legend>
                 <div class="chips chips-row"><input class="chip-input sr-only" type="radio" id="st-standard" name="stand" value="Standard"><label class="chip chip-radio" for="st-standard">Standard</label><input class="chip-input sr-only" type="radio" id="st-premium" name="stand" value="Premium"><label class="chip chip-radio" for="st-premium">Premium</label><input class="chip-input sr-only" type="radio" id="st-vip" name="stand" value="VIP"><label class="chip chip-radio" for="st-vip">VIP</label><input class="chip-input sr-only" type="radio" id="st-vet" name="stand" value="Vet ikke ennå"><label class="chip chip-radio" for="st-vet">Vet ikke ennå</label></div>
               </fieldset>
-              <div class="field more">
-                <label for="telefon">Telefon <span class="opt">Valgfritt</span></label>
-                <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="telefon-feil">
-                <p class="err" id="telefon-feil" hidden></p>
-              </div>
               <div class="hp" aria-hidden="true">
                 <label for="hp-felt">La dette feltet stå tomt</label>
                 <input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off">
@@ -2664,6 +2664,7 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
   function checkTelefon() {
     var v = fTelefon.value.trim();
     var siffer = v.replace(/\D/g, '').length;
+    if (!v) { setError(fTelefon, 'Skriv telefonnummeret ditt.'); return false; }
     if (v && !/^\+?[0-9 ().-]+$/.test(v)) {
       setError(fTelefon, 'Sjekk telefonnummeret. Bruk bare tall.');
       return false;
@@ -2739,7 +2740,7 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
       'Navn': navn,
       'email': epost,
       '_replyto': epost,
-      'Telefon': telefon || 'Ikke oppgitt',
+      'Telefon': telefon,
       'Stand': stand || 'Ikke valgt',
       'Vil selge': kategorier.length ? kategorier.join(', ') : 'Ikke valgt',
       'Melding': mer || '-',

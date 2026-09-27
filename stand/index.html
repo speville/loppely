@@ -66,7 +66,7 @@
   .strip .strip-offer span { color: #F2A07C; }
   .strip li a b { text-decoration: underline; text-underline-offset: 0.14em; text-decoration-thickness: 1.5px; }
   .strip-note { font-size: 0.85rem; line-height: 1.45; color: #7A3A2E; margin: 0 0 26px; }
-  /* Short form first: telefon, categories and message appear once someone starts filling in */
+  /* Short form first: categories and message appear once someone starts filling in */
   form.is-short .more { display: none; }
   @media (prefers-reduced-motion: no-preference) { form.is-opening .more { animation: more-in 0.3s ease both; } @keyframes more-in { from { opacity: 0; transform: translateY(-6px); } } }
   .more-info { margin-top: 22px; padding: 18px 20px; border: 1.5px dashed rgba(86, 26, 18, 0.3); border-radius: 22px; text-align: center; }
@@ -587,14 +587,15 @@
       <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
       <p class="feil" id="epost-feil" aria-live="polite"></p>
     </div>
+    <div>
+      <label for="telefon">Telefon</label>
+      <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="telefon-feil">
+      <p class="feil" id="telefon-feil" aria-live="polite"></p>
+    </div>
     <fieldset>
       <legend>Hvilken stand er du interessert i? <span class="opt">Valgfritt</span></legend>
       <div class="chips chips-row"><input class="chip-input sr-only" type="radio" id="st-standard" name="stand" value="Standard"><label class="chip chip-radio" for="st-standard">Standard</label><input class="chip-input sr-only" type="radio" id="st-premium" name="stand" value="Premium"><label class="chip chip-radio" for="st-premium">Premium</label><input class="chip-input sr-only" type="radio" id="st-vip" name="stand" value="VIP"><label class="chip chip-radio" for="st-vip">VIP</label><input class="chip-input sr-only" type="radio" id="st-vet" name="stand" value="Vet ikke ennå"><label class="chip chip-radio" for="st-vet">Vet ikke ennå</label></div>
     </fieldset>
-    <div class="more">
-      <label for="telefon">Telefon <small>Valgfritt</small></label>
-      <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel">
-    </div>
     <fieldset class="more" aria-describedby="kat-hint">
       <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
       <p class="hint" id="kat-hint">Velg så mange du vil.</p>
@@ -636,7 +637,7 @@
   var SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@');
   var form = document.getElementById('skjema');
   var fNavn = document.getElementById('navn'), fEpost = document.getElementById('epost'), fTelefon = document.getElementById('telefon'), fMer = document.getElementById('mer'), fHonning = document.getElementById('hp-felt');
-  var eNavn = document.getElementById('navn-feil'), eEpost = document.getElementById('epost-feil');
+  var eNavn = document.getElementById('navn-feil'), eEpost = document.getElementById('epost-feil'), eTelefon = document.getElementById('telefon-feil');
   var status = document.getElementById('status'), sendBtn = document.getElementById('send-knapp');
   var sending = false;
   /* Which ad brought them here, from the link's utm parameters */
@@ -664,12 +665,13 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (sending) { return; }
-    var navn = fNavn.value.trim(), epost = fEpost.value.trim();
+    var navn = fNavn.value.trim(), epost = fEpost.value.trim(), telefon = fTelefon.value.trim();
     eNavn.textContent = navn ? '' : 'Skriv inn navnet ditt.';
     eEpost.textContent = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(epost) ? '' : 'Skriv inn en gyldig e-postadresse.';
-    if (eNavn.textContent || eEpost.textContent) { (eNavn.textContent ? fNavn : fEpost).focus(); return; }
+    eTelefon.textContent = !telefon ? 'Skriv inn telefonnummeret ditt.' : (!/^\+?[0-9 ().-]+$/.test(telefon) || telefon.replace(/\D/g, '').length < 8) ? 'Sjekk telefonnummeret. Det skal ha minst 8 siffer.' : '';
+    if (eNavn.textContent || eEpost.textContent || eTelefon.textContent) { (eNavn.textContent ? fNavn : eEpost.textContent ? fEpost : fTelefon).focus(); return; }
     var kategorier = Array.prototype.map.call(form.querySelectorAll('input[name="kategori"]:checked'), function (i) { return i.value; });
-    var data = { 'Navn': navn, 'email': epost, '_replyto': epost, 'Telefon': fTelefon.value.trim() || 'Ikke oppgitt', 'Stand': (form.querySelector('input[name="stand"]:checked') || {}).value || 'Ikke valgt', 'Vil selge': kategorier.length ? kategorier.join(', ') : 'Ikke valgt', 'Melding': fMer.value.trim() || '-', 'Kilde': kilde, '_subject': 'Ny selger (annonse): ' + navn + ((form.querySelector('input[name="stand"]:checked') || {}).value ? ' (' + form.querySelector('input[name="stand"]:checked').value + ')' : ''), '_template': 'table', '_honey': fHonning.value };
+    var data = { 'Navn': navn, 'email': epost, '_replyto': epost, 'Telefon': telefon, 'Stand': (form.querySelector('input[name="stand"]:checked') || {}).value || 'Ikke valgt', 'Vil selge': kategorier.length ? kategorier.join(', ') : 'Ikke valgt', 'Melding': fMer.value.trim() || '-', 'Kilde': kilde, '_subject': 'Ny selger (annonse): ' + navn + ((form.querySelector('input[name="stand"]:checked') || {}).value ? ' (' + form.querySelector('input[name="stand"]:checked').value + ')' : ''), '_template': 'table', '_honey': fHonning.value };
     setSending(true); setStatus('', ['Sender …']);
     var ctrl = window.AbortController ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
