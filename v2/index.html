@@ -904,7 +904,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   overflow-wrap: break-word;
 }
 /* Narrow phones: the board's small caps must not break mid-word */
-@media (max-width: 400px) { .b-eyebrow { font-size: 0.58rem; letter-spacing: 0.06em; } }
+@media (max-width: 400px) { .board .b-eyebrow { font-size: max(10px, 2.9cqi); letter-spacing: 0.05em; } }
 .blk-1 { background: var(--board-1-bg); color: var(--board-1-fg); align-items: flex-start; --focus: var(--board-1-focus); }
 .b-big {
   font-family: var(--font-display); font-stretch: 108%; font-weight: 800;
@@ -1936,7 +1936,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <p class="b-note">Stand fra 200 kr per uke.</p>
           </div>
           <div class="blk blk-2">
-            <p class="b-eyebrow">Loppesupermarked</p>
+            <p class="b-eyebrow">Loppe&shy;supermarked</p>
             <svg class="b-logo" viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><use href="#i-logo"></use></svg>
             <p class="b-eyebrow">Åpner 28.&nbsp;november</p>
           </div>
