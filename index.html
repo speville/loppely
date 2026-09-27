@@ -754,23 +754,22 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; white-space: nowrap;
   padding: 0.7em 1.05em 0.66em; border-radius: 999px; background: #2E0D08; color: #FDEBD5;
 }
-/* "Spar deg for arbeid" as a record on a turntable: the disc spins, the ring text turns slowly */
-.hero-stamp {
-  grid-area: head; justify-self: end; align-self: end; z-index: 2;
-  width: clamp(86px, 24vw, 150px); aspect-ratio: 268 / 220; margin: 0 0 -6px 0;
-}
-.hero-stamp svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(46, 13, 8, 0.22)); }
-.stamp-text { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: 22px; letter-spacing: 2px; fill: #FDEBD5; }
-@media (min-width: 980px) {
-  .hero-stamp { grid-area: auto; grid-row: 1; grid-column: 2; justify-self: center; align-self: center; width: clamp(240px, 20vw, 300px); margin: 0; }
-}
-@keyframes vinyl-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: no-preference) {
-  .vinyl-spin { transform-origin: 100px 100px; animation: vinyl-spin 3.6s linear infinite; }
-  .hero-stamp:hover .vinyl-spin { animation-duration: 1.8s; }
-  .stamp-slow { transform-origin: 100px 100px; animation: vinyl-spin 40s linear infinite; }
-}
 .hero-illo { grid-area: illo; }
+/* "Spar deg for arbeid" as a round sticker on the shop floor in the picture */
+.illo { position: relative; }
+.floor-stamp {
+  position: absolute; z-index: 1; left: 27%; bottom: 4%; margin: 0;
+  width: clamp(96px, 26vw, 172px); aspect-ratio: 1; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.1em;
+  background: #561A12; color: #FDEBD5; text-align: center;
+  box-shadow: 0 0 0 5px #FDEBD5, 0 0 0 8px #E0693A, 0 14px 26px -8px rgba(46, 13, 8, 0.6);
+  transform: rotate(-8deg);
+  font-family: var(--font-display); font-stretch: 112%; font-weight: 900; text-transform: uppercase;
+  font-size: clamp(13px, 3.6vw, 23px); line-height: 1; letter-spacing: 0.02em;
+}
+@media (min-width: 700px) { .floor-stamp { left: 31%; bottom: 5%; } }
+.floor-stamp .fs-star { width: 1.15em; height: 1.15em; fill: #E0693A; margin-bottom: 0.2em; }
+
 /* The pitch under the picture: a soft card with a chip label and the key words in bold */
 .hero-lede { grid-area: lede; justify-self: center; width: min(100%, 880px); }
 .pitch {
@@ -1914,49 +1913,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
             <span class="tag-wrap"><span class="tag-shadow"><span class="tag-hl">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span>
           </h1>
         </div>
-        <div class="hero-stamp" role="img" aria-label="Spar deg for arbeid">
-          <svg viewBox="0 0 268 220" aria-hidden="true" focusable="false">
-            <defs>
-              <path id="stamp-top" d="M32,100 A68,68 0 0,1 168,100"/>
-              <path id="stamp-bot" d="M13,100 A87,87 0 0,0 187,100"/>
-            </defs>
-            <!-- turntable deck -->
-            <rect x="0" y="0" width="268" height="220" rx="22" fill="#561A12"/>
-            <rect x="6" y="6" width="256" height="208" rx="17" fill="none" stroke="#FDEBD5" stroke-opacity=".18" stroke-width="1.5"/>
-            <rect x="20" y="210" width="26" height="8" rx="3" fill="#2E0D08"/><rect x="222" y="210" width="26" height="8" rx="3" fill="#2E0D08"/>
-            <g transform="translate(10 10)">
-              <circle cx="100" cy="100" r="101" fill="#2E0D08"/>
-              <!-- the record: spins like on a turntable -->
-              <g class="vinyl-spin">
-                <circle cx="100" cy="100" r="98" fill="#1C0805"/>
-                <g fill="none" stroke="#FDEBD5" stroke-opacity=".1" stroke-width=".8"><circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="59"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="65"/><circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="71"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="77"/><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="83"/><circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="89"/><circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="95"/></g>
-                <path d="M100 100 L100 4 A96 96 0 0 1 168 32 Z" fill="#FDEBD5" opacity=".07"/>
-                <path d="M100 100 L100 196 A96 96 0 0 1 32 168 Z" fill="#FDEBD5" opacity=".07"/>
-                <circle cx="100" cy="100" r="50" fill="#E0693A"/>
-                <circle cx="100" cy="100" r="44" fill="none" stroke="#2E0D08" stroke-opacity=".25" stroke-width="1"/>
-                <path d="M100 72 C102 90 110 98 128 100 C110 102 102 110 100 128 C98 110 90 102 72 100 C90 98 98 90 100 72 Z" fill="#FDEBD5"/>
-                <path d="M126 70 C127 76 129 78 135 79 C129 80 127 82 126 88 C125 82 123 80 117 79 C123 78 125 76 126 70 Z" fill="#2E0D08"/>
-                <circle cx="100" cy="100" r="3.2" fill="#FDEBD5"/>
-              </g>
-              <!-- ring text turns slowly, much slower than the record, so it stays readable -->
-              <g class="stamp-slow">
-                <text class="stamp-text"><textPath href="#stamp-top" startOffset="50%" text-anchor="middle">SPAR DEG</textPath></text>
-                <text class="stamp-text"><textPath href="#stamp-bot" startOffset="50%" text-anchor="middle">FOR ARBEID</textPath></text>
-              </g>
-            </g>
-            <!-- tonearm on its base -->
-            <circle cx="238" cy="38" r="17" fill="#2E0D08"/>
-            <circle cx="238" cy="38" r="9" fill="#E0693A"/>
-            <circle cx="238" cy="38" r="3" fill="#2E0D08"/>
-            <path d="M238 38 L238 120 L212 142" fill="none" stroke="#2E0D08" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M238 38 L238 120 L212 142" fill="none" stroke="#FDEBD5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="198" y="134" width="20" height="13" rx="3" transform="rotate(-40 208 140)" fill="#E0693A" stroke="#2E0D08" stroke-width="2"/>
-            <!-- speed and volume knobs -->
-            <circle cx="238" cy="172" r="9" fill="#FDEBD5"/><path d="M238 172 V165" stroke="#2E0D08" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="238" cy="198" r="5" fill="#E0693A"/>
-          </svg>
-        </div>
-        <figure class="illo hero-illo"><picture><source type="image/webp" srcset="bilder/butikken-800.webp 800w, bilder/butikken.webp 1254w" sizes="(min-width: 980px) 60vw, 100vw"><img class="shop-illo shop-photo" src="bilder/butikken.jpg" srcset="bilder/butikken-800.jpg 800w, bilder/butikken.jpg 1254w" sizes="(min-width: 980px) 60vw, 100vw" width="1254" height="1254" fetchpriority="high" alt="Illustrasjon av Loppely: lyse trehyller med leker, bøker og kurver, og stativer fulle av klær i et stort lokale med gul vegg og grønne bjelker"></picture></figure>
+        <figure class="illo hero-illo"><p class="floor-stamp"><svg class="fs-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C12.8 8.4 15.6 11.2 22 12C15.6 12.8 12.8 15.6 12 22C11.2 15.6 8.4 12.8 2 12C8.4 11.2 11.2 8.4 12 2Z"/></svg><span>Spar deg</span><span>for arbeid</span></p><picture><source type="image/webp" srcset="bilder/butikken-800.webp 800w, bilder/butikken.webp 1254w" sizes="(min-width: 980px) 60vw, 100vw"><img class="shop-illo shop-photo" src="bilder/butikken.jpg" srcset="bilder/butikken-800.jpg 800w, bilder/butikken.jpg 1254w" sizes="(min-width: 980px) 60vw, 100vw" width="1254" height="1254" fetchpriority="high" alt="Illustrasjon av Loppely: lyse trehyller med leker, bøker og kurver, og stativer fulle av klær i et stort lokale med gul vegg og grønne bjelker"></picture></figure>
         <div class="pitch hero-lede">
           <p class="pitch-chip">Kort fortalt</p>
           <p class="pitch-text">Du <strong>leier en stand</strong> og <strong>setter prisen</strong> selv. Vi <strong>rydder standen</strong> og <strong>selger</strong> for deg. Du kommer bare innom <strong>hvis du vil fylle på</strong>.</p>
