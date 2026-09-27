@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>V2 utkast. Lei en stand hos Loppely</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Loppely åpner 28. november i Lyngdal. Lei en stand, sett prisen selv, og vi selger for deg. Sett deg på lista.">
+<meta name="theme-color" content="#FDEBD5">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:site_name" content="Loppely">
+<meta property="og:title" content="Du rydder. Vi selger.">
+<meta property="og:description" content="Lei en stand hos Loppely i Lyngdal. Du setter prisen, vi står i kassa. Sett deg på lista.">
+<meta property="og:url" content="https://loppely.no/stand/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..900&amp;family=IBM+Plex+Mono:wght@600&amp;family=Vujahday+Script&amp;family=Schibsted+Grotesk:wght@400..700&amp;display=swap">
+<style>
+  :root {
+    --maroon: #561A12; --maroon-deep: #2E0D08; --orange: #E0693A; --orange-deep: #B85630;
+    --cream: #FDEBD5; --mauve: #B67B9A; --paper: #FFFDF9; --green: #2F6B45;
+    --font-display: "Archivo", "Arial Black", sans-serif;
+    --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  /* Cream page, the content on a sheet of paper in the middle */
+  body { margin: 0; background: var(--cream); color: var(--maroon); font-family: var(--font-body); line-height: 1.5; font-size: 17px; }
+  .wrap { max-width: 620px; margin: 0 auto; padding: 28px 18px 40px; background: var(--paper); }
+  @media (min-width: 680px) {
+    body { padding: 40px 16px 56px; }
+    .wrap { padding: 40px 44px 44px; border-radius: 28px; box-shadow: 0 2px 0 rgba(86, 26, 18, 0.12), 0 24px 48px -24px rgba(86, 26, 18, 0.35); }
+  }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 30px; }
+  .top svg { height: 42px; width: auto; display: block; }
+  .kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: clamp(42px, 12vw, 64px); line-height: 0.95; letter-spacing: -0.02em; margin: 0 0 18px; }
+  .tag-wrap { position: relative; display: inline-block; margin-top: 0.14em; white-space: nowrap; transform: rotate(-2deg); transform-origin: 0.64em 0.55em; }
+  .tag-shadow { display: inline-block; filter: drop-shadow(0.07em 0.07em 0 var(--maroon)); }
+  .tag {
+    display: inline-block; background: var(--orange); color: var(--maroon-deep);
+    padding: 0.05em 0.32em 0.1em 1.04em;
+    clip-path: polygon(0.5em 0, 100% 0, 100% 100%, 0.5em 100%, 0 50%);
+    -webkit-mask: radial-gradient(circle at 0.64em 50%, transparent 0.1em, #000 calc(0.1em + 1px));
+    mask: radial-gradient(circle at 0.64em 50%, transparent 0.1em, #000 calc(0.1em + 1px));
+  }
+  .tag-string { position: absolute; left: 0; top: -0.34em; width: 0.9em; height: 0.9em; overflow: visible; pointer-events: none; }
+  .tag-string path { fill: none; stroke: var(--maroon); stroke-width: 4; stroke-linecap: round; }
+  .pitch { position: relative; text-align: center; background: var(--cream); border-radius: 24px; padding: 34px 20px 24px; margin: 34px 0 30px; }
+  .pitch p { margin: 0; }
+  .pitch-chip { position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); font-family: var(--font-display); font-stretch: 110%; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; white-space: nowrap; padding: 0.7em 1.1em 0.66em; border-radius: 999px; background: var(--maroon-deep); color: var(--cream); }
+  .pitch-text { font-size: clamp(19px, 5vw, 23px); line-height: 1.45; font-weight: 500; text-wrap: balance; max-width: 30ch; margin: 0 auto; }
+  .pitch-text strong { font-weight: 800; color: var(--maroon-deep); }
+  /* Illustration of the shop: stands, price tags and the shared till */
+  .shop-illo { display: block; width: 100%; height: auto; border-radius: 22px; }
+  .illo { margin: 0 0 22px; }
+  .shop-photo { aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 55%; }
+  .illo picture { display: block; }
+  .illo { position: relative; }
+  .floor-stamp { position: absolute; z-index: 1; left: 27%; bottom: 4%; margin: 0; width: clamp(96px, 26vw, 150px); aspect-ratio: 1; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.1em; background: var(--maroon); color: var(--cream); text-align: center; box-shadow: 0 0 0 5px var(--cream), 0 0 0 8px var(--orange, #E0693A), 0 14px 26px -8px rgba(46, 13, 8, 0.6); transform: rotate(-8deg); font-family: var(--font-display); font-stretch: 112%; font-weight: 900; text-transform: uppercase; font-size: clamp(12px, 3.3vw, 20px); line-height: 1; letter-spacing: 0.02em; }
+  .floor-stamp span { white-space: nowrap; }
+  .floor-stamp .fs-star { width: 1.15em; height: 1.15em; fill: var(--orange, #E0693A); margin-bottom: 0.2em; }
+  /* Fact strip: the whole picture in four tiles */
+  .strip { list-style: none; padding: 0; margin: 0 0 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .strip li { background: var(--cream); border-radius: 16px; padding: 12px 12px 11px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .strip li a { display: flex; flex-direction: column; gap: 2px; color: inherit; text-decoration: none; }
+  .strip b { font-family: var(--font-display); font-stretch: 110%; font-weight: 900; font-size: clamp(1.25rem, 5.2vw, 1.5rem); line-height: 1; letter-spacing: -0.01em; white-space: nowrap; }
+  .strip span { font-size: 0.82rem; font-weight: 600; color: #7A3A2E; }
+  .strip .strip-offer { background: var(--maroon-deep); color: var(--cream); }
+  .strip .strip-offer span { color: #F2A07C; }
+  .strip li a b { text-decoration: underline; text-underline-offset: 0.14em; text-decoration-thickness: 1.5px; }
+  .strip-note { font-size: 0.85rem; line-height: 1.45; color: #7A3A2E; margin: 0 0 26px; }
+  /* Short form first: categories and message appear once someone starts filling in */
+  form.is-short .more { display: none; }
+  @media (prefers-reduced-motion: no-preference) { form.is-opening .more { animation: more-in 0.3s ease both; } @keyframes more-in { from { opacity: 0; transform: translateY(-6px); } } }
+  .more-info { margin-top: 22px; padding: 18px 20px; border: 1.5px dashed rgba(86, 26, 18, 0.3); border-radius: 22px; text-align: center; }
+  .more-info p { margin: 0 0 12px; }
+  .more-title { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; margin-bottom: 4px !important; }
+  .btn-outline { display: inline-block; font-weight: 700; padding: 0.8em 1.4em; border: 2px solid var(--maroon); border-radius: 999px; color: var(--maroon); text-decoration: none; }
+  .btn-outline:hover { background: var(--maroon); color: var(--cream); }
+  .btn-outline:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 3px; }
+  /* Prices: same cards and payout table as the front page */
+  .pris { --card: #FFFCF8; --line: rgba(86, 26, 18, 0.2); --muted: #7A3A2E; --surface: #FDEBD5; margin: 0 0 30px; }
+  .pris-title { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: 1.8rem; line-height: 1; margin: 0; }
+  .pris-sub { color: var(--muted); margin: 6px 0 14px; }
+  .pris p, .pris ul:not(.plans), .pris h3 { margin: 0; }
+  .plans-wrap { position: relative; }
+  .plans { list-style: none; padding: 18px 18px 34px; margin: 0 -18px; display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 18px; scrollbar-width: none; }
+  .plans::-webkit-scrollbar { display: none; }
+  @media (min-width: 680px) { .plans { margin: 0 -44px; padding-inline: 44px; scroll-padding-inline: 44px; grid-auto-columns: 62%; } }
+  .plan { position: relative; scroll-snap-align: start; display: flex; flex-direction: column; gap: 10px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 24px 20px 20px; }
+  /* Card colours match the payout panels: light cream Standard, cream Premium, champagne gold VIP */
+  .plans .plan { background: color-mix(in srgb, var(--surface) 45%, var(--card)); }
+  .plans .plan-pick { background: var(--surface); }
+  .plans .plan-vip { border: 2.5px solid transparent; background: linear-gradient(#2E0D08, #2E0D08) padding-box, linear-gradient(135deg, #A87B1F 0%, #E9C766 28%, #FFF1B8 50%, #D9AE45 72%, #A87B1F 100%) border-box; color: #FDEBD5; }
+  .plans .plan-vip .plan-feats li, .plans .plan-vip .plan-periods li { color: #FDEBD5; }
+  .plans .plan-vip .pf-yes .pf-ico { stroke: #E9C766; }
+  .plans .plan-vip .plan-periods { border-top-color: rgba(253, 235, 213, 0.22); }
+  /* Premium (recommended) stands out: lifted, larger and with a deeper shadow */
+  .plans .plan-pick { box-shadow: 0 24px 50px -22px rgba(86, 26, 18, 0.55); z-index: 1; }
+  @media (min-width: 900px) { .plans .plan-pick { transform: scale(1.045); } }
+  .plans .plan-vip .plan-comm { background: linear-gradient(135deg, #A87B1F 0%, #E9C766 28%, #FFF1B8 50%, #D9AE45 72%, #A87B1F 100%); border-color: transparent; color: #3A2A08; box-shadow: inset 0 0 0 1px rgba(120, 85, 20, .25); }
+  .plans .plan:not(.plan-vip) .plan-comm { background: var(--card); }
+  .plan-pick { border-color: var(--maroon); border-width: 2px; box-shadow: 0 14px 30px -18px rgba(86, 26, 18, 0.45); }
+  .plan-badge { position: absolute; top: 0; left: 20px; transform: translateY(-50%); font-family: var(--font-display); font-stretch: 110%; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; padding: 0.6em 0.95em 0.56em; border-radius: 999px; background: #E0693A; color: #2E0D08; }
+  .plan-name { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .plan-price { font-family: var(--font-display); font-weight: 900; font-stretch: 110%; font-size: 2.3rem; line-height: 1; letter-spacing: -0.02em; }
+  .plan-from, .plan-unit { font-family: var(--font-body); font-weight: 600; font-size: 1rem; letter-spacing: 0; }
+  .plan-comm { align-self: flex-start; font-weight: 700; font-size: 0.9rem; padding: 0.35em 0.8em; border-radius: 999px; border: 1.5px solid var(--line); }
+  .plan-feats { list-style: none; padding: 0; flex: 1; display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .plan-feats li { display: flex; align-items: flex-start; gap: 10px; line-height: 1.35; font-weight: 600; font-size: 0.95rem; }
+  .pf-ico { flex: none; width: 20px; height: 20px; margin-top: 1px; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .pf-yes .pf-ico { stroke: var(--green); }
+  .pf-no { color: var(--muted); font-weight: 500; }
+  .pf-no .pf-ico { stroke: var(--muted); opacity: 0.7; }
+  /* Extras beyond the tier below: a filled plus and bolder text, so what you gain stands out */
+  .plan .pf-plus { font-weight: 800; }
+  .plan .pf-plus .pf-ico { stroke: #FFFDF9; stroke-width: 2.6; background: #2F6B45; border-radius: 50%; }
+  .plans .plan-vip .pf-plus .pf-ico { stroke: #2E0D08; background: linear-gradient(135deg, #A87B1F 0%, #E9C766 30%, #FFF1B8 50%, #D9AE45 75%, #A87B1F 100%); }
+  /* One line on who each stand is for, in the "Du rydder. Vi selger." voice */
+  .plan-tag { font-weight: 700; font-size: 1.02rem; line-height: 1.3; margin-top: -4px; }
+  .plans .plan-vip .plan-tag { color: #E9C766; }
+  /* Rules rather than perks sit quietly under the list */
+  .plan-note { font-size: 0.875rem; line-height: 1.45; opacity: 0.8; }
+  /* One button per card: only the recommended card gets the filled one */
+  .plan-cta { display: flex; align-items: center; justify-content: center; margin-top: 8px; padding: 0.85em 1.2em; border-radius: 999px; border: 2px solid currentColor; font-weight: 700; text-decoration: none; color: inherit; transition: background-color 0.15s ease, border-color 0.15s ease; }
+  .plan-cta:hover { background: rgba(86, 26, 18, 0.08); }
+  .plan-cta:focus-visible { outline: 3px solid #B85630; outline-offset: 3px; }
+  .plans .plan-pick .plan-cta { background: #E0693A; border-color: #E0693A; color: #2E0D08; }
+  .plans .plan-pick .plan-cta:hover { background: #C95A2E; border-color: #C95A2E; }
+  .plans .plan-vip .plan-cta { border-color: #C9A55A; color: #FDEBD5; }
+  .plans .plan-vip .plan-cta:hover { background: rgba(233, 199, 102, 0.14); }
+  /* Phones: snap cards to the middle so the carousel can open on the recommended one */
+  .plans .plan { scroll-snap-align: center; }
+  .plan-periods { list-style: none; padding: 0; margin-top: 6px; border-top: 1.5px solid var(--line); }
+  .plan-periods li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0 0; font-weight: 600; }
+  .plan-periods li + li { padding-top: 6px; }
+  .plan-periods li span:last-child { font-weight: 800; }
+  .plan-dots { display: flex; justify-content: center; gap: 8px; margin-top: -14px; }
+  .plan-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: background-color 0.2s ease, width 0.2s ease; }
+  .plan-dots span.on { width: 22px; border-radius: 999px; background: var(--maroon); }
+  .swipe-hint { position: absolute; z-index: 3; right: 18%; top: 60%; pointer-events: none; width: 56px; height: 56px; border-radius: 50%; background: rgba(46, 13, 8, 0.82); box-shadow: 0 8px 20px rgba(46, 13, 8, 0.25); display: grid; place-items: center; transition: opacity 0.35s ease; }
+  .swipe-hint svg { width: 30px; height: 30px; fill: none; stroke: var(--cream); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .plans-wrap.swiped .swipe-hint { opacity: 0; visibility: hidden; animation: none; }
+  @keyframes swipe-hint { 0% { transform: translateX(0) scale(1); opacity: 0; } 12% { opacity: 1; transform: translateX(0) scale(0.92); } 55% { transform: translateX(-120px) scale(0.92); opacity: 1; } 70%, 100% { transform: translateX(-140px) scale(1); opacity: 0; } }
+  @media (prefers-reduced-motion: no-preference) { .swipe-hint { animation: swipe-hint 2.4s cubic-bezier(0.45, 0, 0.25, 1) 0.6s infinite both; } }
+  /* Desktop: the three cards side by side like on the front page, wider than the sheet so they get room */
+  @media (min-width: 820px) {
+    .pris { overflow-x: visible; }
+    .plans-wrap { width: min(1080px, calc(100vw - 48px)); margin-left: 50%; transform: translateX(-50%); }
+    .plans { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; margin: 0; padding: 18px 0 0; gap: 16px; }
+    .plan-dots, .swipe-hint { display: none; }
+  }
+  @media (min-width: 1100px) {
+    .plans { gap: 20px; }
+    .plan { padding: 30px 28px 26px; }
+  }
+  /* Desktop: a wide sheet. Headline, pitch and facts on the left, the picture on the right; the cards fit inside */
+  @media (min-width: 900px) {
+    .wrap { max-width: 1120px; padding: 40px 48px 48px; }
+    .hero2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-areas: "h1 fig" "pitch fig" "strip fig" "note fig"; column-gap: 40px; align-items: center; margin-bottom: 8px; }
+    .hero2 h1 { grid-area: h1; align-self: end; font-size: clamp(48px, 4.6vw, 64px); }
+    .hero2 .illo { grid-area: fig; margin: 0; align-self: center; }
+    .hero2 .pitch { grid-area: pitch; margin: 30px 0 24px; text-align: left; padding: 30px 24px 22px; }
+    .hero2 .pitch-chip { left: 24px; transform: translate(0, -50%); }
+    .hero2 .pitch-text { margin: 0; max-width: none; font-size: clamp(18px, 1.45vw, 21px); }
+    .hero2 .strip { grid-area: strip; }
+    .hero2 .strip-note { grid-area: note; align-self: start; }
+    .plans-wrap { width: auto; margin-left: 0; transform: none; }
+    form, .more-info { max-width: 680px; margin-inline: auto; }
+    .pris-title { font-size: 2rem; }
+  }
+  .payout { margin-top: 22px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px 20px; }
+  .payout-title { font-family: var(--font-display); font-weight: 800; font-stretch: 110%; font-size: 1.3rem; margin-bottom: 10px !important; }
+  .payout-table { --payout-vip: #2E0D08; width: calc(100% + 12px); margin-inline: -6px; border-collapse: separate; border-spacing: 6px 0; font-variant-numeric: tabular-nums; }
+  .payout-table th, .payout-table td { text-align: left; padding: 10px 8px 10px 0; border-bottom: 1.5px solid var(--line); vertical-align: baseline; font-size: 1.05rem; font-weight: 600; }
+  /* Each payout column is its own rounded panel: Standard og Premium in cream, VIP in warm gold */
+  .payout-table :is(th, td):nth-last-child(-n+2) { background: var(--surface); padding-left: 12px; }
+  .payout-table :is(th, td):last-child { padding-right: 12px; }
+  .payout-table thead tr:first-child > :not(:first-child) { border-radius: 16px 16px 0 0; }
+  .payout-table tbody tr:last-child > :not(:first-child) { border-radius: 0 0 16px 16px; }
+  /* Header rows: illustrations, the names, then the commission, so each row lines up across the panels.
+     The first column's header (price tag and "Du selger for") spans all three and sits at the bottom, just above the prices. */
+  .payout-table thead th { font-weight: 700; vertical-align: bottom; border-bottom: 0; padding-top: 6px; padding-bottom: 6px; }
+  .payout-table .payout-icons > * { padding-top: 14px; padding-bottom: 0; border-bottom: 0; vertical-align: bottom; line-height: 0; }
+  .payout-table .payout-ico { width: 48px; height: 48px; }
+  .payout-table .payout-stub { width: 30%; line-height: inherit; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); }
+  .payout-table .payout-stub .payout-ico { display: block; margin-bottom: 8px; }
+  .payout-table .payout-rates > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); vertical-align: middle; }
+  .payout-table .payout-rate { display: inline-block; font-size: 0.9rem; font-weight: 600; white-space: nowrap; padding: 0.3em 0.75em; border-radius: 999px; background: var(--card); color: var(--muted); }
+  /* Phones: "provisjon" sits under the pill, and the first column (30% wide, above) keeps "Du selger" on one line */
+  .payout-table .payout-rate-label { display: block; margin-top: 0.3em; font-size: 0.9rem; color: var(--muted); }
+  /* From 520px both columns have room for "provisjon" beside the pill */
+  @media (min-width: 520px) { .payout-table .payout-stub { width: auto; } .payout-table .payout-rates td { white-space: nowrap; } .payout-table .payout-rate-label { display: inline; margin: 0 0 0 0.25em; } }
+  .payout-table tbody th { color: var(--muted); }
+  .payout-table tbody th, .payout-table tbody td { white-space: nowrap; }
+  .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
+  /* The payouts are what people came for: big and heavy; the sale prices stay quieter */
+  .payout-table tbody td { font-family: var(--font-display); font-weight: 900; font-stretch: 108%; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; }
+  .payout-table tbody th { font-size: 1.05rem; font-weight: 600; }
+  .payout-table :is(th, td):last-child { background: var(--payout-vip); color: #FDEBD5; border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
+  /* Close the hairline seam browsers can leave between the two header rows on the panels */
+  .payout-table thead tr + tr > :nth-last-child(-n+2) { box-shadow: 0 -1px 0 var(--surface); }
+  .payout-table thead tr + tr > :last-child { box-shadow: inset 2.5px 0 0 var(--gold), inset -2.5px 0 0 var(--gold), 0 -4px 0 -2.5px var(--payout-vip); }
+  /* VIP column: warm gold panel with a gold frame */
+  .payout-table { --gold: #C9A55A; --gold-deep: #9C7A12; }
+  .payout-table :is(th, td):last-child { box-shadow: inset 2.5px 0 0 var(--gold), inset -2.5px 0 0 var(--gold); border-bottom-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+  .payout-table thead tr:first-child > :last-child { border-top: 2.5px solid var(--gold); }
+  .payout-table tbody tr:last-child > :last-child { border-bottom: 2.5px solid var(--gold); }
+  .payout-table :is(th, td):last-child .payout-rate-label { color: rgba(253, 235, 213, 0.75); }
+  .payout-table tbody tr > td:last-child { border-bottom-color: rgba(253, 235, 213, 0.18); }
+  .payout-table :is(th, td):last-child .payout-rate { background: linear-gradient(135deg, #A87B1F 0%, #E9C766 28%, #FFF1B8 50%, #D9AE45 72%, #A87B1F 100%); color: #3A2A08; box-shadow: inset 0 0 0 1px rgba(120, 85, 20, .25); }
+  .payout-cta { margin-top: 16px !important; display: flex; justify-content: center; }
+  .payout-cta .btn { width: auto; }
+  form { display: grid; gap: 14px; padding: 22px 20px 20px; background: var(--cream); border-radius: 22px; }
+  @media (min-width: 680px) { form { padding: 26px 26px 24px; } }
+  label { display: block; font-weight: 700; margin-bottom: 6px; }
+  label small { font-weight: 400; margin-left: 6px; }
+  .input { width: 100%; font: inherit; color: var(--maroon); background: var(--paper); border: 2px solid var(--maroon); border-radius: 999px; padding: 0.8em 1.1em; }
+  .input:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 2px; }
+  .btn { font: inherit; font-weight: 700; font-size: 1.1rem; padding: 1em 1.6em; border: 0; border-radius: 999px; background: var(--maroon); color: var(--cream); cursor: pointer; width: 100%; }
+  .btn:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 3px; }
+  .btn[aria-disabled="true"] { opacity: 0.85; cursor: progress; }
+  .fine { font-size: 0.9rem; margin: 0; }
+  .form-top { margin: 0; text-align: center; font-size: 0.95rem; }
+  .opt { font-weight: 400; font-size: 0.9rem; margin-left: 0.4em; }
+  .hint { font-size: 0.9rem; margin: -2px 0 10px; }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  legend { padding: 0; font-weight: 700; margin-bottom: 6px; }
+  textarea.input { border-radius: 22px; resize: vertical; min-height: 5.5em; line-height: 1.5; }
+  .input::placeholder { color: #7A3A2E; opacity: 1; }
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip-ico { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .chip { display: inline-flex; align-items: center; gap: 0.5em; min-height: 44px; padding: 0.55em 1em; border: 2px solid var(--maroon); border-radius: 999px; font-weight: 600; font-size: 0.95rem; line-height: 1.2; cursor: pointer; user-select: none; background: var(--paper); }
+  /* Each category is a checkbox: an empty box on the right, green with a tick when picked */
+  .chip::after {
+    content: ""; flex: none; margin-left: auto;
+    width: 22px; height: 22px; border: 2px solid currentColor; border-radius: 7px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .chip-input:checked + .chip { background: #2F6B45; color: #FDEBD5; border-color: #2F6B45; }
+  .chip-input:checked + .chip::after { background: #FDEBD5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.4l3.2 3.2L15 6.6' fill='none' stroke='%232F6B45' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat; border-color: #FDEBD5; }
+  /* Stand choice: compact pills that turn green when picked, no tick box */
+  .chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips-row .chip { width: auto; }
+  .chip-radio::after { display: none !important; }
+  .chip-input:focus-visible + .chip { outline: 3px solid var(--orange-deep); outline-offset: 3px; }
+  .feil { color: var(--orange-deep); font-weight: 700; font-size: 0.9rem; margin: 6px 0 0; min-height: 0; }
+  .feil:empty { display: none; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .status { font-weight: 600; padding: 14px 16px; border-radius: 16px; background: var(--paper); border: 2px solid var(--maroon); }
+  .status:empty { display: none; }
+  .status[data-state="feil"] { border-color: var(--orange-deep); }
+  .status[data-state="ok"] { display: flex; align-items: flex-start; gap: 14px; background: var(--green); border-color: var(--green); color: var(--cream); font-size: 1.08em; padding: 18px 20px; }
+  .status[data-state="ok"] .ico { width: 28px; height: 28px; flex: none; --tick-bg: var(--cream); --tick-fg: var(--green); }
+  .ico { --tick-bg: var(--orange); --tick-fg: var(--maroon-deep); }
+  footer { margin-top: 30px; font-size: 0.9rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  footer a { color: inherit; font-weight: 700; }
+  @keyframes swing {
+    0% { transform: rotate(-10deg); } 35% { transform: rotate(3deg); } 60% { transform: rotate(-4.5deg); } 82% { transform: rotate(-1deg); } 100% { transform: rotate(-2deg); }
+  }
+  @media (prefers-reduced-motion: no-preference) { .tag-wrap { animation: swing 1.6s cubic-bezier(0.3, 0.7, 0.4, 1) 0.3s both; } }
+</style>
+</head>
+<body>
+<svg style="display:none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="il-pricetag" viewBox="0 0 64 64"><g transform="translate(2.6 2.6)"><path transform="translate(27 36) rotate(35) translate(-21 -12)" d="M8 0H38a3 3 0 0 1 3 3V21a3 3 0 0 1-3 3H8L0 12Z" fill="#561A12"/></g><path transform="translate(27 36) rotate(35) translate(-21 -12)" d="M8 0H38a3 3 0 0 1 3 3V21a3 3 0 0 1-3 3H8L0 12Z" fill="#E0693A" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/><circle cx="16.76" cy="28.83" r="2.9" fill="#FFFCF8" stroke="#561A12" stroke-width="2.2"/><path transform="translate(27 36) rotate(35) translate(-21 -12)" d="M12 4H33" fill="none" stroke="#F2A07C" stroke-width="2" stroke-linecap="round"/><path transform="translate(27 36) rotate(35) translate(-21 -12)" d="M20.0 6.300000000000001V18.3M20.0 13.8L24.5 9.8M22.1 12.0L24.9 18.3M27.9 9.8V18.3M27.9 13.100000000000001C27.9 10.700000000000001 29.5 9.700000000000001 31.7 9.9" fill="none" stroke="#561A12" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.1 27.7C9.8 25.8 7.8 16.8 13.8 13.8C18.8 11.3 22.8 14.8 20.8 18.3" fill="none" stroke="#561A12" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="il-piggy" viewBox="0 0 64 64"><rect x="17" y="46" width="7.5" height="12" rx="2.6" fill="#E68CA3" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/><rect x="37" y="46" width="7.5" height="12" rx="2.6" fill="#E68CA3" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/><path d="M11.6 37.5C8 37.8 5.8 35 7.3 32.8C8.7 30.8 11.8 31.9 10.6 34.2" fill="none" stroke="#561A12" stroke-width="2.3" stroke-linecap="round"/><ellipse cx="31" cy="39" rx="20" ry="15" fill="#F4A7B9" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/><path d="M17.5 32.5A16 11.5 0 0 1 25 27.2" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="2.2" stroke-linecap="round"/><path d="M39.6 27.4C40 22.9 42.4 19.5 45.5 18.1Q47.3 17.4 47.6 19.3C48.1 22.7 47.4 26.1 45.2 28.9Z" fill="#E68CA3" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="51.5" cy="40" rx="4.6" ry="6" fill="#E68CA3" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50.9" cy="37.7" rx="1.05" ry="1.4" fill="#561A12"/><ellipse cx="50.9" cy="42.3" rx="1.05" ry="1.4" fill="#561A12"/><circle cx="42.6" cy="33.4" r="1.9" fill="#561A12"/><path d="M25.5 27.4Q31 25.9 36.5 27.4" fill="none" stroke="#561A12" stroke-width="2.6" stroke-linecap="round"/><circle cx="31" cy="12.5" r="7.4" fill="#F8C84A" stroke="#561A12" stroke-width="2.5" stroke-linejoin="round"/><circle cx="31" cy="12.5" r="4.1" fill="none" stroke="#E9AA2B" stroke-width="1.7"/><path d="M26.6 10.4A5 5 0 0 1 28.9 8.1" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/><path d="M17.5 6.8C18.26 10.24 18.26 10.24 21.7 11C18.26 11.76 18.26 11.76 17.5 15.2C16.74 11.76 16.74 11.76 13.3 11C16.74 10.24 16.74 10.24 17.5 6.8Z" fill="#561A12"/><path d="M44.5 4.7C45.0 7.0 45.0 7.0 47.3 7.5C45.0 8.0 45.0 8.0 44.5 10.3C44.0 8.0 44.0 8.0 41.7 7.5C44.0 7.0 44.0 7.0 44.5 4.7Z" fill="#561A12"/></symbol>
+  <symbol id="c-klaer" viewBox="0 0 20 20"><path d="M7 3 L4 4.5 L2 8 L5 9.5 V17 H15 V9.5 L18 8 L16 4.5 L13 3 C12.2 4.6 7.8 4.6 7 3 Z"/></symbol>
+  <symbol id="c-barneting" viewBox="0 0 20 20"><circle cx="10" cy="11" r="6.2"/><path d="M4.64 7.89 A2.5 2.5 0 1 1 7.40 5.37 M12.60 5.37 A2.5 2.5 0 1 1 15.36 7.89"/><ellipse cx="10" cy="13.1" rx="2.5" ry="1.9"/><ellipse cx="10" cy="12.5" rx="0.95" ry="0.7" style="fill:currentColor;stroke:none"/><circle cx="7.6" cy="9.6" r="0.75" style="fill:currentColor;stroke:none"/><circle cx="12.4" cy="9.6" r="0.75" style="fill:currentColor;stroke:none"/></symbol>
+  <symbol id="c-mobler" viewBox="0 0 20 20"><path d="M4.5 9 V6.5 a2 2 0 0 1 2 -2 h7 a2 2 0 0 1 2 2 V9 M3 9 h14 v6 H3 Z M5 15 v2.5 M15 15 v2.5"/></symbol>
+  <symbol id="c-boker" viewBox="0 0 20 20"><path d="M2 4.5 C6 3.5 8 4.5 10 6.5 C12 4.5 14 3.5 18 4.5 V16 C14 15 12 16 10 17.5 C8 16 6 15 2 16 Z M10 6.5 V17.5"/></symbol>
+  <symbol id="c-kjokken" viewBox="0 0 20 20"><path d="M9 4.2 h2 M5 7.5 c0-1.6 2.2-2.4 5-2.4 s5 .8 5 2.4 M3.5 7.5 h13 M4.8 7.5 v5.3 a3 3 0 0 0 3 3 h4.4 a3 3 0 0 0 3-3 V7.5 M2 10.2 h2.8 M15.2 10.2 H18"/></symbol>
+  <symbol id="c-sport" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="M10 3 c-4.5 3.5 -4.5 10.5 0 14 M3.4 8 c4 -1.2 9.2 -1.2 13.2 0 M3.4 12 c4 1.2 9.2 1.2 13.2 0"/></symbol>
+  <symbol id="c-spill" viewBox="0 0 20 20"><rect x="2" y="6.5" width="16" height="8" rx="4"/><path d="M6.5 8.6 v3.8 M4.6 10.5 h3.8"/><circle cx="13.2" cy="9.4" r="0.9" style="fill:currentColor;stroke:none"/><circle cx="15.2" cy="11.6" r="0.9" style="fill:currentColor;stroke:none"/></symbol>
+  <symbol id="c-annet" viewBox="0 0 20 20"><path d="M3 7 L10 3 L17 7 L10 11 Z M3 7 V14 L10 18 L17 14 V7 M10 11 V18"/></symbol>
+  <symbol id="i-badge" viewBox="-29.2 -6.1 103.7 103.7">
+    <g transform="rotate(12)">
+      <path fill-rule="evenodd" style="fill:var(--badge-bg);stroke:var(--badge-bg);stroke-width:2;stroke-linejoin:round" d="M0,17 L17,0 H43 L60,17 V76 Q60,84 52,84 H8 Q0,84 0,76 ZM24.2,14 a5.8,5.8 0 1 0 11.6,0 a5.8,5.8 0 1 0 -11.6,0 Z"></path>
+      <path fill-rule="evenodd" style="fill:var(--orange)" d="M19.5,14 a10.5,10.5 0 1 0 21.0,0 a10.5,10.5 0 1 0 -21.0,0 ZM24.2,14 a5.8,5.8 0 1 0 11.6,0 a5.8,5.8 0 1 0 -11.6,0 Z"></path>
+      <path style="fill:var(--badge-fg)" d="M33.4 35 32.4 35.6Q31.5 36.1 31.2 36.7Q30.9 37.3 30.9 38.3V63.9Q30.9 65.5 31.6 66.2Q32.2 66.9 33.5 66.9H35.4Q37 66.9 38.2 66.4Q39.4 66 40.2 65Q41 64 41.8 62.4L43.1 59.4Q43.7 57.8 44.8 57.3Q45.8 56.8 47.1 57.1Q48.5 57.5 49.1 58.6Q49.7 59.8 49.2 61.5L47 69.9Q46.4 72.3 45.5 73.4Q44.5 74.5 42.7 74.5Q41.6 74.5 40.6 74.2Q39.7 73.9 38.6 73.6Q37.4 73.3 35.8 73.3H16Q14.4 73.3 13.5 72.5Q12.6 71.7 12.6 70.2Q12.6 67.9 14.6 66.8L15.5 66.3Q16.4 65.8 16.8 65.2Q17.1 64.6 17.1 63.5V38.3Q17.1 37.3 16.8 36.7Q16.4 36.1 15.5 35.6L14.6 35Q12.6 33.9 12.6 31.7Q12.6 30.2 13.5 29.3Q14.4 28.5 16 28.5H31.9Q33.6 28.5 34.5 29.3Q35.4 30.2 35.4 31.7Q35.4 33.9 33.4 35Z"></path>
+      <path style="fill:none;stroke:var(--badge-bg);stroke-width:6;stroke-linecap:round" d="M30.0,14 C34.0,5 41.0,-9 51.0,-11 C60.0,-12 63.0,-4 60.0,1"></path>
+    </g>
+  </symbol>
+  <symbol id="i-logo" viewBox="-2 -4.5 364.4 113.8">
+    <path fill-rule="evenodd" style="fill:var(--logo-ink);stroke:var(--logo-ink);stroke-width:3;stroke-linejoin:round" d="M9,0 H229.096 L251.096,24.0 V76.0 L229.096,100 H9 Q0,100 0,91 V9 Q0,0 9,0 ZM230.39600000000002,50 a6.2,6.2 0 1 0 12.4,0 a6.2,6.2 0 1 0 -12.4,0 Z"></path>
+    <path fill-rule="evenodd" style="fill:var(--orange)" d="M225.096,50 a11.5,11.5 0 1 0 23.0,0 a11.5,11.5 0 1 0 -23.0,0 ZM230.39600000000002,50 a6.2,6.2 0 1 0 12.4,0 a6.2,6.2 0 1 0 -12.4,0 Z"></path>
+    <path style="fill:var(--logo-paper)" d="M43.2 23.9 42.1 24.5Q41.1 25.1 40.7 25.8Q40.4 26.4 40.4 27.6V56.4Q40.4 58.2 41.1 59Q41.9 59.7 43.3 59.7H45.4Q47.3 59.7 48.6 59.2Q49.9 58.7 50.9 57.6Q51.8 56.5 52.6 54.7L54.1 51.3Q54.8 49.5 56 49Q57.2 48.5 58.6 48.8Q60.2 49.1 60.8 50.4Q61.5 51.7 61 53.6L58.5 63.2Q57.9 65.8 56.8 67.1Q55.7 68.3 53.7 68.3Q52.4 68.3 51.3 68Q50.3 67.6 49 67.3Q47.7 67 45.9 67H23.7Q21.8 67 20.8 66.1Q19.8 65.2 19.8 63.5Q19.8 60.9 22 59.7L23.1 59.1Q24.1 58.5 24.5 57.8Q24.8 57.2 24.8 56V27.6Q24.8 26.4 24.5 25.8Q24.1 25.1 23.1 24.5L22 23.9Q19.8 22.7 19.8 20.1Q19.8 18.4 20.8 17.5Q21.8 16.6 23.7 16.6H41.5Q43.5 16.6 44.4 17.5Q45.4 18.4 45.4 20.1Q45.4 22.7 43.2 23.9ZM78.1 34Q83.4 34 87.4 36.2Q91.3 38.3 93.5 42.2Q95.6 46 95.6 51Q95.6 55.6 93.4 59.3Q91.1 63.1 87.1 65.4Q83 67.6 77.6 67.6Q72.3 67.6 68.4 65.5Q64.4 63.3 62.3 59.5Q60.1 55.7 60.1 50.7Q60.1 46 62.4 42.3Q64.6 38.5 68.7 36.3Q72.7 34 78.1 34ZM80.5 60.8Q81.4 60.6 81.9 59.4Q82.3 58.2 82.2 55.9Q82 53.6 81.1 50Q80.2 46.3 79.2 44.2Q78.2 42.1 77.2 41.3Q76.2 40.5 75.3 40.8Q74.3 41 73.9 42.2Q73.4 43.4 73.6 45.7Q73.7 48 74.6 51.7Q75.6 55.3 76.5 57.4Q77.5 59.5 78.5 60.3Q79.5 61.1 80.5 60.8ZM113.2 37V40L113.8 41.3V74.2Q113.8 76 114 76.6Q114.2 77.2 114.6 77.5L114.9 77.9Q115.7 78.5 116.1 79.2Q116.5 79.8 116.5 80.9Q116.5 82.2 115.7 83Q114.9 83.8 113.5 83.8H100.4Q99.1 83.8 98.3 83Q97.5 82.2 97.5 80.9Q97.5 79.8 97.9 79.2Q98.3 78.5 99 77.9L99.4 77.5Q99.8 77.2 100 76.6Q100.2 76 100.2 74.2V46.9Q100.2 45.5 99.9 45Q99.6 44.4 99 44L98.7 43.8Q97.8 43.2 97.5 42.6Q97.1 42.1 97.1 41.2Q97.1 40.1 97.7 39.4Q98.3 38.6 99.9 37.9L105.4 35.5Q107.2 34.7 108.4 34.3Q109.6 34 110.4 34Q111.8 34 112.5 34.9Q113.2 35.7 113.2 37ZM111.5 46.7 109.2 44Q111.8 39.4 115.1 36.7Q118.5 34 123 34Q126.7 34 129.5 36Q132.3 37.9 133.8 41.5Q135.4 45 135.4 49.9Q135.4 55.6 133.4 59.6Q131.4 63.7 127.9 65.8Q124.3 67.9 119.6 67.9Q115.9 67.9 113.1 66.2Q110.4 64.6 108.3 61.1L112 56.6Q113.1 58.9 114.3 59.8Q115.4 60.6 116.7 60.6Q118.1 60.6 119.1 59.5Q120.2 58.5 120.7 56.5Q121.3 54.4 121.3 51.5Q121.3 48.3 120.7 46.3Q120 44.3 118.9 43.3Q117.8 42.4 116.3 42.4Q114.9 42.4 113.7 43.4Q112.4 44.4 111.5 46.7ZM153.1 37V40L153.7 41.3V74.2Q153.7 76 153.9 76.6Q154.1 77.2 154.5 77.5L154.9 77.9Q155.6 78.5 156 79.2Q156.4 79.8 156.4 80.9Q156.4 82.2 155.6 83Q154.8 83.8 153.4 83.8H140.4Q139 83.8 138.2 83Q137.4 82.2 137.4 80.9Q137.4 79.8 137.8 79.2Q138.2 78.5 138.9 77.9L139.3 77.5Q139.7 77.2 139.9 76.6Q140.1 76 140.1 74.2V46.9Q140.1 45.5 139.8 45Q139.5 44.4 138.9 44L138.6 43.8Q137.7 43.2 137.4 42.6Q137 42.1 137 41.2Q137 40.1 137.6 39.4Q138.2 38.6 139.8 37.9L145.3 35.5Q147.2 34.7 148.3 34.3Q149.5 34 150.4 34Q151.7 34 152.4 34.9Q153.1 35.7 153.1 37ZM151.4 46.7 149.1 44Q151.7 39.4 155.1 36.7Q158.4 34 162.9 34Q166.6 34 169.4 36Q172.2 37.9 173.8 41.5Q175.3 45 175.3 49.9Q175.3 55.6 173.3 59.6Q171.3 63.7 167.8 65.8Q164.2 67.9 159.5 67.9Q155.8 67.9 153.1 66.2Q150.3 64.6 148.2 61.1L151.9 56.6Q153.1 58.9 154.2 59.8Q155.3 60.6 156.7 60.6Q158 60.6 159.1 59.5Q160.1 58.5 160.7 56.5Q161.2 54.4 161.2 51.5Q161.2 48.3 160.6 46.3Q159.9 44.3 158.8 43.3Q157.7 42.4 156.2 42.4Q154.8 42.4 153.6 43.4Q152.4 44.4 151.4 46.7ZM210.1 46.3Q210.1 49.3 208.5 50.9Q207 52.5 204.2 52.5H186.7V47.8H194.2Q196.3 47.8 196.3 45.6Q196.3 43 195.4 41.8Q194.5 40.7 193.4 40.7Q192.5 40.7 191.7 41.3Q190.9 41.9 190.4 43.3Q190 44.7 190 47Q190 52.5 192.4 55.2Q194.8 57.9 198.8 57.9Q200.6 57.9 202.5 57.3Q204.4 56.7 206 55.4Q206.8 54.7 207.4 54.4Q208 54.1 208.4 54.1Q209.1 54.1 209.5 54.7Q209.9 55.2 209.9 56.3Q209.9 59.3 208.1 61.9Q206.2 64.5 202.8 66.1Q199.4 67.7 194.8 67.7Q189.6 67.7 185.8 65.7Q181.9 63.6 179.8 59.9Q177.7 56.2 177.7 51.2Q177.7 46.3 179.7 42.4Q181.7 38.5 185.6 36.3Q189.5 34 195.3 34Q199.9 34 203.3 35.7Q206.6 37.4 208.3 40.2Q210.1 43 210.1 46.3Z"></path>
+    <path style="fill:none;stroke:var(--logo-paper);stroke-width:11.6;stroke-linecap:round" d="M236.596,50 C246.596,55 257.58,62.68 267.30,59.44"></path>
+    <path style="fill:none;stroke:var(--logo-ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round" d="M236.596,50 C246.596,55 257.58,62.68 267.30,59.44 C284.58,52.96 298.62,29.20 298.62,13.00 C298.62,3.28 292.14,0.04 286.74,2.20 C279.18,5.44 275.94,20.56 275.94,37.84 C275.94,54.04 278.10,67.00 286.74,67.00 C294.30,67.00 299.70,54.04 304.02,31.36 C302.94,47.56 302.94,67.00 313.20,67.00 C322.38,67.00 326.70,51.88 328.86,31.36 C327.78,56.20 327.78,82.12 325.62,92.92 C323.46,102.64 312.66,103.72 311.58,95.08 C310.50,84.28 327.78,73.48 340.74,69.16 C347.22,67.00 352.62,69.16 356.94,72.40"></path>
+  </symbol>
+  <symbol id="i-tick" viewBox="0 0 20 20">
+    <circle cx="10" cy="10" r="10" style="fill:var(--tick-bg)"></circle>
+    <path d="M5.6 10.3l2.9 2.9 5.9-6.3" style="fill:none;stroke:var(--tick-fg);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"></path>
+  </symbol>
+</svg>
+<main class="wrap">
+  <div class="top">
+    <a href="https://loppely.no/" aria-label="Loppely"><svg viewBox="-2 -4.5 364.4 113.8" role="img" aria-label="Loppely" focusable="false"><image href="../logo/loppely-logo.svg" width="364.4" height="113.8" x="-2" y="-4.5"></image></svg></a>
+    <span class="kicker">Åpner 28.&nbsp;november</span>
+  </div>
+
+  <div class="hero2">
+  <h1>Du rydder.<br><span class="tag-wrap" id="lapp"><span class="tag-shadow"><span class="tag">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span></h1>
+
+  <figure class="illo"><p class="floor-stamp"><svg class="fs-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C12.8 8.4 15.6 11.2 22 12C15.6 12.8 12.8 15.6 12 22C11.2 15.6 8.4 12.8 2 12C8.4 11.2 11.2 8.4 12 2Z"/></svg><span>Spar deg</span><span>for arbeid</span></p><picture><source type="image/webp" srcset="../bilder/butikken-800.webp 800w, ../bilder/butikken.webp 1254w" sizes="(min-width: 980px) 60vw, 100vw"><img class="shop-illo shop-photo" src="../bilder/butikken.jpg" srcset="../bilder/butikken-800.jpg 800w, ../bilder/butikken.jpg 1254w" sizes="(min-width: 980px) 60vw, 100vw" width="1254" height="1254" fetchpriority="high" alt="Illustrasjon av Loppely: lyse trehyller med leker, bøker og kurver, og stativer fulle av klær i et stort lokale med gul vegg og grønne bjelker"></picture></figure>
+
+  <div class="pitch">
+    <p class="pitch-chip">Kort fortalt</p>
+    <p class="pitch-text">Du <strong>leier en stand</strong> og <strong>setter prisen</strong> selv. Vi <strong>rydder standen</strong> og <strong>selger</strong> for deg. Du kommer bare innom <strong>hvis du vil fylle på</strong>. Salget følger du på «Min side».</p>
+  </div>
+
+  <ul class="strip" role="list">
+    <li><b>19%</b><span>provisjon</span></li>
+    <li><b>Fra 200 kr</b><span>per uke</span></li>
+    <li class="strip-offer"><b>1 uke gratis</b><span>ved minst 4 uker</span></li>
+    <li><a class="addr-link" href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><b>Kirkeveien 3</b><span>Lyngdal sentrum</span></a></li>
+  </ul>
+  <p class="strip-note">Gratisuken gjelder deg som står på lista og leier i minst 4 uker. Desember er måneden med mest julehandel i Lyngdal, så med 4 uker får du med deg hele.</p>
+  </div>
+
+  <section class="pris" aria-labelledby="pris-title">
+    <h2 id="pris-title" class="pris-title">Priser</h2>
+    <p class="pris-sub">Alle priser inkluderer mva.</p>
+  <div class="plans-wrap">
+  <div class="swipe-hint" aria-hidden="true">
+    <svg viewBox="0 0 24 24" focusable="false"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+  </div>
+  <ul class="plans" role="list" id="plans">
+    <li class="plan">
+      <h3 class="plan-name">Standard</h3>
+      <p class="plan-tag">Du priser. Vi selger.</p>
+      <p class="plan-price"><span class="plan-from">Fra</span> 200 <span class="plan-unit">kr per uke</span></p>
+      <p class="plan-comm">19% provisjon</p>
+      <ul class="plan-feats" role="list">
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi selger varene dine</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Vi rydder standen hver dag</span></li>
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Kleshengere og prislapper</span></li>
+      </ul>
+      <ul class="plan-periods" role="list">
+          <li><span>2 uker</span><span>249 kr per uke</span></li>
+          <li><span>4 uker</span><span>200 kr per uke</span></li>
+      </ul>
+      <a class="plan-cta" href="#skjema" data-stand="Standard">Velg Standard</a>
+    </li>
+    <li class="plan plan-pick">
+      <p class="plan-badge">Anbefalt</p>
+      <h3 class="plan-name">Premium</h3>
+      <p class="plan-tag">Mer synlighet. Mindre jobb.</p>
+      <p class="plan-price"><span class="plan-from">Fra</span> 249 <span class="plan-unit">kr per uke</span></p>
+      <p class="plan-comm">19% provisjon</p>
+      <ul class="plan-feats" role="list">
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Standard</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi tar bilder og video av utvalgte varer og markedsfører dem</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Attraktive plasser i butikken</span></li>
+      </ul>
+      <ul class="plan-periods" role="list">
+          <li><span>2 uker</span><span>299 kr per uke</span></li>
+          <li><span>4 uker</span><span>249 kr per uke</span></li>
+      </ul>
+      <a class="plan-cta" href="#skjema" data-stand="Premium">Velg Premium</a>
+    </li>
+    <li class="plan plan-vip">
+      <h3 class="plan-name">VIP</h3>
+      <p class="plan-tag">Du leverer. Vi gjør resten.</p>
+      <p class="plan-price"><span class="plan-from">Fra</span> 349 <span class="plan-unit">kr per uke</span></p>
+      <p class="plan-comm">29% provisjon</p>
+      <ul class="plan-feats" role="list">
+        <li class="pf-yes"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10.4l3.2 3.2L15 6.6"/></svg><span>Alt i Premium</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi tar bilder, priser og registrerer varene dine</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Vi gjør standen klar</span></li>
+        <li class="pf-yes pf-plus"><svg class="pf-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 5.5v9M5.5 10h9"/></svg><span>Plass til én større vare</span></li>
+      </ul>
+      <p class="plan-note">Inntil 21 varer i salg samtidig. Fyll på når noe blir solgt.</p>
+      <ul class="plan-periods" role="list">
+          <li><span>2 uker</span><span>399 kr per uke</span></li>
+          <li><span>4 uker</span><span>349 kr per uke</span></li>
+      </ul>
+      <a class="plan-cta" href="#skjema" data-stand="VIP">Velg VIP</a>
+    </li>
+  </ul>
+  </div>
+  <div class="plan-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="payout" aria-labelledby="payout-title">
+    <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
+    <table class="payout-table">
+      <thead>
+        <tr class="payout-icons"><th scope="col" rowspan="3" class="payout-stub"><svg class="payout-ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#il-pricetag"></use></svg> Du selger for</th><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td></tr>
+        <tr><th scope="col">Standard og Premium</th><th scope="col">VIP</th></tr>
+        <tr class="payout-rates"><td><span class="payout-rate">19%</span> <span class="payout-rate-label">provisjon</span></td><td><span class="payout-rate">29%</span> <span class="payout-rate-label">provisjon</span></td></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">100 kr</th><td>81 kr</td><td>71 kr</td></tr>
+        <tr><th scope="row">500 kr</th><td>405 kr</td><td>355 kr</td></tr>
+        <tr><th scope="row">1000 kr</th><td>810 kr</td><td>710 kr</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </section>
+
+  <form id="skjema" novalidate>
+    <p class="form-top">Meld interesse. Gratis og uforpliktende.</p>
+    <div>
+      <label for="navn">Navn</label>
+      <input class="input" id="navn" name="navn" type="text" autocomplete="name" required aria-describedby="navn-feil">
+      <p class="feil" id="navn-feil" aria-live="polite"></p>
+    </div>
+    <div>
+      <label for="epost">E-post</label>
+      <input class="input" id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required aria-describedby="epost-feil">
+      <p class="feil" id="epost-feil" aria-live="polite"></p>
+    </div>
+    <div>
+      <label for="telefon">Telefon</label>
+      <input class="input" id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="telefon-feil">
+      <p class="feil" id="telefon-feil" aria-live="polite"></p>
+    </div>
+    <fieldset>
+      <legend>Hvilken stand er du interessert i? <span class="opt">Valgfritt</span></legend>
+      <div class="chips chips-row"><input class="chip-input sr-only" type="radio" id="st-standard" name="stand" value="Standard"><label class="chip chip-radio" for="st-standard">Standard</label><input class="chip-input sr-only" type="radio" id="st-premium" name="stand" value="Premium"><label class="chip chip-radio" for="st-premium">Premium</label><input class="chip-input sr-only" type="radio" id="st-vip" name="stand" value="VIP"><label class="chip chip-radio" for="st-vip">VIP</label><input class="chip-input sr-only" type="radio" id="st-vet" name="stand" value="Vet ikke ennå"><label class="chip chip-radio" for="st-vet">Vet ikke ennå</label></div>
+    </fieldset>
+    <fieldset class="more" aria-describedby="kat-hint">
+      <legend>Hva vil du selge? <span class="opt">Valgfritt</span></legend>
+      <p class="hint" id="kat-hint">Velg så mange du vil.</p>
+      <div class="chips">
+        <input class="chip-input sr-only" type="checkbox" id="kat-klaer" name="kategori" value="Klær"><label class="chip" for="kat-klaer"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-klaer"></use></svg>Klær</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-barneting" name="kategori" value="Barneting og leker"><label class="chip" for="kat-barneting"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-barneting"></use></svg>Barneting og leker</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-mobler" name="kategori" value="Møbler og interiør"><label class="chip" for="kat-mobler"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-mobler"></use></svg>Møbler og interiør</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-boker" name="kategori" value="Bøker og blader"><label class="chip" for="kat-boker"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-boker"></use></svg>Bøker og blader</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-spill" name="kategori" value="Spill og elektronikk"><label class="chip" for="kat-spill"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-spill"></use></svg>Spill og elektronikk</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-kjokken" name="kategori" value="Kjøkkenutstyr"><label class="chip" for="kat-kjokken"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-kjokken"></use></svg>Kjøkkenutstyr</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-sport" name="kategori" value="Sport og fritid"><label class="chip" for="kat-sport"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-sport"></use></svg>Sport og fritid</label>
+        <input class="chip-input sr-only" type="checkbox" id="kat-annet" name="kategori" value="Annet"><label class="chip" for="kat-annet"><svg class="chip-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-annet"></use></svg>Annet</label>
+      </div>
+    </fieldset>
+    <div class="more">
+      <label for="mer">Noe mer vi bør vite? <span class="opt">Valgfritt</span></label>
+      <textarea class="input" id="mer" name="mer" rows="3" placeholder="Hva du har og hvor mye."></textarea>
+    </div>
+    <div class="hp" aria-hidden="true"><label for="hp-felt">La dette feltet stå tomt</label><input id="hp-felt" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+    <button class="btn" type="submit" id="send-knapp">Sett meg på lista</button>
+    <p class="fine">Vi bruker opplysningene bare til å kontakte deg om Loppely.</p>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <aside class="more-info">
+    <p class="more-title">Lurer du på noe?</p>
+    <p>Spørsmål og svar, hva du kan selge og hvor vi er.</p>
+    <a class="btn-outline" id="til-forsiden" href="https://loppely.no/#sporsmal">Les mer på loppely.no</a>
+  </aside>
+
+  <footer>
+    <a href="mailto:hei@loppely.no">hei@loppely.no</a>
+    <a href="../vilkar/">Vilkår</a>
+  </footer>
+</main>
+<script>
+(function () {
+  'use strict';
+  var SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@');
+  var form = document.getElementById('skjema');
+  var fNavn = document.getElementById('navn'), fEpost = document.getElementById('epost'), fTelefon = document.getElementById('telefon'), fMer = document.getElementById('mer'), fHonning = document.getElementById('hp-felt');
+  var eNavn = document.getElementById('navn-feil'), eEpost = document.getElementById('epost-feil'), eTelefon = document.getElementById('telefon-feil');
+  var status = document.getElementById('status'), sendBtn = document.getElementById('send-knapp');
+  var sending = false;
+  /* Which ad brought them here, from the link's utm parameters */
+  var q = new URLSearchParams(location.search);
+  var kilde = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].map(function (k) { return q.get(k); }).filter(Boolean).join(' / ') || 'loppely.no/stand';
+
+  function setStatus(state, parts) {
+    status.setAttribute('data-state', state); status.textContent = '';
+    var target = status;
+    if (state === 'ok') {
+      var ico = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      ico.setAttribute('class', 'ico'); ico.setAttribute('viewBox', '0 0 20 20'); ico.setAttribute('aria-hidden', 'true'); ico.setAttribute('focusable', 'false');
+      var use = document.createElementNS('http://www.w3.org/2000/svg', 'use'); use.setAttribute('href', '#i-tick'); ico.appendChild(use);
+      status.appendChild(ico); target = document.createElement('span'); status.appendChild(target);
+    }
+    parts.forEach(function (p) {
+      if (typeof p === 'string') { target.appendChild(document.createTextNode(p)); return; }
+      var el = document.createElement('strong'); el.textContent = p.text; target.appendChild(el);
+    });
+  }
+  function setSending(on) {
+    sending = on; form.setAttribute('aria-busy', on ? 'true' : 'false');
+    sendBtn.setAttribute('aria-disabled', on ? 'true' : 'false'); sendBtn.textContent = on ? 'Sender …' : 'Sett meg på lista';
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) { return; }
+    var navn = fNavn.value.trim(), epost = fEpost.value.trim(), telefon = fTelefon.value.trim();
+    eNavn.textContent = navn ? '' : 'Skriv inn navnet ditt.';
+    eEpost.textContent = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(epost) ? '' : 'Skriv inn en gyldig e-postadresse.';
+    eTelefon.textContent = !telefon ? 'Skriv inn telefonnummeret ditt.' : (!/^\+?[0-9 ().-]+$/.test(telefon) || telefon.replace(/\D/g, '').length < 8) ? 'Sjekk telefonnummeret. Det skal ha minst 8 siffer.' : '';
+    if (eNavn.textContent || eEpost.textContent || eTelefon.textContent) { (eNavn.textContent ? fNavn : eEpost.textContent ? fEpost : fTelefon).focus(); return; }
+    var kategorier = Array.prototype.map.call(form.querySelectorAll('input[name="kategori"]:checked'), function (i) { return i.value; });
+    var data = { 'Navn': navn, 'email': epost, '_replyto': epost, 'Telefon': telefon, 'Stand': (form.querySelector('input[name="stand"]:checked') || {}).value || 'Ikke valgt', 'Vil selge': kategorier.length ? kategorier.join(', ') : 'Ikke valgt', 'Melding': fMer.value.trim() || '-', 'Kilde': kilde, '_subject': 'Ny selger (annonse): ' + navn + ((form.querySelector('input[name="stand"]:checked') || {}).value ? ' (' + form.querySelector('input[name="stand"]:checked').value + ')' : ''), '_template': 'table', '_honey': fHonning.value };
+    setSending(true); setStatus('', ['Sender …']);
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
+    fetch(SKJEMA_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data), signal: ctrl ? ctrl.signal : undefined })
+      .then(function (res) { return res.json().catch(function () { return {}; }).then(function (body) { if (!res.ok || String(body.success) !== 'true') { throw new Error('send'); } }); })
+      .then(function () {
+        form.reset();
+        setStatus('ok', [{ text: 'Takk, ' + navn.split(/\s+/)[0] + '! ' }, 'Du står på interesselista. Vi sier fra når åpningen nærmer seg.']);
+      })
+      .catch(function () { setStatus('feil', ['Påmeldingen ble ikke sendt. Prøv igjen om litt, eller skriv til hei@loppely.no.']); })
+      .then(function () { if (timer) { clearTimeout(timer); } setSending(false); });
+  });
+
+  /* The tag swings again when the pointer lands on it, like on the front page */
+  var tag = document.getElementById('lapp');
+  if (tag && tag.animate) {
+    var ease = 'cubic-bezier(0.3, 0.7, 0.4, 1)';
+    var frames = [
+      { transform: 'rotate(-2deg)', easing: ease },
+      { transform: 'rotate(-10deg)', offset: 0.15, easing: ease },
+      { transform: 'rotate(3deg)', offset: 0.45, easing: ease },
+      { transform: 'rotate(-4.5deg)', offset: 0.66, easing: ease },
+      { transform: 'rotate(-1deg)', offset: 0.85, easing: ease },
+      { transform: 'rotate(-2deg)' }
+    ];
+    tag.addEventListener('pointerenter', function () {
+      var reduce = false;
+      try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      if (reduce) return;
+      if (tag.getAnimations().some(function (a) { return a.playState === 'running'; })) return;
+      tag.animate(frames, { duration: 1800 });
+    });
+  }
+})();
+</script>
+<script>
+/* Price cards on phones: open on the recommended card with Standard and VIP peeking out,
+   and let the dots follow the swipe */
+(function () {
+  var list = document.getElementById('plans');
+  var dots = document.querySelectorAll('.plan-dots span');
+  if (!list || !dots.length) return;
+  var cards = list.children;
+  function nearest() {
+    var lr = list.getBoundingClientRect(), c = lr.left + lr.width / 2, best = 0, bestD = Infinity;
+    for (var i = 0; i < cards.length; i++) {
+      var r = cards[i].getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - c);
+      if (d < bestD) { bestD = d; best = i; }
+    }
+    return best;
+  }
+  function update() { var b = nearest(); for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === b); }
+  var pick = list.querySelector('.plan-pick');
+  if (pick && list.scrollWidth > list.clientWidth + 4) {
+    var lr = list.getBoundingClientRect(), pr = pick.getBoundingClientRect();
+    list.scrollLeft += (pr.left + pr.width / 2) - (lr.left + lr.width / 2);
+  }
+  var start = list.scrollLeft;
+  list.addEventListener('scroll', function () {
+    window.requestAnimationFrame(update);
+    var wrap = list.parentNode;
+    if (Math.abs(list.scrollLeft - start) > 20 && !wrap.classList.contains('swiped')) {
+      wrap.classList.add('swiped');
+      var h = wrap.querySelector('.swipe-hint');
+      if (h) window.setTimeout(function () { h.remove(); }, 400);
+    }
+  }, { passive: true });
+  update();
+})();
+</script>
+<script>
+/* Keep the ad's utm tags when someone goes on to the front page */
+(function () {
+  var a = document.getElementById('til-forsiden');
+  if (a && location.search) a.href = 'https://loppely.no/' + location.search + '#sporsmal';
+})();
+</script>
+<script>
+/* "Velg Standard/Premium/VIP" in a card pre-selects that stand in the signup form */
+(function () {
+  document.querySelectorAll('.plan-cta[data-stand]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var r = document.querySelector('input[name="stand"][value="' + a.getAttribute('data-stand') + '"]');
+      if (r) { r.checked = true; }
+      var f = r && r.form;
+      if (f && f.classList.contains('is-short')) { f.classList.remove('is-short'); f.classList.add('is-opening'); }
+    });
+  });
+})();
+</script>
+<script>
+/* Only name, e-mail and stand until the visitor starts typing */
+(function () {
+  var form = document.getElementById('skjema');
+  if (!form) return;
+  form.classList.add('is-short');
+  function expand() { if (form.classList.contains('is-short')) { form.classList.remove('is-short'); form.classList.add('is-opening'); } }
+  ['navn', 'epost'].forEach(function (id) { var el = document.getElementById(id); if (el) { el.addEventListener('focus', expand); el.addEventListener('input', expand); } });
+  form.querySelectorAll('input[name="stand"]').forEach(function (r) { r.addEventListener('change', expand); });
+})();
+</script>
+<p style="position:fixed;left:12px;bottom:12px;z-index:99;margin:0;padding:6px 12px;border-radius:999px;background:#2E0D08;color:#FDEBD5;font:700 12px/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;opacity:.85">Utkast v2</p>
+</body>
+</html>
