@@ -679,6 +679,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table tbody th { color: var(--page-muted); }
 .payout-table tbody th, .payout-table tbody td { white-space: nowrap; }
 .payout-table tbody tr:last-child th, .payout-table tbody tr:last-child td { border-bottom: 0; }
+/* The payouts are what people came for: big and heavy; the sale prices stay quieter */
+.payout-table tbody td { font-family: var(--font-display); font-weight: 900; font-stretch: 108%; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; }
+.payout-table tbody th { font-size: 1.05rem; font-weight: 600; }
 .payout-table :is(th, td):last-child { background: var(--payout-vip); color: var(--page-text); border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
 .payout-table :is(th, td):last-child .payout-rate { background: var(--mauve); color: var(--maroon-deep); }
 /* Close the hairline seam browsers can leave between the two header rows on the panels */
