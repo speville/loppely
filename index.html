@@ -1636,6 +1636,16 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   .btn:hover,
   .sc-arrow { transition: none; }
 }
+
+/* Phones: larger reading text. Body 18px, small text never under 16px, small caps labels 13px+ */
+@media (max-width: 699px) {
+  :root { --fs-xs: 0.8125rem; --fs-sm: 1.0625rem; --fs-base: 1.125rem; --fs-md: 1.3125rem; }
+  .kind-list li, .kind-price { font-size: 1rem; }
+  .kind-note, .faq-a .faq-fine, .findus-hours span, .vf-sub, .mock-cap { font-size: 1rem; }
+  .join-why { font-size: 0.95em; }
+  .faq-a .faq-fine { opacity: 1; }
+  .sc-body, .sc-desc { line-height: 1.5; }
+}
 </style>
 <style id="farge">
 /* Farge 5 · Papir */
