@@ -759,17 +759,17 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .illo { position: relative; }
 .floor-stamp {
   position: absolute; z-index: 1; left: 27%; bottom: 4%; margin: 0;
-  --sz: clamp(96px, 26vw, 172px); width: var(--sz); aspect-ratio: 1; padding: 0 8%; border-radius: 50%;
+  --sz: clamp(96px, 26vw, 172px); width: var(--sz); box-sizing: border-box; aspect-ratio: 1; padding: 0 calc(var(--sz) * 0.12); border-radius: 50%;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.1em;
   background: #561A12; color: #FDEBD5; text-align: center;
   box-shadow: 0 0 0 5px #FDEBD5, 0 0 0 8px #E0693A, 0 14px 26px -8px rgba(46, 13, 8, 0.6);
   transform: rotate(-8deg);
   font-family: var(--font-display); font-stretch: 112%; font-weight: 900; text-transform: uppercase;
-  font-size: calc(var(--sz) * 0.118); line-height: 1.05; letter-spacing: 0.01em;
+  font-size: calc(var(--sz) * 0.092); line-height: 1.05; letter-spacing: 0.01em;
 }
 @media (min-width: 700px) { .floor-stamp { left: 31%; bottom: 5%; } }
 .floor-stamp span { white-space: nowrap; }
-.floor-stamp .fs-ico { width: 2.3em; height: 2.3em; margin-bottom: 0.12em; fill: none; stroke: #E0693A; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.floor-stamp .fs-ico { width: 2.4em; height: 2.4em; margin-bottom: 0.12em; fill: none; stroke: #E0693A; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .floor-stamp .fs-heart { fill: #E0693A; stroke: none; }
 
 /* The pitch under the picture: a soft card with a chip label and the key words in bold */
