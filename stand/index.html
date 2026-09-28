@@ -62,7 +62,7 @@
   .illo { position: relative; }
   .floor-stamp { position: absolute; z-index: 1; left: 27%; bottom: 4%; margin: 0; --sz: clamp(96px, 26vw, 150px); width: var(--sz); aspect-ratio: 1; padding: 0 8%; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.1em; background: var(--maroon); color: var(--cream); text-align: center; box-shadow: 0 0 0 5px var(--cream), 0 0 0 8px var(--orange, #E0693A), 0 14px 26px -8px rgba(46, 13, 8, 0.6); transform: rotate(-8deg); font-family: var(--font-display); font-stretch: 112%; font-weight: 900; text-transform: uppercase; font-size: calc(var(--sz) * 0.118); line-height: 1.05; letter-spacing: 0.01em; }
   .floor-stamp span { white-space: nowrap; }
-  .floor-stamp .fs-star { width: 1em; height: 1em; fill: var(--orange, #E0693A); margin-bottom: 0.2em; }
+  .floor-stamp .fs-ico { width: 1.5em; height: 1.5em; margin-bottom: 0.15em; fill: none; stroke: #E0693A; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   /* Fact strip: the whole picture in four tiles */
   .strip { list-style: none; padding: 0; margin: 0 0 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .strip li { background: var(--cream); border-radius: 16px; padding: 12px 12px 11px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -307,7 +307,7 @@
   <div class="hero2">
   <h1>Du rydder.<br><span class="tag-wrap" id="lapp"><span class="tag-shadow"><span class="tag">Vi selger.</span></span><svg class="tag-string" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><path d="M22 11 C 18 40, 58 50, 64 89"></path></svg></span></h1>
 
-  <figure class="illo"><p class="floor-stamp"><svg class="fs-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C12.8 8.4 15.6 11.2 22 12C15.6 12.8 12.8 15.6 12 22C11.2 15.6 8.4 12.8 2 12C8.4 11.2 11.2 8.4 12 2Z"/></svg><span>Spar deg</span><span>for arbeid</span></p><picture><source type="image/webp" srcset="../bilder/butikken-800.webp 800w, ../bilder/butikken.webp 1254w" sizes="(min-width: 980px) 60vw, 100vw"><img class="shop-illo shop-photo" src="../bilder/butikken.jpg" srcset="../bilder/butikken-800.jpg 800w, ../bilder/butikken.jpg 1254w" sizes="(min-width: 980px) 60vw, 100vw" width="1254" height="1254" fetchpriority="high" alt="Illustrasjon av Loppely: lyse trehyller med leker, bøker og kurver, og stativer fulle av klær i et stort lokale med gul vegg og grønne bjelker"></picture></figure>
+  <figure class="illo"><p class="floor-stamp"><svg class="fs-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8.5 3.5c-.8 1 .8 2 0 3M12.5 3.5c-.8 1 .8 2 0 3"/></svg><span>Spar deg</span><span>for arbeid</span></p><picture><source type="image/webp" srcset="../bilder/butikken-800.webp 800w, ../bilder/butikken.webp 1254w" sizes="(min-width: 980px) 60vw, 100vw"><img class="shop-illo shop-photo" src="../bilder/butikken.jpg" srcset="../bilder/butikken-800.jpg 800w, ../bilder/butikken.jpg 1254w" sizes="(min-width: 980px) 60vw, 100vw" width="1254" height="1254" fetchpriority="high" alt="Illustrasjon av Loppely: lyse trehyller med leker, bøker og kurver, og stativer fulle av klær i et stort lokale med gul vegg og grønne bjelker"></picture></figure>
 
   <div class="pitch">
     <p class="pitch-chip">Kort fortalt</p>
