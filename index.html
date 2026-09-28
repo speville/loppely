@@ -1733,16 +1733,16 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   --steps-note-bg: var(--mauve);
   --steps-note-text: var(--maroon-deep);
 
-  /* Min side: orange, maroon-deep text (maroon would be 4.0:1, large only) */
-  --minside-bg: var(--orange);
-  --minside-text: var(--maroon-deep);
-  --minside-muted: var(--maroon-deep);
-  --minside-accent: var(--maroon-deep);
-  --minside-focus: var(--maroon-deep);       /* 5.3:1 on orange */
-  --minside-tick-bg: var(--maroon);          /* 4.0:1 against the orange */
-  --minside-tick-fg: var(--cream);
-  --minside-cta-bg: var(--maroon);           /* an orange pill would vanish here */
-  --minside-cta-text: var(--cream);
+  /* Min side: deep maroon band, cream text (orange behind dark text was hard to read on phones) */
+  --minside-bg: var(--maroon-deep);
+  --minside-text: var(--cream);
+  --minside-muted: var(--cream);
+  --minside-accent: var(--orange-soft);
+  --minside-focus: var(--cream);
+  --minside-tick-bg: var(--orange);
+  --minside-tick-fg: var(--maroon-deep);
+  --minside-cta-bg: var(--orange);
+  --minside-cta-text: var(--maroon-deep);
 
   /* Mock window: cream, lifted by a maroon block shadow */
   --mock-bg: var(--cream);
