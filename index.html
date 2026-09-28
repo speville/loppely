@@ -700,6 +700,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table thead .nw { white-space: nowrap; }
 /* VIP as big as the two-line "Standard & Premium" beside it */
 .payout-table thead th.payout-vip-head { font-family: var(--font-display); font-stretch: 112%; font-weight: 900; font-size: 2.2rem; line-height: 1; letter-spacing: 0; padding-bottom: 8px; }
+/* Top of VIP lines up with the top of "Standard" */
+.payout-table thead tr:nth-child(2) th { vertical-align: top; }
+.payout-table thead th.payout-vip-head { line-height: 0.8; padding-top: 10px; }
 .payout-table .payout-icons > * { padding-top: 14px; padding-bottom: 0; border-bottom: 0; vertical-align: bottom; line-height: 0; }
 .payout-table .payout-ico { width: 48px; height: 48px; }
 /* Both piggies sit on the same size disc: white ringed in maroon, cream ringed in gold on the dark VIP column */
