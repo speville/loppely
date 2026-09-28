@@ -188,6 +188,8 @@
   .payout-table thead th { font-weight: 700; vertical-align: bottom; border-bottom: 0; padding-top: 6px; padding-bottom: 6px; }
   .payout-table .payout-icons > * { padding-top: 14px; padding-bottom: 0; border-bottom: 0; vertical-align: bottom; line-height: 0; }
   .payout-table .payout-ico { width: 48px; height: 48px; }
+  /* VIP column is dark: the piggy sits on a cream disc so its dark outlines show */
+  .payout-table .payout-icons td:last-child .payout-ico { box-sizing: content-box; padding: 5px; border-radius: 50%; background: #FDEBD5; box-shadow: 0 0 0 2px var(--gold, #D4B26A); }
   .payout-table .payout-stub { width: 30%; line-height: inherit; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); }
   .payout-table .payout-stub .payout-ico { display: block; margin-bottom: 8px; }
   .payout-table .payout-rates > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); vertical-align: middle; }
@@ -202,7 +204,7 @@
   /* The payouts are what people came for: big and heavy; the sale prices stay quieter */
   .payout-table tbody td { font-family: var(--font-display); font-weight: 900; font-stretch: 108%; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; }
   .payout-table tbody th { font-size: 1.05rem; font-weight: 600; }
-  .payout-table :is(th, td):last-child { --pig-ink: #FDEBD5; background: var(--payout-vip); color: #FDEBD5; border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
+  .payout-table :is(th, td):last-child { background: var(--payout-vip); color: #FDEBD5; border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
   /* Close the hairline seam browsers can leave between the two header rows on the panels */
   .payout-table thead tr + tr > :nth-last-child(-n+2) { box-shadow: 0 -1px 0 var(--surface); }
   .payout-table thead tr + tr > :last-child { box-shadow: inset 2.5px 0 0 var(--gold), inset -2.5px 0 0 var(--gold), 0 -4px 0 -2.5px var(--payout-vip); }
