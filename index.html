@@ -1273,7 +1273,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   --badge-bg: var(--mock-logo-bg); --badge-fg: var(--mock-logo-fg);
 }
 .mock-bar svg { width: 26px; height: 26px; flex: none; }
-.mock-url {
+.mock-url { white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis;
   font-family: var(--font-mono); font-weight: 500; font-size: 0.8rem;
   min-width: 0; overflow-wrap: anywhere; line-height: 1.3;
 }
@@ -1328,6 +1328,10 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
   font-size: 0.82rem; font-weight: 600; line-height: 1.35;
   --tick-bg: var(--toast-tick-bg); --tick-fg: var(--toast-tick-fg);
 }
+.mock-toast .ico { flex: none; }
+.mt-txt { display: flex; flex-direction: column; gap: 1px; }
+.mt-txt b { font-weight: 800; }
+.mt-txt span { font-weight: 500; }
 .plapp-wrap {
   width: min(100%, 300px);
   margin-left: 8px;
@@ -2204,7 +2208,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
               <p class="kind-head"><svg class="kind-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#c-mobler"></use></svg><span>Større varer</span></p>
               <ul class="kind-list" role="list"><li>Møbler</li><li>Sykler</li><li>Barnevogner</li><li>Snowboard</li><li>Store lamper</li></ul>
               <p class="kind-price">39&nbsp;kr per produkt per uke · 19% provisjon</p>
-              <p class="kind-note">Mindre møbler, som et lite bord eller en krakk, går fint. Større møbler, som stoler, sofaer og skap, må godkjennes av oss først. Usikker på om noe er en større vare? <a data-epost-link href="mailto:hei@loppely.no">Kontakt oss</a>.</p>
+              <p class="kind-note">Mindre møbler, som et lite bord eller en krakk, går fint. Større møbler, som stoler, sofaer og skap, må godkjennes av oss først. Usikker på om noe er en større vare? <a href="mailto:hei@loppely.no">Spør oss</a>.</p>
             </li>
           </ul>
           <div class="made">
@@ -2266,17 +2270,17 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
                 <div class="stat"><dt>Solgt for</dt><dd>520&nbsp;kr</dd></div>
               </dl>
               <ul class="mock-rows" role="list">
-                <li><span class="mr-item">Barnesykkel, 16 tommer</span><span class="mr-price">250&nbsp;kr</span><span class="st st-sold">Solgt</span></li>
-                <li><span class="mr-item">Marius-genser, str. M</span><span class="mr-price">150&nbsp;kr</span><span class="st st-sold">Solgt</span></li>
-                <li><span class="mr-item">Figgjo-kopper, 4 stk.</span><span class="mr-price">120&nbsp;kr</span><span class="st st-sold">Solgt</span></li>
+                <li><span class="mr-item">Barnesykkel, 16&nbsp;tommer</span><span class="mr-price">250&nbsp;kr</span><span class="st st-sold">Solgt</span></li>
+                <li><span class="mr-item">Marius-genser, str.&nbsp;M</span><span class="mr-price">150&nbsp;kr</span><span class="st st-sold">Solgt</span></li>
+                <li><span class="mr-item">Figgjo-kopper, 4&nbsp;stk</span><span class="mr-price">120&nbsp;kr</span><span class="st st-sold">Solgt</span></li>
                 <li><span class="mr-item">Kjelke</span><span class="mr-price">80&nbsp;kr</span><span class="st st-in">I standen</span></li>
-                <li><span class="mr-item">Donald-blader, 10 stk.</span><span class="mr-price">50&nbsp;kr</span><span class="st st-in">I standen</span></li>
+                <li><span class="mr-item">Donald-blader, 10&nbsp;stk</span><span class="mr-price">50&nbsp;kr</span><span class="st st-in">I standen</span></li>
               </ul>
               <div class="mock-acts" aria-hidden="true">
                 <span class="mock-act is-fill">+ Registrer vare</span>
                 <span class="mock-act">Lag prislapper</span>
               </div>
-              <p class="mock-toast"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg>Nettopp solgt: Figgjo-kopper (4 stk.), 120&nbsp;kr</p>
+              <p class="mock-toast"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#i-tick"></use></svg><span class="mt-txt"><b>Nettopp solgt</b><span>Figgjo-kopper (4&nbsp;stk) · 120&nbsp;kr</span></span></p>
             </div>
           </div>
           <figcaption class="mock-cap">Eksempel. Standen, varene og tallene er oppdiktet for å vise hvordan det virker.</figcaption>
