@@ -2387,8 +2387,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 if (/^#\d{1,2}$/.test(location.hash)) { history.replaceState(null, '', location.pathname + location.search); }
 
 const LOPPELY_EPOST = 'hei@loppely.no';
-/* Split so the address is not scraped from the source */
-const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@');
+/* Sign-ups go to our own n8n webhook: stored in the interest list, mailed to hei@ with Reply-To the sender */
+const SKJEMA_URL = 'https://zap.pm/webhook/loppely-signup';
 
 (function () {
   'use strict';
@@ -2509,7 +2509,7 @@ const SKJEMA_URL = 'https://formsubmit.co/ajax/' + ['hei', 'loppely.no'].join('@
       function (i) { return i.value; }
     );
 
-    /* FormSubmit uses the field named "email" as the Reply-To of the mail we receive */
+    /* The webhook uses "email" as the Reply-To of the mail we receive */
     var data = {
       'Navn': navn,
       'email': epost,
