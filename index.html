@@ -709,8 +709,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .payout-table .payout-icons td .payout-ico { display: block; position: relative; z-index: 1; margin: 2px 0 6px 2px; box-sizing: content-box; padding: 6px; border-radius: 50%; background: #FFFDF9; box-shadow: 0 0 0 2px #561A12; }
 .payout-table .payout-icons td:last-child .payout-ico { margin-top: 0; background: #FDEBD5; box-shadow: 0 0 0 2px var(--gold, #D4B26A); }
 .payout-table .payout-icons td { vertical-align: top; }
-.payout-table .payout-stub { width: 30%; line-height: inherit; padding-bottom: 12px; border-bottom: 1.5px solid var(--page-line); }
-.payout-table .payout-stub .payout-ico { display: block; margin-bottom: 8px; }
+.payout-table .payout-stub { width: 30%; }
 .payout-table .payout-rates > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--page-line); vertical-align: middle; }
 .payout-table .payout-rate { display: inline-block; font-size: 0.9rem; font-weight: 600; white-space: nowrap; padding: 0.3em 0.75em; border-radius: 999px; background: var(--page-card); color: var(--page-muted); }
 /* Phones: "provisjon" sits under the pill, and the first column (30% wide, above) keeps "Du selger" on one line */
@@ -2166,9 +2165,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
           <table class="payout-table">
             <thead>
-              <tr class="payout-icons"><th scope="col" rowspan="3" class="payout-stub"><svg class="payout-ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#il-pricetag"></use></svg> Du selger for</th><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td></tr>
-              <tr><th scope="col">Standard<br><span class="nw">&amp; Premium</span></th><th scope="col" class="payout-vip-head">VIP</th></tr>
-              <tr class="payout-rates"><td><span class="payout-rate">19%</span> <span class="payout-rate-label">provisjon</span></td><td><span class="payout-rate">29%</span> <span class="payout-rate-label">provisjon</span></td></tr>
+              <tr class="payout-icons"><td aria-hidden="true" class="payout-stub-ico"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-pricetag"></use></svg></td><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td></tr>
+              <tr><th scope="col" class="payout-stub"><span class="nw">Du selger</span> for</th><th scope="col">Standard<br><span class="nw">&amp; Premium</span></th><th scope="col" class="payout-vip-head">VIP</th></tr>
+              <tr class="payout-rates"><td class="payout-stub-gap"></td><td><span class="payout-rate">19%</span> <span class="payout-rate-label">provisjon</span></td><td><span class="payout-rate">29%</span> <span class="payout-rate-label">provisjon</span></td></tr>
             </thead>
             <tbody>
               <tr><th scope="row">100&nbsp;kr</th><td>81&nbsp;kr</td><td>71&nbsp;kr</td></tr>
