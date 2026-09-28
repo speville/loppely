@@ -2599,11 +2599,7 @@ const SKJEMA_URL = 'https://zap.pm/webhook/loppely-signup';
     return best;
   }
   function update() { var b = nearest(); for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === b); }
-  var pick = list.querySelector('.plan-pick');
-  if (pick && list.scrollWidth > list.clientWidth + 4) {
-    var lr = list.getBoundingClientRect(), pr = pick.getBoundingClientRect();
-    list.scrollLeft += (pr.left + pr.width / 2) - (lr.left + lr.width / 2);
-  }
+  /* Phones start on Standard, the first card */
   var start = list.scrollLeft;
   list.addEventListener('scroll', function () {
     window.requestAnimationFrame(update);
