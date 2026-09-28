@@ -2387,7 +2387,9 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 if (/^#\d{1,2}$/.test(location.hash)) { history.replaceState(null, '', location.pathname + location.search); }
 
 const LOPPELY_EPOST = 'hei@loppely.no';
-/* Sign-ups go to our own n8n webhook: stored in the interest list, mailed to hei@ with Reply-To the sender */
+/* Sign-ups go to our own n8n webhook: stored in the interest list, mailed to hei@ with Reply-To the sender.
+   This is the permanent standard. Never switch back to FormSubmit or another form service.
+   A watchdog on zap.pm checks every hour that this page posts here. */
 const SKJEMA_URL = 'https://zap.pm/webhook/loppely-signup';
 
 (function () {

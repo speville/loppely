@@ -462,6 +462,7 @@
 <script>
 (function () {
   'use strict';
+  /* Permanent standard: our own n8n webhook on zap.pm. Never switch back to FormSubmit or another form service. */
   var SKJEMA_URL = 'https://zap.pm/webhook/loppely-signup';
   var form = document.getElementById('skjema');
   var fNavn = document.getElementById('navn'), fEpost = document.getElementById('epost'), fTelefon = document.getElementById('telefon'), fMer = document.getElementById('mer'), fHonning = document.getElementById('hp-felt');
