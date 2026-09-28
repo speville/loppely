@@ -471,7 +471,12 @@
   var sending = false;
   /* Which ad brought them here, from the link's utm parameters */
   var q = new URLSearchParams(location.search);
-  var kilde = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].map(function (k) { return q.get(k); }).filter(Boolean).join(' / ') || 'loppely.no/stand';
+  /* Kilde = the link they clicked: a short link (loppely.no/ig) passes via=ig; otherwise the full
+     link they landed on, without click ids that ad platforms add (fbclid, gclid and so on) */
+  var via = /^[a-z0-9-]{1,40}$/.test(q.get('via') || '') ? q.get('via') : '';
+  var lenke = new URLSearchParams(location.search);
+  ['fbclid', 'gclid', 'gbraid', 'wbraid', 'msclkid', 'ttclid', 'igshid', '_gl', 'via'].forEach(function (k) { lenke.delete(k); });
+  var kilde = via ? 'loppely.no/' + via : 'loppely.no/stand/' + (lenke.toString() ? '?' + decodeURIComponent(lenke.toString()) : '');
 
   function setStatus(state, parts) {
     status.setAttribute('data-state', state); status.textContent = '';
