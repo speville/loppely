@@ -188,8 +188,10 @@
   .payout-table thead th { font-weight: 700; vertical-align: bottom; border-bottom: 0; padding-top: 6px; padding-bottom: 6px; }
   .payout-table .payout-icons > * { padding-top: 14px; padding-bottom: 0; border-bottom: 0; vertical-align: bottom; line-height: 0; }
   .payout-table .payout-ico { width: 48px; height: 48px; }
-  /* VIP column is dark: the piggy sits on a cream disc so its dark outlines show */
-  .payout-table .payout-icons td:last-child .payout-ico { box-sizing: content-box; padding: 5px; border-radius: 50%; background: #FDEBD5; box-shadow: 0 0 0 2px var(--gold, #D4B26A); }
+  /* Both piggies sit on the same size disc: white ringed in maroon, cream ringed in gold on the dark VIP column */
+  .payout-table .payout-icons td .payout-ico { display: block; position: relative; z-index: 1; margin: 2px 0 6px 2px; box-sizing: content-box; padding: 6px; border-radius: 50%; background: #FFFDF9; box-shadow: 0 0 0 2px #561A12; }
+  .payout-table .payout-icons td:last-child .payout-ico { margin-top: 0; background: #FDEBD5; box-shadow: 0 0 0 2px var(--gold, #D4B26A); }
+  .payout-table .payout-icons td { vertical-align: top; }
   .payout-table .payout-stub { width: 30%; line-height: inherit; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); }
   .payout-table .payout-stub .payout-ico { display: block; margin-bottom: 8px; }
   .payout-table .payout-rates > * { padding-top: 0; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); vertical-align: middle; }
