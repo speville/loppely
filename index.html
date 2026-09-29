@@ -674,10 +674,13 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .kind-note { margin-top: 6px; font-size: 0.85rem; color: var(--page-muted); }
 .kind-note a { color: inherit; font-weight: 700; }
 .made {
-  margin-top: 14px; display: flex; align-items: center; gap: 14px;
-  border: 1.5px dashed var(--page-line); border-radius: 22px; padding: 16px 20px;
+  margin-top: 14px; display: flex; align-items: flex-start; gap: 14px;
+  border: 1.5px dashed var(--page-line); border-radius: 22px; padding: 16px 18px;
 }
-.made-ico { width: 28px; height: 28px; flex: none; fill: none; stroke: #E0693A; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.made-ico { width: 44px; height: 44px; flex: none; padding: 10px; box-sizing: border-box; border-radius: 50%; background: rgba(224, 105, 58, 0.14); fill: none; stroke: #E0693A; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.made p { margin: 0; font-size: var(--fs-sm); line-height: 1.45; }
+.made strong { display: block; font-size: 1.06em; margin: 2px 0 2px; }
+.made-mail { display: block; margin-top: 6px; }
 .made a { color: inherit; font-weight: 700; }
 
 /* The payout example: the one place the commission is spelled out in kroner */
@@ -2244,7 +2247,7 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           </ul>
           <div class="made">
             <svg class="made-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
-            <p><strong>Lager du ting selv?</strong> Da kan du selge dem hos oss for 25% provisjon. Skriv til <a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a>.</p>
+            <p><strong>Lager du ting selv?</strong> Da kan du selge dem hos oss for 25%&nbsp;provisjon. <span class="made-mail">Skriv til <a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a></span></p>
           </div>
         </div>
 
