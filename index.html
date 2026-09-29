@@ -1630,9 +1630,11 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 
 .foot-social { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .foot-social ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; }
-.foot-social a { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--foot-text); color: var(--foot-bg); transition: transform .15s ease, background-color .15s ease; }
-.foot-social a:hover { background: var(--orange); color: var(--cream); transform: translateY(-2px); }
-.foot-social svg { width: 24px; height: 24px; }
+.foot-social a { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: #fff; transition: transform .15s ease, background-color .15s ease; }
+.foot-social a.fb { background: #1877F2; }
+.foot-social a.ig { background: radial-gradient(circle at 30% 107%, #FDF497 0%, #FDF497 5%, #FD5949 45%, #D6249F 60%, #285AEB 90%); }
+.foot-social a:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.foot-social svg { width: 26px; height: 26px; }
 
 /* ---------- Motion preference ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -2422,8 +2424,8 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
       <div class="foot-social">
         <p class="lock-eyebrow">Følg oss</p>
         <ul role="list">
-          <li><a href="https://www.facebook.com/loppely" target="_blank" rel="noopener" aria-label="Loppely på Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg></a></li>
-          <li><a href="https://www.instagram.com/loppe.ly/" target="_blank" rel="noopener" aria-label="Loppely på Instagram (@loppe.ly)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.facebook.com/loppely" target="_blank" rel="noopener" aria-label="Loppely på Facebook" class="fb"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/loppe.ly/" target="_blank" rel="noopener" aria-label="Loppely på Instagram (@loppe.ly)" class="ig"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a></li>
         </ul>
       </div>
       <ul class="foot-meta" role="list">
