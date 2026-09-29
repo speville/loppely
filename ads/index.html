@@ -29,6 +29,13 @@ h2{font-family:Archivo,sans-serif;font-stretch:110%;font-weight:900;font-size:24
 .btn{font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:10px 16px;border:2px solid var(--maroon);background:var(--maroon);color:var(--cream);cursor:pointer;text-decoration:none}
 .btn.ghost{background:transparent;color:var(--maroon)}
 .btn.done{background:#2F6B45;border-color:#2F6B45}
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 14px}
+.jump a{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;color:var(--maroon);background:var(--paper);border:1.5px solid rgba(86,26,18,.15);border-radius:999px;padding:8px 16px 8px 10px}
+.fb-dot,.ig-dot{display:inline-block;width:.9em;height:.9em;border-radius:50%;flex:none}
+.fb-dot{background:#1877F2}.ig-dot{background:radial-gradient(circle at 30% 107%,#FDF497 0%,#FDF497 5%,#FD5949 45%,#D6249F 60%,#285AEB 90%)}
+.sec-h{display:flex;align-items:center;gap:.35em;font-size:clamp(28px,4.5vw,40px);margin:8px 0 16px;scroll-margin-top:16px}
+.sec{margin-top:56px;padding-top:36px;border-top:2px dashed rgba(86,26,18,.2)}
+.sec .tips{margin-top:12px}
 footer{margin-top:40px;font-size:15px;color:var(--muted)}
 footer a{color:inherit}
 </style>
@@ -36,15 +43,17 @@ footer a{color:inherit}
 <body>
 <main class="wrap">
   <h1>Innlegg til Facebook og Instagram</h1>
-  <p class="lede">21 ferdige innlegg i format 4:5. Last ned bildet, kopier teksten og lim inn. Rekkefølgen er et forslag, ett eller to innlegg i uka fram mot åpningen.</p>
+  <nav class="jump"><a href="#facebook"><span class="fb-dot" aria-hidden="true"></span>Facebook</a><a href="#instagram"><span class="ig-dot" aria-hidden="true"></span>Instagram</a></nav>
+  <p class="lede">21 ferdige innlegg i format 4:5, for Facebook og Instagram. Last ned bildet, kopier teksten og lim inn. Rekkefølgen er et forslag, ett eller to innlegg i uka fram mot åpningen.</p>
   <div class="tips"><b>Tips</b>
     <ul>
       <li>Fest innlegg 1 øverst på Facebook-siden, så forstår nye besøkende konseptet med en gang.</li>
       <li>Legg lenken Loppely.no i teksten. Bildet i seg selv er ikke klikkbart.</li>
-      <li>Samme bilde fungerer på Instagram. Der bytter du «Loppely.no» med «lenke i bio».</li>
+      <li>Til Instagram: bruk egne versjoner lenger ned, <a href="#instagram">Instagram</a>.</li>
       <li>Forsidebildet til Facebook ligger her: <a href="../forsidebilde.png">forsidebilde.png</a></li>
     </ul>
   </div>
+  <h1 class="sec-h" id="facebook"><span class="fb-dot" aria-hidden="true"></span>Facebook</h1>
   <div class="grid">
   <article class="card" id="01-konsept">
     <a class="img" href="01-konsept.jpg?v=09291306" target="_blank"><img src="01-konsept.jpg?v=09291306" width="1620" height="2025" loading="lazy" alt="Konseptet på ett bilde"></a>
@@ -375,6 +384,389 @@ Loppely.no</pre>
     </div>
   </article>
   </div>
+  <section class="sec" id="instagram">
+  <h1 class="sec-h"><span class="ig-dot" aria-hidden="true"></span>Instagram</h1>
+  <p class="lede">De samme innleggene tilpasset Instagram for @loppe.ly. Knappen i bildet sier «Lenke i bio», og teksten har emneknagger. Hvert innlegg finnes også som story.</p>
+  <div class="tips"><b>Tips</b>
+    <ul>
+      <li><b>Innlegg 4:5</b> (1080 × 1350) er største format i feeden på Instagram.</li>
+      <li><b>Story 9:16</b> (1080 × 1920): legg et lenke-klistremerke til loppely.no i det tomme feltet nederst.</li>
+      <li>Sett loppely.no som lenke i bio på profilen, så peker «Lenke i bio» riktig.</li>
+    </ul>
+  </div>
+  <div class="grid">
+  <article class="card" id="ig-01-konsept">
+    <a class="img" href="ig/01-konsept.jpg?v=09291413" target="_blank"><img src="ig/01-konsept.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Konseptet på ett bilde"></a>
+    <div class="body">
+      <h2>Konseptet på ett bilde</h2>
+      <p class="when">Første innlegg. Fest det øverst på siden.</p>
+      <pre class="cap">Du rydder. Vi selger. 🏷️
+
+Loppely er et nytt loppesupermarked i Kirkeveien 3 i Lyngdal. Du leier en stand, setter prisen på tingene dine, og vi selger dem for deg. Du trenger ikke stå der selv.
+
+Vi åpner lørdag 28. november.
+
+Les mer og meld interesse via lenken i bio
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/01-konsept.jpg?v=09291413" download="01-konsept-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/01-konsept-story.jpg?v=09291413" download="01-konsept-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-02-slik-funker-det">
+    <a class="img" href="ig/02-slik-funker-det.jpg?v=09291413" target="_blank"><img src="ig/02-slik-funker-det.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Slik funker det"></a>
+    <div class="body">
+      <h2>Slik funker det</h2>
+      <p class="when">Uke 1. Forklarer konseptet steg for steg.</p>
+      <pre class="cap">Slik funker Loppely 👇
+
+1. Du leier en stand, fra 200 kr per uke.
+2. Du setter prisen og fyller standen.
+3. Vi selger for deg og holder standen ryddig.
+4. Pengene kommer på kontoen din hver måned.
+
+Du trenger ikke stå der selv. Følg salget på «Min side».
+
+Åpner lørdag 28. november i Kirkeveien 3, Lyngdal.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/02-slik-funker-det.jpg?v=09291413" download="02-slik-funker-det-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/02-slik-funker-det-story.jpg?v=09291413" download="02-slik-funker-det-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-03-her-er-vi">
+    <a class="img" href="ig/03-her-er-vi.jpg?v=09291413" target="_blank"><img src="ig/03-her-er-vi.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Her finner du oss"></a>
+    <div class="body">
+      <h2>Her finner du oss</h2>
+      <p class="when">Uke 2, og igjen uka før åpning.</p>
+      <pre class="cap">Her finner du oss 📍
+
+Loppely ligger i Kirkeveien 3, midt i Lyngdal sentrum. Gå rett ned trappen, så er du inne.
+
+Åpent onsdag til lørdag kl. 10 til 15.
+Vi åpner lørdag 28. november.
+
+Veibeskrivelse via lenken i bio
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/03-her-er-vi.jpg?v=09291413" download="03-her-er-vi-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/03-her-er-vi-story.jpg?v=09291413" download="03-her-er-vi-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-04-priser">
+    <a class="img" href="ig/04-priser.jpg?v=09291413" target="_blank"><img src="ig/04-priser.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Priser"></a>
+    <div class="body">
+      <h2>Priser</h2>
+      <p class="when">Uke 2. Svarer på «hva koster det?».</p>
+      <pre class="cap">Hva koster det å leie en stand? 🏷️
+
+Standard: fra 200 kr per uke og 19% provisjon.
+Premium: fra 249 kr per uke og 19% provisjon. Vi tar bilder av utvalgte varer, markedsfører dem, og du får en god plass i butikken.
+VIP: fra 349 kr per uke og 29% provisjon. Du leverer varene, vi gjør resten.
+
+Alle priser inkluderer mva. Laveste pris gjelder ved leie i 4 uker.
+
+Se alt via lenken i bio
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/04-priser.jpg?v=09291413" download="04-priser-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/04-priser-story.jpg?v=09291413" download="04-priser-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-05-utbetalt">
+    <a class="img" href="ig/05-utbetalt.jpg?v=09291413" target="_blank"><img src="ig/05-utbetalt.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Dette får du utbetalt"></a>
+    <div class="body">
+      <h2>Dette får du utbetalt</h2>
+      <p class="when">Uke 3. Gjør regnestykket konkret.</p>
+      <pre class="cap">Hvor mye får du egentlig? 💰
+
+Selger du noe for 500 kr hos Loppely, får du 405 kr. Provisjonen er 19%, og den dekker salget, kassen og at vi holder standen ryddig for deg.
+
+Pengene betales ut til kontoen din hver måned.
+
+Regn på flere eksempler via lenken i bio
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/05-utbetalt.jpg?v=09291413" download="05-utbetalt-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/05-utbetalt-story.jpg?v=09291413" download="05-utbetalt-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-06-forste-uke-gratis">
+    <a class="img" href="ig/06-forste-uke-gratis.jpg?v=09291413" target="_blank"><img src="ig/06-forste-uke-gratis.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Første uke gratis"></a>
+    <div class="body">
+      <h2>Første uke gratis</h2>
+      <p class="when">Når dere vil ha flere på interesselista.</p>
+      <pre class="cap">Første uke gratis 🎁
+
+Meld interesse via lenken i bio, så får du første uke gratis når du leier stand i minst 4 uker.
+
+Det er gratis og uforpliktende å stå på lista. Vi tar kontakt før åpning.
+
+Loppely åpner lørdag 28. november i Kirkeveien 3, Lyngdal.
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/06-forste-uke-gratis.jpg?v=09291413" download="06-forste-uke-gratis-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/06-forste-uke-gratis-story.jpg?v=09291413" download="06-forste-uke-gratis-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-07-hva-kan-du-selge">
+    <a class="img" href="ig/07-hva-kan-du-selge.jpg?v=09291413" target="_blank"><img src="ig/07-hva-kan-du-selge.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Hva kan du selge?"></a>
+    <div class="body">
+      <h2>Hva kan du selge?</h2>
+      <p class="when">Uke 3. Får folk til å tenke på boden sin.</p>
+      <pre class="cap">Hva ligger i boden din? 📦
+
+Hos Loppely kan du selge klær, barneting, leker, bøker, kjøkkenutstyr, sportsutstyr, interiør og mye mer. Nesten alt som er helt og rent.
+
+Større ting som sykler, barnevogner og mindre møbler selger du for 39 kr per uke.
+
+Se hva du kan selge via lenken i bio
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/07-hva-kan-du-selge.jpg?v=09291413" download="07-hva-kan-du-selge-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/07-hva-kan-du-selge-story.jpg?v=09291413" download="07-hva-kan-du-selge-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-08-vip">
+    <a class="img" href="ig/08-vip.jpg?v=09291413" target="_blank"><img src="ig/08-vip.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="VIP: Vi gjør alt"></a>
+    <div class="body">
+      <h2>VIP: Vi gjør alt</h2>
+      <p class="when">For dem som ikke har tid.</p>
+      <pre class="cap">Ingen tid til å prise og rigge? Velg VIP ✨
+
+Du leverer varene, så tar vi bilder, priser og registrerer dem, og gjør standen klar. Du får plass til én større vare, og inntil 21 varer i salg samtidig.
+
+Fra 349 kr per uke og 29% provisjon.
+
+Les mer via lenken i bio
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/08-vip.jpg?v=09291413" download="08-vip-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/08-vip-story.jpg?v=09291413" download="08-vip-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-09-merk-datoen">
+    <a class="img" href="ig/09-merk-datoen.jpg?v=09291413" target="_blank"><img src="ig/09-merk-datoen.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Merk datoen"></a>
+    <div class="body">
+      <h2>Merk datoen</h2>
+      <p class="when">2 til 3 uker før åpning, og dagen før.</p>
+      <pre class="cap">Merk av i kalenderen 📅
+
+Lørdag 28. november kl. 10 åpner Loppely i Kirkeveien 3, Lyngdal. Et helt nytt loppesupermarked med stands fulle av brukte skatter.
+
+Vil du selge? Meld interesse via lenken i bio
+Vil du handle? Vi sees 28. november!
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/09-merk-datoen.jpg?v=09291413" download="09-merk-datoen-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/09-merk-datoen-story.jpg?v=09291413" download="09-merk-datoen-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-10-rydd-til-jul">
+    <a class="img" href="ig/10-rydd-til-jul.jpg?v=09291413" target="_blank"><img src="ig/10-rydd-til-jul.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Rydd plass til jul"></a>
+    <div class="body">
+      <h2>Rydd plass til jul</h2>
+      <p class="when">Fra midten av november.</p>
+      <pre class="cap">Rydd plass til jul 🎄
+
+Leker barna har vokst fra, klær som ikke passer, ting som bare står i boden. Det du ikke bruker lenger, kan bli noen andres julegave.
+
+Lei en stand hos Loppely, så selger vi for deg gjennom hele julehandelen. Vi åpner lørdag 28. november.
+
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/10-rydd-til-jul.jpg?v=09291413" download="10-rydd-til-jul-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/10-rydd-til-jul-story.jpg?v=09291413" download="10-rydd-til-jul-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-11-hvem-er-vi">
+    <a class="img" href="ig/11-hvem-er-vi.jpg?v=09291413" target="_blank"><img src="ig/11-hvem-er-vi.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Hvem er vi"></a>
+    <div class="body">
+      <h2>Hvem er vi</h2>
+      <p class="when">Tidlig. Folk handler med folk.</p>
+      <pre class="cap">Hei! Vi er Julianne og Charlotte 👋
+
+Vi åpner Loppely i Lyngdal fordi vi mener gode ting fortjener et nytt hjem, og fordi det skal være enkelt å selge dem. Du rydder hjemme, vi selger for deg.
+
+Lørdag 28. november åpner vi dørene i Kirkeveien 3. Vi gleder oss til å se dere!
+
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/11-hvem-er-vi.jpg?v=09291413" download="11-hvem-er-vi-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/11-hvem-er-vi-story.jpg?v=09291413" download="11-hvem-er-vi-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-12-for-og-etter">
+    <a class="img" href="ig/12-for-og-etter.jpg?v=09291413" target="_blank"><img src="ig/12-for-og-etter.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Før og etter"></a>
+    <div class="body">
+      <h2>Før og etter</h2>
+      <p class="when">Når som helst. Viser gevinsten på ett blikk.</p>
+      <pre class="cap">Før: full bod. Etter: penger på konto. 📦➡️💰
+
+Lei en stand hos Loppely, sett prisen, og la oss selge tingene for deg. Du får plass hjemme og pengene utbetalt hver måned.
+
+Åpner lørdag 28. november i Kirkeveien 3, Lyngdal.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/12-for-og-etter.jpg?v=09291413" download="12-for-og-etter-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/12-for-og-etter-story.jpg?v=09291413" download="12-for-og-etter-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-13-avstemning">
+    <a class="img" href="ig/13-avstemning.jpg?v=09291413" target="_blank"><img src="ig/13-avstemning.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Avstemning: Hva ligger i boden?"></a>
+    <div class="body">
+      <h2>Avstemning: Hva ligger i boden?</h2>
+      <p class="when">For engasjement. Svar på kommentarene.</p>
+      <pre class="cap">Vi er nysgjerrige! Hva ligger i boden din? 👇
+
+A. Barneklær og leker
+B. Bøker og spill
+C. Kjøkkenting og pynt
+D. Alt mulig rart
+
+Svar med bokstaven i kommentarfeltet. Uansett svar: alt dette kan du selge hos Loppely fra 28. november.
+
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/13-avstemning.jpg?v=09291413" download="13-avstemning-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/13-avstemning-story.jpg?v=09291413" download="13-avstemning-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-14-19-prosent">
+    <a class="img" href="ig/14-19-prosent.jpg?v=09291413" target="_blank"><img src="ig/14-19-prosent.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="19%"></a>
+    <div class="body">
+      <h2>19%</h2>
+      <p class="when">Uke 3. Enkelt og tydelig.</p>
+      <pre class="cap">19% provisjon. Det er alt vi tar av det du selger. 🧾
+
+For det står vi i kassen, rydder standen hver dag, og du følger salget på «Min side». Pengene kommer på kontoen din hver måned.
+
+Stand fra 200 kr per uke. Åpner 28. november.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/14-19-prosent.jpg?v=09291413" download="14-19-prosent-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/14-19-prosent-story.jpg?v=09291413" download="14-19-prosent-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-15-prislapp">
+    <a class="img" href="ig/15-prislapp.jpg?v=09291413" target="_blank"><img src="ig/15-prislapp.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Prislappen"></a>
+    <div class="body">
+      <h2>Prislappen</h2>
+      <p class="when">Når som helst. Blikkfang i feeden.</p>
+      <pre class="cap">Prisen setter du selv. 🏷️
+
+Hos Loppely bestemmer du hva tingene dine skal koste. Du registrerer varene, skriver ut prislapper og fyller standen. Vi selger, og du følger salget på «Min side».
+
+Åpner lørdag 28. november.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/15-prislapp.jpg?v=09291413" download="15-prislapp-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/15-prislapp-story.jpg?v=09291413" download="15-prislapp-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-16-sjekkliste">
+    <a class="img" href="ig/16-sjekkliste.jpg?v=09291413" target="_blank"><img src="ig/16-sjekkliste.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Sjekkliste før du leverer"></a>
+    <div class="body">
+      <h2>Sjekkliste før du leverer</h2>
+      <p class="when">Uka før åpning.</p>
+      <pre class="cap">Sjekkliste før du leverer ✅
+
+☐ Vasket og rent
+☐ Helt og i orden
+☐ Registrert på «Min side»
+☐ Prislapper på
+☐ Klær på kleshenger
+
+Så er standen klar, og du får plass hjemme igjen. Vil du slippe alt dette? Velg VIP, så gjør vi det for deg.
+
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/16-sjekkliste.jpg?v=09291413" download="16-sjekkliste-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/16-sjekkliste-story.jpg?v=09291413" download="16-sjekkliste-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-17-bra-for-alle">
+    <a class="img" href="ig/17-bra-for-alle.jpg?v=09291413" target="_blank"><img src="ig/17-bra-for-alle.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Bra for lommeboka og miljøet"></a>
+    <div class="body">
+      <h2>Bra for lommeboka og miljøet</h2>
+      <p class="when">Når som helst. Myk og positiv.</p>
+      <pre class="cap">Bra for lommeboka. Bra for miljøet. ♻️
+
+Når du selger det du ikke bruker, får du penger og plass hjemme. Og tingene dine får et nytt hjem i stedet for å bli kastet.
+
+Loppely åpner i Lyngdal lørdag 28. november.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/17-bra-for-alle.jpg?v=09291413" download="17-bra-for-alle-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/17-bra-for-alle-story.jpg?v=09291413" download="17-bra-for-alle-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-18-min-side">
+    <a class="img" href="ig/18-min-side.jpg?v=09291413" target="_blank"><img src="ig/18-min-side.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Følg salget på mobilen"></a>
+    <div class="body">
+      <h2>Følg salget på mobilen</h2>
+      <p class="when">Uke 3. Viser «Min side».</p>
+      <pre class="cap">Følg salget fra sofaen 📱
+
+På «Min side» ser du hva som er solgt, hva som står igjen, og hvor mye du har tjent. Du trenger ikke stå i butikken for å vite hvordan det går.
+
+Loppely åpner lørdag 28. november.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/18-min-side.jpg?v=09291413" download="18-min-side-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/18-min-side-story.jpg?v=09291413" download="18-min-side-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-19-sporsmal-og-svar">
+    <a class="img" href="ig/19-sporsmal-og-svar.jpg?v=09291413" target="_blank"><img src="ig/19-sporsmal-og-svar.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Spørsmål og svar"></a>
+    <div class="body">
+      <h2>Spørsmål og svar</h2>
+      <p class="when">Uke 2 til 4. Fjerner tvil.</p>
+      <pre class="cap">Tre spørsmål vi får hele tiden 💬
+
+Må jeg stå der selv? Nei, vi selger for deg.
+Hvem setter prisen? Du. Og du kan endre den underveis.
+Når får jeg pengene? Utbetaling hver måned.
+
+Har du flere spørsmål? Skriv i kommentarfeltet, eller les mer via lenken i bio
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/19-sporsmal-og-svar.jpg?v=09291413" download="19-sporsmal-og-svar-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/19-sporsmal-og-svar-story.jpg?v=09291413" download="19-sporsmal-og-svar-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-20-kvittering">
+    <a class="img" href="ig/20-kvittering.jpg?v=09291413" target="_blank"><img src="ig/20-kvittering.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Kvitteringen"></a>
+    <div class="body">
+      <h2>Kvitteringen</h2>
+      <p class="when">Uke 3 eller 4. Konkret og morsom.</p>
+      <pre class="cap">Slik kan en uke se ut 🧾
+
+Barnesykkel, Marius-genser, Figgjo-kopper, kjelke og Donald-blader. Solgt for 650 kr til sammen. Du får 526,50 kr, og vi har tatt oss av alt salget.
+
+Tallene er et eksempel. Du setter prisene selv.
+
+Loppely åpner lørdag 28. november.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/20-kvittering.jpg?v=09291413" download="20-kvittering-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/20-kvittering-story.jpg?v=09291413" download="20-kvittering-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  <article class="card" id="ig-21-tagg-en-venn">
+    <a class="img" href="ig/21-tagg-en-venn.jpg?v=09291413" target="_blank"><img src="ig/21-tagg-en-venn.jpg?v=09291413" width="1620" height="2025" loading="lazy" alt="Tagg en venn som…"></a>
+    <div class="body">
+      <h2>Tagg en venn som…</h2>
+      <p class="when">For rekkevidde. Folk kjenner seg igjen og tagger.</p>
+      <pre class="cap">Tagg en venn som… 😅
+
+📦 Har tre esker babyklær på loftet
+🚗 Ikke har fått bilen inn i garasjen siden 2019
+📱 Sier «den skal jeg legge ut på Finn» om alt
+🚚 Skal flytte og har altfor mye ting
+
+Hvem tenker du på? Tagg vennen din i kommentarene! 😄
+
+Hos Loppely leier de en stand, og vi selger tingene for dem. Åpner lørdag 28. november i Kirkeveien 3, Lyngdal.
+Lenke i bio 👆
+
+#loppely #lyngdal #loppemarked #gjenbruk #bruktfunn #sørlandet</pre>
+      <div class="btns"><button class="btn copy" type="button">Kopier tekst</button><a class="btn ghost" href="ig/21-tagg-en-venn.jpg?v=09291413" download="21-tagg-en-venn-insta.jpg">Innlegg 4:5</a><a class="btn ghost" href="ig/21-tagg-en-venn-story.jpg?v=09291413" download="21-tagg-en-venn-story.jpg">Story 9:16</a></div>
+    </div>
+  </article>
+  </div>
+  </section>
   <footer>Intern side for Loppely. Den er ikke lenket fra nettsiden og vises ikke i Google.</footer>
 </main>
 <script>
