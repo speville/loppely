@@ -1628,6 +1628,12 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
 .foot-meta li + li::before { content: "·"; margin-inline: 12px; }
 .foot-meta a { color: var(--foot-link); }
 
+.foot-social { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.foot-social ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; }
+.foot-social a { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--foot-text); color: var(--foot-bg); transition: transform .15s ease, background-color .15s ease; }
+.foot-social a:hover { background: var(--orange); color: var(--cream); transform: translateY(-2px); }
+.foot-social svg { width: 24px; height: 24px; }
+
 /* ---------- Motion preference ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -2413,6 +2419,13 @@ textarea.input { border-radius: 22px; resize: vertical; min-height: 6.5em; line-
           <p class="lock-eyebrow">Lei stand · Sett pris · Vi selger</p>
         </div>
       </div>
+      <div class="foot-social">
+        <p class="lock-eyebrow">Følg oss</p>
+        <ul role="list">
+          <li><a href="https://www.facebook.com/loppely" target="_blank" rel="noopener" aria-label="Loppely på Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/loppe.ly/" target="_blank" rel="noopener" aria-label="Loppely på Instagram (@loppe.ly)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a></li>
+        </ul>
+      </div>
       <ul class="foot-meta" role="list">
         <li><a href="https://www.google.com/maps/@58.1376298,7.0699848,3a,75y,31.68h,78.56t/data=!3m7!1e1!3m5!1s0FKhDvEe1NblPDpRfmuLrQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.43841887587098%26panoid%3D0FKhDvEe1NblPDpRfmuLrQ%26yaw%3D31.675660257740443!7i16384!8i8192?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Kirkeveien 3, 4580 Lyngdal</a></li>
         <li><a data-epost-link href="mailto:hei@loppely.no">hei@loppely.no</a></li>
@@ -2510,7 +2523,7 @@ const SKJEMA_URL = 'https://zap.pm/webhook/loppely-signup';
       if (typeof p === 'string') { target.appendChild(document.createTextNode(p)); return; }
       var el = document.createElement(p.href ? 'a' : 'strong');
       el.textContent = p.text;
-      if (p.href) { el.href = p.href; }
+      if (p.href) { el.href = p.href; if (/^https?:/.test(p.href)) { el.target = '_blank'; el.rel = 'noopener'; } }
       target.appendChild(el);
     });
   }
@@ -2588,7 +2601,8 @@ const SKJEMA_URL = 'https://zap.pm/webhook/loppely-signup';
         form.reset();
         setStatus('ok', [
           { text: 'Takk, ' + navn.split(/\s+/)[0] + '! ' },
-          'Du står på interesselista. Vi sier fra når åpningen nærmer seg.'
+          'Du står på interesselista. Vi sier fra når åpningen nærmer seg. Følg oss gjerne på ',
+          { text: 'Facebook', href: 'https://www.facebook.com/loppely' }, ' og ', { text: 'Instagram', href: 'https://www.instagram.com/loppe.ly/' }, '.'
         ]);
       })
       .catch(function () {

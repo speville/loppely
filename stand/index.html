@@ -276,6 +276,8 @@
   .ico { --tick-bg: var(--orange); --tick-fg: var(--maroon-deep); }
   footer { margin-top: 30px; font-size: 0.9rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
   footer a { color: inherit; font-weight: 700; }
+  footer .soc { display: inline-flex; align-items: center; gap: 6px; }
+  footer .soc svg { width: 1.2em; height: 1.2em; }
   @keyframes swing {
     0% { transform: rotate(-10deg); } 35% { transform: rotate(3deg); } 60% { transform: rotate(-4.5deg); } 82% { transform: rotate(-1deg); } 100% { transform: rotate(-2deg); }
   }
@@ -493,6 +495,8 @@
   <footer>
     <a href="mailto:hei@loppely.no">hei@loppely.no</a>
     <a href="../vilkar/">Vilkår</a>
+    <a class="soc" href="https://www.facebook.com/loppely" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>Facebook</a>
+    <a class="soc" href="https://www.instagram.com/loppe.ly/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg>Instagram</a>
   </footer>
 </main>
 <script>
@@ -526,7 +530,7 @@
     }
     parts.forEach(function (p) {
       if (typeof p === 'string') { target.appendChild(document.createTextNode(p)); return; }
-      var el = document.createElement('strong'); el.textContent = p.text; target.appendChild(el);
+      var el = document.createElement(p.href ? 'a' : 'strong'); el.textContent = p.text; if (p.href) { el.href = p.href; el.target = '_blank'; el.rel = 'noopener'; } target.appendChild(el);
     });
   }
   function setSending(on) {
@@ -550,7 +554,7 @@
       .then(function (res) { return res.json().catch(function () { return {}; }).then(function (body) { if (!res.ok || String(body.success) !== 'true') { throw new Error('send'); } }); })
       .then(function () {
         form.reset();
-        setStatus('ok', [{ text: 'Takk, ' + navn.split(/\s+/)[0] + '! ' }, 'Du står på interesselista. Vi sier fra når åpningen nærmer seg.']);
+        setStatus('ok', [{ text: 'Takk, ' + navn.split(/\s+/)[0] + '! ' }, 'Du står på interesselista. Vi sier fra når åpningen nærmer seg. Følg oss gjerne på ', { text: 'Facebook', href: 'https://www.facebook.com/loppely' }, ' og ', { text: 'Instagram', href: 'https://www.instagram.com/loppe.ly/' }, '.']);
       })
       .catch(function () { setStatus('feil', ['Påmeldingen ble ikke sendt. Prøv igjen om litt, eller skriv til hei@loppely.no.']); })
       .then(function () { if (timer) { clearTimeout(timer); } setSending(false); });
