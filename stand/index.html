@@ -288,6 +288,11 @@
     .strip-note, .fine, .hint, footer { font-size: 1rem; }
     .kicker { font-size: 0.8rem; }
   }
+
+  /* Payout card: centred heading, more weight, and a narrower card on wide screens */
+  .payout { max-width: 860px; margin-left: auto; margin-right: auto; }
+  .payout .payout-title { text-align: center; font-size: clamp(1.7rem, 1.2rem + 1.8vw, 2.4rem); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 6px !important; }
+  .payout-lede { text-align: center; margin: 0 auto 22px !important; max-width: 30em; opacity: 0.85; }
 </style>
 </head>
 <body>
@@ -410,7 +415,7 @@
   </div>
   <div class="plan-dots" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="payout" aria-labelledby="payout-title">
-    <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3>
+    <h3 id="payout-title" class="payout-title">Dette får du utbetalt</h3><p class="payout-lede">Når en vare blir solgt, får du dette. Utbetaling hver måned.</p>
     <table class="payout-table">
       <thead>
         <tr class="payout-icons"><td aria-hidden="true" class="payout-stub-ico"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-pricetag"></use></svg></td><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td><td aria-hidden="true"><svg class="payout-ico" viewBox="0 0 64 64" focusable="false"><use href="#il-piggy"></use></svg></td></tr>
