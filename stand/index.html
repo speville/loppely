@@ -293,6 +293,14 @@
   .payout { max-width: 860px; margin-left: auto; margin-right: auto; }
   .payout .payout-title { text-align: center; font-size: clamp(1.7rem, 1.2rem + 1.8vw, 2.4rem); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 6px !important; }
   .payout-lede { text-align: center; margin: 0 auto 22px !important; max-width: 30em; opacity: 0.85; }
+
+  /* Sale price in the display face too, with an arrow into what you get */
+  .payout-table tbody th { font-family: var(--font-display); font-weight: 800; font-stretch: 105%; font-size: clamp(1.02rem, 0.85rem + 0.9vw, 1.55rem); line-height: 1.1; padding-right: 6px; vertical-align: middle; }
+  .payout-table tbody th .pay-in { display: inline-block; }
+  .payout-table tbody th .pay-arrow { display: inline-block; vertical-align: -0.12em; margin-left: 0.3em; width: 0.9em; height: 0.9em; fill: none; stroke: #E0693A; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+  .payout-table tbody td { vertical-align: middle; }
+
+  @media (max-width: 380px) { .payout-table tbody td { font-size: 1.2rem; } .payout-table tbody th { font-size: 1.05rem; } .payout-table tbody th .pay-arrow { margin-left: 0.15em; } .payout { padding-left: 12px; padding-right: 12px; } .payout-table th, .payout-table td { padding-right: 4px; } }
 </style>
 </head>
 <body>
@@ -423,9 +431,9 @@
         <tr class="payout-rates"><th scope="row" class="payout-stub-rate">Provisjon</th><td><span class="payout-rate">19%</span></td><td><span class="payout-rate">29%</span></td></tr><tr class="payout-sub"><th scope="col">Salgspris</th><th scope="col">Du får</th><th scope="col">Du får</th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row">100&nbsp;kr</th><td>81&nbsp;kr</td><td>71&nbsp;kr</td></tr>
-        <tr><th scope="row">500&nbsp;kr</th><td>405&nbsp;kr</td><td>355&nbsp;kr</td></tr>
-        <tr><th scope="row">1000&nbsp;kr</th><td>810&nbsp;kr</td><td>710&nbsp;kr</td></tr>
+        <tr><th scope="row"><span class="pay-in">100&nbsp;kr</span><svg class="pay-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></th><td>81&nbsp;kr</td><td>71&nbsp;kr</td></tr>
+        <tr><th scope="row"><span class="pay-in">500&nbsp;kr</span><svg class="pay-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></th><td>405&nbsp;kr</td><td>355&nbsp;kr</td></tr>
+        <tr><th scope="row"><span class="pay-in">1000&nbsp;kr</span><svg class="pay-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></th><td>810&nbsp;kr</td><td>710&nbsp;kr</td></tr>
       </tbody>
     </table>
   </div>
