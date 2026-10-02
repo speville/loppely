@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<title>Før og etter v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Schibsted+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { width: 1620px; height: 2025px; overflow: hidden; position: relative; background: #DACBB8; font-family: 'Schibsted Grotesk', sans-serif; color: #270A02; }
+  .right { position: absolute; left: 810px; top: 0; width: 810px; height: 2025px; background: #DF6939; }
+  .bar { position: absolute; left: 798px; top: 230px; width: 24px; height: 1795px; background: #270A02; }
+  img { position: absolute; display: block; }
+  .pill { position: absolute; left: 96px; top: 75px; height: 102px; display: flex; border-radius: 51px; background: #270A02; border: 5px solid #270A02; box-sizing: border-box; overflow: hidden; font-family: 'Archivo', sans-serif; font-weight: 900; font-stretch: 112%; font-size: 50px; letter-spacing: 0.035em; line-height: 1; }
+  .pill span { display: flex; align-items: center; padding: 0 50px; }
+  .pill-l { color: #FDEBD5; padding-right: 44px; }
+  .pill-r { color: #270A02; background: #FDEBD5; border-radius: 46px; padding: 0 40px; }
+  .arrow { position: absolute; left: 690px; top: 915px; width: 240px; height: 240px; border-radius: 50%; background: #270A02; border: 14px solid #FDEBD5; box-sizing: border-box; box-shadow: 0 10px 0 rgba(39,10,2,.25); }
+  .arrow svg { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .txt { position: absolute; font-weight: 700; font-size: 60px; line-height: 1.18; letter-spacing: -0.01em; width: 620px; }
+  .txt.l { left: 80px; top: 1440px; color: #270A02; }
+  .txt.r { left: 880px; top: 1440px; color: #FFF3E6; }
+  .txt small { display: block; font-weight: 500; font-size: 40px; line-height: 1.25; margin-top: 18px; opacity: .92; }
+</style>
+</head>
+<body>
+  <div class="right"></div>
+  <div class="bar"></div>
+
+  <div class="pill"><span class="pill-l">ÅPNER I LYNGDAL</span><span class="pill-r">28. NOV</span></div>
+  <img src="logo.png" style="left:1170px; top:60px">
+  <img src="left_head.png" style="left:60px; top:265px">
+  <img src="right_head.png" style="left:860px; top:265px">
+  <img src="boxes.png" style="left:60px; top:700px">
+  <img src="piggy.png" style="left:960px; top:940px">
+
+  <div class="arrow">
+    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="#FDEBD5" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 60 H98"/><path d="M66 28 L98 60 L66 92"/>
+    </svg>
+  </div>
+
+  <div class="txt l">Ting du ikke bruker,<br>som bare tar plass.<small>Esker på loftet, klær barna har vokst fra, leker ingen leker med.</small></div>
+  <div class="txt r">Vi selger tingene.<br>Du får plassen<br>og pengene.<small>Du setter prisen selv. Pengene kommer rett på konto.</small></div>
+
+  <img src="footer_addr.png" style="left:80px; top:1830px">
+  <img src="footer_pill.png" style="left:1110px; top:1840px">
+</body>
+</html>
